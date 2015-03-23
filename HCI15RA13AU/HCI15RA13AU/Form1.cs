@@ -15,5 +15,22 @@ namespace HCI15RA13AU
         {
             InitializeComponent();
         }
+
+        private void btnOil_Click(object sender, EventArgs e)
+        {
+            lblSelectedResource.Text = "Oil";
+        }
+
+        private void btnGas_Click(object sender, EventArgs e)
+        {
+            lblSelectedResource.Text = "Gas";
+        }
+
+        private void picEarth_Click(object sender, EventArgs e)
+        {
+            PictureBox pcb = new PictureBox();
+            pcb.ImageLocation = @"E:\fax\hci2015project\images\pipe-line-icon.png";
+            pcb.Location = new Point(0, 0);
+        }
     }
 }
