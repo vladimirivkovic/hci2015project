@@ -26,11 +26,11 @@ namespace HCI15RA13AU
             lblSelectedResource.Text = "Gas";
         }
 
-        private void picEarth_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
-            PictureBox pcb = new PictureBox();
-            pcb.ImageLocation = @"E:\fax\hci2015project\images\pipe-line-icon.png";
-            pcb.Location = new Point(0, 0);
+            AddForm addForm = new AddForm();
+            addForm.Show();
         }
+
     }
 }
