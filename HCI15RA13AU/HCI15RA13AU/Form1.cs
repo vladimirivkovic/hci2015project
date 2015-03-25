@@ -16,16 +16,6 @@ namespace HCI15RA13AU
             InitializeComponent();
         }
 
-        private void btnOil_Click(object sender, EventArgs e)
-        {
-            lblSelectedResource.Text = "Oil";
-        }
-
-        private void btnGas_Click(object sender, EventArgs e)
-        {
-            lblSelectedResource.Text = "Gas";
-        }
-
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddForm addForm = new AddForm();

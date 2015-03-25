@@ -31,9 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.picEarth = new System.Windows.Forms.PictureBox();
-            this.btnGas = new System.Windows.Forms.Button();
-            this.btnOil = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.lblSelectedResource = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -58,35 +55,6 @@
             this.picEarth.TabIndex = 1;
             this.picEarth.TabStop = false;
             // 
-            // btnGas
-            // 
-            this.btnGas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnGas.BackgroundImage")));
-            this.btnGas.Location = new System.Drawing.Point(941, 158);
-            this.btnGas.Name = "btnGas";
-            this.btnGas.Size = new System.Drawing.Size(128, 128);
-            this.btnGas.TabIndex = 5;
-            this.btnGas.UseVisualStyleBackColor = true;
-            this.btnGas.Click += new System.EventHandler(this.btnGas_Click);
-            // 
-            // btnOil
-            // 
-            this.btnOil.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnOil.BackgroundImage")));
-            this.btnOil.Location = new System.Drawing.Point(941, 12);
-            this.btnOil.Name = "btnOil";
-            this.btnOil.Size = new System.Drawing.Size(128, 128);
-            this.btnOil.TabIndex = 6;
-            this.btnOil.UseVisualStyleBackColor = true;
-            this.btnOil.Click += new System.EventHandler(this.btnOil_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 533);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Selected:";
-            // 
             // lblSelectedResource
             // 
             this.lblSelectedResource.AutoSize = true;
@@ -97,7 +65,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(956, 428);
+            this.btnAdd.Location = new System.Drawing.Point(881, 12);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 9;
@@ -109,16 +77,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1127, 613);
+            this.ClientSize = new System.Drawing.Size(1008, 524);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblSelectedResource);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnOil);
-            this.Controls.Add(this.btnGas);
             this.Controls.Add(this.picEarth);
             this.Controls.Add(this.pictureBox1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Mapa svetskih resursa";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEarth)).EndInit();
             this.ResumeLayout(false);
@@ -130,9 +95,6 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox picEarth;
-        private System.Windows.Forms.Button btnGas;
-        private System.Windows.Forms.Button btnOil;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblSelectedResource;
         private System.Windows.Forms.Button btnAdd;
 

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblId = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblDesription = new System.Windows.Forms.Label();
@@ -47,10 +48,15 @@
             this.lblCost = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.txtCost = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.rbtRare = new System.Windows.Forms.RadioButton();
             this.rbtFrequent = new System.Windows.Forms.RadioButton();
             this.rbtUniversal = new System.Windows.Forms.RadioButton();
+            this.btnIcon = new System.Windows.Forms.Button();
+            this.epAdd = new System.Windows.Forms.ErrorProvider(this.components);
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.cmbUnit = new System.Windows.Forms.ComboBox();
+            this.lblIconName = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.epAdd)).BeginInit();
             this.SuspendLayout();
             // 
             // lblId
@@ -104,6 +110,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(121, 20);
             this.txtId.TabIndex = 5;
+            this.txtId.Validating += new System.ComponentModel.CancelEventHandler(this.txtId_Validating);
             // 
             // txtName
             // 
@@ -111,6 +118,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(121, 20);
             this.txtName.TabIndex = 6;
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // txtDescription
             // 
@@ -119,19 +127,21 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(251, 90);
             this.txtDescription.TabIndex = 7;
+            this.txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescription_Validating);
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(376, 541);
+            this.btnOk.Location = new System.Drawing.Point(348, 554);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(75, 23);
             this.btnOk.TabIndex = 10;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(496, 540);
+            this.btnCancel.Location = new System.Drawing.Point(466, 554);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 11;
@@ -198,9 +208,9 @@
             this.lblCost.AutoSize = true;
             this.lblCost.Location = new System.Drawing.Point(13, 455);
             this.lblCost.Name = "lblCost";
-            this.lblCost.Size = new System.Drawing.Size(32, 13);
+            this.lblCost.Size = new System.Drawing.Size(89, 13);
             this.lblCost.TabIndex = 19;
-            this.lblCost.Text = "Cena";
+            this.lblCost.Text = "Cena (u dolarima)";
             // 
             // lblDate
             // 
@@ -215,26 +225,21 @@
             // 
             this.txtCost.Location = new System.Drawing.Point(136, 452);
             this.txtCost.Name = "txtCost";
-            this.txtCost.Size = new System.Drawing.Size(121, 20);
+            this.txtCost.Size = new System.Drawing.Size(75, 20);
             this.txtCost.TabIndex = 21;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(136, 486);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(121, 20);
-            this.textBox3.TabIndex = 22;
+            this.txtCost.Validating += new System.ComponentModel.CancelEventHandler(this.txtCost_Validating);
             // 
             // rbtRare
             // 
             this.rbtRare.AutoSize = true;
-            this.rbtRare.Location = new System.Drawing.Point(126, 253);
+            this.rbtRare.Location = new System.Drawing.Point(136, 253);
             this.rbtRare.Name = "rbtRare";
             this.rbtRare.Size = new System.Drawing.Size(57, 17);
             this.rbtRare.TabIndex = 23;
             this.rbtRare.TabStop = true;
             this.rbtRare.Text = "Redak";
             this.rbtRare.UseVisualStyleBackColor = true;
+            this.rbtRare.Validating += new System.ComponentModel.CancelEventHandler(this.rbtRare_Validating);
             // 
             // rbtFrequent
             // 
@@ -246,27 +251,76 @@
             this.rbtFrequent.TabStop = true;
             this.rbtFrequent.Text = "Čest";
             this.rbtFrequent.UseVisualStyleBackColor = true;
+            this.rbtFrequent.Validating += new System.ComponentModel.CancelEventHandler(this.rbtFrequent_Validating);
             // 
             // rbtUniversal
             // 
             this.rbtUniversal.AutoSize = true;
-            this.rbtUniversal.Location = new System.Drawing.Point(354, 251);
+            this.rbtUniversal.Location = new System.Drawing.Point(342, 253);
             this.rbtUniversal.Name = "rbtUniversal";
             this.rbtUniversal.Size = new System.Drawing.Size(81, 17);
             this.rbtUniversal.TabIndex = 25;
             this.rbtUniversal.TabStop = true;
             this.rbtUniversal.Text = "Univerzalan";
             this.rbtUniversal.UseVisualStyleBackColor = true;
+            this.rbtUniversal.Validating += new System.ComponentModel.CancelEventHandler(this.rbtUniversal_Validating);
+            // 
+            // btnIcon
+            // 
+            this.btnIcon.Location = new System.Drawing.Point(136, 214);
+            this.btnIcon.Name = "btnIcon";
+            this.btnIcon.Size = new System.Drawing.Size(75, 23);
+            this.btnIcon.TabIndex = 26;
+            this.btnIcon.Text = "Učitaj";
+            this.btnIcon.UseVisualStyleBackColor = true;
+            this.btnIcon.Click += new System.EventHandler(this.btnIcon_Click);
+            // 
+            // epAdd
+            // 
+            this.epAdd.ContainerControl = this;
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(136, 489);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 27;
+            // 
+            // cmbUnit
+            // 
+            this.cmbUnit.FormattingEnabled = true;
+            this.cmbUnit.Items.AddRange(new object[] {
+            "merica",
+            "barel",
+            "tona",
+            "kilogram"});
+            this.cmbUnit.Location = new System.Drawing.Point(136, 414);
+            this.cmbUnit.Name = "cmbUnit";
+            this.cmbUnit.Size = new System.Drawing.Size(121, 21);
+            this.cmbUnit.TabIndex = 28;
+            this.cmbUnit.Validating += new System.ComponentModel.CancelEventHandler(this.cmbUnit_Validating);
+            // 
+            // lblIconName
+            // 
+            this.lblIconName.AutoSize = true;
+            this.lblIconName.Location = new System.Drawing.Point(220, 219);
+            this.lblIconName.Name = "lblIconName";
+            this.lblIconName.Size = new System.Drawing.Size(104, 13);
+            this.lblIconName.TabIndex = 30;
+            this.lblIconName.Text = "Ikonica nije izabrana";
             // 
             // AddForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(630, 606);
+            this.ClientSize = new System.Drawing.Size(581, 606);
+            this.Controls.Add(this.lblIconName);
+            this.Controls.Add(this.cmbUnit);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.btnIcon);
             this.Controls.Add(this.rbtUniversal);
             this.Controls.Add(this.rbtFrequent);
             this.Controls.Add(this.rbtRare);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.txtCost);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblCost);
@@ -288,6 +342,7 @@
             this.Controls.Add(this.lblId);
             this.Name = "AddForm";
             this.Text = "Dodaj resurs";
+            ((System.ComponentModel.ISupportInitialize)(this.epAdd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -314,9 +369,13 @@
         private System.Windows.Forms.Label lblCost;
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.TextBox txtCost;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.RadioButton rbtRare;
         private System.Windows.Forms.RadioButton rbtFrequent;
         private System.Windows.Forms.RadioButton rbtUniversal;
+        private System.Windows.Forms.Button btnIcon;
+        private System.Windows.Forms.ErrorProvider epAdd;
+        private System.Windows.Forms.ComboBox cmbUnit;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label lblIconName;
     }
 }
