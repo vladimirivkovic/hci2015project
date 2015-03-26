@@ -42,6 +42,7 @@ namespace HCI15RA13AU
             }
             else
             {
+                // TODO : error
             }
         }
 
@@ -144,6 +145,35 @@ namespace HCI15RA13AU
             else
             {
                 epAdd.SetError(txtCost, "Cena mora da bude broj");
+            }
+        }
+
+        public Resource getResource()
+        {
+            Resource res = new Resource();
+            res.Id = txtId.Text;
+            res.Name = txtName.Text;
+            res.Important = chbImportant.Checked;
+            res.Renewable = chbRenewable.Checked;
+            res.Unit = Unit.BAREL;
+            res.Frequency = Frequency.RARE;
+            res.Cost = double.Parse(txtCost.Text);
+            res.Description = "";
+            res.Discovered = dateTimePicker.Value;
+
+            return res;
+        }
+
+        private void dateTimePicker_Validating(object sender, CancelEventArgs e)
+        {
+            if (dateTimePicker.Value.CompareTo(DateTime.Now) > 0)
+            {
+                formIsValid = false;
+                epAdd.SetError(dateTimePicker, "Datum mora biti u prošlosti");
+            }
+            else
+            {
+                epAdd.SetError(dateTimePicker, "");
             }
         }
     }

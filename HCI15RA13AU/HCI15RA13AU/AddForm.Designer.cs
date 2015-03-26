@@ -39,8 +39,6 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.lblType = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.chbRenewable = new System.Windows.Forms.CheckBox();
             this.chbImportant = new System.Windows.Forms.CheckBox();
             this.chbExploatable = new System.Windows.Forms.CheckBox();
@@ -53,7 +51,7 @@
             this.rbtUniversal = new System.Windows.Forms.RadioButton();
             this.btnIcon = new System.Windows.Forms.Button();
             this.epAdd = new System.Windows.Forms.ErrorProvider(this.components);
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.cmbUnit = new System.Windows.Forms.ComboBox();
             this.lblIconName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.epAdd)).BeginInit();
@@ -125,7 +123,7 @@
             this.txtDescription.Location = new System.Drawing.Point(136, 76);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(251, 90);
+            this.txtDescription.Size = new System.Drawing.Size(251, 120);
             this.txtDescription.TabIndex = 7;
             this.txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescription_Validating);
             // 
@@ -147,22 +145,6 @@
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
-            // 
-            // lblType
-            // 
-            this.lblType.AutoSize = true;
-            this.lblType.Location = new System.Drawing.Point(13, 187);
-            this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(22, 13);
-            this.lblType.TabIndex = 12;
-            this.lblType.Text = "Tip";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(136, 184);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 13;
             // 
             // chbRenewable
             // 
@@ -279,12 +261,13 @@
             // 
             this.epAdd.ContainerControl = this;
             // 
-            // dateTimePicker1
+            // dateTimePicker
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(136, 489);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 27;
+            this.dateTimePicker.Location = new System.Drawing.Point(136, 489);
+            this.dateTimePicker.Name = "dateTimePicker";
+            this.dateTimePicker.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker.TabIndex = 27;
+            this.dateTimePicker.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimePicker_Validating);
             // 
             // cmbUnit
             // 
@@ -313,10 +296,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 606);
+            this.ClientSize = new System.Drawing.Size(573, 606);
             this.Controls.Add(this.lblIconName);
             this.Controls.Add(this.cmbUnit);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.btnIcon);
             this.Controls.Add(this.rbtUniversal);
             this.Controls.Add(this.rbtFrequent);
@@ -328,8 +311,6 @@
             this.Controls.Add(this.chbExploatable);
             this.Controls.Add(this.chbImportant);
             this.Controls.Add(this.chbRenewable);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.lblType);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.txtDescription);
@@ -360,8 +341,6 @@
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Button btnOk;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Label lblType;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.CheckBox chbRenewable;
         private System.Windows.Forms.CheckBox chbImportant;
         private System.Windows.Forms.CheckBox chbExploatable;
@@ -375,7 +354,7 @@
         private System.Windows.Forms.Button btnIcon;
         private System.Windows.Forms.ErrorProvider epAdd;
         private System.Windows.Forms.ComboBox cmbUnit;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label lblIconName;
     }
 }
