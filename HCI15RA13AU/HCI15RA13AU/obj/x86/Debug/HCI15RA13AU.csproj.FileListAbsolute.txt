@@ -5,6 +5,7 @@ E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.csproj.G
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.exe
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.pdb
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.csprojResolveAssemblyReference.cache
-E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.AddForm.resources
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.MainForm.resources
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TableView.resources
+E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.NewResourceForm.resources
+E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.EditResourceForm.resources

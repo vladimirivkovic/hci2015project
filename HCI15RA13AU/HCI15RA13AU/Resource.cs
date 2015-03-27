@@ -31,5 +31,52 @@ namespace HCI15RA13AU
         public string IconFileName { get; set; }
 
         // collection of tags
+
+        public static string UnitToString(Unit u)
+        {
+            switch (u)
+            {
+                case Unit.BAREL:
+                    return "barel";
+                case Unit.MERICA:
+                    return "merica";
+                case Unit.TONA:
+                    return "tona";
+                case Unit.KILOGRAM:
+                    return "kilogram";
+                default:
+                    return "";
+            }
+        }
+
+        public static string FrequencyToString(Frequency f)
+        {
+            switch (f)
+            {
+                case Frequency.FREQUENT:
+                    return "frequent";
+                case Frequency.RARE:
+                    return "rare";
+                case Frequency.UNIVERSAL:
+                    return "universal";
+                default:
+                    return "";
+            }
+        }
+
+        public static Unit StringToUnit(string s)
+        {
+            switch (s)
+            {
+                case "merica":
+                    return Unit.MERICA;
+                case "barel":
+                    return Unit.BAREL;
+                case "tona":
+                    return Unit.TONA;
+                default:
+                    return Unit.KILOGRAM;
+            }
+        }
     }
 }

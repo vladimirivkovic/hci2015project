@@ -9,12 +9,12 @@ using System.Windows.Forms;
 
 namespace HCI15RA13AU
 {
-    public partial class AddForm : Form
+    public partial class NewResourceForm : Form
     {
         private OpenFileDialog ofd = new OpenFileDialog();
         private bool formIsValid = true;
 
-        public AddForm()
+        public NewResourceForm()
         {
             InitializeComponent();
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
@@ -28,21 +28,6 @@ namespace HCI15RA13AU
             {
                 string fname = ofd.FileName;
                 lblIconName.Text = fname;
-            }
-        }
-
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-            formIsValid = true;
-            this.ValidateChildren();
-            if (formIsValid)
-            {
-                this.DialogResult = DialogResult.OK;
-                this.Close();
-            }
-            else
-            {
-                // TODO : error
             }
         }
 
@@ -148,17 +133,23 @@ namespace HCI15RA13AU
             }
         }
 
-        public Resource getResource()
+        public Resource GetResource()
         {
             Resource res = new Resource();
             res.Id = txtId.Text;
             res.Name = txtName.Text;
+            res.Description = txtDescription.Text;
             res.Important = chbImportant.Checked;
             res.Renewable = chbRenewable.Checked;
-            res.Unit = Unit.BAREL;
-            res.Frequency = Frequency.RARE;
+            res.Accessable = chbExploatable.Checked;
+            res.Unit = Resource.StringToUnit(cmbUnit.Text);
+            if (rbtFrequent.Checked)
+                res.Frequency = Frequency.FREQUENT;
+            else if (rbtRare.Checked)
+                res.Frequency = Frequency.RARE;
+            else
+                res.Frequency = Frequency.UNIVERSAL;
             res.Cost = double.Parse(txtCost.Text);
-            res.Description = "";
             res.Discovered = dateTimePicker.Value;
 
             return res;
@@ -175,6 +166,27 @@ namespace HCI15RA13AU
             {
                 epAdd.SetError(dateTimePicker, "");
             }
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            formIsValid = true;
+            this.ValidateChildren();
+            if (formIsValid)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                // TODO : error
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }

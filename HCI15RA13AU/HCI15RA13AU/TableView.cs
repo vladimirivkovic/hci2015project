@@ -25,34 +25,26 @@ namespace HCI15RA13AU
             dgwResources.Columns.Add("Cost", "Cena");
         }
 
-        private void btnAddResource_Click(object sender, EventArgs e)
-        {
-            AddForm addForm = new AddForm();
-            addForm.ShowDialog();
-
-            if (addForm.DialogResult == DialogResult.OK)
-            {
-                Resource res = addForm.getResource();
-                resources.Add(res);
-                dgwResources.Rows.Add(new object[] { res.Id, res.Name, res.Discovered.ToShortDateString(), res.Important.ToString(), res.Cost.ToString() });
-                dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
-                dgwResources.CurrentCell = dgwResources.Rows[0].Cells[0];
-                dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
-            }
-        }
+        
 
         private void dgwResources_SelectionChanged(object sender, EventArgs e)
         {
             if (dgwResources.SelectedRows.Count == 0)
             {
+                txtId.Text = "";
+                txtFrequency.Text = "";
                 txtName.Text = "";
+                txtUnit.Text = "";
             }
             else
             {
                 Resource res = (Resource)dgwResources.SelectedRows[0].Tag;
                 if (res != null)
                 {
+                    txtId.Text = res.Id;
+                    txtFrequency.Text = Resource.FrequencyToString(res.Frequency);
                     txtName.Text = res.Name;
+                    txtUnit.Text = Resource.UnitToString(res.Unit);
                 }
             }
         }
@@ -71,5 +63,45 @@ namespace HCI15RA13AU
                 dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
             }
         }
+
+        private void btnAddResource_Click(object sender, EventArgs e)
+        {
+            NewResourceForm addForm = new NewResourceForm();
+            addForm.ShowDialog();
+
+            if (addForm.DialogResult == DialogResult.OK)
+            {
+                Resource res = addForm.GetResource();
+                resources.Add(res);
+                dgwResources.Rows.Add(new object[] { res.Id, res.Name, res.Discovered.ToShortDateString(), res.Important.ToString(), res.Cost.ToString() });
+                dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
+                dgwResources.CurrentCell = dgwResources.Rows[0].Cells[0];
+                dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
+            }
+        }
+
+        private void btnEditResource_Click(object sender, EventArgs e)
+        {
+            if (dgwResources.SelectedRows.Count > 0)
+            {
+                EditResourceForm erf = new EditResourceForm((Resource) dgwResources.SelectedRows[0].Tag);
+                erf.ShowDialog();
+
+                if (erf.DialogResult == DialogResult.OK)
+                {
+                    foreach (DataGridViewRow row in dgwResources.SelectedRows)
+                    {
+                        if (row.Selected)
+                        {
+                            row.Tag = erf.GetResource();
+                            break;
+                        }
+                    }
+                    dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
+                }
+            }
+        }
+
+
     }
 }
