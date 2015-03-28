@@ -13,16 +13,12 @@ namespace HCI15RA13AU
     {
         private List<Resource> resources;
 
+        private static string dateFormat = "dd.MM.yyyy";
+
         public TableView()
         {
             InitializeComponent();
             resources = new List<Resource>();
-            dgwResources.Columns.Clear();
-            dgwResources.Columns.Add("Id", "ID");
-            dgwResources.Columns.Add("Name", "Naziv");
-            dgwResources.Columns.Add("Date", "Datum");
-            dgwResources.Columns.Add("Important", "Vaznost");
-            dgwResources.Columns.Add("Cost", "Cena");
         }
 
         
@@ -54,7 +50,7 @@ namespace HCI15RA13AU
             dgwResources.Rows.Clear();
             foreach(Resource res in resources)
             {
-                dgwResources.Rows.Add(new object[] { res.Id, res.Name, res.Discovered.ToString(), res.Important.ToString() });
+                dgwResources.Rows.Add(new object[] { res.Id, res.Name, res.Discovered.ToString(dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable });
                 dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
             }
             if (dgwResources.Rows.Count > 0)
@@ -73,7 +69,7 @@ namespace HCI15RA13AU
             {
                 Resource res = addForm.GetResource();
                 resources.Add(res);
-                dgwResources.Rows.Add(new object[] { res.Id, res.Name, res.Discovered.ToShortDateString(), res.Important.ToString(), res.Cost.ToString() });
+                dgwResources.Rows.Add(new object[] { res.Id, res.Name, res.Discovered.ToString(dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable });
                 dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
                 dgwResources.CurrentCell = dgwResources.Rows[0].Cells[0];
                 dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
@@ -93,7 +89,11 @@ namespace HCI15RA13AU
                     {
                         if (row.Selected)
                         {
-                            row.Tag = erf.GetResource();
+                            Resource res = erf.GetResource();
+                            int index = dgwResources.Rows.IndexOf(row);
+                            dgwResources.Rows.RemoveAt(index);
+                            dgwResources.Rows.Insert(index, new object[] { res.Id, res.Name, res.Discovered.ToString(dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable });
+                            dgwResources.Rows[index].Tag = res;
                             break;
                         }
                     }

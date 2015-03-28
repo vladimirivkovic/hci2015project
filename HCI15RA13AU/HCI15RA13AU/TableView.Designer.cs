@@ -33,13 +33,19 @@
             this.btnEditResource = new System.Windows.Forms.Button();
             this.txtId = new System.Windows.Forms.TextBox();
             this.grbDetails = new System.Windows.Forms.GroupBox();
-            this.lblId = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.lblFrequency = new System.Windows.Forms.Label();
-            this.txtFrequency = new System.Windows.Forms.TextBox();
-            this.txtUnit = new System.Windows.Forms.TextBox();
             this.lblUnit = new System.Windows.Forms.Label();
+            this.txtUnit = new System.Windows.Forms.TextBox();
+            this.txtFrequency = new System.Windows.Forms.TextBox();
+            this.lblFrequency = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.lblName = new System.Windows.Forms.Label();
+            this.lblId = new System.Windows.Forms.Label();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ResourceName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Important = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Renewable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
             this.grbDetails.SuspendLayout();
             this.SuspendLayout();
@@ -50,6 +56,13 @@
             this.dgwResources.AllowUserToDeleteRows = false;
             this.dgwResources.AllowUserToResizeRows = false;
             this.dgwResources.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwResources.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.ResourceName,
+            this.Date,
+            this.Cost,
+            this.Important,
+            this.Renewable});
             this.dgwResources.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgwResources.Location = new System.Drawing.Point(12, 12);
             this.dgwResources.Name = "dgwResources";
@@ -104,31 +117,30 @@
             this.grbDetails.TabStop = false;
             this.grbDetails.Text = "Detalji";
             // 
-            // lblId
+            // lblUnit
             // 
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(18, 22);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(18, 13);
-            this.lblId.TabIndex = 4;
-            this.lblId.Text = "ID";
+            this.lblUnit.AutoSize = true;
+            this.lblUnit.Location = new System.Drawing.Point(18, 135);
+            this.lblUnit.Name = "lblUnit";
+            this.lblUnit.Size = new System.Drawing.Size(72, 13);
+            this.lblUnit.TabIndex = 10;
+            this.lblUnit.Text = "Jedinica mere";
             // 
-            // lblName
+            // txtUnit
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(18, 57);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(34, 13);
-            this.lblName.TabIndex = 5;
-            this.lblName.Text = "Naziv";
+            this.txtUnit.Location = new System.Drawing.Point(103, 132);
+            this.txtUnit.Name = "txtUnit";
+            this.txtUnit.ReadOnly = true;
+            this.txtUnit.Size = new System.Drawing.Size(100, 20);
+            this.txtUnit.TabIndex = 9;
             // 
-            // txtName
+            // txtFrequency
             // 
-            this.txtName.Location = new System.Drawing.Point(103, 54);
-            this.txtName.Name = "txtName";
-            this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(100, 20);
-            this.txtName.TabIndex = 6;
+            this.txtFrequency.Location = new System.Drawing.Point(103, 91);
+            this.txtFrequency.Name = "txtFrequency";
+            this.txtFrequency.ReadOnly = true;
+            this.txtFrequency.Size = new System.Drawing.Size(100, 20);
+            this.txtFrequency.TabIndex = 8;
             // 
             // lblFrequency
             // 
@@ -139,30 +151,71 @@
             this.lblFrequency.TabIndex = 7;
             this.lblFrequency.Text = "Frekvencija";
             // 
-            // txtFrequency
+            // txtName
             // 
-            this.txtFrequency.Location = new System.Drawing.Point(103, 91);
-            this.txtFrequency.Name = "txtFrequency";
-            this.txtFrequency.ReadOnly = true;
-            this.txtFrequency.Size = new System.Drawing.Size(100, 20);
-            this.txtFrequency.TabIndex = 8;
+            this.txtName.Location = new System.Drawing.Point(103, 54);
+            this.txtName.Name = "txtName";
+            this.txtName.ReadOnly = true;
+            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.TabIndex = 6;
             // 
-            // txtUnit
+            // lblName
             // 
-            this.txtUnit.Location = new System.Drawing.Point(103, 132);
-            this.txtUnit.Name = "txtUnit";
-            this.txtUnit.ReadOnly = true;
-            this.txtUnit.Size = new System.Drawing.Size(100, 20);
-            this.txtUnit.TabIndex = 9;
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(18, 57);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(34, 13);
+            this.lblName.TabIndex = 5;
+            this.lblName.Text = "Naziv";
             // 
-            // lblUnit
+            // lblId
             // 
-            this.lblUnit.AutoSize = true;
-            this.lblUnit.Location = new System.Drawing.Point(18, 135);
-            this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(72, 13);
-            this.lblUnit.TabIndex = 10;
-            this.lblUnit.Text = "Jedinica mere";
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(18, 22);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(18, 13);
+            this.lblId.TabIndex = 4;
+            this.lblId.Text = "ID";
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "ID";
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            // 
+            // ResourceName
+            // 
+            this.ResourceName.HeaderText = "Naziv";
+            this.ResourceName.Name = "ResourceName";
+            this.ResourceName.ReadOnly = true;
+            // 
+            // Date
+            // 
+            this.Date.HeaderText = "Datum";
+            this.Date.Name = "Date";
+            this.Date.ReadOnly = true;
+            // 
+            // Cost
+            // 
+            this.Cost.HeaderText = "Cena";
+            this.Cost.Name = "Cost";
+            this.Cost.ReadOnly = true;
+            // 
+            // Important
+            // 
+            this.Important.HeaderText = "Strateška važnost";
+            this.Important.Name = "Important";
+            this.Important.ReadOnly = true;
+            this.Important.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Important.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // Renewable
+            // 
+            this.Renewable.HeaderText = "Obnovljivost";
+            this.Renewable.Name = "Renewable";
+            this.Renewable.ReadOnly = true;
+            this.Renewable.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Renewable.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // TableView
             // 
@@ -197,5 +250,11 @@
         private System.Windows.Forms.Label lblFrequency;
         private System.Windows.Forms.Label lblUnit;
         private System.Windows.Forms.TextBox txtUnit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ResourceName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Important;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Renewable;
     }
 }

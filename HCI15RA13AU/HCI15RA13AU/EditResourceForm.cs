@@ -14,12 +14,15 @@ namespace HCI15RA13AU
 
         private OpenFileDialog ofd = new OpenFileDialog();
         private bool formIsValid = true;
+        private List<string> tags;
 
         public EditResourceForm(Resource res)
         {
             InitializeComponent();
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
             this.cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            tags = new List<string>();
 
             txtId.Text = res.Id;
             txtId.ReadOnly = true;
@@ -47,6 +50,15 @@ namespace HCI15RA13AU
             }
             txtCost.Text = res.Cost.ToString();
             dateTimePicker.Value = res.Discovered;
+            if (res.Tags.Count > 0)
+            {
+                StringBuilder t = new StringBuilder(res.Tags[0]);
+                for (int i = 1; i < res.Tags.Count; i++)
+                {
+                    t.Append(", " + res.Tags[i]);
+                }
+                lblTag.Text = t.ToString();
+            }
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -191,6 +203,24 @@ namespace HCI15RA13AU
             else
             {
                 epEdit.SetError(dateTimePicker, "");
+            }
+        }
+
+        private void btnTag_Click(object sender, EventArgs e)
+        {
+            if (txtTag.Text.Length > 0)
+            {
+                tags.Add(txtTag.Text);
+                if (!lblTag.Equals("nema etiketa"))
+                {
+                    lblTag.Text += ", ";
+                }
+                else
+                {
+                    lblTag.Text = "";
+                }
+                lblTag.Text += txtTag.Text;
+                txtTag.Text = "";
             }
         }
 

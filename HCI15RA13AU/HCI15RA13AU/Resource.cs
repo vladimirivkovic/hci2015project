@@ -30,7 +30,7 @@ namespace HCI15RA13AU
         public Unit Unit { get; set; }
         public string IconFileName { get; set; }
 
-        // collection of tags
+        public List<string> Tags { get; set; }
 
         public static string UnitToString(Unit u)
         {

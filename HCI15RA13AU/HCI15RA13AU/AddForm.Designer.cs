@@ -54,6 +54,11 @@
             this.cmbUnit = new System.Windows.Forms.ComboBox();
             this.lblIconName = new System.Windows.Forms.Label();
             this.grbFrequency = new System.Windows.Forms.GroupBox();
+            this.lblTags = new System.Windows.Forms.Label();
+            this.lblTag = new System.Windows.Forms.Label();
+            this.txtTag = new System.Windows.Forms.TextBox();
+            this.btnTag = new System.Windows.Forms.Button();
+            this.lblNewTag = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.epAdd)).BeginInit();
             this.grbFrequency.SuspendLayout();
             this.SuspendLayout();
@@ -108,7 +113,7 @@
             this.txtId.Margin = new System.Windows.Forms.Padding(4);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(160, 22);
-            this.txtId.TabIndex = 5;
+            this.txtId.TabIndex = 1;
             this.txtId.Validating += new System.ComponentModel.CancelEventHandler(this.txtId_Validating);
             // 
             // txtName
@@ -117,7 +122,7 @@
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(160, 22);
-            this.txtName.TabIndex = 6;
+            this.txtName.TabIndex = 2;
             this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // txtDescription
@@ -127,7 +132,7 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(390, 240);
-            this.txtDescription.TabIndex = 7;
+            this.txtDescription.TabIndex = 3;
             this.txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescription_Validating);
             // 
             // btnOk
@@ -136,7 +141,7 @@
             this.btnOk.Margin = new System.Windows.Forms.Padding(4);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(100, 28);
-            this.btnOk.TabIndex = 10;
+            this.btnOk.TabIndex = 17;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -147,7 +152,7 @@
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(100, 28);
-            this.btnCancel.TabIndex = 11;
+            this.btnCancel.TabIndex = 18;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -160,7 +165,7 @@
             this.chbRenewable.Margin = new System.Windows.Forms.Padding(4);
             this.chbRenewable.Name = "chbRenewable";
             this.chbRenewable.Size = new System.Drawing.Size(83, 20);
-            this.chbRenewable.TabIndex = 15;
+            this.chbRenewable.TabIndex = 7;
             this.chbRenewable.Text = "Obnovljiv";
             this.chbRenewable.UseVisualStyleBackColor = true;
             // 
@@ -172,7 +177,7 @@
             this.chbImportant.Margin = new System.Windows.Forms.Padding(4);
             this.chbImportant.Name = "chbImportant";
             this.chbImportant.Size = new System.Drawing.Size(118, 20);
-            this.chbImportant.TabIndex = 16;
+            this.chbImportant.TabIndex = 8;
             this.chbImportant.Text = "Strateški važan";
             this.chbImportant.UseVisualStyleBackColor = true;
             // 
@@ -184,7 +189,7 @@
             this.chbExploatable.Margin = new System.Windows.Forms.Padding(4);
             this.chbExploatable.Name = "chbExploatable";
             this.chbExploatable.Size = new System.Drawing.Size(174, 20);
-            this.chbExploatable.TabIndex = 17;
+            this.chbExploatable.TabIndex = 9;
             this.chbExploatable.Text = "Moguća je ekspolatacija";
             this.chbExploatable.UseVisualStyleBackColor = true;
             // 
@@ -227,7 +232,7 @@
             this.txtCost.Margin = new System.Windows.Forms.Padding(4);
             this.txtCost.Name = "txtCost";
             this.txtCost.Size = new System.Drawing.Size(99, 22);
-            this.txtCost.TabIndex = 21;
+            this.txtCost.TabIndex = 11;
             this.txtCost.Validating += new System.ComponentModel.CancelEventHandler(this.txtCost_Validating);
             // 
             // rbtRare
@@ -238,7 +243,7 @@
             this.rbtRare.Margin = new System.Windows.Forms.Padding(4);
             this.rbtRare.Name = "rbtRare";
             this.rbtRare.Size = new System.Drawing.Size(67, 20);
-            this.rbtRare.TabIndex = 23;
+            this.rbtRare.TabIndex = 13;
             this.rbtRare.TabStop = true;
             this.rbtRare.Text = "Redak";
             this.rbtRare.UseVisualStyleBackColor = true;
@@ -252,7 +257,7 @@
             this.rbtFrequent.Margin = new System.Windows.Forms.Padding(4);
             this.rbtFrequent.Name = "rbtFrequent";
             this.rbtFrequent.Size = new System.Drawing.Size(53, 20);
-            this.rbtFrequent.TabIndex = 24;
+            this.rbtFrequent.TabIndex = 14;
             this.rbtFrequent.TabStop = true;
             this.rbtFrequent.Text = "Čest";
             this.rbtFrequent.UseVisualStyleBackColor = true;
@@ -266,7 +271,7 @@
             this.rbtUniversal.Margin = new System.Windows.Forms.Padding(4);
             this.rbtUniversal.Name = "rbtUniversal";
             this.rbtUniversal.Size = new System.Drawing.Size(97, 20);
-            this.rbtUniversal.TabIndex = 25;
+            this.rbtUniversal.TabIndex = 15;
             this.rbtUniversal.TabStop = true;
             this.rbtUniversal.Text = "Univerzalan";
             this.rbtUniversal.UseVisualStyleBackColor = true;
@@ -279,7 +284,7 @@
             this.btnIcon.Margin = new System.Windows.Forms.Padding(4);
             this.btnIcon.Name = "btnIcon";
             this.btnIcon.Size = new System.Drawing.Size(100, 28);
-            this.btnIcon.TabIndex = 26;
+            this.btnIcon.TabIndex = 4;
             this.btnIcon.Text = "Učitaj";
             this.btnIcon.UseVisualStyleBackColor = true;
             this.btnIcon.Click += new System.EventHandler(this.btnIcon_Click);
@@ -295,7 +300,7 @@
             this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(265, 22);
-            this.dateTimePicker.TabIndex = 27;
+            this.dateTimePicker.TabIndex = 16;
             this.dateTimePicker.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimePicker_Validating);
             // 
             // cmbUnit
@@ -310,7 +315,7 @@
             this.cmbUnit.Margin = new System.Windows.Forms.Padding(4);
             this.cmbUnit.Name = "cmbUnit";
             this.cmbUnit.Size = new System.Drawing.Size(160, 24);
-            this.cmbUnit.TabIndex = 28;
+            this.cmbUnit.TabIndex = 10;
             this.cmbUnit.Validating += new System.ComponentModel.CancelEventHandler(this.cmbUnit_Validating);
             // 
             // lblIconName
@@ -332,15 +337,64 @@
             this.grbFrequency.Location = new System.Drawing.Point(743, 359);
             this.grbFrequency.Name = "grbFrequency";
             this.grbFrequency.Size = new System.Drawing.Size(400, 46);
-            this.grbFrequency.TabIndex = 31;
+            this.grbFrequency.TabIndex = 12;
             this.grbFrequency.TabStop = false;
             this.grbFrequency.Text = "Frekvencija";
+            // 
+            // lblTags
+            // 
+            this.lblTags.AutoSize = true;
+            this.lblTags.Location = new System.Drawing.Point(13, 530);
+            this.lblTags.Name = "lblTags";
+            this.lblTags.Size = new System.Drawing.Size(49, 16);
+            this.lblTags.TabIndex = 32;
+            this.lblTags.Text = "Etikete";
+            // 
+            // lblTag
+            // 
+            this.lblTag.AutoSize = true;
+            this.lblTag.Location = new System.Drawing.Point(170, 530);
+            this.lblTag.Name = "lblTag";
+            this.lblTag.Size = new System.Drawing.Size(85, 16);
+            this.lblTag.TabIndex = 33;
+            this.lblTag.Text = "nema etiketa";
+            // 
+            // txtTag
+            // 
+            this.txtTag.Location = new System.Drawing.Point(173, 597);
+            this.txtTag.Name = "txtTag";
+            this.txtTag.Size = new System.Drawing.Size(131, 22);
+            this.txtTag.TabIndex = 5;
+            // 
+            // btnTag
+            // 
+            this.btnTag.Location = new System.Drawing.Point(310, 596);
+            this.btnTag.Name = "btnTag";
+            this.btnTag.Size = new System.Drawing.Size(111, 23);
+            this.btnTag.TabIndex = 6;
+            this.btnTag.Text = "Dodaj etiketu";
+            this.btnTag.UseVisualStyleBackColor = true;
+            this.btnTag.Click += new System.EventHandler(this.btnTag_Click);
+            // 
+            // lblNewTag
+            // 
+            this.lblNewTag.AutoSize = true;
+            this.lblNewTag.Location = new System.Drawing.Point(13, 600);
+            this.lblNewTag.Name = "lblNewTag";
+            this.lblNewTag.Size = new System.Drawing.Size(84, 16);
+            this.lblNewTag.TabIndex = 36;
+            this.lblNewTag.Text = "Nova etiketa";
             // 
             // NewResourceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1234, 661);
+            this.Controls.Add(this.lblNewTag);
+            this.Controls.Add(this.btnTag);
+            this.Controls.Add(this.txtTag);
+            this.Controls.Add(this.lblTag);
+            this.Controls.Add(this.lblTags);
             this.Controls.Add(this.grbFrequency);
             this.Controls.Add(this.lblIconName);
             this.Controls.Add(this.cmbUnit);
@@ -401,5 +455,10 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label lblIconName;
         private System.Windows.Forms.GroupBox grbFrequency;
+        private System.Windows.Forms.Label lblNewTag;
+        private System.Windows.Forms.Button btnTag;
+        private System.Windows.Forms.TextBox txtTag;
+        private System.Windows.Forms.Label lblTag;
+        private System.Windows.Forms.Label lblTags;
     }
 }

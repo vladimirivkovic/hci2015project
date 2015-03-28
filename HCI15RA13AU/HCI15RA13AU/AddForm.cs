@@ -13,12 +13,14 @@ namespace HCI15RA13AU
     {
         private OpenFileDialog ofd = new OpenFileDialog();
         private bool formIsValid = true;
+        private List<string> tags;
 
         public NewResourceForm()
         {
             InitializeComponent();
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
             this.cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
+            tags = new List<string>();
         }
 
         private void btnIcon_Click(object sender, EventArgs e)
@@ -151,6 +153,7 @@ namespace HCI15RA13AU
                 res.Frequency = Frequency.UNIVERSAL;
             res.Cost = double.Parse(txtCost.Text);
             res.Discovered = dateTimePicker.Value;
+            res.Tags = tags;
 
             return res;
         }
@@ -187,6 +190,24 @@ namespace HCI15RA13AU
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void btnTag_Click(object sender, EventArgs e)
+        {
+            if (txtTag.Text.Length > 0)
+            {
+                tags.Add(txtTag.Text);
+                if (!lblTag.Text.Equals("nema etiketa"))
+                {
+                    lblTag.Text += ", ";
+                }
+                else
+                {
+                    lblTag.Text = "";
+                }
+                lblTag.Text += txtTag.Text;
+                txtTag.Text = "";
+            }
         }
     }
 }
