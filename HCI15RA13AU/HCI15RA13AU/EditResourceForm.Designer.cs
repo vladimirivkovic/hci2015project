@@ -29,6 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            this.epEdit = new System.Windows.Forms.ErrorProvider(this.components);
+            this.lblType = new System.Windows.Forms.Label();
+            this.btnType = new System.Windows.Forms.Button();
+            this.btnTag = new System.Windows.Forms.Button();
+            this.lblTag = new System.Windows.Forms.Label();
+            this.lblTags = new System.Windows.Forms.Label();
             this.grbFrequency = new System.Windows.Forms.GroupBox();
             this.rbtRare = new System.Windows.Forms.RadioButton();
             this.rbtFrequent = new System.Windows.Forms.RadioButton();
@@ -53,24 +59,76 @@
             this.lblDesription = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
-            this.epEdit = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnTag = new System.Windows.Forms.Button();
-            this.lblTag = new System.Windows.Forms.Label();
-            this.lblTags = new System.Windows.Forms.Label();
-            this.grbFrequency.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.epEdit)).BeginInit();
+            this.grbFrequency.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // epEdit
+            // 
+            this.epEdit.ContainerControl = this;
+            // 
+            // lblType
+            // 
+            this.lblType.AutoSize = true;
+            this.lblType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblType.Location = new System.Drawing.Point(15, 500);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(82, 18);
+            this.lblType.TabIndex = 61;
+            this.lblType.Text = "Tip resursa";
+            // 
+            // btnType
+            // 
+            this.btnType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnType.Location = new System.Drawing.Point(195, 493);
+            this.btnType.Name = "btnType";
+            this.btnType.Size = new System.Drawing.Size(124, 32);
+            this.btnType.TabIndex = 45;
+            this.btnType.Text = "Definiši tip";
+            this.btnType.UseVisualStyleBackColor = true;
+            this.btnType.Click += new System.EventHandler(this.btnType_Click);
+            // 
+            // btnTag
+            // 
+            this.btnTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTag.Location = new System.Drawing.Point(195, 443);
+            this.btnTag.Name = "btnTag";
+            this.btnTag.Size = new System.Drawing.Size(124, 32);
+            this.btnTag.TabIndex = 44;
+            this.btnTag.Text = "Dodaj etiketu";
+            this.btnTag.UseVisualStyleBackColor = true;
+            this.btnTag.Click += new System.EventHandler(this.btnTag_Click);
+            // 
+            // lblTag
+            // 
+            this.lblTag.AutoSize = true;
+            this.lblTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTag.Location = new System.Drawing.Point(325, 450);
+            this.lblTag.Name = "lblTag";
+            this.lblTag.Size = new System.Drawing.Size(95, 18);
+            this.lblTag.TabIndex = 60;
+            this.lblTag.Text = "Nema etiketa";
+            // 
+            // lblTags
+            // 
+            this.lblTags.AutoSize = true;
+            this.lblTags.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTags.Location = new System.Drawing.Point(15, 450);
+            this.lblTags.Name = "lblTags";
+            this.lblTags.Size = new System.Drawing.Size(53, 18);
+            this.lblTags.TabIndex = 59;
+            this.lblTags.Text = "Etikete";
             // 
             // grbFrequency
             // 
             this.grbFrequency.Controls.Add(this.rbtRare);
             this.grbFrequency.Controls.Add(this.rbtFrequent);
             this.grbFrequency.Controls.Add(this.rbtUniversal);
-            this.grbFrequency.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbFrequency.Location = new System.Drawing.Point(743, 359);
+            this.grbFrequency.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grbFrequency.Location = new System.Drawing.Point(700, 260);
             this.grbFrequency.Name = "grbFrequency";
-            this.grbFrequency.Size = new System.Drawing.Size(400, 46);
-            this.grbFrequency.TabIndex = 12;
+            this.grbFrequency.Size = new System.Drawing.Size(450, 52);
+            this.grbFrequency.TabIndex = 51;
             this.grbFrequency.TabStop = false;
             this.grbFrequency.Text = "Frekvencija";
             // 
@@ -78,7 +136,7 @@
             // 
             this.rbtRare.AutoSize = true;
             this.rbtRare.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtRare.Location = new System.Drawing.Point(32, 19);
+            this.rbtRare.Location = new System.Drawing.Point(36, 21);
             this.rbtRare.Margin = new System.Windows.Forms.Padding(4);
             this.rbtRare.Name = "rbtRare";
             this.rbtRare.Size = new System.Drawing.Size(67, 20);
@@ -92,11 +150,11 @@
             // 
             this.rbtFrequent.AutoSize = true;
             this.rbtFrequent.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtFrequent.Location = new System.Drawing.Point(144, 19);
+            this.rbtFrequent.Location = new System.Drawing.Point(162, 21);
             this.rbtFrequent.Margin = new System.Windows.Forms.Padding(4);
             this.rbtFrequent.Name = "rbtFrequent";
             this.rbtFrequent.Size = new System.Drawing.Size(53, 20);
-            this.rbtFrequent.TabIndex = 24;
+            this.rbtFrequent.TabIndex = 14;
             this.rbtFrequent.TabStop = true;
             this.rbtFrequent.Text = "Čest";
             this.rbtFrequent.UseVisualStyleBackColor = true;
@@ -106,11 +164,11 @@
             // 
             this.rbtUniversal.AutoSize = true;
             this.rbtUniversal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbtUniversal.Location = new System.Drawing.Point(252, 19);
+            this.rbtUniversal.Location = new System.Drawing.Point(284, 21);
             this.rbtUniversal.Margin = new System.Windows.Forms.Padding(4);
             this.rbtUniversal.Name = "rbtUniversal";
             this.rbtUniversal.Size = new System.Drawing.Size(97, 20);
-            this.rbtUniversal.TabIndex = 25;
+            this.rbtUniversal.TabIndex = 15;
             this.rbtUniversal.TabStop = true;
             this.rbtUniversal.Text = "Univerzalan";
             this.rbtUniversal.UseVisualStyleBackColor = true;
@@ -119,268 +177,236 @@
             // lblIconName
             // 
             this.lblIconName.AutoSize = true;
-            this.lblIconName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIconName.Location = new System.Drawing.Point(281, 454);
+            this.lblIconName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIconName.Location = new System.Drawing.Point(325, 400);
             this.lblIconName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIconName.Name = "lblIconName";
-            this.lblIconName.Size = new System.Drawing.Size(130, 16);
-            this.lblIconName.TabIndex = 51;
+            this.lblIconName.Size = new System.Drawing.Size(141, 18);
+            this.lblIconName.TabIndex = 58;
             this.lblIconName.Text = "Ikonica nije izabrana";
             // 
             // cmbUnit
             // 
-            this.cmbUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbUnit.FormattingEnabled = true;
             this.cmbUnit.Items.AddRange(new object[] {
             "merica",
             "barel",
             "tona",
             "kilogram"});
-            this.cmbUnit.Location = new System.Drawing.Point(903, 216);
+            this.cmbUnit.Location = new System.Drawing.Point(862, 157);
             this.cmbUnit.Margin = new System.Windows.Forms.Padding(4);
             this.cmbUnit.Name = "cmbUnit";
-            this.cmbUnit.Size = new System.Drawing.Size(160, 24);
-            this.cmbUnit.TabIndex = 10;
+            this.cmbUnit.Size = new System.Drawing.Size(180, 26);
+            this.cmbUnit.TabIndex = 49;
             this.cmbUnit.Validating += new System.ComponentModel.CancelEventHandler(this.cmbUnit_Validating);
             // 
             // dateTimePicker
             // 
-            this.dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker.Location = new System.Drawing.Point(903, 454);
+            this.dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker.Location = new System.Drawing.Point(852, 395);
             this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(265, 22);
-            this.dateTimePicker.TabIndex = 14;
+            this.dateTimePicker.Size = new System.Drawing.Size(298, 24);
+            this.dateTimePicker.TabIndex = 52;
             this.dateTimePicker.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimePicker_Validating);
             // 
             // btnIcon
             // 
-            this.btnIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIcon.Location = new System.Drawing.Point(173, 448);
+            this.btnIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIcon.Location = new System.Drawing.Point(195, 393);
             this.btnIcon.Margin = new System.Windows.Forms.Padding(4);
             this.btnIcon.Name = "btnIcon";
-            this.btnIcon.Size = new System.Drawing.Size(100, 28);
-            this.btnIcon.TabIndex = 4;
+            this.btnIcon.Size = new System.Drawing.Size(124, 32);
+            this.btnIcon.TabIndex = 43;
             this.btnIcon.Text = "Učitaj";
             this.btnIcon.UseVisualStyleBackColor = true;
+            this.btnIcon.Click += new System.EventHandler(this.btnIcon_Click);
             // 
             // txtCost
             // 
-            this.txtCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCost.Location = new System.Drawing.Point(903, 286);
+            this.txtCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCost.Location = new System.Drawing.Point(862, 207);
             this.txtCost.Margin = new System.Windows.Forms.Padding(4);
             this.txtCost.Name = "txtCost";
-            this.txtCost.Size = new System.Drawing.Size(99, 22);
-            this.txtCost.TabIndex = 11;
+            this.txtCost.Size = new System.Drawing.Size(111, 24);
+            this.txtCost.TabIndex = 50;
             this.txtCost.Validating += new System.ComponentModel.CancelEventHandler(this.txtCost_Validating);
             // 
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(743, 459);
+            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.Location = new System.Drawing.Point(700, 400);
             this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(108, 16);
-            this.lblDate.TabIndex = 46;
+            this.lblDate.Size = new System.Drawing.Size(119, 18);
+            this.lblDate.TabIndex = 57;
             this.lblDate.Text = "Datum otkrivanja";
             // 
             // lblCost
             // 
             this.lblCost.AutoSize = true;
-            this.lblCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCost.Location = new System.Drawing.Point(743, 289);
+            this.lblCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCost.Location = new System.Drawing.Point(700, 210);
             this.lblCost.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblCost.Name = "lblCost";
-            this.lblCost.Size = new System.Drawing.Size(114, 16);
-            this.lblCost.TabIndex = 45;
+            this.lblCost.Size = new System.Drawing.Size(126, 18);
+            this.lblCost.TabIndex = 56;
             this.lblCost.Text = "Cena (u dolarima)";
             // 
             // lblIcon
             // 
             this.lblIcon.AutoSize = true;
-            this.lblIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIcon.Location = new System.Drawing.Point(13, 460);
+            this.lblIcon.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIcon.Location = new System.Drawing.Point(15, 400);
             this.lblIcon.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblIcon.Name = "lblIcon";
-            this.lblIcon.Size = new System.Drawing.Size(51, 16);
-            this.lblIcon.TabIndex = 44;
+            this.lblIcon.Size = new System.Drawing.Size(55, 18);
+            this.lblIcon.TabIndex = 54;
             this.lblIcon.Text = "Ikonica";
             // 
             // chbExploatable
             // 
             this.chbExploatable.AutoSize = true;
-            this.chbExploatable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbExploatable.Location = new System.Drawing.Point(743, 149);
+            this.chbExploatable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbExploatable.Location = new System.Drawing.Point(700, 110);
             this.chbExploatable.Margin = new System.Windows.Forms.Padding(4);
             this.chbExploatable.Name = "chbExploatable";
-            this.chbExploatable.Size = new System.Drawing.Size(174, 20);
-            this.chbExploatable.TabIndex = 9;
+            this.chbExploatable.Size = new System.Drawing.Size(186, 22);
+            this.chbExploatable.TabIndex = 48;
             this.chbExploatable.Text = "Moguća je ekspolatacija";
             this.chbExploatable.UseVisualStyleBackColor = true;
             // 
             // chbImportant
             // 
             this.chbImportant.AutoSize = true;
-            this.chbImportant.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbImportant.Location = new System.Drawing.Point(743, 79);
+            this.chbImportant.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbImportant.Location = new System.Drawing.Point(700, 60);
             this.chbImportant.Margin = new System.Windows.Forms.Padding(4);
             this.chbImportant.Name = "chbImportant";
-            this.chbImportant.Size = new System.Drawing.Size(118, 20);
-            this.chbImportant.TabIndex = 8;
+            this.chbImportant.Size = new System.Drawing.Size(128, 22);
+            this.chbImportant.TabIndex = 47;
             this.chbImportant.Text = "Strateški važan";
             this.chbImportant.UseVisualStyleBackColor = true;
             // 
             // chbRenewable
             // 
             this.chbRenewable.AutoSize = true;
-            this.chbRenewable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbRenewable.Location = new System.Drawing.Point(743, 9);
+            this.chbRenewable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbRenewable.Location = new System.Drawing.Point(700, 10);
             this.chbRenewable.Margin = new System.Windows.Forms.Padding(4);
             this.chbRenewable.Name = "chbRenewable";
-            this.chbRenewable.Size = new System.Drawing.Size(83, 20);
-            this.chbRenewable.TabIndex = 7;
+            this.chbRenewable.Size = new System.Drawing.Size(87, 22);
+            this.chbRenewable.TabIndex = 46;
             this.chbRenewable.Text = "Obnovljiv";
             this.chbRenewable.UseVisualStyleBackColor = true;
             // 
             // btnCancel
             // 
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(1068, 604);
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(1036, 523);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(100, 28);
-            this.btnCancel.TabIndex = 16;
+            this.btnCancel.Size = new System.Drawing.Size(112, 32);
+            this.btnCancel.TabIndex = 55;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOk
             // 
-            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.Location = new System.Drawing.Point(902, 604);
+            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.Location = new System.Drawing.Point(887, 523);
             this.btnOk.Margin = new System.Windows.Forms.Padding(4);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(100, 28);
-            this.btnOk.TabIndex = 15;
+            this.btnOk.Size = new System.Drawing.Size(112, 32);
+            this.btnOk.TabIndex = 53;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // txtDescription
             // 
-            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.Location = new System.Drawing.Point(173, 146);
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Location = new System.Drawing.Point(195, 107);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(390, 240);
-            this.txtDescription.TabIndex = 3;
+            this.txtDescription.Size = new System.Drawing.Size(438, 270);
+            this.txtDescription.TabIndex = 41;
             this.txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescription_Validating);
             // 
             // txtName
             // 
-            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtName.Location = new System.Drawing.Point(173, 76);
+            this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtName.Location = new System.Drawing.Point(195, 57);
             this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(160, 22);
-            this.txtName.TabIndex = 2;
+            this.txtName.Size = new System.Drawing.Size(180, 24);
+            this.txtName.TabIndex = 40;
             this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // txtId
             // 
-            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(173, 6);
+            this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtId.Location = new System.Drawing.Point(195, 7);
             this.txtId.Margin = new System.Windows.Forms.Padding(4);
             this.txtId.Name = "txtId";
-            this.txtId.Size = new System.Drawing.Size(160, 22);
-            this.txtId.TabIndex = 1;
+            this.txtId.Size = new System.Drawing.Size(180, 24);
+            this.txtId.TabIndex = 38;
             // 
             // lblUnit
             // 
             this.lblUnit.AutoSize = true;
-            this.lblUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUnit.Location = new System.Drawing.Point(743, 219);
+            this.lblUnit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUnit.Location = new System.Drawing.Point(700, 160);
             this.lblUnit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(93, 16);
-            this.lblUnit.TabIndex = 35;
+            this.lblUnit.Size = new System.Drawing.Size(100, 18);
+            this.lblUnit.TabIndex = 42;
             this.lblUnit.Text = "Jedinica mere";
             // 
             // lblDesription
             // 
             this.lblDesription.AutoSize = true;
-            this.lblDesription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesription.Location = new System.Drawing.Point(13, 149);
+            this.lblDesription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesription.Location = new System.Drawing.Point(15, 110);
             this.lblDesription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDesription.Name = "lblDesription";
-            this.lblDesription.Size = new System.Drawing.Size(36, 16);
-            this.lblDesription.TabIndex = 34;
+            this.lblDesription.Size = new System.Drawing.Size(39, 18);
+            this.lblDesription.TabIndex = 39;
             this.lblDesription.Text = "Opis";
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(13, 79);
+            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblName.Location = new System.Drawing.Point(15, 60);
             this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(42, 16);
-            this.lblName.TabIndex = 33;
+            this.lblName.Size = new System.Drawing.Size(45, 18);
+            this.lblName.TabIndex = 37;
             this.lblName.Text = "Naziv";
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblId.Location = new System.Drawing.Point(13, 9);
+            this.lblId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblId.Location = new System.Drawing.Point(15, 10);
             this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(54, 16);
-            this.lblId.TabIndex = 32;
+            this.lblId.Size = new System.Drawing.Size(60, 18);
+            this.lblId.TabIndex = 36;
             this.lblId.Text = "Oznaka";
-            // 
-            // epEdit
-            // 
-            this.epEdit.ContainerControl = this;
-            // 
-            // btnTag
-            // 
-            this.btnTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTag.Location = new System.Drawing.Point(313, 527);
-            this.btnTag.Name = "btnTag";
-            this.btnTag.Size = new System.Drawing.Size(111, 23);
-            this.btnTag.TabIndex = 6;
-            this.btnTag.Text = "Dodaj etiketu";
-            this.btnTag.UseVisualStyleBackColor = true;
-            this.btnTag.Click += new System.EventHandler(this.btnTag_Click);
-            // 
-            // lblTag
-            // 
-            this.lblTag.AutoSize = true;
-            this.lblTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTag.Location = new System.Drawing.Point(170, 530);
-            this.lblTag.Name = "lblTag";
-            this.lblTag.Size = new System.Drawing.Size(85, 16);
-            this.lblTag.TabIndex = 54;
-            this.lblTag.Text = "nema etiketa";
-            // 
-            // lblTags
-            // 
-            this.lblTags.AutoSize = true;
-            this.lblTags.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTags.Location = new System.Drawing.Point(13, 530);
-            this.lblTags.Name = "lblTags";
-            this.lblTags.Size = new System.Drawing.Size(49, 16);
-            this.lblTags.TabIndex = 53;
-            this.lblTags.Text = "Etikete";
             // 
             // EditResourceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1234, 661);
+            this.ClientSize = new System.Drawing.Size(1174, 576);
+            this.Controls.Add(this.lblType);
+            this.Controls.Add(this.btnType);
             this.Controls.Add(this.btnTag);
             this.Controls.Add(this.lblTag);
             this.Controls.Add(this.lblTags);
@@ -407,9 +433,9 @@
             this.Controls.Add(this.lblId);
             this.Name = "EditResourceForm";
             this.Text = "Izmeni podatke o resursu";
+            ((System.ComponentModel.ISupportInitialize)(this.epEdit)).EndInit();
             this.grbFrequency.ResumeLayout(false);
             this.grbFrequency.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.epEdit)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,6 +443,12 @@
 
         #endregion
 
+        private System.Windows.Forms.ErrorProvider epEdit;
+        private System.Windows.Forms.Label lblType;
+        private System.Windows.Forms.Button btnType;
+        private System.Windows.Forms.Button btnTag;
+        private System.Windows.Forms.Label lblTag;
+        private System.Windows.Forms.Label lblTags;
         private System.Windows.Forms.GroupBox grbFrequency;
         private System.Windows.Forms.RadioButton rbtRare;
         private System.Windows.Forms.RadioButton rbtFrequent;
@@ -441,10 +473,6 @@
         private System.Windows.Forms.Label lblDesription;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblId;
-        private System.Windows.Forms.ErrorProvider epEdit;
-        private System.Windows.Forms.Button btnTag;
-        private System.Windows.Forms.Label lblTag;
-        private System.Windows.Forms.Label lblTags;
 
     }
 }

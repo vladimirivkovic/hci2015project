@@ -64,7 +64,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(18, 17);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(0, 0);
             this.pictureBox1.TabIndex = 0;
@@ -73,29 +74,32 @@
             // lblSelectedResource
             // 
             this.lblSelectedResource.AutoSize = true;
-            this.lblSelectedResource.Location = new System.Drawing.Point(71, 533);
+            this.lblSelectedResource.Location = new System.Drawing.Point(106, 738);
+            this.lblSelectedResource.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblSelectedResource.Name = "lblSelectedResource";
-            this.lblSelectedResource.Size = new System.Drawing.Size(0, 13);
+            this.lblSelectedResource.Size = new System.Drawing.Size(0, 18);
             this.lblSelectedResource.TabIndex = 8;
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(2, 2);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1017, 714);
+            this.tabControl1.Size = new System.Drawing.Size(918, 712);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPage1.Controls.Add(this.pictureBox2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1009, 688);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Size = new System.Drawing.Size(910, 710);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mapa";
             // 
@@ -103,9 +107,10 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(6, 6);
+            this.pictureBox2.Location = new System.Drawing.Point(9, 8);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(810, 500);
+            this.pictureBox2.Size = new System.Drawing.Size(1215, 692);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
@@ -115,10 +120,11 @@
             this.tabPage2.Controls.Add(this.btnEditResource);
             this.tabPage2.Controls.Add(this.btnAddResource);
             this.tabPage2.Controls.Add(this.dgwResources);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Location = new System.Drawing.Point(4, 27);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1009, 688);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Size = new System.Drawing.Size(910, 681);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tabelarni prikaz";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -133,9 +139,11 @@
             this.grbDetails.Controls.Add(this.lblName);
             this.grbDetails.Controls.Add(this.lblId);
             this.grbDetails.Controls.Add(this.txtId);
-            this.grbDetails.Location = new System.Drawing.Point(6, 418);
+            this.grbDetails.Location = new System.Drawing.Point(8, 433);
+            this.grbDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grbDetails.Name = "grbDetails";
-            this.grbDetails.Size = new System.Drawing.Size(829, 178);
+            this.grbDetails.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grbDetails.Size = new System.Drawing.Size(894, 246);
             this.grbDetails.TabIndex = 14;
             this.grbDetails.TabStop = false;
             this.grbDetails.Text = "Detalji";
@@ -143,76 +151,85 @@
             // lblUnit
             // 
             this.lblUnit.AutoSize = true;
-            this.lblUnit.Location = new System.Drawing.Point(18, 135);
+            this.lblUnit.Location = new System.Drawing.Point(27, 187);
+            this.lblUnit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblUnit.Name = "lblUnit";
-            this.lblUnit.Size = new System.Drawing.Size(72, 13);
+            this.lblUnit.Size = new System.Drawing.Size(100, 18);
             this.lblUnit.TabIndex = 10;
             this.lblUnit.Text = "Jedinica mere";
             // 
             // txtUnit
             // 
-            this.txtUnit.Location = new System.Drawing.Point(103, 132);
+            this.txtUnit.Location = new System.Drawing.Point(154, 183);
+            this.txtUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.ReadOnly = true;
-            this.txtUnit.Size = new System.Drawing.Size(100, 20);
+            this.txtUnit.Size = new System.Drawing.Size(148, 24);
             this.txtUnit.TabIndex = 9;
             // 
             // txtFrequency
             // 
-            this.txtFrequency.Location = new System.Drawing.Point(103, 91);
+            this.txtFrequency.Location = new System.Drawing.Point(154, 126);
+            this.txtFrequency.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtFrequency.Name = "txtFrequency";
             this.txtFrequency.ReadOnly = true;
-            this.txtFrequency.Size = new System.Drawing.Size(100, 20);
+            this.txtFrequency.Size = new System.Drawing.Size(148, 24);
             this.txtFrequency.TabIndex = 8;
             // 
             // lblFrequency
             // 
             this.lblFrequency.AutoSize = true;
-            this.lblFrequency.Location = new System.Drawing.Point(18, 94);
+            this.lblFrequency.Location = new System.Drawing.Point(27, 130);
+            this.lblFrequency.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblFrequency.Name = "lblFrequency";
-            this.lblFrequency.Size = new System.Drawing.Size(62, 13);
+            this.lblFrequency.Size = new System.Drawing.Size(83, 18);
             this.lblFrequency.TabIndex = 7;
             this.lblFrequency.Text = "Frekvencija";
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(103, 54);
+            this.txtName.Location = new System.Drawing.Point(154, 75);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
-            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.Size = new System.Drawing.Size(148, 24);
             this.txtName.TabIndex = 6;
             // 
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(18, 57);
+            this.lblName.Location = new System.Drawing.Point(27, 79);
+            this.lblName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(34, 13);
+            this.lblName.Size = new System.Drawing.Size(45, 18);
             this.lblName.TabIndex = 5;
             this.lblName.Text = "Naziv";
             // 
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(18, 22);
+            this.lblId.Location = new System.Drawing.Point(27, 30);
+            this.lblId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(18, 13);
+            this.lblId.Size = new System.Drawing.Size(22, 18);
             this.lblId.TabIndex = 4;
             this.lblId.Text = "ID";
             // 
             // txtId
             // 
-            this.txtId.Location = new System.Drawing.Point(103, 19);
+            this.txtId.Location = new System.Drawing.Point(154, 26);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
-            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.Size = new System.Drawing.Size(148, 24);
             this.txtId.TabIndex = 3;
             // 
             // btnEditResource
             // 
-            this.btnEditResource.Location = new System.Drawing.Point(732, 51);
+            this.btnEditResource.Location = new System.Drawing.Point(751, 67);
+            this.btnEditResource.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditResource.Name = "btnEditResource";
-            this.btnEditResource.Size = new System.Drawing.Size(75, 23);
+            this.btnEditResource.Size = new System.Drawing.Size(112, 32);
             this.btnEditResource.TabIndex = 13;
             this.btnEditResource.Text = "Izmeni resurs";
             this.btnEditResource.UseVisualStyleBackColor = true;
@@ -220,9 +237,10 @@
             // 
             // btnAddResource
             // 
-            this.btnAddResource.Location = new System.Drawing.Point(732, 7);
+            this.btnAddResource.Location = new System.Drawing.Point(751, 8);
+            this.btnAddResource.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddResource.Name = "btnAddResource";
-            this.btnAddResource.Size = new System.Drawing.Size(75, 23);
+            this.btnAddResource.Size = new System.Drawing.Size(112, 32);
             this.btnAddResource.TabIndex = 12;
             this.btnAddResource.Text = "Dodaj resurs";
             this.btnAddResource.UseVisualStyleBackColor = true;
@@ -242,11 +260,12 @@
             this.Important,
             this.Renewable});
             this.dgwResources.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgwResources.Location = new System.Drawing.Point(6, 6);
+            this.dgwResources.Location = new System.Drawing.Point(9, 8);
+            this.dgwResources.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgwResources.Name = "dgwResources";
             this.dgwResources.ReadOnly = true;
             this.dgwResources.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwResources.Size = new System.Drawing.Size(635, 390);
+            this.dgwResources.Size = new System.Drawing.Size(644, 417);
             this.dgwResources.TabIndex = 11;
             this.dgwResources.SelectionChanged += new System.EventHandler(this.dgwResources_SelectionChanged);
             // 
@@ -292,12 +311,14 @@
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 728);
+            this.ClientSize = new System.Drawing.Size(920, 715);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblSelectedResource);
             this.Controls.Add(this.pictureBox1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Text = "Mapa svetskih resursa";
             this.Load += new System.EventHandler(this.MainForm_Load);

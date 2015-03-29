@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddForm.cs">
+    <Compile Include="NewResourceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddForm.Designer.cs">
-      <DependentUpon>AddForm.cs</DependentUpon>
+    <Compile Include="NewResourceForm.Designer.cs">
+      <DependentUpon>NewResourceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="EditResourceForm.cs">
       <SubType>Form</SubType>
@@ -73,8 +73,14 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.cs" />
-    <EmbeddedResource Include="AddForm.resx">
-      <DependentUpon>AddForm.cs</DependentUpon>
+    <Compile Include="TypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TypeForm.Designer.cs">
+      <DependentUpon>TypeForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="NewResourceForm.resx">
+      <DependentUpon>NewResourceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditResourceForm.resx">
       <DependentUpon>EditResourceForm.cs</DependentUpon>
@@ -94,6 +100,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="TypeForm.resx">
+      <DependentUpon>TypeForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

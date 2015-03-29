@@ -9,51 +9,133 @@ using System.Windows.Forms;
 
 namespace HCI15RA13AU
 {
-    public partial class EditResourceForm : Form
+    public partial class NewResourceForm : Form
     {
-
         private OpenFileDialog ofd = new OpenFileDialog();
         private bool formIsValid = true;
         private List<Tag> tags;
         private Type type;
         private string fname = "";
 
-        public EditResourceForm(Resource res)
+        public NewResourceForm()
         {
             InitializeComponent();
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
             this.cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
+            tags = new List<Tag>();
+            type = new Type();
+        }
 
-            tags = res.Tags;
-            type = res.Type;
-
-            txtId.Text = res.ID;
-            txtId.ReadOnly = true;
-            txtName.Text = res.Name;
-            txtDescription.Text = res.Description;
-            lblIconName.Text = res.IconFileName;
-            if (res.Renewable)
-                chbRenewable.Checked = true;
-            if (res.Important)
-                chbImportant.Checked = true;
-            if (res.Accessable)
-                chbExploatable.Checked = true;
-            cmbUnit.Text = Resource.UnitToString(res.Unit);
-            switch (res.Frequency)
+        private void btnIcon_Click(object sender, EventArgs e)
+        {
+            DialogResult d = ofd.ShowDialog();
+            if (d == DialogResult.OK)
             {
-                case Frequency.FREQUENT:
-                    rbtFrequent.Checked = true;
-                    break;
-                case Frequency.RARE:
-                    rbtRare.Checked = true;
-                    break;
-                case Frequency.UNIVERSAL:
-                    rbtUniversal.Checked = true;
-                    break;
+                fname = ofd.FileName;
+                lblIconName.Text = fname;
             }
-            txtCost.Text = res.Cost.ToString();
-            dateTimePicker.Value = res.Discovered;
-            lblTag.Text = res.Tags.Count.ToString();
+        }
+
+        private void txtId_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtId.Text.Length == 0)
+            {
+                formIsValid = false;
+                epAdd.SetError(txtId, "Unos oznake je obavezan");
+            }
+            else
+            {
+                epAdd.SetError(txtId, "");
+            }
+        }
+
+        private void txtName_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtName.Text.Length == 0)
+            {
+                formIsValid = false;
+                epAdd.SetError(txtName, "Unos naziva je obavezan");
+            }
+            else
+            {
+                epAdd.SetError(txtName, "");
+            }
+        }
+
+        private void txtDescription_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtDescription.Text.Length == 0)
+            {
+                formIsValid = false;
+                epAdd.SetError(txtDescription, "Unos naziva je obavezan");
+            }
+            else
+            {
+                epAdd.SetError(txtDescription, "");
+            }
+        }
+
+        private void rbtUniversal_Validating(object sender, CancelEventArgs e)
+        {
+            if (!(rbtFrequent.Checked || rbtRare.Checked || rbtUniversal.Checked))
+            {
+                formIsValid = false;
+                epAdd.SetError(rbtUniversal, "Odabir frekvencije je obavezan");
+            }
+            else
+            {
+                epAdd.SetError(rbtUniversal, "");
+            }
+        }
+
+        private void rbtRare_Validating(object sender, CancelEventArgs e)
+        {
+            rbtUniversal_Validating(sender, e);
+        }
+
+
+        private void rbtFrequent_Validating(object sender, CancelEventArgs e)
+        {
+            rbtUniversal_Validating(sender, e);
+        }
+
+        private void cmbUnit_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbUnit.SelectedItem == null)
+            {
+                formIsValid = false;
+                epAdd.SetError(cmbUnit, "Odabir jedinice mere je obavezan");
+            }
+            else
+            {
+                epAdd.SetError(cmbUnit, "");
+            }
+        }
+
+        private void txtCost_Validating(object sender, CancelEventArgs e)
+        {
+            double cost;
+            if (txtCost.Text.Length == 0)
+            {
+                formIsValid = false;
+                epAdd.SetError(txtCost, "Unos cene je obavezan");
+            }
+            else if (double.TryParse(txtCost.Text, out cost))
+            {
+                if (cost < 0)
+                {
+                    formIsValid = false;
+                    epAdd.SetError(txtCost, "Cena mora da bude pozitivna");
+                }
+                else
+                {
+                    epAdd.SetError(txtCost, "");
+                }
+            }
+            else
+            {
+                epAdd.SetError(txtCost, "Cena mora da bude broj");
+            }
         }
 
         public Resource GetResource()
@@ -75,108 +157,10 @@ namespace HCI15RA13AU
             res.Cost = double.Parse(txtCost.Text);
             res.Discovered = dateTimePicker.Value;
             res.Tags = tags;
+            res.Type = type;
             res.IconFileName = fname;
 
             return res;
-        }
-
-        private void btnIcon_Click(object sender, EventArgs e)
-        {
-            DialogResult d = ofd.ShowDialog();
-            if (d == DialogResult.OK)
-            {
-                fname = ofd.FileName;
-                lblIconName.Text = fname;
-            }
-        }
-
-        private void txtName_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtName.Text.Length == 0)
-            {
-                formIsValid = false;
-                epEdit.SetError(txtName, "Unos naziva je obavezan");
-            }
-            else
-            {
-                epEdit.SetError(txtName, "");
-            }
-        }
-
-        private void txtDescription_Validating(object sender, CancelEventArgs e)
-        {
-            if (txtDescription.Text.Length == 0)
-            {
-                formIsValid = false;
-                epEdit.SetError(txtDescription, "Unos naziva je obavezan");
-            }
-            else
-            {
-                epEdit.SetError(txtDescription, "");
-            }
-        }
-
-        private void rbtUniversal_Validating(object sender, CancelEventArgs e)
-        {
-            if (!(rbtFrequent.Checked || rbtRare.Checked || rbtUniversal.Checked))
-            {
-                formIsValid = false;
-                epEdit.SetError(rbtUniversal, "Odabir frekvencije je obavezan");
-            }
-            else
-            {
-                epEdit.SetError(rbtUniversal, "");
-            }
-        }
-
-        private void rbtRare_Validating(object sender, CancelEventArgs e)
-        {
-            rbtUniversal_Validating(sender, e);
-        }
-
-
-        private void rbtFrequent_Validating(object sender, CancelEventArgs e)
-        {
-            rbtUniversal_Validating(sender, e);
-        }
-
-        private void cmbUnit_Validating(object sender, CancelEventArgs e)
-        {
-            if (cmbUnit.SelectedItem == null)
-            {
-                formIsValid = false;
-                epEdit.SetError(cmbUnit, "Odabir jedinice mere je obavezan");
-            }
-            else
-            {
-                epEdit.SetError(cmbUnit, "");
-            }
-        }
-
-        private void txtCost_Validating(object sender, CancelEventArgs e)
-        {
-            double cost;
-            if (txtCost.Text.Length == 0)
-            {
-                formIsValid = false;
-                epEdit.SetError(txtCost, "Unos cene je obavezan");
-            }
-            else if (double.TryParse(txtCost.Text, out cost))
-            {
-                if (cost < 0)
-                {
-                    formIsValid = false;
-                    epEdit.SetError(txtCost, "Cena mora da bude pozitivna");
-                }
-                else
-                {
-                    epEdit.SetError(txtCost, "");
-                }
-            }
-            else
-            {
-                epEdit.SetError(txtCost, "Cena mora da bude broj");
-            }
         }
 
         private void dateTimePicker_Validating(object sender, CancelEventArgs e)
@@ -184,11 +168,11 @@ namespace HCI15RA13AU
             if (dateTimePicker.Value.CompareTo(DateTime.Now) > 0)
             {
                 formIsValid = false;
-                epEdit.SetError(dateTimePicker, "Datum mora biti u prošlosti");
+                epAdd.SetError(dateTimePicker, "Datum mora biti u prošlosti");
             }
             else
             {
-                epEdit.SetError(dateTimePicker, "");
+                epAdd.SetError(dateTimePicker, "");
             }
         }
 
@@ -227,7 +211,7 @@ namespace HCI15RA13AU
 
         private void btnType_Click(object sender, EventArgs e)
         {
-            TypeForm tf = new TypeForm(type);
+            TypeForm tf = new TypeForm();
             tf.ShowDialog();
 
             if (tf.DialogResult == DialogResult.OK)
