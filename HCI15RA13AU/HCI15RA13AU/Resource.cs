@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 namespace HCI15RA13AU
 {
@@ -17,9 +18,9 @@ namespace HCI15RA13AU
 
     public class Resource
     {
-        public string Id { get; set; }
+        public string ID { get; set; }
         public string Description { get; set; }
-        //public string Type { get; set; }        // id, name, icon, desc
+        public Type Type { get; set; }
         public string Name { get; set; }
         public Frequency Frequency { get; set; }
         public bool Renewable { get; set; }
@@ -30,7 +31,7 @@ namespace HCI15RA13AU
         public Unit Unit { get; set; }
         public string IconFileName { get; set; }
 
-        public List<string> Tags { get; set; }
+        public List<Tag> Tags { get; set; }
 
         public static string UnitToString(Unit u)
         {
@@ -78,5 +79,20 @@ namespace HCI15RA13AU
                     return Unit.KILOGRAM;
             }
         }
+    }
+
+    public class Type
+    {
+        public string ID { get; set; }
+        public string Name { get; set; }
+        public string IconFileName { get; set; }
+        public string Description { get; set; }
+    }
+
+    public class Tag
+    {
+        public string ID { get; set; }
+        public Color Color { get; set; }
+        public string Description { get; set; }
     }
 }

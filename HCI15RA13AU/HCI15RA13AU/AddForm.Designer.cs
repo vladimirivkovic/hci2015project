@@ -56,9 +56,7 @@
             this.grbFrequency = new System.Windows.Forms.GroupBox();
             this.lblTags = new System.Windows.Forms.Label();
             this.lblTag = new System.Windows.Forms.Label();
-            this.txtTag = new System.Windows.Forms.TextBox();
             this.btnTag = new System.Windows.Forms.Button();
-            this.lblNewTag = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.epAdd)).BeginInit();
             this.grbFrequency.SuspendLayout();
             this.SuspendLayout();
@@ -359,16 +357,9 @@
             this.lblTag.TabIndex = 33;
             this.lblTag.Text = "nema etiketa";
             // 
-            // txtTag
-            // 
-            this.txtTag.Location = new System.Drawing.Point(173, 597);
-            this.txtTag.Name = "txtTag";
-            this.txtTag.Size = new System.Drawing.Size(131, 22);
-            this.txtTag.TabIndex = 5;
-            // 
             // btnTag
             // 
-            this.btnTag.Location = new System.Drawing.Point(310, 596);
+            this.btnTag.Location = new System.Drawing.Point(309, 527);
             this.btnTag.Name = "btnTag";
             this.btnTag.Size = new System.Drawing.Size(111, 23);
             this.btnTag.TabIndex = 6;
@@ -376,23 +367,12 @@
             this.btnTag.UseVisualStyleBackColor = true;
             this.btnTag.Click += new System.EventHandler(this.btnTag_Click);
             // 
-            // lblNewTag
-            // 
-            this.lblNewTag.AutoSize = true;
-            this.lblNewTag.Location = new System.Drawing.Point(13, 600);
-            this.lblNewTag.Name = "lblNewTag";
-            this.lblNewTag.Size = new System.Drawing.Size(84, 16);
-            this.lblNewTag.TabIndex = 36;
-            this.lblNewTag.Text = "Nova etiketa";
-            // 
             // NewResourceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1234, 661);
-            this.Controls.Add(this.lblNewTag);
             this.Controls.Add(this.btnTag);
-            this.Controls.Add(this.txtTag);
             this.Controls.Add(this.lblTag);
             this.Controls.Add(this.lblTags);
             this.Controls.Add(this.grbFrequency);
@@ -455,9 +435,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Label lblIconName;
         private System.Windows.Forms.GroupBox grbFrequency;
-        private System.Windows.Forms.Label lblNewTag;
         private System.Windows.Forms.Button btnTag;
-        private System.Windows.Forms.TextBox txtTag;
         private System.Windows.Forms.Label lblTag;
         private System.Windows.Forms.Label lblTags;
     }

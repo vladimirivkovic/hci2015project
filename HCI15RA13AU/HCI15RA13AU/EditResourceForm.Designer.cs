@@ -54,9 +54,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
             this.epEdit = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblNewTag = new System.Windows.Forms.Label();
             this.btnTag = new System.Windows.Forms.Button();
-            this.txtTag = new System.Windows.Forms.TextBox();
             this.lblTag = new System.Windows.Forms.Label();
             this.lblTags = new System.Windows.Forms.Label();
             this.grbFrequency.SuspendLayout();
@@ -347,34 +345,16 @@
             // 
             this.epEdit.ContainerControl = this;
             // 
-            // lblNewTag
-            // 
-            this.lblNewTag.AutoSize = true;
-            this.lblNewTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewTag.Location = new System.Drawing.Point(13, 600);
-            this.lblNewTag.Name = "lblNewTag";
-            this.lblNewTag.Size = new System.Drawing.Size(84, 16);
-            this.lblNewTag.TabIndex = 57;
-            this.lblNewTag.Text = "Nova etiketa";
-            // 
             // btnTag
             // 
             this.btnTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTag.Location = new System.Drawing.Point(310, 597);
+            this.btnTag.Location = new System.Drawing.Point(313, 527);
             this.btnTag.Name = "btnTag";
             this.btnTag.Size = new System.Drawing.Size(111, 23);
             this.btnTag.TabIndex = 6;
             this.btnTag.Text = "Dodaj etiketu";
             this.btnTag.UseVisualStyleBackColor = true;
             this.btnTag.Click += new System.EventHandler(this.btnTag_Click);
-            // 
-            // txtTag
-            // 
-            this.txtTag.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTag.Location = new System.Drawing.Point(173, 597);
-            this.txtTag.Name = "txtTag";
-            this.txtTag.Size = new System.Drawing.Size(131, 22);
-            this.txtTag.TabIndex = 5;
             // 
             // lblTag
             // 
@@ -401,9 +381,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1234, 661);
-            this.Controls.Add(this.lblNewTag);
             this.Controls.Add(this.btnTag);
-            this.Controls.Add(this.txtTag);
             this.Controls.Add(this.lblTag);
             this.Controls.Add(this.lblTags);
             this.Controls.Add(this.grbFrequency);
@@ -464,9 +442,7 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblId;
         private System.Windows.Forms.ErrorProvider epEdit;
-        private System.Windows.Forms.Label lblNewTag;
         private System.Windows.Forms.Button btnTag;
-        private System.Windows.Forms.TextBox txtTag;
         private System.Windows.Forms.Label lblTag;
         private System.Windows.Forms.Label lblTags;
 

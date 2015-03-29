@@ -13,14 +13,14 @@ namespace HCI15RA13AU
     {
         private OpenFileDialog ofd = new OpenFileDialog();
         private bool formIsValid = true;
-        private List<string> tags;
+        private List<Tag> tags;
 
         public NewResourceForm()
         {
             InitializeComponent();
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
             this.cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
-            tags = new List<string>();
+            tags = new List<Tag>();
         }
 
         private void btnIcon_Click(object sender, EventArgs e)
@@ -138,7 +138,7 @@ namespace HCI15RA13AU
         public Resource GetResource()
         {
             Resource res = new Resource();
-            res.Id = txtId.Text;
+            res.ID = txtId.Text;
             res.Name = txtName.Text;
             res.Description = txtDescription.Text;
             res.Important = chbImportant.Checked;
@@ -194,19 +194,13 @@ namespace HCI15RA13AU
 
         private void btnTag_Click(object sender, EventArgs e)
         {
-            if (txtTag.Text.Length > 0)
+            NewTag nt = new NewTag();
+            nt.ShowDialog();
+
+            if (nt.DialogResult == DialogResult.OK)
             {
-                tags.Add(txtTag.Text);
-                if (!lblTag.Text.Equals("nema etiketa"))
-                {
-                    lblTag.Text += ", ";
-                }
-                else
-                {
-                    lblTag.Text = "";
-                }
-                lblTag.Text += txtTag.Text;
-                txtTag.Text = "";
+                tags.Add(nt.GetTag());
+                lblTag.Text = tags.Count.ToString();
             }
         }
     }
