@@ -22,6 +22,11 @@ namespace HCI15RA13AU
             InitializeComponent();
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
             this.cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cmbType.DropDownStyle = ComboBoxStyle.DropDownList;
+            foreach (Type t in MainForm.types)
+            {
+                cmbType.Items.Add(t.ID);
+            }
             tags = new List<Tag>();
             type = new Type();
             type.ID = "";
@@ -65,15 +70,16 @@ namespace HCI15RA13AU
 
         private void txtDescription_Validating(object sender, CancelEventArgs e)
         {
-            if (txtDescription.Text.Length == 0)
-            {
-                formIsValid = false;
-                epAdd.SetError(txtDescription, "Unos naziva je obavezan");
-            }
-            else
-            {
-                epAdd.SetError(txtDescription, "");
-            }
+            epAdd.SetError(txtDescription, "");
+            //if (txtDescription.Text.Length == 0)
+            //{
+            //    formIsValid = false;
+            //    epAdd.SetError(txtDescription, "Unos naziva je obavezan");
+            //}
+            //else
+            //{
+            //    epAdd.SetError(txtDescription, "");
+            //}
         }
 
         private void rbtUniversal_Validating(object sender, CancelEventArgs e)
@@ -158,6 +164,7 @@ namespace HCI15RA13AU
             res.Cost = double.Parse(txtCost.Text);
             res.Discovered = dateTimePicker.Value;
             res.Tags = tags;
+            //string typeID = cmbType.SelectedItem.ToString();
             res.Type = type;
             res.IconFileName = fname;
 
@@ -200,7 +207,7 @@ namespace HCI15RA13AU
 
         private void btnTag_Click(object sender, EventArgs e)
         {
-            NewTag nt = new NewTag();
+            TagForm nt = new TagForm();
             nt.ShowDialog();
 
             if (nt.DialogResult == DialogResult.OK)
@@ -210,37 +217,39 @@ namespace HCI15RA13AU
             }
         }
 
-        private void btnType_Click(object sender, EventArgs e)
-        {
-            TypeForm tf;
-            if (type.ID == "")
-            {
-                tf = new TypeForm();
-            }
-            else
-            {
-                tf = new TypeForm(type);
-            }
-            tf.ShowDialog();
+        //private void btnType_Click(object sender, EventArgs e)
+        //{
+        //    TypeForm tf;
+        //    if (type.ID == "")
+        //    {
+        //        tf = new TypeForm();
+        //    }
+        //    else
+        //    {
+        //        tf = new TypeForm(type);
+        //    }
+        //    tf.ShowDialog();
 
-            if (tf.DialogResult == DialogResult.OK)
-            {
-                type = tf.GetResourceType();
-                btnType.Text = "Izmeni tip";
-            }
-        }
+        //    if (tf.DialogResult == DialogResult.OK)
+        //    {
+        //        type = tf.GetResourceType();
+        //        btnType.Text = "Izmeni tip";
+        //    }
+        //}
 
-        private void btnType_Validating(object sender, CancelEventArgs e)
-        {
-            if (type.ID == "")
-            {
-                epAdd.SetError(btnType, "Mora se definisati tip resursa");
-                formIsValid = false;
-            }
-            else
-            {
-                epAdd.SetError(btnType, "");
-            }
-        }
+
+
+        //private void btnType_Validating(object sender, CancelEventArgs e)
+        //{
+        //    if (type.ID == "")
+        //    {
+        //        epAdd.SetError(btnType, "Mora se definisati tip resursa");
+        //        formIsValid = false;
+        //    }
+        //    else
+        //    {
+        //        epAdd.SetError(btnType, "");
+        //    }
+        //}
     }
 }

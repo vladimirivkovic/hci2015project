@@ -9,15 +9,24 @@ using System.Windows.Forms;
 
 namespace HCI15RA13AU
 {
-    public partial class NewTag : Form
+    public partial class TagForm : Form
     {
         private bool formIsValid;
         private Color color = Color.White;
 
-        public NewTag()
+        public TagForm()
         {
             InitializeComponent();
             txtColor.BackColor = color;
+        }
+
+        public TagForm(Tag t)
+        {
+            InitializeComponent();
+            txtId.Text = t.ID;
+            txtDescription.Text = t.Description;
+            txtColor.BackColor = t.Color;
+            color = txtColor.BackColor;
         }
 
         public Tag GetTag()

@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             this.epEdit = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblType = new System.Windows.Forms.Label();
-            this.btnType = new System.Windows.Forms.Button();
             this.btnTag = new System.Windows.Forms.Button();
             this.lblTag = new System.Windows.Forms.Label();
             this.lblTags = new System.Windows.Forms.Label();
@@ -59,6 +58,7 @@
             this.lblDesription = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.lblId = new System.Windows.Forms.Label();
+            this.cmbType = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.epEdit)).BeginInit();
             this.grbFrequency.SuspendLayout();
             this.SuspendLayout();
@@ -76,17 +76,6 @@
             this.lblType.Size = new System.Drawing.Size(82, 18);
             this.lblType.TabIndex = 61;
             this.lblType.Text = "Tip resursa";
-            // 
-            // btnType
-            // 
-            this.btnType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnType.Location = new System.Drawing.Point(195, 493);
-            this.btnType.Name = "btnType";
-            this.btnType.Size = new System.Drawing.Size(124, 32);
-            this.btnType.TabIndex = 45;
-            this.btnType.Text = "Izmeni tip";
-            this.btnType.UseVisualStyleBackColor = true;
-            this.btnType.Click += new System.EventHandler(this.btnType_Click);
             // 
             // btnTag
             // 
@@ -402,13 +391,22 @@
             this.lblId.TabIndex = 36;
             this.lblId.Text = "Oznaka";
             // 
+            // cmbType
+            // 
+            this.cmbType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Location = new System.Drawing.Point(195, 501);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(121, 26);
+            this.cmbType.TabIndex = 62;
+            // 
             // EditResourceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 576);
+            this.Controls.Add(this.cmbType);
             this.Controls.Add(this.lblType);
-            this.Controls.Add(this.btnType);
             this.Controls.Add(this.btnTag);
             this.Controls.Add(this.lblTag);
             this.Controls.Add(this.lblTags);
@@ -447,7 +445,6 @@
 
         private System.Windows.Forms.ErrorProvider epEdit;
         private System.Windows.Forms.Label lblType;
-        private System.Windows.Forms.Button btnType;
         private System.Windows.Forms.Button btnTag;
         private System.Windows.Forms.Label lblTag;
         private System.Windows.Forms.Label lblTags;
@@ -475,6 +472,7 @@
         private System.Windows.Forms.Label lblDesription;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblId;
+        private System.Windows.Forms.ComboBox cmbType;
 
     }
 }

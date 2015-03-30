@@ -23,6 +23,7 @@ namespace HCI15RA13AU
             InitializeComponent();
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
             this.cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cmbType.DropDownStyle = ComboBoxStyle.DropDownList;
 
             tags = res.Tags;
             type = res.Type;
@@ -54,6 +55,11 @@ namespace HCI15RA13AU
             txtCost.Text = res.Cost.ToString();
             dateTimePicker.Value = res.Discovered;
             lblTag.Text = res.Tags.Count.ToString();
+
+            foreach (Type t in MainForm.types)
+            {
+                cmbType.Items.Add(t.ID);
+            }
         }
 
         public Resource GetResource()
@@ -105,15 +111,16 @@ namespace HCI15RA13AU
 
         private void txtDescription_Validating(object sender, CancelEventArgs e)
         {
-            if (txtDescription.Text.Length == 0)
-            {
-                formIsValid = false;
-                epEdit.SetError(txtDescription, "Unos naziva je obavezan");
-            }
-            else
-            {
-                epEdit.SetError(txtDescription, "");
-            }
+            epEdit.SetError(txtDescription, "");
+            //if (txtDescription.Text.Length == 0)
+            //{
+            //    formIsValid = false;
+            //    epEdit.SetError(txtDescription, "Unos naziva je obavezan");
+            //}
+            //else
+            //{
+            //    epEdit.SetError(txtDescription, "");
+            //}
         }
 
         private void rbtUniversal_Validating(object sender, CancelEventArgs e)
@@ -215,7 +222,7 @@ namespace HCI15RA13AU
 
         private void btnTag_Click(object sender, EventArgs e)
         {
-            NewTag nt = new NewTag();
+            TagForm nt = new TagForm();
             nt.ShowDialog();
 
             if (nt.DialogResult == DialogResult.OK)
@@ -225,16 +232,16 @@ namespace HCI15RA13AU
             }
         }
 
-        private void btnType_Click(object sender, EventArgs e)
-        {
-            TypeForm tf = new TypeForm(type);
-            tf.ShowDialog();
+        //private void btnType_Click(object sender, EventArgs e)
+        //{
+        //    TypeForm tf = new TypeForm(type);
+        //    tf.ShowDialog();
 
-            if (tf.DialogResult == DialogResult.OK)
-            {
-                type = tf.GetResourceType();
-                btnType.Text = "Izmeni tip";
-            }
-        }
+        //    if (tf.DialogResult == DialogResult.OK)
+        //    {
+        //        type = tf.GetResourceType();
+        //        btnType.Text = "Izmeni tip";
+        //    }
+        //}
     }
 }

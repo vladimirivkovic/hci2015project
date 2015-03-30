@@ -57,8 +57,8 @@
             this.lblTags = new System.Windows.Forms.Label();
             this.lblTag = new System.Windows.Forms.Label();
             this.btnTag = new System.Windows.Forms.Button();
-            this.btnType = new System.Windows.Forms.Button();
             this.lblType = new System.Windows.Forms.Label();
+            this.cmbType = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.epAdd)).BeginInit();
             this.grbFrequency.SuspendLayout();
             this.SuspendLayout();
@@ -377,18 +377,6 @@
             this.btnTag.UseVisualStyleBackColor = true;
             this.btnTag.Click += new System.EventHandler(this.btnTag_Click);
             // 
-            // btnType
-            // 
-            this.btnType.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnType.Location = new System.Drawing.Point(195, 493);
-            this.btnType.Name = "btnType";
-            this.btnType.Size = new System.Drawing.Size(124, 32);
-            this.btnType.TabIndex = 6;
-            this.btnType.Text = "Definiši tip";
-            this.btnType.UseVisualStyleBackColor = true;
-            this.btnType.Click += new System.EventHandler(this.btnType_Click);
-            this.btnType.Validating += new System.ComponentModel.CancelEventHandler(this.btnType_Validating);
-            // 
             // lblType
             // 
             this.lblType.AutoSize = true;
@@ -399,13 +387,21 @@
             this.lblType.TabIndex = 35;
             this.lblType.Text = "Tip resursa";
             // 
+            // cmbType
+            // 
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Location = new System.Drawing.Point(195, 496);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(121, 26);
+            this.cmbType.TabIndex = 36;
+            // 
             // NewResourceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 576);
+            this.Controls.Add(this.cmbType);
             this.Controls.Add(this.lblType);
-            this.Controls.Add(this.btnType);
             this.Controls.Add(this.btnTag);
             this.Controls.Add(this.lblTag);
             this.Controls.Add(this.lblTags);
@@ -473,6 +469,6 @@
         private System.Windows.Forms.Label lblTag;
         private System.Windows.Forms.Label lblTags;
         private System.Windows.Forms.Label lblType;
-        private System.Windows.Forms.Button btnType;
+        private System.Windows.Forms.ComboBox cmbType;
     }
 }

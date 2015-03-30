@@ -36,6 +36,11 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.grbDetails = new System.Windows.Forms.GroupBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.lblDesription = new System.Windows.Forms.Label();
+            this.chbExploatable = new System.Windows.Forms.CheckBox();
+            this.chbImportant = new System.Windows.Forms.CheckBox();
+            this.chbRenewable = new System.Windows.Forms.CheckBox();
             this.lblUnit = new System.Windows.Forms.Label();
             this.txtUnit = new System.Windows.Forms.TextBox();
             this.txtFrequency = new System.Windows.Forms.TextBox();
@@ -55,11 +60,18 @@
             this.Renewable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Frequency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.chbExploatable = new System.Windows.Forms.CheckBox();
-            this.chbImportant = new System.Windows.Forms.CheckBox();
-            this.chbRenewable = new System.Windows.Forms.CheckBox();
-            this.txtDescription = new System.Windows.Forms.TextBox();
-            this.lblDesription = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnEditType = new System.Windows.Forms.Button();
+            this.btnNewType = new System.Windows.Forms.Button();
+            this.dgwTypes = new System.Windows.Forms.DataGridView();
+            this.TypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnEditTag = new System.Windows.Forms.Button();
+            this.btnNewTag = new System.Windows.Forms.Button();
+            this.dgwTags = new System.Windows.Forms.DataGridView();
+            this.TagID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -67,6 +79,10 @@
             this.tabPage2.SuspendLayout();
             this.grbDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTypes)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTags)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -91,6 +107,8 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
@@ -106,7 +124,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(910, 681);
+            this.tabPage1.Size = new System.Drawing.Size(1172, 646);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mapa";
             // 
@@ -159,6 +177,67 @@
             this.grbDetails.TabIndex = 14;
             this.grbDetails.TabStop = false;
             this.grbDetails.Text = "Detalji";
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Location = new System.Drawing.Point(758, 26);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.ReadOnly = true;
+            this.txtDescription.Size = new System.Drawing.Size(329, 179);
+            this.txtDescription.TabIndex = 53;
+            // 
+            // lblDesription
+            // 
+            this.lblDesription.AutoSize = true;
+            this.lblDesription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesription.Location = new System.Drawing.Point(635, 29);
+            this.lblDesription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDesription.Name = "lblDesription";
+            this.lblDesription.Size = new System.Drawing.Size(39, 18);
+            this.lblDesription.TabIndex = 52;
+            this.lblDesription.Text = "Opis";
+            // 
+            // chbExploatable
+            // 
+            this.chbExploatable.AutoSize = true;
+            this.chbExploatable.Enabled = false;
+            this.chbExploatable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbExploatable.Location = new System.Drawing.Point(408, 128);
+            this.chbExploatable.Margin = new System.Windows.Forms.Padding(4);
+            this.chbExploatable.Name = "chbExploatable";
+            this.chbExploatable.Size = new System.Drawing.Size(186, 22);
+            this.chbExploatable.TabIndex = 51;
+            this.chbExploatable.Text = "Moguća je ekspolatacija";
+            this.chbExploatable.UseVisualStyleBackColor = true;
+            // 
+            // chbImportant
+            // 
+            this.chbImportant.AutoSize = true;
+            this.chbImportant.Enabled = false;
+            this.chbImportant.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbImportant.Location = new System.Drawing.Point(408, 78);
+            this.chbImportant.Margin = new System.Windows.Forms.Padding(4);
+            this.chbImportant.Name = "chbImportant";
+            this.chbImportant.Size = new System.Drawing.Size(128, 22);
+            this.chbImportant.TabIndex = 50;
+            this.chbImportant.Text = "Strateški važan";
+            this.chbImportant.UseVisualStyleBackColor = true;
+            // 
+            // chbRenewable
+            // 
+            this.chbRenewable.AutoSize = true;
+            this.chbRenewable.Enabled = false;
+            this.chbRenewable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbRenewable.Location = new System.Drawing.Point(408, 28);
+            this.chbRenewable.Margin = new System.Windows.Forms.Padding(4);
+            this.chbRenewable.Name = "chbRenewable";
+            this.chbRenewable.Size = new System.Drawing.Size(87, 22);
+            this.chbRenewable.TabIndex = 49;
+            this.chbRenewable.Text = "Obnovljiv";
+            this.chbRenewable.UseVisualStyleBackColor = true;
             // 
             // lblUnit
             // 
@@ -335,66 +414,121 @@
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
             // 
-            // chbExploatable
+            // tabPage3
             // 
-            this.chbExploatable.AutoSize = true;
-            this.chbExploatable.Enabled = false;
-            this.chbExploatable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbExploatable.Location = new System.Drawing.Point(408, 128);
-            this.chbExploatable.Margin = new System.Windows.Forms.Padding(4);
-            this.chbExploatable.Name = "chbExploatable";
-            this.chbExploatable.Size = new System.Drawing.Size(186, 22);
-            this.chbExploatable.TabIndex = 51;
-            this.chbExploatable.Text = "Moguća je ekspolatacija";
-            this.chbExploatable.UseVisualStyleBackColor = true;
+            this.tabPage3.Controls.Add(this.btnEditType);
+            this.tabPage3.Controls.Add(this.btnNewType);
+            this.tabPage3.Controls.Add(this.dgwTypes);
+            this.tabPage3.Location = new System.Drawing.Point(4, 27);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(1172, 646);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Tipovi";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // chbImportant
+            // btnEditType
             // 
-            this.chbImportant.AutoSize = true;
-            this.chbImportant.Enabled = false;
-            this.chbImportant.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbImportant.Location = new System.Drawing.Point(408, 78);
-            this.chbImportant.Margin = new System.Windows.Forms.Padding(4);
-            this.chbImportant.Name = "chbImportant";
-            this.chbImportant.Size = new System.Drawing.Size(128, 22);
-            this.chbImportant.TabIndex = 50;
-            this.chbImportant.Text = "Strateški važan";
-            this.chbImportant.UseVisualStyleBackColor = true;
+            this.btnEditType.Location = new System.Drawing.Point(373, 52);
+            this.btnEditType.Name = "btnEditType";
+            this.btnEditType.Size = new System.Drawing.Size(90, 32);
+            this.btnEditType.TabIndex = 2;
+            this.btnEditType.Text = "Izmeni tip";
+            this.btnEditType.UseVisualStyleBackColor = true;
+            this.btnEditType.Click += new System.EventHandler(this.btnEditType_Click);
             // 
-            // chbRenewable
+            // btnNewType
             // 
-            this.chbRenewable.AutoSize = true;
-            this.chbRenewable.Enabled = false;
-            this.chbRenewable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chbRenewable.Location = new System.Drawing.Point(408, 28);
-            this.chbRenewable.Margin = new System.Windows.Forms.Padding(4);
-            this.chbRenewable.Name = "chbRenewable";
-            this.chbRenewable.Size = new System.Drawing.Size(87, 22);
-            this.chbRenewable.TabIndex = 49;
-            this.chbRenewable.Text = "Obnovljiv";
-            this.chbRenewable.UseVisualStyleBackColor = true;
+            this.btnNewType.Location = new System.Drawing.Point(373, 4);
+            this.btnNewType.Name = "btnNewType";
+            this.btnNewType.Size = new System.Drawing.Size(90, 32);
+            this.btnNewType.TabIndex = 1;
+            this.btnNewType.Text = "Dodaj tip";
+            this.btnNewType.UseVisualStyleBackColor = true;
+            this.btnNewType.Click += new System.EventHandler(this.btnNewType_Click);
             // 
-            // txtDescription
+            // dgwTypes
             // 
-            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.Location = new System.Drawing.Point(758, 26);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDescription.Multiline = true;
-            this.txtDescription.Name = "txtDescription";
-            this.txtDescription.ReadOnly = true;
-            this.txtDescription.Size = new System.Drawing.Size(329, 179);
-            this.txtDescription.TabIndex = 53;
+            this.dgwTypes.AllowUserToAddRows = false;
+            this.dgwTypes.AllowUserToDeleteRows = false;
+            this.dgwTypes.AllowUserToResizeRows = false;
+            this.dgwTypes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwTypes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TypeID,
+            this.TypeName});
+            this.dgwTypes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgwTypes.Location = new System.Drawing.Point(6, 4);
+            this.dgwTypes.Name = "dgwTypes";
+            this.dgwTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgwTypes.Size = new System.Drawing.Size(243, 376);
+            this.dgwTypes.TabIndex = 0;
             // 
-            // lblDesription
+            // TypeID
             // 
-            this.lblDesription.AutoSize = true;
-            this.lblDesription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesription.Location = new System.Drawing.Point(635, 29);
-            this.lblDesription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDesription.Name = "lblDesription";
-            this.lblDesription.Size = new System.Drawing.Size(39, 18);
-            this.lblDesription.TabIndex = 52;
-            this.lblDesription.Text = "Opis";
+            this.TypeID.HeaderText = "ID";
+            this.TypeID.Name = "TypeID";
+            // 
+            // TypeName
+            // 
+            this.TypeName.HeaderText = "Naziv";
+            this.TypeName.Name = "TypeName";
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.btnEditTag);
+            this.tabPage4.Controls.Add(this.btnNewTag);
+            this.tabPage4.Controls.Add(this.dgwTags);
+            this.tabPage4.Location = new System.Drawing.Point(4, 27);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(1172, 646);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Etikete";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btnEditTag
+            // 
+            this.btnEditTag.Location = new System.Drawing.Point(324, 43);
+            this.btnEditTag.Name = "btnEditTag";
+            this.btnEditTag.Size = new System.Drawing.Size(111, 32);
+            this.btnEditTag.TabIndex = 2;
+            this.btnEditTag.Text = "Izmeni etiketu";
+            this.btnEditTag.UseVisualStyleBackColor = true;
+            this.btnEditTag.Click += new System.EventHandler(this.btnEditTag_Click);
+            // 
+            // btnNewTag
+            // 
+            this.btnNewTag.Location = new System.Drawing.Point(324, 4);
+            this.btnNewTag.Name = "btnNewTag";
+            this.btnNewTag.Size = new System.Drawing.Size(111, 32);
+            this.btnNewTag.TabIndex = 1;
+            this.btnNewTag.Text = "Dodaj etiketu";
+            this.btnNewTag.UseVisualStyleBackColor = true;
+            this.btnNewTag.Click += new System.EventHandler(this.btnNewTag_Click);
+            // 
+            // dgwTags
+            // 
+            this.dgwTags.AllowUserToAddRows = false;
+            this.dgwTags.AllowUserToDeleteRows = false;
+            this.dgwTags.AllowUserToResizeRows = false;
+            this.dgwTags.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwTags.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TagID,
+            this.Color});
+            this.dgwTags.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgwTags.Location = new System.Drawing.Point(5, 3);
+            this.dgwTags.Name = "dgwTags";
+            this.dgwTags.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgwTags.Size = new System.Drawing.Size(313, 383);
+            this.dgwTags.TabIndex = 0;
+            // 
+            // TagID
+            // 
+            this.TagID.HeaderText = "ID";
+            this.TagID.Name = "TagID";
+            // 
+            // Color
+            // 
+            this.Color.HeaderText = "Boja";
+            this.Color.Name = "Color";
             // 
             // MainForm
             // 
@@ -408,7 +542,6 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Mapa svetskih resursa";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -418,6 +551,10 @@
             this.grbDetails.ResumeLayout(false);
             this.grbDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTypes)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTags)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -456,6 +593,18 @@
         private System.Windows.Forms.CheckBox chbRenewable;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label lblDesription;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.DataGridView dgwTypes;
+        private System.Windows.Forms.Button btnNewType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TypeName;
+        private System.Windows.Forms.Button btnEditType;
+        private System.Windows.Forms.DataGridView dgwTags;
+        private System.Windows.Forms.Button btnEditTag;
+        private System.Windows.Forms.Button btnNewTag;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TagID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Color;
 
     }
 }

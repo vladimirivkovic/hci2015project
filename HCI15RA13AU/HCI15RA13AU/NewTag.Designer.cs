@@ -1,6 +1,6 @@
 ﻿namespace HCI15RA13AU
 {
-    partial class NewTag
+    partial class TagForm
     {
         /// <summary>
         /// Required designer variable.

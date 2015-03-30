@@ -14,6 +14,10 @@ namespace HCI15RA13AU
 
         private List<Resource> resources = new List<Resource>();
 
+        public static List<Type> types = new List<Type>();
+
+        private static List<Tag> tags = new List<Tag>();
+
         private static string dateFormat = "dd.MM.yyyy";
 
         public MainForm()
@@ -110,6 +114,87 @@ namespace HCI15RA13AU
             {
                 dgwResources.CurrentCell = dgwResources.Rows[0].Cells[0];
                 dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
+            }
+        }
+
+        private void btnNewType_Click(object sender, EventArgs e)
+        {
+            TypeForm tf;
+            tf = new TypeForm();
+            tf.ShowDialog();
+
+            if (tf.DialogResult == DialogResult.OK)
+            {
+                Type t = tf.GetResourceType();
+                types.Add(t);
+                dgwTypes.Rows.Add(new object[] { t.ID, t.Name} );
+                dgwTypes.Rows[dgwTypes.Rows.Count - 1].Tag = t;
+                dgwTypes.CurrentCell = dgwTypes.Rows[0].Cells[0];
+            }
+        }
+
+        private void btnEditType_Click(object sender, EventArgs e)
+        {
+            if (dgwTypes.SelectedRows.Count > 0)
+            {
+                TypeForm tf = new TypeForm((Type)dgwTypes.SelectedRows[0].Tag);
+                tf.ShowDialog();
+
+                if (tf.DialogResult == DialogResult.OK)
+                {
+                    foreach (DataGridViewRow row in dgwTypes.SelectedRows)
+                    {
+                        if (row.Selected)
+                        {
+                            Type t = tf.GetResourceType();
+                            int index = dgwTypes.Rows.IndexOf(row);
+                            dgwTypes.Rows.RemoveAt(index);
+                            dgwTypes.Rows.Insert(index, new object[] { t.ID, t.Name});
+                            dgwTypes.Rows[index].Tag = t;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnNewTag_Click(object sender, EventArgs e)
+        {
+            TagForm nt = new TagForm();
+            nt.ShowDialog();
+
+            if (nt.DialogResult == DialogResult.OK)
+            {
+                Tag t = nt.GetTag();
+                tags.Add(t);
+                dgwTags.Rows.Add(new object[] { t.ID, t.Color.ToString() });
+                dgwTags.Rows[dgwTags.Rows.Count - 1].Tag = t;
+                dgwTags.CurrentCell = dgwTags.Rows[0].Cells[0];
+            }
+        }
+
+        private void btnEditTag_Click(object sender, EventArgs e)
+        {
+            if (dgwTags.SelectedRows.Count > 0)
+            {
+                TagForm tf = new TagForm((Tag)dgwTags.SelectedRows[0].Tag);
+                tf.ShowDialog();
+
+                if (tf.DialogResult == DialogResult.OK)
+                {
+                    foreach (DataGridViewRow row in dgwTags.SelectedRows)
+                    {
+                        if (row.Selected)
+                        {
+                            Tag t = tf.GetTag();
+                            int index = dgwTags.Rows.IndexOf(row);
+                            dgwTags.Rows.RemoveAt(index);
+                            dgwTags.Rows.Insert(index, new object[] { t.ID, "" });
+                            dgwTags.Rows[index].Tag = t;
+                            break;
+                        }
+                    }
+                }
             }
         }
     }
