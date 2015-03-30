@@ -36,7 +36,7 @@ namespace HCI15RA13AU
                 chbRenewable.Checked = true;
             if (res.Important)
                 chbImportant.Checked = true;
-            if (res.Accessable)
+            if (res.Exploatable)
                 chbExploatable.Checked = true;
             cmbUnit.Text = Resource.UnitToString(res.Unit);
             switch (res.Frequency)
@@ -64,7 +64,7 @@ namespace HCI15RA13AU
             res.Description = txtDescription.Text;
             res.Important = chbImportant.Checked;
             res.Renewable = chbRenewable.Checked;
-            res.Accessable = chbExploatable.Checked;
+            res.Exploatable = chbExploatable.Checked;
             res.Unit = Resource.StringToUnit(cmbUnit.Text);
             if (rbtFrequent.Checked)
                 res.Frequency = Frequency.FREQUENT;

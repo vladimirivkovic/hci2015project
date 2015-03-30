@@ -30,7 +30,7 @@ namespace HCI15RA13AU
             {
                 Resource res = addForm.GetResource();
                 resources.Add(res);
-                dgwResources.Rows.Add(new object[] { res.ID, res.Name, res.Discovered.ToString(dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable });
+                dgwResources.Rows.Add(new object[] { res.ID, res.Name, res.Discovered.ToString(dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable, Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit) });
                 dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
                 dgwResources.CurrentCell = dgwResources.Rows[0].Cells[0];
                 dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
@@ -53,7 +53,7 @@ namespace HCI15RA13AU
                             Resource res = erf.GetResource();
                             int index = dgwResources.Rows.IndexOf(row);
                             dgwResources.Rows.RemoveAt(index);
-                            dgwResources.Rows.Insert(index, new object[] { res.ID, res.Name, res.Discovered.ToString(dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable });
+                            dgwResources.Rows.Insert(index, new object[] { res.ID, res.Name, res.Discovered.ToString(dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable, Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit) });
                             dgwResources.Rows[index].Tag = res;
                             break;
                         }
@@ -71,6 +71,10 @@ namespace HCI15RA13AU
                 txtFrequency.Text = "";
                 txtName.Text = "";
                 txtUnit.Text = "";
+                chbExploatable.Checked = false;
+                chbImportant.Checked = false;
+                chbRenewable.Checked = false;
+                txtDescription.Text = "";
             }
             else
             {
@@ -81,6 +85,10 @@ namespace HCI15RA13AU
                     txtFrequency.Text = Resource.FrequencyToString(res.Frequency);
                     txtName.Text = res.Name;
                     txtUnit.Text = Resource.UnitToString(res.Unit);
+                    chbExploatable.Checked = res.Exploatable;
+                    chbImportant.Checked = res.Important;
+                    chbRenewable.Checked = res.Renewable;
+                    txtDescription.Text = res.Description;
                 }
             }
         }

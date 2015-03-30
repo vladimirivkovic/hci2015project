@@ -24,7 +24,7 @@ namespace HCI15RA13AU
         public string Name { get; set; }
         public Frequency Frequency { get; set; }
         public bool Renewable { get; set; }
-        public bool Accessable { get; set; }
+        public bool Exploatable { get; set; }
         public bool Important { get; set; }
         public double Cost { get; set; }
         public DateTime Discovered { get; set; }
@@ -55,11 +55,11 @@ namespace HCI15RA13AU
             switch (f)
             {
                 case Frequency.FREQUENT:
-                    return "frequent";
+                    return "čest";
                 case Frequency.RARE:
-                    return "rare";
+                    return "redak";
                 case Frequency.UNIVERSAL:
-                    return "universal";
+                    return "univezalan";
                 default:
                     return "";
             }

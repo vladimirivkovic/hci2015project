@@ -84,7 +84,7 @@
             this.btnType.Name = "btnType";
             this.btnType.Size = new System.Drawing.Size(124, 32);
             this.btnType.TabIndex = 45;
-            this.btnType.Text = "Definiši tip";
+            this.btnType.Text = "Izmeni tip";
             this.btnType.UseVisualStyleBackColor = true;
             this.btnType.Click += new System.EventHandler(this.btnType_Click);
             // 
@@ -304,6 +304,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(1036, 523);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
@@ -316,6 +317,7 @@
             // 
             // btnOk
             // 
+            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Location = new System.Drawing.Point(887, 523);
             this.btnOk.Margin = new System.Windows.Forms.Padding(4);

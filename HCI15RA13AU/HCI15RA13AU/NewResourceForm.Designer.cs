@@ -137,6 +137,7 @@
             // 
             // btnOk
             // 
+            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.Location = new System.Drawing.Point(889, 524);
             this.btnOk.Margin = new System.Windows.Forms.Padding(4);
             this.btnOk.Name = "btnOk";
@@ -148,6 +149,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Location = new System.Drawing.Point(1038, 524);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancel.Name = "btnCancel";
@@ -385,6 +387,7 @@
             this.btnType.Text = "Definiši tip";
             this.btnType.UseVisualStyleBackColor = true;
             this.btnType.Click += new System.EventHandler(this.btnType_Click);
+            this.btnType.Validating += new System.ComponentModel.CancelEventHandler(this.btnType_Validating);
             // 
             // lblType
             // 

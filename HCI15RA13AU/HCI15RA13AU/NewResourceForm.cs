@@ -24,6 +24,7 @@ namespace HCI15RA13AU
             this.cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
             tags = new List<Tag>();
             type = new Type();
+            type.ID = "";
         }
 
         private void btnIcon_Click(object sender, EventArgs e)
@@ -146,7 +147,7 @@ namespace HCI15RA13AU
             res.Description = txtDescription.Text;
             res.Important = chbImportant.Checked;
             res.Renewable = chbRenewable.Checked;
-            res.Accessable = chbExploatable.Checked;
+            res.Exploatable = chbExploatable.Checked;
             res.Unit = Resource.StringToUnit(cmbUnit.Text);
             if (rbtFrequent.Checked)
                 res.Frequency = Frequency.FREQUENT;
@@ -211,13 +212,34 @@ namespace HCI15RA13AU
 
         private void btnType_Click(object sender, EventArgs e)
         {
-            TypeForm tf = new TypeForm();
+            TypeForm tf;
+            if (type.ID == "")
+            {
+                tf = new TypeForm();
+            }
+            else
+            {
+                tf = new TypeForm(type);
+            }
             tf.ShowDialog();
 
             if (tf.DialogResult == DialogResult.OK)
             {
                 type = tf.GetResourceType();
                 btnType.Text = "Izmeni tip";
+            }
+        }
+
+        private void btnType_Validating(object sender, CancelEventArgs e)
+        {
+            if (type.ID == "")
+            {
+                epAdd.SetError(btnType, "Mora se definisati tip resursa");
+                formIsValid = false;
+            }
+            else
+            {
+                epAdd.SetError(btnType, "");
             }
         }
     }

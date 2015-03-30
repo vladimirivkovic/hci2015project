@@ -53,6 +53,13 @@
             this.Cost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Important = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Renewable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Frequency = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.chbExploatable = new System.Windows.Forms.CheckBox();
+            this.chbImportant = new System.Windows.Forms.CheckBox();
+            this.chbRenewable = new System.Windows.Forms.CheckBox();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.lblDesription = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -65,7 +72,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Location = new System.Drawing.Point(18, 17);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(0, 0);
             this.pictureBox1.TabIndex = 0;
@@ -85,10 +92,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Location = new System.Drawing.Point(3, 3);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(918, 712);
+            this.tabControl1.Size = new System.Drawing.Size(1180, 677);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage1
@@ -96,10 +103,10 @@
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabPage1.Controls.Add(this.pictureBox2);
             this.tabPage1.Location = new System.Drawing.Point(4, 27);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(910, 710);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(910, 681);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mapa";
             // 
@@ -108,7 +115,7 @@
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
             this.pictureBox2.Location = new System.Drawing.Point(9, 8);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(1215, 692);
             this.pictureBox2.TabIndex = 0;
@@ -121,16 +128,21 @@
             this.tabPage2.Controls.Add(this.btnAddResource);
             this.tabPage2.Controls.Add(this.dgwResources);
             this.tabPage2.Location = new System.Drawing.Point(4, 27);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage2.Size = new System.Drawing.Size(910, 681);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Size = new System.Drawing.Size(1172, 646);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tabelarni prikaz";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // grbDetails
             // 
+            this.grbDetails.Controls.Add(this.txtDescription);
+            this.grbDetails.Controls.Add(this.lblDesription);
+            this.grbDetails.Controls.Add(this.chbExploatable);
+            this.grbDetails.Controls.Add(this.chbImportant);
+            this.grbDetails.Controls.Add(this.chbRenewable);
             this.grbDetails.Controls.Add(this.lblUnit);
             this.grbDetails.Controls.Add(this.txtUnit);
             this.grbDetails.Controls.Add(this.txtFrequency);
@@ -140,10 +152,10 @@
             this.grbDetails.Controls.Add(this.lblId);
             this.grbDetails.Controls.Add(this.txtId);
             this.grbDetails.Location = new System.Drawing.Point(8, 433);
-            this.grbDetails.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.grbDetails.Margin = new System.Windows.Forms.Padding(4);
             this.grbDetails.Name = "grbDetails";
-            this.grbDetails.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.grbDetails.Size = new System.Drawing.Size(894, 246);
+            this.grbDetails.Padding = new System.Windows.Forms.Padding(4);
+            this.grbDetails.Size = new System.Drawing.Size(1160, 213);
             this.grbDetails.TabIndex = 14;
             this.grbDetails.TabStop = false;
             this.grbDetails.Text = "Detalji";
@@ -161,7 +173,7 @@
             // txtUnit
             // 
             this.txtUnit.Location = new System.Drawing.Point(154, 183);
-            this.txtUnit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUnit.Margin = new System.Windows.Forms.Padding(4);
             this.txtUnit.Name = "txtUnit";
             this.txtUnit.ReadOnly = true;
             this.txtUnit.Size = new System.Drawing.Size(148, 24);
@@ -170,7 +182,7 @@
             // txtFrequency
             // 
             this.txtFrequency.Location = new System.Drawing.Point(154, 126);
-            this.txtFrequency.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFrequency.Margin = new System.Windows.Forms.Padding(4);
             this.txtFrequency.Name = "txtFrequency";
             this.txtFrequency.ReadOnly = true;
             this.txtFrequency.Size = new System.Drawing.Size(148, 24);
@@ -189,7 +201,7 @@
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(154, 75);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.ReadOnly = true;
             this.txtName.Size = new System.Drawing.Size(148, 24);
@@ -218,7 +230,7 @@
             // txtId
             // 
             this.txtId.Location = new System.Drawing.Point(154, 26);
-            this.txtId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtId.Margin = new System.Windows.Forms.Padding(4);
             this.txtId.Name = "txtId";
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(148, 24);
@@ -226,8 +238,8 @@
             // 
             // btnEditResource
             // 
-            this.btnEditResource.Location = new System.Drawing.Point(751, 67);
-            this.btnEditResource.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnEditResource.Location = new System.Drawing.Point(983, 48);
+            this.btnEditResource.Margin = new System.Windows.Forms.Padding(4);
             this.btnEditResource.Name = "btnEditResource";
             this.btnEditResource.Size = new System.Drawing.Size(112, 32);
             this.btnEditResource.TabIndex = 13;
@@ -237,8 +249,8 @@
             // 
             // btnAddResource
             // 
-            this.btnAddResource.Location = new System.Drawing.Point(751, 8);
-            this.btnAddResource.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAddResource.Location = new System.Drawing.Point(983, 8);
+            this.btnAddResource.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddResource.Name = "btnAddResource";
             this.btnAddResource.Size = new System.Drawing.Size(112, 32);
             this.btnAddResource.TabIndex = 12;
@@ -258,14 +270,16 @@
             this.Date,
             this.Cost,
             this.Important,
-            this.Renewable});
+            this.Renewable,
+            this.Frequency,
+            this.Unit});
             this.dgwResources.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgwResources.Location = new System.Drawing.Point(9, 8);
-            this.dgwResources.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgwResources.Location = new System.Drawing.Point(8, 8);
+            this.dgwResources.Margin = new System.Windows.Forms.Padding(4);
             this.dgwResources.Name = "dgwResources";
             this.dgwResources.ReadOnly = true;
             this.dgwResources.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwResources.Size = new System.Drawing.Size(644, 417);
+            this.dgwResources.Size = new System.Drawing.Size(845, 417);
             this.dgwResources.TabIndex = 11;
             this.dgwResources.SelectionChanged += new System.EventHandler(this.dgwResources_SelectionChanged);
             // 
@@ -309,18 +323,92 @@
             this.Renewable.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Renewable.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // Frequency
+            // 
+            this.Frequency.HeaderText = "Frekvencija";
+            this.Frequency.Name = "Frequency";
+            this.Frequency.ReadOnly = true;
+            // 
+            // Unit
+            // 
+            this.Unit.HeaderText = "Jedinica mere";
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            // 
+            // chbExploatable
+            // 
+            this.chbExploatable.AutoSize = true;
+            this.chbExploatable.Enabled = false;
+            this.chbExploatable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbExploatable.Location = new System.Drawing.Point(408, 128);
+            this.chbExploatable.Margin = new System.Windows.Forms.Padding(4);
+            this.chbExploatable.Name = "chbExploatable";
+            this.chbExploatable.Size = new System.Drawing.Size(186, 22);
+            this.chbExploatable.TabIndex = 51;
+            this.chbExploatable.Text = "Moguća je ekspolatacija";
+            this.chbExploatable.UseVisualStyleBackColor = true;
+            // 
+            // chbImportant
+            // 
+            this.chbImportant.AutoSize = true;
+            this.chbImportant.Enabled = false;
+            this.chbImportant.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbImportant.Location = new System.Drawing.Point(408, 78);
+            this.chbImportant.Margin = new System.Windows.Forms.Padding(4);
+            this.chbImportant.Name = "chbImportant";
+            this.chbImportant.Size = new System.Drawing.Size(128, 22);
+            this.chbImportant.TabIndex = 50;
+            this.chbImportant.Text = "Strateški važan";
+            this.chbImportant.UseVisualStyleBackColor = true;
+            // 
+            // chbRenewable
+            // 
+            this.chbRenewable.AutoSize = true;
+            this.chbRenewable.Enabled = false;
+            this.chbRenewable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chbRenewable.Location = new System.Drawing.Point(408, 28);
+            this.chbRenewable.Margin = new System.Windows.Forms.Padding(4);
+            this.chbRenewable.Name = "chbRenewable";
+            this.chbRenewable.Size = new System.Drawing.Size(87, 22);
+            this.chbRenewable.TabIndex = 49;
+            this.chbRenewable.Text = "Obnovljiv";
+            this.chbRenewable.UseVisualStyleBackColor = true;
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescription.Location = new System.Drawing.Point(758, 26);
+            this.txtDescription.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDescription.Multiline = true;
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.ReadOnly = true;
+            this.txtDescription.Size = new System.Drawing.Size(329, 179);
+            this.txtDescription.TabIndex = 53;
+            // 
+            // lblDesription
+            // 
+            this.lblDesription.AutoSize = true;
+            this.lblDesription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDesription.Location = new System.Drawing.Point(635, 29);
+            this.lblDesription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDesription.Name = "lblDesription";
+            this.lblDesription.Size = new System.Drawing.Size(39, 18);
+            this.lblDesription.TabIndex = 52;
+            this.lblDesription.Text = "Opis";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(920, 715);
+            this.ClientSize = new System.Drawing.Size(1184, 681);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblSelectedResource);
             this.Controls.Add(this.pictureBox1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "MainForm";
             this.Text = "Mapa svetskih resursa";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
@@ -361,6 +449,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cost;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Important;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Renewable;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Frequency;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
+        private System.Windows.Forms.CheckBox chbExploatable;
+        private System.Windows.Forms.CheckBox chbImportant;
+        private System.Windows.Forms.CheckBox chbRenewable;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.Label lblDesription;
 
     }
 }
