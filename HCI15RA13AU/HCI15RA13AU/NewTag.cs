@@ -81,6 +81,7 @@ namespace HCI15RA13AU
             this.ValidateChildren();
             if (formIsValid)
             {
+                MainForm.tags.Add(GetTag());
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

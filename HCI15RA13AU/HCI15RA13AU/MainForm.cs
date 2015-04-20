@@ -16,7 +16,7 @@ namespace HCI15RA13AU
 
         public static List<Type> types = new List<Type>();
 
-        private static List<Tag> tags = new List<Tag>();
+        public static List<Tag> tags = new List<Tag>();
 
         private static string dateFormat = "dd.MM.yyyy";
 

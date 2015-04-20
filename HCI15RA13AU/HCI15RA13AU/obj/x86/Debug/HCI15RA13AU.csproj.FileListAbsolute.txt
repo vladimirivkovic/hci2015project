@@ -24,3 +24,4 @@ G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\GenerateResource.read.1.tlog
 G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\GenerateResource.write.1.tlog
 G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TagForm.resources
 G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ChooseType.resources
+G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.SelectTagForm.resources

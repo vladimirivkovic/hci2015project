@@ -207,12 +207,12 @@ namespace HCI15RA13AU
 
         private void btnTag_Click(object sender, EventArgs e)
         {
-            TagForm nt = new TagForm();
+            SelectTagForm nt = new SelectTagForm();
             nt.ShowDialog();
 
             if (nt.DialogResult == DialogResult.OK)
             {
-                tags.Add(nt.GetTag());
+                //tags.Add(nt.GetTag());
                 lblTag.Text = tags.Count.ToString();
             }
         }
