@@ -72,6 +72,7 @@
             this.dgwTags = new System.Windows.Forms.DataGridView();
             this.TagID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDeleteResource = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -141,6 +142,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnDeleteResource);
             this.tabPage2.Controls.Add(this.grbDetails);
             this.tabPage2.Controls.Add(this.btnEditResource);
             this.tabPage2.Controls.Add(this.btnAddResource);
@@ -517,7 +519,7 @@
             this.dgwTags.Location = new System.Drawing.Point(5, 3);
             this.dgwTags.Name = "dgwTags";
             this.dgwTags.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwTags.Size = new System.Drawing.Size(313, 383);
+            this.dgwTags.Size = new System.Drawing.Size(244, 383);
             this.dgwTags.TabIndex = 0;
             // 
             // TagID
@@ -529,6 +531,16 @@
             // 
             this.Color.HeaderText = "Boja";
             this.Color.Name = "Color";
+            // 
+            // btnDeleteResource
+            // 
+            this.btnDeleteResource.Location = new System.Drawing.Point(983, 88);
+            this.btnDeleteResource.Name = "btnDeleteResource";
+            this.btnDeleteResource.Size = new System.Drawing.Size(112, 27);
+            this.btnDeleteResource.TabIndex = 15;
+            this.btnDeleteResource.Text = "Obriši resurs";
+            this.btnDeleteResource.UseVisualStyleBackColor = true;
+            this.btnDeleteResource.Click += new System.EventHandler(this.btnDeleteResource_Click);
             // 
             // MainForm
             // 
@@ -605,6 +617,7 @@
         private System.Windows.Forms.Button btnNewTag;
         private System.Windows.Forms.DataGridViewTextBoxColumn TagID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Color;
+        private System.Windows.Forms.Button btnDeleteResource;
 
     }
 }

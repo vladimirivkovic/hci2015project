@@ -84,7 +84,7 @@
             this.btnTag.Name = "btnTag";
             this.btnTag.Size = new System.Drawing.Size(124, 32);
             this.btnTag.TabIndex = 44;
-            this.btnTag.Text = "Dodaj etiketu";
+            this.btnTag.Text = "Izmeni etikete";
             this.btnTag.UseVisualStyleBackColor = true;
             this.btnTag.Click += new System.EventHandler(this.btnTag_Click);
             // 

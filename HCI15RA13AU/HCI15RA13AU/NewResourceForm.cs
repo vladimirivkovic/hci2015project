@@ -13,7 +13,7 @@ namespace HCI15RA13AU
     {
         private OpenFileDialog ofd = new OpenFileDialog();
         private bool formIsValid = true;
-        private List<Tag> tags;
+        private Dictionary<string, Tag> tags;
         private Type type;
         private string fname = "";
 
@@ -27,7 +27,7 @@ namespace HCI15RA13AU
             {
                 cmbType.Items.Add(t.ID);
             }
-            tags = new List<Tag>();
+            tags = new Dictionary<string, Tag>();
             type = new Type();
             type.ID = "";
         }
@@ -212,8 +212,15 @@ namespace HCI15RA13AU
 
             if (nt.DialogResult == DialogResult.OK)
             {
-                //tags.Add(nt.GetTag());
-                lblTag.Text = tags.Count.ToString();
+                List<string> ret = nt.GetSelectedTags();
+                foreach(string s in ret) {
+                    if (MainForm.tags.ContainsKey(s))
+                    {
+                        Tag t = MainForm.tags[s];
+                        tags.Add(s, t);
+                    }
+                }
+                lblTag.Text = tags.Count.ToString() + " etiketa";
             }
         }
 

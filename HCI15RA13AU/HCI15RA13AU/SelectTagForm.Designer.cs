@@ -47,6 +47,7 @@
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOk
             // 
@@ -64,6 +65,7 @@
             this.lstAllTags.FormattingEnabled = true;
             this.lstAllTags.Location = new System.Drawing.Point(12, 12);
             this.lstAllTags.Name = "lstAllTags";
+            this.lstAllTags.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstAllTags.Size = new System.Drawing.Size(164, 212);
             this.lstAllTags.TabIndex = 2;
             // 
@@ -72,6 +74,7 @@
             this.lstSelectedTags.FormattingEnabled = true;
             this.lstSelectedTags.Location = new System.Drawing.Point(269, 12);
             this.lstSelectedTags.Name = "lstSelectedTags";
+            this.lstSelectedTags.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstSelectedTags.Size = new System.Drawing.Size(161, 212);
             this.lstSelectedTags.TabIndex = 3;
             // 
@@ -93,6 +96,7 @@
             this.btnAddAll.TabIndex = 5;
             this.btnAddAll.Text = ">>";
             this.btnAddAll.UseVisualStyleBackColor = true;
+            this.btnAddAll.Click += new System.EventHandler(this.btnAddAll_Click);
             // 
             // btnRemove
             // 
@@ -102,6 +106,7 @@
             this.btnRemove.TabIndex = 6;
             this.btnRemove.Text = "<";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnRemoveAll
             // 
@@ -111,6 +116,7 @@
             this.btnRemoveAll.TabIndex = 7;
             this.btnRemoveAll.Text = "<<";
             this.btnRemoveAll.UseVisualStyleBackColor = true;
+            this.btnRemoveAll.Click += new System.EventHandler(this.btnRemoveAll_Click);
             // 
             // SelectTagForm
             // 

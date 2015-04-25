@@ -16,7 +16,7 @@ namespace HCI15RA13AU
 
         public static List<Type> types = new List<Type>();
 
-        public static List<Tag> tags = new List<Tag>();
+        public static Dictionary<string, Tag> tags = new Dictionary<string, Tag>();
 
         private static string dateFormat = "dd.MM.yyyy";
 
@@ -34,7 +34,9 @@ namespace HCI15RA13AU
             {
                 Resource res = addForm.GetResource();
                 resources.Add(res);
-                dgwResources.Rows.Add(new object[] { res.ID, res.Name, res.Discovered.ToString(dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable, Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit) });
+                dgwResources.Rows.Add(new object[] { res.ID, res.Name, res.Discovered.ToString(dateFormat),
+                    res.Cost.ToString("C"), res.Important, res.Renewable,
+                    Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit) });
                 dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
                 dgwResources.CurrentCell = dgwResources.Rows[0].Cells[0];
                 dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
@@ -57,7 +59,9 @@ namespace HCI15RA13AU
                             Resource res = erf.GetResource();
                             int index = dgwResources.Rows.IndexOf(row);
                             dgwResources.Rows.RemoveAt(index);
-                            dgwResources.Rows.Insert(index, new object[] { res.ID, res.Name, res.Discovered.ToString(dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable, Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit) });
+                            dgwResources.Rows.Insert(index, new object[] { res.ID, res.Name, res.Discovered.ToString(dateFormat),
+                                res.Cost.ToString("C"), res.Important, res.Renewable,
+                                Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit) });
                             dgwResources.Rows[index].Tag = res;
                             break;
                         }
@@ -107,7 +111,8 @@ namespace HCI15RA13AU
             dgwResources.Rows.Clear();
             foreach (Resource res in resources)
             {
-                dgwResources.Rows.Add(new object[] { res.ID, res.Name, res.Discovered.ToString(dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable });
+                dgwResources.Rows.Add(new object[] { res.ID, res.Name, 
+                    res.Discovered.ToString(dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable });
                 dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
             }
             if (dgwResources.Rows.Count > 0)
@@ -166,10 +171,14 @@ namespace HCI15RA13AU
             if (nt.DialogResult == DialogResult.OK)
             {
                 Tag t = nt.GetTag();
-                tags.Add(t);
-                dgwTags.Rows.Add(new object[] { t.ID, t.Color.ToString() });
+                tags.Add(t.ID, t);
+
+                DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
+                cellStyle.BackColor = t.Color;
+                dgwTags.Rows.Add(new object[] { t.ID, "" });
                 dgwTags.Rows[dgwTags.Rows.Count - 1].Tag = t;
-                dgwTags.CurrentCell = dgwTags.Rows[0].Cells[0];
+                dgwTags.Rows[dgwTags.Rows.Count - 1].Cells[1].Style = cellStyle;
+                dgwTags.CurrentCell = null;
             }
         }
 
@@ -195,6 +204,22 @@ namespace HCI15RA13AU
                         }
                     }
                 }
+            }
+        }
+
+        private void btnDeleteResource_Click(object sender, EventArgs e)
+        {
+            if (dgwResources.SelectedRows.Count == 0)
+                return;
+            DataGridViewRow row = dgwResources.SelectedRows[0];
+            if(row != null) {
+                int index = dgwResources.Rows.IndexOf(row);
+                Resource res = (Resource) row.Tag;
+                if (res != null)
+                {
+                    resources.Remove(res);
+                }
+                dgwResources.Rows.RemoveAt(index);
             }
         }
     }
