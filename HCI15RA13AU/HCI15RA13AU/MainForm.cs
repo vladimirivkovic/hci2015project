@@ -6,6 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace HCI15RA13AU
 {
@@ -23,6 +25,8 @@ namespace HCI15RA13AU
         public MainForm()
         {
             InitializeComponent();
+            DeserializeTags();
+            DeserializeTypes();
         }
 
         private void btnAddResource_Click(object sender, EventArgs e)
@@ -134,6 +138,31 @@ namespace HCI15RA13AU
             {
                 dgwResources.CurrentCell = dgwResources.Rows[0].Cells[0];
                 dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
+            }
+
+            dgwTags.Rows.Clear();
+            foreach (Tag t in tags.Values)
+            {
+                DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
+                cellStyle.BackColor = t.Color;
+                dgwTags.Rows.Add(new object[] { t.ID, "" });
+                dgwTags.Rows[dgwTags.Rows.Count - 1].Tag = t;
+                dgwTags.Rows[dgwTags.Rows.Count - 1].Cells[1].Style = cellStyle;
+            }
+            if (dgwTags.Rows.Count > 0)
+            {
+                dgwTags.CurrentCell = dgwTags.Rows[0].Cells[0];
+            }
+
+            dgwTypes.Rows.Clear();
+            foreach (Type t in types.Values)
+            {
+                dgwTypes.Rows.Add(new object[] { t.ID, t.Name} );
+                dgwTypes.Rows[dgwTypes.Rows.Count - 1].Tag = t;
+            }
+            if (dgwTypes.Rows.Count > 0)
+            {
+                dgwTypes.CurrentCell = dgwTypes.Rows[0].Cells[0];
             }
         }
 
@@ -305,6 +334,58 @@ namespace HCI15RA13AU
                     tags.Remove(t.ID);
                 }
                 dgwTags.Rows.RemoveAt(index);
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            XmlSerializer tagsSerialzer = new XmlSerializer(typeof(TagItem[]), new XmlRootAttribute("ListOfTags"));
+            FileStream buffer = File.Open("tags.xml", FileMode.Create);
+
+            tagsSerialzer.Serialize(buffer, tags.Select(kv => new TagItem(kv.Value)).ToArray());
+            buffer.Close();
+
+            XmlSerializer typesSerialzer = new XmlSerializer(typeof(Type[]), new XmlRootAttribute("ListOfTypes"));
+            FileStream buffer1 = File.Open("types.xml", FileMode.Create);
+
+            typesSerialzer.Serialize(buffer1, types.Select(kv => new Type(kv.Value)).ToArray());
+            buffer1.Close();
+        }
+
+        private void DeserializeTags()
+        {
+            XmlSerializer tagsSerialzer = new XmlSerializer(typeof(TagItem[]), new XmlRootAttribute("ListOfTags"));
+            FileStream buffer = File.Open("tags.xml", FileMode.Open);
+
+            TagItem[] items = tagsSerialzer.Deserialize(buffer) as TagItem[];
+            foreach (TagItem item in items)
+            {
+                tags.Add(item.ID, new Tag(item));
+            }
+            buffer.Close();
+        }
+
+        private void DeserializeTypes()
+        {
+            try
+            {
+                XmlSerializer typesSerialzer = new XmlSerializer(typeof(Type[]), new XmlRootAttribute("ListOfTypes"));
+                FileStream buffer = File.Open("types.xml", FileMode.Open);
+
+                Type[] items = typesSerialzer.Deserialize(buffer) as Type[];
+                foreach (Type item in items)
+                {
+                    types.Add(item.ID, new Type(item));
+                }
+                buffer.Close();
+            }
+            catch (IOException e1)
+            {
+                Console.WriteLine(e1.StackTrace);
+            }
+            catch (InvalidOperationException e2)
+            {
+                Console.WriteLine(e2.StackTrace);
             }
         }
     }

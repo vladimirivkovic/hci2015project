@@ -37,6 +37,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnDeleteResource = new System.Windows.Forms.Button();
             this.grbDetails = new System.Windows.Forms.GroupBox();
+            this.lvTags = new System.Windows.Forms.ListView();
+            this.lblTags = new System.Windows.Forms.Label();
             this.tag3 = new System.Windows.Forms.Label();
             this.tag2 = new System.Windows.Forms.Label();
             this.tag1 = new System.Windows.Forms.Label();
@@ -78,8 +80,7 @@
             this.dgwTags = new System.Windows.Forms.DataGridView();
             this.TagID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTags = new System.Windows.Forms.Label();
-            this.lvTags = new System.Windows.Forms.ListView();
+            this.btnSave = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -149,6 +150,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.btnSave);
             this.tabPage2.Controls.Add(this.btnDeleteResource);
             this.tabPage2.Controls.Add(this.grbDetails);
             this.tabPage2.Controls.Add(this.btnEditResource);
@@ -201,6 +203,24 @@
             this.grbDetails.TabIndex = 14;
             this.grbDetails.TabStop = false;
             this.grbDetails.Text = "Detalji";
+            // 
+            // lvTags
+            // 
+            this.lvTags.Location = new System.Drawing.Point(468, 178);
+            this.lvTags.Name = "lvTags";
+            this.lvTags.Scrollable = false;
+            this.lvTags.Size = new System.Drawing.Size(165, 29);
+            this.lvTags.TabIndex = 60;
+            this.lvTags.UseCompatibleStateImageBehavior = false;
+            // 
+            // lblTags
+            // 
+            this.lblTags.AutoSize = true;
+            this.lblTags.Location = new System.Drawing.Point(405, 183);
+            this.lblTags.Name = "lblTags";
+            this.lblTags.Size = new System.Drawing.Size(57, 18);
+            this.lblTags.TabIndex = 59;
+            this.lblTags.Text = "Etikete:";
             // 
             // tag3
             // 
@@ -597,23 +617,15 @@
             this.Color.HeaderText = "Boja";
             this.Color.Name = "Color";
             // 
-            // lblTags
+            // btnSave
             // 
-            this.lblTags.AutoSize = true;
-            this.lblTags.Location = new System.Drawing.Point(405, 183);
-            this.lblTags.Name = "lblTags";
-            this.lblTags.Size = new System.Drawing.Size(57, 18);
-            this.lblTags.TabIndex = 59;
-            this.lblTags.Text = "Etikete:";
-            // 
-            // lvTags
-            // 
-            this.lvTags.Location = new System.Drawing.Point(468, 178);
-            this.lvTags.Name = "lvTags";
-            this.lvTags.Scrollable = false;
-            this.lvTags.Size = new System.Drawing.Size(165, 29);
-            this.lvTags.TabIndex = 60;
-            this.lvTags.UseCompatibleStateImageBehavior = false;
+            this.btnSave.Location = new System.Drawing.Point(999, 234);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(84, 31);
+            this.btnSave.TabIndex = 16;
+            this.btnSave.Text = "Sacuvaj";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // MainForm
             // 
@@ -698,6 +710,7 @@
         private System.Windows.Forms.Label tag1;
         private System.Windows.Forms.Label lblTags;
         private System.Windows.Forms.ListView lvTags;
+        private System.Windows.Forms.Button btnSave;
 
     }
 }

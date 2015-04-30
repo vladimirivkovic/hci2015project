@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<ListOfTags xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <TagItem>
+    <ID>a</ID>
+    <Color />
+    <Description>a</Description>
+    <A>255</A>
+    <B>0</B>
+    <G>0</G>
+    <R>255</R>
+  </TagItem>
+  <TagItem>
+    <ID>b</ID>
+    <Color />
+    <Description>b</Description>
+    <A>255</A>
+    <B>255</B>
+    <G>0</G>
+    <R>0</R>
+  </TagItem>
+</ListOfTags>

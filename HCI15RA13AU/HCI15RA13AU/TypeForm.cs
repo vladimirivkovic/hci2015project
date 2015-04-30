@@ -100,6 +100,14 @@ namespace HCI15RA13AU
             t.ID = txtId.Text;
             t.Name = txtName.Text;
             t.Description = txtDescription.Text;
+            if (lblIconName.Text != null)
+            {
+                t.IconFileName = lblIconName.Text;
+            }
+            else
+            {
+                t.IconFileName = "";
+            }
 
             return t;
         }
