@@ -31,13 +31,16 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSelectedResource = new System.Windows.Forms.Label();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDeleteResource = new System.Windows.Forms.Button();
             this.grbDetails = new System.Windows.Forms.GroupBox();
+            this.pbxIcon = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtTypeName = new System.Windows.Forms.TextBox();
+            this.txtTypeId = new System.Windows.Forms.TextBox();
+            this.lblTypeName = new System.Windows.Forms.Label();
+            this.lblTypeId = new System.Windows.Forms.Label();
             this.lvTags = new System.Windows.Forms.ListView();
             this.lblTags = new System.Windows.Forms.Label();
             this.tag3 = new System.Windows.Forms.Label();
@@ -67,39 +70,50 @@
             this.Renewable = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Frequency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.gbxType = new System.Windows.Forms.GroupBox();
+            this.pbxTypeIcon = new System.Windows.Forms.PictureBox();
+            this.txtTypeDesc = new System.Windows.Forms.TextBox();
+            this.lblIcon = new System.Windows.Forms.Label();
+            this.lblTypeDesc = new System.Windows.Forms.Label();
             this.btnDeleteType = new System.Windows.Forms.Button();
             this.btnEditType = new System.Windows.Forms.Button();
             this.btnNewType = new System.Windows.Forms.Button();
             this.dgwTypes = new System.Windows.Forms.DataGridView();
             this.TypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.gbxTag = new System.Windows.Forms.GroupBox();
+            this.txtTagDesc = new System.Windows.Forms.TextBox();
+            this.lblTagDesc = new System.Windows.Forms.Label();
             this.btnDeleteTag = new System.Windows.Forms.Button();
             this.btnEditTag = new System.Windows.Forms.Button();
             this.btnNewTag = new System.Windows.Forms.Button();
             this.dgwTags = new System.Windows.Forms.DataGridView();
             this.TagID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblTypeId = new System.Windows.Forms.Label();
-            this.lblTypeName = new System.Windows.Forms.Label();
-            this.txtTypeId = new System.Windows.Forms.TextBox();
-            this.txtTypeName = new System.Windows.Forms.TextBox();
-            this.pbxIcon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.grbDetails.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwTypes)).BeginInit();
-            this.tabPage4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwTags)).BeginInit();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.gbxType.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxTypeIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTypes)).BeginInit();
+            this.gbxTag.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTags)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -119,42 +133,6 @@
             this.lblSelectedResource.Name = "lblSelectedResource";
             this.lblSelectedResource.Size = new System.Drawing.Size(0, 18);
             this.lblSelectedResource.TabIndex = 8;
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1180, 692);
-            this.tabControl1.TabIndex = 10;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage1.Controls.Add(this.pictureBox2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 27);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1172, 661);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Mapa";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(9, 8);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1215, 692);
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // tabPage2
             // 
@@ -223,6 +201,61 @@
             this.grbDetails.TabIndex = 14;
             this.grbDetails.TabStop = false;
             this.grbDetails.Text = "Detalji";
+            // 
+            // pbxIcon
+            // 
+            this.pbxIcon.Location = new System.Drawing.Point(666, 98);
+            this.pbxIcon.Name = "pbxIcon";
+            this.pbxIcon.Size = new System.Drawing.Size(51, 50);
+            this.pbxIcon.TabIndex = 62;
+            this.pbxIcon.TabStop = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtTypeName);
+            this.groupBox1.Controls.Add(this.txtTypeId);
+            this.groupBox1.Controls.Add(this.lblTypeName);
+            this.groupBox1.Controls.Add(this.lblTypeId);
+            this.groupBox1.Location = new System.Drawing.Point(758, 155);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(369, 62);
+            this.groupBox1.TabIndex = 61;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tip resursa";
+            // 
+            // txtTypeName
+            // 
+            this.txtTypeName.Location = new System.Drawing.Point(263, 28);
+            this.txtTypeName.Name = "txtTypeName";
+            this.txtTypeName.ReadOnly = true;
+            this.txtTypeName.Size = new System.Drawing.Size(100, 24);
+            this.txtTypeName.TabIndex = 3;
+            // 
+            // txtTypeId
+            // 
+            this.txtTypeId.Location = new System.Drawing.Point(72, 29);
+            this.txtTypeId.Name = "txtTypeId";
+            this.txtTypeId.ReadOnly = true;
+            this.txtTypeId.Size = new System.Drawing.Size(100, 24);
+            this.txtTypeId.TabIndex = 2;
+            // 
+            // lblTypeName
+            // 
+            this.lblTypeName.AutoSize = true;
+            this.lblTypeName.Location = new System.Drawing.Point(212, 31);
+            this.lblTypeName.Name = "lblTypeName";
+            this.lblTypeName.Size = new System.Drawing.Size(45, 18);
+            this.lblTypeName.TabIndex = 1;
+            this.lblTypeName.Text = "Naziv";
+            // 
+            // lblTypeId
+            // 
+            this.lblTypeId.AutoSize = true;
+            this.lblTypeId.Location = new System.Drawing.Point(6, 32);
+            this.lblTypeId.Name = "lblTypeId";
+            this.lblTypeId.Size = new System.Drawing.Size(60, 18);
+            this.lblTypeId.TabIndex = 0;
+            this.lblTypeId.Text = "Oznaka";
             // 
             // lvTags
             // 
@@ -499,48 +532,156 @@
             this.Unit.Name = "Unit";
             this.Unit.ReadOnly = true;
             // 
-            // tabPage3
+            // tabPage1
             // 
-            this.tabPage3.Controls.Add(this.btnDeleteType);
-            this.tabPage3.Controls.Add(this.btnEditType);
-            this.tabPage3.Controls.Add(this.btnNewType);
-            this.tabPage3.Controls.Add(this.dgwTypes);
-            this.tabPage3.Location = new System.Drawing.Point(4, 27);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1172, 661);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Tipovi";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.Controls.Add(this.pictureBox2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 27);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1172, 661);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Mapa";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(9, 8);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(1215, 692);
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1180, 692);
+            this.tabControl1.TabIndex = 10;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.splitContainer1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 27);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Size = new System.Drawing.Size(1172, 661);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Tipovi i Etikete";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.BackColor = System.Drawing.Color.Black;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.IsSplitterFixed = true;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.BackColor = System.Drawing.Color.White;
+            this.splitContainer1.Panel1.Controls.Add(this.gbxType);
+            this.splitContainer1.Panel1.Controls.Add(this.btnDeleteType);
+            this.splitContainer1.Panel1.Controls.Add(this.btnEditType);
+            this.splitContainer1.Panel1.Controls.Add(this.btnNewType);
+            this.splitContainer1.Panel1.Controls.Add(this.dgwTypes);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackColor = System.Drawing.Color.White;
+            this.splitContainer1.Panel2.Controls.Add(this.gbxTag);
+            this.splitContainer1.Panel2.Controls.Add(this.btnDeleteTag);
+            this.splitContainer1.Panel2.Controls.Add(this.btnEditTag);
+            this.splitContainer1.Panel2.Controls.Add(this.btnNewTag);
+            this.splitContainer1.Panel2.Controls.Add(this.dgwTags);
+            this.splitContainer1.Size = new System.Drawing.Size(1172, 661);
+            this.splitContainer1.SplitterDistance = 574;
+            this.splitContainer1.SplitterIncrement = 5;
+            this.splitContainer1.SplitterWidth = 2;
+            this.splitContainer1.TabIndex = 0;
+            // 
+            // gbxType
+            // 
+            this.gbxType.Controls.Add(this.pbxTypeIcon);
+            this.gbxType.Controls.Add(this.txtTypeDesc);
+            this.gbxType.Controls.Add(this.lblIcon);
+            this.gbxType.Controls.Add(this.lblTypeDesc);
+            this.gbxType.Location = new System.Drawing.Point(11, 405);
+            this.gbxType.Name = "gbxType";
+            this.gbxType.Size = new System.Drawing.Size(457, 231);
+            this.gbxType.TabIndex = 13;
+            this.gbxType.TabStop = false;
+            this.gbxType.Text = "Detalji o tipu";
+            // 
+            // pbxTypeIcon
+            // 
+            this.pbxTypeIcon.Location = new System.Drawing.Point(97, 163);
+            this.pbxTypeIcon.Name = "pbxTypeIcon";
+            this.pbxTypeIcon.Size = new System.Drawing.Size(100, 62);
+            this.pbxTypeIcon.TabIndex = 3;
+            this.pbxTypeIcon.TabStop = false;
+            // 
+            // txtTypeDesc
+            // 
+            this.txtTypeDesc.Location = new System.Drawing.Point(97, 53);
+            this.txtTypeDesc.Multiline = true;
+            this.txtTypeDesc.Name = "txtTypeDesc";
+            this.txtTypeDesc.ReadOnly = true;
+            this.txtTypeDesc.Size = new System.Drawing.Size(302, 104);
+            this.txtTypeDesc.TabIndex = 2;
+            // 
+            // lblIcon
+            // 
+            this.lblIcon.AutoSize = true;
+            this.lblIcon.Location = new System.Drawing.Point(2, 183);
+            this.lblIcon.Name = "lblIcon";
+            this.lblIcon.Size = new System.Drawing.Size(55, 18);
+            this.lblIcon.TabIndex = 1;
+            this.lblIcon.Text = "Ikonica";
+            // 
+            // lblTypeDesc
+            // 
+            this.lblTypeDesc.AutoSize = true;
+            this.lblTypeDesc.Location = new System.Drawing.Point(2, 53);
+            this.lblTypeDesc.Name = "lblTypeDesc";
+            this.lblTypeDesc.Size = new System.Drawing.Size(39, 18);
+            this.lblTypeDesc.TabIndex = 0;
+            this.lblTypeDesc.Text = "Opis";
             // 
             // btnDeleteType
             // 
-            this.btnDeleteType.Location = new System.Drawing.Point(373, 104);
+            this.btnDeleteType.Location = new System.Drawing.Point(378, 103);
             this.btnDeleteType.Name = "btnDeleteType";
             this.btnDeleteType.Size = new System.Drawing.Size(90, 32);
-            this.btnDeleteType.TabIndex = 3;
+            this.btnDeleteType.TabIndex = 12;
             this.btnDeleteType.Text = "Obrisi tip";
             this.btnDeleteType.UseVisualStyleBackColor = true;
-            this.btnDeleteType.Click += new System.EventHandler(this.btnDeleteType_Click);
             // 
             // btnEditType
             // 
-            this.btnEditType.Location = new System.Drawing.Point(373, 52);
+            this.btnEditType.Location = new System.Drawing.Point(378, 51);
             this.btnEditType.Name = "btnEditType";
             this.btnEditType.Size = new System.Drawing.Size(90, 32);
-            this.btnEditType.TabIndex = 2;
+            this.btnEditType.TabIndex = 11;
             this.btnEditType.Text = "Izmeni tip";
             this.btnEditType.UseVisualStyleBackColor = true;
-            this.btnEditType.Click += new System.EventHandler(this.btnEditType_Click);
             // 
             // btnNewType
             // 
-            this.btnNewType.Location = new System.Drawing.Point(373, 4);
+            this.btnNewType.Location = new System.Drawing.Point(378, 3);
             this.btnNewType.Name = "btnNewType";
             this.btnNewType.Size = new System.Drawing.Size(90, 32);
-            this.btnNewType.TabIndex = 1;
+            this.btnNewType.TabIndex = 10;
             this.btnNewType.Text = "Dodaj tip";
             this.btnNewType.UseVisualStyleBackColor = true;
-            this.btnNewType.Click += new System.EventHandler(this.btnNewType_Click);
             // 
             // dgwTypes
             // 
@@ -552,11 +693,12 @@
             this.TypeID,
             this.TypeName});
             this.dgwTypes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgwTypes.Location = new System.Drawing.Point(6, 4);
+            this.dgwTypes.Location = new System.Drawing.Point(11, 3);
             this.dgwTypes.Name = "dgwTypes";
             this.dgwTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwTypes.Size = new System.Drawing.Size(243, 376);
-            this.dgwTypes.TabIndex = 0;
+            this.dgwTypes.TabIndex = 9;
+            this.dgwTypes.SelectionChanged += new System.EventHandler(this.dgwTypes_SelectionChanged);
             // 
             // TypeID
             // 
@@ -568,48 +710,61 @@
             this.TypeName.HeaderText = "Naziv";
             this.TypeName.Name = "TypeName";
             // 
-            // tabPage4
+            // gbxTag
             // 
-            this.tabPage4.Controls.Add(this.btnDeleteTag);
-            this.tabPage4.Controls.Add(this.btnEditTag);
-            this.tabPage4.Controls.Add(this.btnNewTag);
-            this.tabPage4.Controls.Add(this.dgwTags);
-            this.tabPage4.Location = new System.Drawing.Point(4, 27);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1172, 661);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Etikete";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.gbxTag.Controls.Add(this.txtTagDesc);
+            this.gbxTag.Controls.Add(this.lblTagDesc);
+            this.gbxTag.Location = new System.Drawing.Point(12, 426);
+            this.gbxTag.Name = "gbxTag";
+            this.gbxTag.Size = new System.Drawing.Size(430, 210);
+            this.gbxTag.TabIndex = 14;
+            this.gbxTag.TabStop = false;
+            this.gbxTag.Text = "Detalji o etiketi";
+            // 
+            // txtTagDesc
+            // 
+            this.txtTagDesc.Location = new System.Drawing.Point(122, 32);
+            this.txtTagDesc.Multiline = true;
+            this.txtTagDesc.Name = "txtTagDesc";
+            this.txtTagDesc.ReadOnly = true;
+            this.txtTagDesc.Size = new System.Drawing.Size(279, 104);
+            this.txtTagDesc.TabIndex = 1;
+            // 
+            // lblTagDesc
+            // 
+            this.lblTagDesc.AutoSize = true;
+            this.lblTagDesc.Location = new System.Drawing.Point(40, 32);
+            this.lblTagDesc.Name = "lblTagDesc";
+            this.lblTagDesc.Size = new System.Drawing.Size(39, 18);
+            this.lblTagDesc.TabIndex = 0;
+            this.lblTagDesc.Text = "Opis";
             // 
             // btnDeleteTag
             // 
-            this.btnDeleteTag.Location = new System.Drawing.Point(324, 81);
+            this.btnDeleteTag.Location = new System.Drawing.Point(331, 81);
             this.btnDeleteTag.Name = "btnDeleteTag";
             this.btnDeleteTag.Size = new System.Drawing.Size(111, 32);
-            this.btnDeleteTag.TabIndex = 3;
+            this.btnDeleteTag.TabIndex = 13;
             this.btnDeleteTag.Text = "Obrisi etiketu";
             this.btnDeleteTag.UseVisualStyleBackColor = true;
-            this.btnDeleteTag.Click += new System.EventHandler(this.btnDeleteTag_Click);
             // 
             // btnEditTag
             // 
-            this.btnEditTag.Location = new System.Drawing.Point(324, 43);
+            this.btnEditTag.Location = new System.Drawing.Point(331, 43);
             this.btnEditTag.Name = "btnEditTag";
             this.btnEditTag.Size = new System.Drawing.Size(111, 32);
-            this.btnEditTag.TabIndex = 2;
+            this.btnEditTag.TabIndex = 12;
             this.btnEditTag.Text = "Izmeni etiketu";
             this.btnEditTag.UseVisualStyleBackColor = true;
-            this.btnEditTag.Click += new System.EventHandler(this.btnEditTag_Click);
             // 
             // btnNewTag
             // 
-            this.btnNewTag.Location = new System.Drawing.Point(324, 4);
+            this.btnNewTag.Location = new System.Drawing.Point(331, 4);
             this.btnNewTag.Name = "btnNewTag";
             this.btnNewTag.Size = new System.Drawing.Size(111, 32);
-            this.btnNewTag.TabIndex = 1;
+            this.btnNewTag.TabIndex = 11;
             this.btnNewTag.Text = "Dodaj etiketu";
             this.btnNewTag.UseVisualStyleBackColor = true;
-            this.btnNewTag.Click += new System.EventHandler(this.btnNewTag_Click);
             // 
             // dgwTags
             // 
@@ -621,11 +776,12 @@
             this.TagID,
             this.Color});
             this.dgwTags.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgwTags.Location = new System.Drawing.Point(5, 3);
+            this.dgwTags.Location = new System.Drawing.Point(12, 3);
             this.dgwTags.Name = "dgwTags";
             this.dgwTags.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwTags.Size = new System.Drawing.Size(244, 383);
-            this.dgwTags.TabIndex = 0;
+            this.dgwTags.TabIndex = 10;
+            this.dgwTags.SelectionChanged += new System.EventHandler(this.dgwTags_SelectionChanged);
             // 
             // TagID
             // 
@@ -636,61 +792,6 @@
             // 
             this.Color.HeaderText = "Boja";
             this.Color.Name = "Color";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.txtTypeName);
-            this.groupBox1.Controls.Add(this.txtTypeId);
-            this.groupBox1.Controls.Add(this.lblTypeName);
-            this.groupBox1.Controls.Add(this.lblTypeId);
-            this.groupBox1.Location = new System.Drawing.Point(758, 155);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(369, 62);
-            this.groupBox1.TabIndex = 61;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Tip resursa";
-            // 
-            // lblTypeId
-            // 
-            this.lblTypeId.AutoSize = true;
-            this.lblTypeId.Location = new System.Drawing.Point(6, 32);
-            this.lblTypeId.Name = "lblTypeId";
-            this.lblTypeId.Size = new System.Drawing.Size(60, 18);
-            this.lblTypeId.TabIndex = 0;
-            this.lblTypeId.Text = "Oznaka";
-            // 
-            // lblTypeName
-            // 
-            this.lblTypeName.AutoSize = true;
-            this.lblTypeName.Location = new System.Drawing.Point(212, 31);
-            this.lblTypeName.Name = "lblTypeName";
-            this.lblTypeName.Size = new System.Drawing.Size(45, 18);
-            this.lblTypeName.TabIndex = 1;
-            this.lblTypeName.Text = "Naziv";
-            // 
-            // txtTypeId
-            // 
-            this.txtTypeId.Location = new System.Drawing.Point(72, 29);
-            this.txtTypeId.Name = "txtTypeId";
-            this.txtTypeId.ReadOnly = true;
-            this.txtTypeId.Size = new System.Drawing.Size(100, 24);
-            this.txtTypeId.TabIndex = 2;
-            // 
-            // txtTypeName
-            // 
-            this.txtTypeName.Location = new System.Drawing.Point(263, 28);
-            this.txtTypeName.Name = "txtTypeName";
-            this.txtTypeName.ReadOnly = true;
-            this.txtTypeName.Size = new System.Drawing.Size(100, 24);
-            this.txtTypeName.TabIndex = 3;
-            // 
-            // pbxIcon
-            // 
-            this.pbxIcon.Location = new System.Drawing.Point(666, 98);
-            this.pbxIcon.Name = "pbxIcon";
-            this.pbxIcon.Size = new System.Drawing.Size(51, 50);
-            this.pbxIcon.TabIndex = 62;
-            this.pbxIcon.TabStop = false;
             // 
             // MainForm
             // 
@@ -706,20 +807,28 @@
             this.Text = "Mapa svetskih resursa";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.grbDetails.ResumeLayout(false);
             this.grbDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwTypes)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgwTags)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            this.gbxType.ResumeLayout(false);
+            this.gbxType.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxTypeIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTypes)).EndInit();
+            this.gbxTag.ResumeLayout(false);
+            this.gbxTag.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwTags)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -729,11 +838,26 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblSelectedResource;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button btnDeleteResource;
         private System.Windows.Forms.GroupBox grbDetails;
+        private System.Windows.Forms.PictureBox pbxIcon;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtTypeName;
+        private System.Windows.Forms.TextBox txtTypeId;
+        private System.Windows.Forms.Label lblTypeName;
+        private System.Windows.Forms.Label lblTypeId;
+        private System.Windows.Forms.ListView lvTags;
+        private System.Windows.Forms.Label lblTags;
+        private System.Windows.Forms.Label tag3;
+        private System.Windows.Forms.Label tag2;
+        private System.Windows.Forms.Label tag1;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.Label lblDesription;
+        private System.Windows.Forms.CheckBox chbExploatable;
+        private System.Windows.Forms.CheckBox chbImportant;
+        private System.Windows.Forms.CheckBox chbRenewable;
         private System.Windows.Forms.Label lblUnit;
         private System.Windows.Forms.TextBox txtUnit;
         private System.Windows.Forms.TextBox txtFrequency;
@@ -753,38 +877,31 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn Renewable;
         private System.Windows.Forms.DataGridViewTextBoxColumn Frequency;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
-        private System.Windows.Forms.CheckBox chbExploatable;
-        private System.Windows.Forms.CheckBox chbImportant;
-        private System.Windows.Forms.CheckBox chbRenewable;
-        private System.Windows.Forms.TextBox txtDescription;
-        private System.Windows.Forms.Label lblDesription;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.DataGridView dgwTypes;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.GroupBox gbxType;
+        private System.Windows.Forms.PictureBox pbxTypeIcon;
+        private System.Windows.Forms.TextBox txtTypeDesc;
+        private System.Windows.Forms.Label lblIcon;
+        private System.Windows.Forms.Label lblTypeDesc;
+        private System.Windows.Forms.Button btnDeleteType;
+        private System.Windows.Forms.Button btnEditType;
         private System.Windows.Forms.Button btnNewType;
+        private System.Windows.Forms.DataGridView dgwTypes;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeName;
-        private System.Windows.Forms.Button btnEditType;
-        private System.Windows.Forms.DataGridView dgwTags;
+        private System.Windows.Forms.GroupBox gbxTag;
+        private System.Windows.Forms.TextBox txtTagDesc;
+        private System.Windows.Forms.Label lblTagDesc;
+        private System.Windows.Forms.Button btnDeleteTag;
         private System.Windows.Forms.Button btnEditTag;
         private System.Windows.Forms.Button btnNewTag;
+        private System.Windows.Forms.DataGridView dgwTags;
         private System.Windows.Forms.DataGridViewTextBoxColumn TagID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Color;
-        private System.Windows.Forms.Button btnDeleteResource;
-        private System.Windows.Forms.Button btnDeleteType;
-        private System.Windows.Forms.Button btnDeleteTag;
-        private System.Windows.Forms.Label tag3;
-        private System.Windows.Forms.Label tag2;
-        private System.Windows.Forms.Label tag1;
-        private System.Windows.Forms.Label lblTags;
-        private System.Windows.Forms.ListView lvTags;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtTypeName;
-        private System.Windows.Forms.TextBox txtTypeId;
-        private System.Windows.Forms.Label lblTypeName;
-        private System.Windows.Forms.Label lblTypeId;
-        private System.Windows.Forms.PictureBox pbxIcon;
 
     }
 }

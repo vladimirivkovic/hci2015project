@@ -212,6 +212,8 @@ namespace HCI15RA13AU
                             dgwTypes.Rows.RemoveAt(index);
                             dgwTypes.Rows.Insert(index, new object[] { t.ID, t.Name});
                             dgwTypes.Rows[index].Tag = t;
+                            types.Remove(t.ID);
+                            types.Add(t.ID, t);
                             break;
                         }
                     }
@@ -256,6 +258,8 @@ namespace HCI15RA13AU
                             dgwTags.Rows.RemoveAt(index);
                             dgwTags.Rows.Insert(index, new object[] { t.ID, "" });
                             dgwTags.Rows[index].Tag = t;
+                            tags.Remove(t.ID);
+                            tags.Add(t.ID, t);
                             break;
                         }
                     }
@@ -418,6 +422,49 @@ namespace HCI15RA13AU
                 resources.Add(item.ID, new Resource(item));
             }
             buffer.Close();
+        }
+
+        private void dgwTypes_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgwTypes.SelectedRows.Count == 0)
+            {
+                txtTypeDesc.Text = "";
+                pbxTypeIcon.Image = null;
+            }
+            else
+            {
+                Type t = (Type) dgwTypes.SelectedRows[0].Tag;
+                if (t != null)
+                {
+                    txtTypeDesc.Text = t.Description;
+                    if (!t.IconFileName.Equals(""))
+                    {
+                        pbxTypeIcon.Image = Image.FromFile(t.IconFileName);
+                        pbxTypeIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                    else
+                    {
+                        pbxTypeIcon.Image = null;
+                    }
+                }
+            }
+        }
+
+        private void dgwTags_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgwTags.SelectedRows.Count == 0)
+            {
+                txtTagDesc.Text = "";
+                pbxTypeIcon.Image = null;
+            }
+            else
+            {
+                Tag t = (Tag)dgwTags.SelectedRows[0].Tag;
+                if (t != null)
+                {
+                    txtTagDesc.Text = t.Description;
+                }
+            }
         }
     }
 }

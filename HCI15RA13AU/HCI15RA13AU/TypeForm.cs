@@ -29,8 +29,10 @@ namespace HCI15RA13AU
             txtId.Text = type.ID;
             txtName.Text = type.Name;
             txtDescription.Text = type.Description;
-            if(type.IconFileName != null)
+            if (type.IconFileName != null)
                 lblIconName.Text = type.IconFileName;
+            else
+                lblIconName.Text = "";
         }
 
         private void txtId_Validating(object sender, CancelEventArgs e)
