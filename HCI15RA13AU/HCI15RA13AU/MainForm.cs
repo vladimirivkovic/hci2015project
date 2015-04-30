@@ -27,6 +27,7 @@ namespace HCI15RA13AU
             InitializeComponent();
             DeserializeTags();
             DeserializeTypes();
+            DeserializeResources();
         }
 
         private void btnAddResource_Click(object sender, EventArgs e)
@@ -131,7 +132,8 @@ namespace HCI15RA13AU
             foreach (Resource res in resources.Values)
             {
                 dgwResources.Rows.Add(new object[] { res.ID, res.Name, 
-                    res.Discovered.ToString(dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable });
+                    res.Discovered.ToString(dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable,
+                    Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit)});
                 dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
             }
             if (dgwResources.Rows.Count > 0)
@@ -350,6 +352,12 @@ namespace HCI15RA13AU
 
             typesSerialzer.Serialize(buffer1, types.Select(kv => new Type(kv.Value)).ToArray());
             buffer1.Close();
+
+            XmlSerializer resSerialzer = new XmlSerializer(typeof(ResourceItem[]), new XmlRootAttribute("ListOfResources"));
+            FileStream buffer2 = File.Open("resources.xml", FileMode.Create);
+
+            resSerialzer.Serialize(buffer2, resources.Select(kv => new ResourceItem(kv.Value)).ToArray());
+            buffer2.Close();
         }
 
         private void DeserializeTags()
@@ -387,6 +395,19 @@ namespace HCI15RA13AU
             {
                 Console.WriteLine(e2.StackTrace);
             }
+        }
+
+        private void DeserializeResources()
+        {
+            XmlSerializer resSerialzer = new XmlSerializer(typeof(ResourceItem[]), new XmlRootAttribute("ListOfResources"));
+            FileStream buffer = File.Open("resources.xml", FileMode.Open);
+
+            ResourceItem[] items = resSerialzer.Deserialize(buffer) as ResourceItem[];
+            foreach (ResourceItem item in items)
+            {
+                resources.Add(item.ID, new Resource(item));
+            }
+            buffer.Close();
         }
     }
 }

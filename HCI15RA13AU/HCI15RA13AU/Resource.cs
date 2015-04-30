@@ -23,11 +23,11 @@ namespace HCI15RA13AU
         public string ID { get; set; }
         [XmlElement]
         public string Description { get; set; }
-        [XmlElement]
+        [XmlIgnore]
         public Type Type { get; set; }
         [XmlElement]
         public string Name { get; set; }
-        [XmlElement]
+        [XmlIgnore]
         public Frequency Frequency { get; set; }
         [XmlElement]
         public bool Renewable { get; set; }
@@ -39,13 +39,58 @@ namespace HCI15RA13AU
         public double Cost { get; set; }
         [XmlElement]
         public DateTime Discovered { get; set; }
-        [XmlElement]
+        [XmlIgnore]
         public Unit Unit { get; set; }
         [XmlElement]
         public string IconFileName { get; set; }
 
-        [XmlElement]
-        public Dictionary<string, Tag> Tags { get; set; }
+        [XmlIgnore]
+        public Dictionary<string, Tag> Tags;
+
+        public Resource()
+        {
+
+        }
+
+        public Resource(Resource r)
+        {
+            ID = r.ID;
+            Description = r.Description;
+            Type = r.Type;
+            Name = r.Name;
+            Frequency = r.Frequency;
+            Renewable = r.Renewable;
+            Exploatable = r.Exploatable;
+            Important = r.Important;
+            Cost = r.Cost;
+            Discovered = r.Discovered;
+            Unit = r.Unit;
+            IconFileName = r.IconFileName;
+            Tags = r.Tags;
+        }
+
+        public Resource(ResourceItem r)
+        {
+            ID = r.ID;
+            Description = r.Description;
+            Type = r.Type;
+            Name = r.Name;
+            Frequency = r.Frequency;
+            Renewable = r.Renewable;
+            Exploatable = r.Exploatable;
+            Important = r.Important;
+            Cost = r.Cost;
+            Discovered = r.Discovered;
+            Unit = StringToUnit(r.UnitName);
+            IconFileName = r.IconFileName;
+            Type = MainForm.types[r.TypeName];
+
+            Tags = new Dictionary<string, Tag>();
+            foreach (string s in r.TagIds)
+            {
+                Tags.Add(s, MainForm.tags[s]);
+            }
+        }
 
         public static string UnitToString(Unit u)
         {
@@ -170,6 +215,51 @@ namespace HCI15RA13AU
             B = t.Color.B;
             G = t.Color.G;
             R = t.Color.R;
+        }
+    }
+
+    public class ResourceItem : Resource
+    {
+        [XmlElement]
+        public string UnitName { get; set; }
+        [XmlElement]
+        public string FrequencyName { get; set; }
+        [XmlElement]
+        public string TypeName { get; set; }
+
+        [XmlArray("listOfTags")]
+        [XmlArrayItem("tag", typeof(string))]
+        public List<string> TagIds;
+
+        public ResourceItem()
+        {
+            TagIds = new List<string>();
+        }
+
+        public ResourceItem(Resource r)
+        {
+            ID = r.ID;
+            Description = r.Description;
+            Type = r.Type;
+            Name = r.Name;
+            Frequency = r.Frequency;
+            Renewable = r.Renewable;
+            Exploatable = r.Exploatable;
+            Important = r.Important;
+            Cost = r.Cost;
+            Discovered = r.Discovered;
+            Unit = r.Unit;
+            IconFileName = r.IconFileName;
+            Tags = r.Tags;
+            UnitName = Resource.UnitToString(Unit);
+            FrequencyName = Resource.FrequencyToString(Frequency);
+            TypeName = r.Type.ID;
+
+            TagIds = new List<string>();
+            foreach (string key in Tags.Keys)
+            {
+                TagIds.Add(key);
+            }
         }
     }
 }

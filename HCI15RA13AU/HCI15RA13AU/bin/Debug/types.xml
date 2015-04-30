@@ -6,4 +6,10 @@
     <IconFileName>C:\Users\Vlado\Pictures\95863073.jpg</IconFileName>
     <Description>b</Description>
   </Type>
+  <Type>
+    <ID>c</ID>
+    <Name>c</Name>
+    <IconFileName>Ikonica nije izabrana</IconFileName>
+    <Description>c</Description>
+  </Type>
 </ListOfTypes>

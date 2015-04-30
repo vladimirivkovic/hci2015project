@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<ListOfResources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ResourceItem>
+    <ID>a</ID>
+    <Description>a</Description>
+    <Name>a</Name>
+    <Renewable>false</Renewable>
+    <Exploatable>true</Exploatable>
+    <Important>true</Important>
+    <Cost>123</Cost>
+    <Discovered>2015-04-30T12:02:36.7407648+02:00</Discovered>
+    <IconFileName />
+    <listOfTags>
+      <tag>a</tag>
+    </listOfTags>
+    <UnitName>barel</UnitName>
+    <FrequencyName>čest</FrequencyName>
+    <TypeName>b</TypeName>
+  </ResourceItem>
+  <ResourceItem>
+    <ID>b</ID>
+    <Description>b</Description>
+    <Name>b</Name>
+    <Renewable>true</Renewable>
+    <Exploatable>true</Exploatable>
+    <Important>false</Important>
+    <Cost>234</Cost>
+    <Discovered>2015-04-30T12:02:54.4299829+02:00</Discovered>
+    <IconFileName />
+    <listOfTags>
+      <tag>a</tag>
+      <tag>b</tag>
+    </listOfTags>
+    <UnitName>merica</UnitName>
+    <FrequencyName>univezalan</FrequencyName>
+    <TypeName>c</TypeName>
+  </ResourceItem>
+</ListOfResources>
