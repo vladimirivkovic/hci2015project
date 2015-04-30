@@ -55,11 +55,16 @@ namespace HCI15RA13AU
             txtCost.Text = res.Cost.ToString();
             dateTimePicker.Value = res.Discovered;
             lblTag.Text = res.Tags.Count.ToString();
+            fname = res.IconFileName;
+            lblIconName.Text = fname;
+            
 
             foreach (Type t in MainForm.types.Values)
             {
                 cmbType.Items.Add(t.ID);
             }
+            cmbType.SelectedItem = res.Type.ID;
+
         }
 
         public Resource GetResource()
@@ -82,6 +87,18 @@ namespace HCI15RA13AU
             res.Discovered = dateTimePicker.Value;
             res.Tags = tags;
             res.IconFileName = fname;
+            res.Type = type;
+            if (cmbType.SelectedItem != null)
+            {
+                string typeID = cmbType.SelectedItem.ToString();
+                foreach (Type t in MainForm.types.Values)
+                {
+                    if (t.ID == typeID)
+                    {
+                        res.Type = t;
+                    }
+                }
+            }
 
             return res;
         }

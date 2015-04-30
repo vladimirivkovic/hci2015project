@@ -68,6 +68,8 @@ namespace HCI15RA13AU
                                 res.Cost.ToString("C"), res.Important, res.Renewable,
                                 Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit) });
                             dgwResources.Rows[index].Tag = res;
+                            resources.Remove(res.ID);
+                            resources.Add(res.ID, res);
                             break;
                         }
                     }
@@ -88,6 +90,8 @@ namespace HCI15RA13AU
                 chbImportant.Checked = false;
                 chbRenewable.Checked = false;
                 txtDescription.Text = "";
+                txtTypeId.Text = "";
+                txtTypeName.Text = "";
             }
             else
             {
@@ -102,6 +106,8 @@ namespace HCI15RA13AU
                     chbImportant.Checked = res.Important;
                     chbRenewable.Checked = res.Renewable;
                     txtDescription.Text = res.Description;
+                    txtTypeId.Text = res.Type.ID;
+                    txtTypeName.Text = res.Type.Name;
                     lvTags.Clear();
                     if (res.Tags.Count > 0)
                     {
@@ -117,13 +123,17 @@ namespace HCI15RA13AU
                             }
                         }
                     }
+                    if (!res.IconFileName.Equals(""))
+                    {
+                        pbxIcon.Image = Image.FromFile(res.IconFileName);
+                        pbxIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+                    }
+                    else
+                    {
+                        pbxIcon.Image = null;
+                    }
                 }
             }
-        }
-
-        private void btnEditResource_Click_1(object sender, EventArgs e)
-        {
-            btnEditResource_Click(sender, e);
         }
 
         private void MainForm_Load(object sender, EventArgs e)

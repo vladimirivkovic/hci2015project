@@ -84,6 +84,7 @@ namespace HCI15RA13AU
             Unit = StringToUnit(r.UnitName);
             IconFileName = r.IconFileName;
             Type = MainForm.types[r.TypeName];
+            IconFileName = r.IconFileName;
 
             Tags = new Dictionary<string, Tag>();
             foreach (string s in r.TagIds)
@@ -251,6 +252,7 @@ namespace HCI15RA13AU
             Unit = r.Unit;
             IconFileName = r.IconFileName;
             Tags = r.Tags;
+            IconFileName = r.IconFileName;
             UnitName = Resource.UnitToString(Unit);
             FrequencyName = Resource.FrequencyToString(Frequency);
             TypeName = r.Type.ID;

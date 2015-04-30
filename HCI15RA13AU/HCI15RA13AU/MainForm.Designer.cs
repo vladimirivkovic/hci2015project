@@ -35,6 +35,7 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnSave = new System.Windows.Forms.Button();
             this.btnDeleteResource = new System.Windows.Forms.Button();
             this.grbDetails = new System.Windows.Forms.GroupBox();
             this.lvTags = new System.Windows.Forms.ListView();
@@ -80,7 +81,12 @@
             this.dgwTags = new System.Windows.Forms.DataGridView();
             this.TagID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnSave = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblTypeId = new System.Windows.Forms.Label();
+            this.lblTypeName = new System.Windows.Forms.Label();
+            this.txtTypeId = new System.Windows.Forms.TextBox();
+            this.txtTypeName = new System.Windows.Forms.TextBox();
+            this.pbxIcon = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -92,6 +98,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwTypes)).BeginInit();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwTags)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -165,6 +173,16 @@
             this.tabPage2.Text = "Tabelarni prikaz";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(999, 234);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(84, 31);
+            this.btnSave.TabIndex = 16;
+            this.btnSave.Text = "Sacuvaj";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // btnDeleteResource
             // 
             this.btnDeleteResource.Location = new System.Drawing.Point(983, 88);
@@ -177,6 +195,8 @@
             // 
             // grbDetails
             // 
+            this.grbDetails.Controls.Add(this.pbxIcon);
+            this.grbDetails.Controls.Add(this.groupBox1);
             this.grbDetails.Controls.Add(this.lvTags);
             this.grbDetails.Controls.Add(this.lblTags);
             this.grbDetails.Controls.Add(this.tag3);
@@ -206,7 +226,7 @@
             // 
             // lvTags
             // 
-            this.lvTags.Location = new System.Drawing.Point(468, 178);
+            this.lvTags.Location = new System.Drawing.Point(468, 179);
             this.lvTags.Name = "lvTags";
             this.lvTags.Scrollable = false;
             this.lvTags.Size = new System.Drawing.Size(165, 29);
@@ -216,7 +236,7 @@
             // lblTags
             // 
             this.lblTags.AutoSize = true;
-            this.lblTags.Location = new System.Drawing.Point(405, 183);
+            this.lblTags.Location = new System.Drawing.Point(405, 184);
             this.lblTags.Name = "lblTags";
             this.lblTags.Size = new System.Drawing.Size(57, 18);
             this.lblTags.TabIndex = 59;
@@ -251,14 +271,14 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.ReadOnly = true;
-            this.txtDescription.Size = new System.Drawing.Size(329, 179);
+            this.txtDescription.Size = new System.Drawing.Size(369, 122);
             this.txtDescription.TabIndex = 53;
             // 
             // lblDesription
             // 
             this.lblDesription.AutoSize = true;
             this.lblDesription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDesription.Location = new System.Drawing.Point(635, 29);
+            this.lblDesription.Location = new System.Drawing.Point(663, 30);
             this.lblDesription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDesription.Name = "lblDesription";
             this.lblDesription.Size = new System.Drawing.Size(39, 18);
@@ -389,7 +409,7 @@
             this.btnEditResource.TabIndex = 13;
             this.btnEditResource.Text = "Izmeni resurs";
             this.btnEditResource.UseVisualStyleBackColor = true;
-            this.btnEditResource.Click += new System.EventHandler(this.btnEditResource_Click_1);
+            this.btnEditResource.Click += new System.EventHandler(this.btnEditResource_Click);
             // 
             // btnAddResource
             // 
@@ -617,15 +637,60 @@
             this.Color.HeaderText = "Boja";
             this.Color.Name = "Color";
             // 
-            // btnSave
+            // groupBox1
             // 
-            this.btnSave.Location = new System.Drawing.Point(999, 234);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(84, 31);
-            this.btnSave.TabIndex = 16;
-            this.btnSave.Text = "Sacuvaj";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.groupBox1.Controls.Add(this.txtTypeName);
+            this.groupBox1.Controls.Add(this.txtTypeId);
+            this.groupBox1.Controls.Add(this.lblTypeName);
+            this.groupBox1.Controls.Add(this.lblTypeId);
+            this.groupBox1.Location = new System.Drawing.Point(758, 155);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(369, 62);
+            this.groupBox1.TabIndex = 61;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tip resursa";
+            // 
+            // lblTypeId
+            // 
+            this.lblTypeId.AutoSize = true;
+            this.lblTypeId.Location = new System.Drawing.Point(6, 32);
+            this.lblTypeId.Name = "lblTypeId";
+            this.lblTypeId.Size = new System.Drawing.Size(60, 18);
+            this.lblTypeId.TabIndex = 0;
+            this.lblTypeId.Text = "Oznaka";
+            // 
+            // lblTypeName
+            // 
+            this.lblTypeName.AutoSize = true;
+            this.lblTypeName.Location = new System.Drawing.Point(212, 31);
+            this.lblTypeName.Name = "lblTypeName";
+            this.lblTypeName.Size = new System.Drawing.Size(45, 18);
+            this.lblTypeName.TabIndex = 1;
+            this.lblTypeName.Text = "Naziv";
+            // 
+            // txtTypeId
+            // 
+            this.txtTypeId.Location = new System.Drawing.Point(72, 29);
+            this.txtTypeId.Name = "txtTypeId";
+            this.txtTypeId.ReadOnly = true;
+            this.txtTypeId.Size = new System.Drawing.Size(100, 24);
+            this.txtTypeId.TabIndex = 2;
+            // 
+            // txtTypeName
+            // 
+            this.txtTypeName.Location = new System.Drawing.Point(263, 28);
+            this.txtTypeName.Name = "txtTypeName";
+            this.txtTypeName.ReadOnly = true;
+            this.txtTypeName.Size = new System.Drawing.Size(100, 24);
+            this.txtTypeName.TabIndex = 3;
+            // 
+            // pbxIcon
+            // 
+            this.pbxIcon.Location = new System.Drawing.Point(666, 98);
+            this.pbxIcon.Name = "pbxIcon";
+            this.pbxIcon.Size = new System.Drawing.Size(51, 50);
+            this.pbxIcon.TabIndex = 62;
+            this.pbxIcon.TabStop = false;
             // 
             // MainForm
             // 
@@ -652,6 +717,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwTypes)).EndInit();
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgwTags)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -711,6 +779,12 @@
         private System.Windows.Forms.Label lblTags;
         private System.Windows.Forms.ListView lvTags;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtTypeName;
+        private System.Windows.Forms.TextBox txtTypeId;
+        private System.Windows.Forms.Label lblTypeName;
+        private System.Windows.Forms.Label lblTypeId;
+        private System.Windows.Forms.PictureBox pbxIcon;
 
     }
 }

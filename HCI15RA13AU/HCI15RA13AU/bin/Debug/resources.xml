@@ -9,12 +9,13 @@
     <Important>true</Important>
     <Cost>123</Cost>
     <Discovered>2015-04-30T12:02:36.7407648+02:00</Discovered>
-    <IconFileName />
+    <IconFileName>C:\Users\Vlado\Pictures\95584194.jpg</IconFileName>
     <listOfTags>
       <tag>a</tag>
+      <tag>b</tag>
     </listOfTags>
     <UnitName>barel</UnitName>
-    <FrequencyName>čest</FrequencyName>
+    <FrequencyName>redak</FrequencyName>
     <TypeName>b</TypeName>
   </ResourceItem>
   <ResourceItem>
@@ -27,12 +28,26 @@
     <Cost>234</Cost>
     <Discovered>2015-04-30T12:02:54.4299829+02:00</Discovered>
     <IconFileName />
+    <listOfTags />
+    <UnitName>merica</UnitName>
+    <FrequencyName>redak</FrequencyName>
+    <TypeName>c</TypeName>
+  </ResourceItem>
+  <ResourceItem>
+    <ID>qwe</ID>
+    <Description>qwe</Description>
+    <Name>qwe</Name>
+    <Renewable>false</Renewable>
+    <Exploatable>false</Exploatable>
+    <Important>true</Important>
+    <Cost>12456</Cost>
+    <Discovered>2015-04-30T22:23:50.5318995+02:00</Discovered>
+    <IconFileName>C:\Users\Vlado\Pictures\95584194.jpg</IconFileName>
     <listOfTags>
-      <tag>a</tag>
       <tag>b</tag>
     </listOfTags>
-    <UnitName>merica</UnitName>
-    <FrequencyName>univezalan</FrequencyName>
-    <TypeName>c</TypeName>
+    <UnitName>tona</UnitName>
+    <FrequencyName>redak</FrequencyName>
+    <TypeName>b</TypeName>
   </ResourceItem>
 </ListOfResources>
