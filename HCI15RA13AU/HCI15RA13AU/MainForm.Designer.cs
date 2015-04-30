@@ -35,7 +35,11 @@
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.btnDeleteResource = new System.Windows.Forms.Button();
             this.grbDetails = new System.Windows.Forms.GroupBox();
+            this.tag3 = new System.Windows.Forms.Label();
+            this.tag2 = new System.Windows.Forms.Label();
+            this.tag1 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lblDesription = new System.Windows.Forms.Label();
             this.chbExploatable = new System.Windows.Forms.CheckBox();
@@ -61,18 +65,21 @@
             this.Frequency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnDeleteType = new System.Windows.Forms.Button();
             this.btnEditType = new System.Windows.Forms.Button();
             this.btnNewType = new System.Windows.Forms.Button();
             this.dgwTypes = new System.Windows.Forms.DataGridView();
             this.TypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btnDeleteTag = new System.Windows.Forms.Button();
             this.btnEditTag = new System.Windows.Forms.Button();
             this.btnNewTag = new System.Windows.Forms.Button();
             this.dgwTags = new System.Windows.Forms.DataGridView();
             this.TagID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDeleteResource = new System.Windows.Forms.Button();
+            this.lblTags = new System.Windows.Forms.Label();
+            this.lvTags = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -114,7 +121,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1180, 677);
+            this.tabControl1.Size = new System.Drawing.Size(1180, 692);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage1
@@ -125,7 +132,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1172, 646);
+            this.tabPage1.Size = new System.Drawing.Size(1172, 661);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mapa";
             // 
@@ -151,13 +158,28 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1172, 646);
+            this.tabPage2.Size = new System.Drawing.Size(1172, 661);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tabelarni prikaz";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // btnDeleteResource
+            // 
+            this.btnDeleteResource.Location = new System.Drawing.Point(983, 88);
+            this.btnDeleteResource.Name = "btnDeleteResource";
+            this.btnDeleteResource.Size = new System.Drawing.Size(112, 32);
+            this.btnDeleteResource.TabIndex = 15;
+            this.btnDeleteResource.Text = "Obriši resurs";
+            this.btnDeleteResource.UseVisualStyleBackColor = true;
+            this.btnDeleteResource.Click += new System.EventHandler(this.btnDeleteResource_Click);
+            // 
             // grbDetails
             // 
+            this.grbDetails.Controls.Add(this.lvTags);
+            this.grbDetails.Controls.Add(this.lblTags);
+            this.grbDetails.Controls.Add(this.tag3);
+            this.grbDetails.Controls.Add(this.tag2);
+            this.grbDetails.Controls.Add(this.tag1);
             this.grbDetails.Controls.Add(this.txtDescription);
             this.grbDetails.Controls.Add(this.lblDesription);
             this.grbDetails.Controls.Add(this.chbExploatable);
@@ -175,10 +197,31 @@
             this.grbDetails.Margin = new System.Windows.Forms.Padding(4);
             this.grbDetails.Name = "grbDetails";
             this.grbDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.grbDetails.Size = new System.Drawing.Size(1160, 213);
+            this.grbDetails.Size = new System.Drawing.Size(1160, 224);
             this.grbDetails.TabIndex = 14;
             this.grbDetails.TabStop = false;
             this.grbDetails.Text = "Detalji";
+            // 
+            // tag3
+            // 
+            this.tag3.Location = new System.Drawing.Point(0, 0);
+            this.tag3.Name = "tag3";
+            this.tag3.Size = new System.Drawing.Size(100, 23);
+            this.tag3.TabIndex = 0;
+            // 
+            // tag2
+            // 
+            this.tag2.Location = new System.Drawing.Point(0, 0);
+            this.tag2.Name = "tag2";
+            this.tag2.Size = new System.Drawing.Size(100, 23);
+            this.tag2.TabIndex = 1;
+            // 
+            // tag1
+            // 
+            this.tag1.Location = new System.Drawing.Point(0, 0);
+            this.tag1.Name = "tag1";
+            this.tag1.Size = new System.Drawing.Size(100, 23);
+            this.tag1.TabIndex = 2;
             // 
             // txtDescription
             // 
@@ -418,15 +461,26 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnDeleteType);
             this.tabPage3.Controls.Add(this.btnEditType);
             this.tabPage3.Controls.Add(this.btnNewType);
             this.tabPage3.Controls.Add(this.dgwTypes);
             this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1172, 646);
+            this.tabPage3.Size = new System.Drawing.Size(1172, 661);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Tipovi";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteType
+            // 
+            this.btnDeleteType.Location = new System.Drawing.Point(373, 104);
+            this.btnDeleteType.Name = "btnDeleteType";
+            this.btnDeleteType.Size = new System.Drawing.Size(90, 32);
+            this.btnDeleteType.TabIndex = 3;
+            this.btnDeleteType.Text = "Obrisi tip";
+            this.btnDeleteType.UseVisualStyleBackColor = true;
+            this.btnDeleteType.Click += new System.EventHandler(this.btnDeleteType_Click);
             // 
             // btnEditType
             // 
@@ -476,15 +530,26 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.btnDeleteTag);
             this.tabPage4.Controls.Add(this.btnEditTag);
             this.tabPage4.Controls.Add(this.btnNewTag);
             this.tabPage4.Controls.Add(this.dgwTags);
             this.tabPage4.Location = new System.Drawing.Point(4, 27);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1172, 646);
+            this.tabPage4.Size = new System.Drawing.Size(1172, 661);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Etikete";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteTag
+            // 
+            this.btnDeleteTag.Location = new System.Drawing.Point(324, 81);
+            this.btnDeleteTag.Name = "btnDeleteTag";
+            this.btnDeleteTag.Size = new System.Drawing.Size(111, 32);
+            this.btnDeleteTag.TabIndex = 3;
+            this.btnDeleteTag.Text = "Obrisi etiketu";
+            this.btnDeleteTag.UseVisualStyleBackColor = true;
+            this.btnDeleteTag.Click += new System.EventHandler(this.btnDeleteTag_Click);
             // 
             // btnEditTag
             // 
@@ -532,21 +597,29 @@
             this.Color.HeaderText = "Boja";
             this.Color.Name = "Color";
             // 
-            // btnDeleteResource
+            // lblTags
             // 
-            this.btnDeleteResource.Location = new System.Drawing.Point(983, 88);
-            this.btnDeleteResource.Name = "btnDeleteResource";
-            this.btnDeleteResource.Size = new System.Drawing.Size(112, 27);
-            this.btnDeleteResource.TabIndex = 15;
-            this.btnDeleteResource.Text = "Obriši resurs";
-            this.btnDeleteResource.UseVisualStyleBackColor = true;
-            this.btnDeleteResource.Click += new System.EventHandler(this.btnDeleteResource_Click);
+            this.lblTags.AutoSize = true;
+            this.lblTags.Location = new System.Drawing.Point(405, 183);
+            this.lblTags.Name = "lblTags";
+            this.lblTags.Size = new System.Drawing.Size(57, 18);
+            this.lblTags.TabIndex = 59;
+            this.lblTags.Text = "Etikete:";
+            // 
+            // lvTags
+            // 
+            this.lvTags.Location = new System.Drawing.Point(468, 178);
+            this.lvTags.Name = "lvTags";
+            this.lvTags.Scrollable = false;
+            this.lvTags.Size = new System.Drawing.Size(165, 29);
+            this.lvTags.TabIndex = 60;
+            this.lvTags.UseCompatibleStateImageBehavior = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 681);
+            this.ClientSize = new System.Drawing.Size(1184, 695);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblSelectedResource);
             this.Controls.Add(this.pictureBox1);
@@ -618,6 +691,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TagID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Color;
         private System.Windows.Forms.Button btnDeleteResource;
+        private System.Windows.Forms.Button btnDeleteType;
+        private System.Windows.Forms.Button btnDeleteTag;
+        private System.Windows.Forms.Label tag3;
+        private System.Windows.Forms.Label tag2;
+        private System.Windows.Forms.Label tag1;
+        private System.Windows.Forms.Label lblTags;
+        private System.Windows.Forms.ListView lvTags;
 
     }
 }

@@ -23,7 +23,7 @@ namespace HCI15RA13AU
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
             this.cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
             this.cmbType.DropDownStyle = ComboBoxStyle.DropDownList;
-            foreach (Type t in MainForm.types)
+            foreach (Type t in MainForm.types.Values)
             {
                 cmbType.Items.Add(t.ID);
             }
@@ -163,9 +163,19 @@ namespace HCI15RA13AU
                 res.Frequency = Frequency.UNIVERSAL;
             res.Cost = double.Parse(txtCost.Text);
             res.Discovered = dateTimePicker.Value;
-            res.Tags = tags;
-            //string typeID = cmbType.SelectedItem.ToString();
+            res.Tags = tags;      
             res.Type = type;
+            if (cmbType.SelectedItem != null)
+            {
+                string typeID = cmbType.SelectedItem.ToString();
+                foreach (Type t in MainForm.types.Values)
+                {
+                    if (t.ID == typeID)
+                    {
+                        res.Type = t;
+                    }
+                }
+            }
             res.IconFileName = fname;
 
             return res;
@@ -207,11 +217,12 @@ namespace HCI15RA13AU
 
         private void btnTag_Click(object sender, EventArgs e)
         {
-            SelectTagForm nt = new SelectTagForm();
+            SelectTagForm nt = new SelectTagForm(tags);
             nt.ShowDialog();
 
             if (nt.DialogResult == DialogResult.OK)
             {
+                tags.Clear();
                 List<string> ret = nt.GetSelectedTags();
                 foreach(string s in ret) {
                     if (MainForm.tags.ContainsKey(s))
@@ -224,39 +235,17 @@ namespace HCI15RA13AU
             }
         }
 
-        //private void btnType_Click(object sender, EventArgs e)
-        //{
-        //    TypeForm tf;
-        //    if (type.ID == "")
-        //    {
-        //        tf = new TypeForm();
-        //    }
-        //    else
-        //    {
-        //        tf = new TypeForm(type);
-        //    }
-        //    tf.ShowDialog();
-
-        //    if (tf.DialogResult == DialogResult.OK)
-        //    {
-        //        type = tf.GetResourceType();
-        //        btnType.Text = "Izmeni tip";
-        //    }
-        //}
-
-
-
-        //private void btnType_Validating(object sender, CancelEventArgs e)
-        //{
-        //    if (type.ID == "")
-        //    {
-        //        epAdd.SetError(btnType, "Mora se definisati tip resursa");
-        //        formIsValid = false;
-        //    }
-        //    else
-        //    {
-        //        epAdd.SetError(btnType, "");
-        //    }
-        //}
+        private void cmbType_Validating(object sender, CancelEventArgs e)
+        {
+            if (cmbType.SelectedItem == null)
+            {
+                formIsValid = false;
+                epAdd.SetError(cmbType, "Izbor tipa je neophodan");
+            }
+            else
+            {
+                epAdd.SetError(cmbType, "");
+            }
+        }
     }
 }

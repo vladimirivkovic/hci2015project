@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<Type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>tp0</ID>
+  <Name>typeno_0</Name>
+</Type><?xml version="1.0"?>
+<Type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>tp1</ID>
+  <Name>typeno_1</Name>
+</Type><?xml version="1.0"?>
+<Type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>tp2</ID>
+  <Name>typeno_2</Name>
+</Type><?xml version="1.0"?>
+<Type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>tp3</ID>
+  <Name>typeno_3</Name>
+</Type><?xml version="1.0"?>
+<Type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>tp4</ID>
+  <Name>typeno_4</Name>
+</Type><?xml version="1.0"?>
+<Type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>tp5</ID>
+  <Name>typeno_5</Name>
+</Type><?xml version="1.0"?>
+<Type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>tp6</ID>
+  <Name>typeno_6</Name>
+</Type><?xml version="1.0"?>
+<Type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>tp7</ID>
+  <Name>typeno_7</Name>
+</Type><?xml version="1.0"?>
+<Type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>tp8</ID>
+  <Name>typeno_8</Name>
+</Type><?xml version="1.0"?>
+<Type xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ID>tp9</ID>
+  <Name>typeno_9</Name>
+</Type>

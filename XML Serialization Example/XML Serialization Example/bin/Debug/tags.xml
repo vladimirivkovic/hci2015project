@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<items xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Item>
+    <ID>tg0</ID>
+    <tg ID="tg0" Name="tagno_0" />
+  </Item>
+  <Item>
+    <ID>tg1</ID>
+    <tg ID="tg1" Name="tagno_1" />
+  </Item>
+  <Item>
+    <ID>tg2</ID>
+    <tg ID="tg2" Name="tagno_2" />
+  </Item>
+  <Item>
+    <ID>tg3</ID>
+    <tg ID="tg3" Name="tagno_3" />
+  </Item>
+  <Item>
+    <ID>tg4</ID>
+    <tg ID="tg4" Name="tagno_4" />
+  </Item>
+  <Item>
+    <ID>tg5</ID>
+    <tg ID="tg5" Name="tagno_5" />
+  </Item>
+  <Item>
+    <ID>tg6</ID>
+    <tg ID="tg6" Name="tagno_6" />
+  </Item>
+  <Item>
+    <ID>tg7</ID>
+    <tg ID="tg7" Name="tagno_7" />
+  </Item>
+  <Item>
+    <ID>tg8</ID>
+    <tg ID="tg8" Name="tagno_8" />
+  </Item>
+  <Item>
+    <ID>tg9</ID>
+    <tg ID="tg9" Name="tagno_9" />
+  </Item>
+</items>

@@ -1,0 +1,4 @@
+E:\fax\hci2015project\XML Serialization Example\XML Serialization Example\bin\Debug\XML Serialization Example.exe
+E:\fax\hci2015project\XML Serialization Example\XML Serialization Example\bin\Debug\XML Serialization Example.pdb
+E:\fax\hci2015project\XML Serialization Example\XML Serialization Example\obj\x86\Debug\XML Serialization Example.exe
+E:\fax\hci2015project\XML Serialization Example\XML Serialization Example\obj\x86\Debug\XML Serialization Example.pdb

@@ -394,6 +394,7 @@
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(121, 26);
             this.cmbType.TabIndex = 36;
+            this.cmbType.Validating += new System.ComponentModel.CancelEventHandler(this.cmbType_Validating);
             // 
             // NewResourceForm
             // 

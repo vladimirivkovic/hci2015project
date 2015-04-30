@@ -12,9 +12,9 @@ namespace HCI15RA13AU
     public partial class MainForm : Form
     {
 
-        private List<Resource> resources = new List<Resource>();
+        private Dictionary<string, Resource> resources = new Dictionary<string, Resource>();
 
-        public static List<Type> types = new List<Type>();
+        public static Dictionary<string, Type> types = new Dictionary<string, Type>();
 
         public static Dictionary<string, Tag> tags = new Dictionary<string, Tag>();
 
@@ -33,7 +33,7 @@ namespace HCI15RA13AU
             if (addForm.DialogResult == DialogResult.OK)
             {
                 Resource res = addForm.GetResource();
-                resources.Add(res);
+                resources.Add(res.ID, res);
                 dgwResources.Rows.Add(new object[] { res.ID, res.Name, res.Discovered.ToString(dateFormat),
                     res.Cost.ToString("C"), res.Important, res.Renewable,
                     Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit) });
@@ -97,6 +97,21 @@ namespace HCI15RA13AU
                     chbImportant.Checked = res.Important;
                     chbRenewable.Checked = res.Renewable;
                     txtDescription.Text = res.Description;
+                    lvTags.Clear();
+                    if (res.Tags.Count > 0)
+                    {
+                        int i = 0;
+                        foreach (Tag t in res.Tags.Values)
+                        {
+                            ListViewItem lvi = new ListViewItem(t.ID);
+                            lvi.BackColor = t.Color;
+                            lvTags.Items.Add(lvi);
+                            if (++i > 4)
+                            {
+                                break;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -109,7 +124,7 @@ namespace HCI15RA13AU
         private void MainForm_Load(object sender, EventArgs e)
         {
             dgwResources.Rows.Clear();
-            foreach (Resource res in resources)
+            foreach (Resource res in resources.Values)
             {
                 dgwResources.Rows.Add(new object[] { res.ID, res.Name, 
                     res.Discovered.ToString(dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable });
@@ -131,7 +146,7 @@ namespace HCI15RA13AU
             if (tf.DialogResult == DialogResult.OK)
             {
                 Type t = tf.GetResourceType();
-                types.Add(t);
+                types.Add(t.ID, t);
                 dgwTypes.Rows.Add(new object[] { t.ID, t.Name} );
                 dgwTypes.Rows[dgwTypes.Rows.Count - 1].Tag = t;
                 dgwTypes.CurrentCell = dgwTypes.Rows[0].Cells[0];
@@ -212,14 +227,84 @@ namespace HCI15RA13AU
             if (dgwResources.SelectedRows.Count == 0)
                 return;
             DataGridViewRow row = dgwResources.SelectedRows[0];
-            if(row != null) {
+            if(row != null) 
+            {
                 int index = dgwResources.Rows.IndexOf(row);
                 Resource res = (Resource) row.Tag;
                 if (res != null)
                 {
-                    resources.Remove(res);
+                    resources.Remove(res.ID);
                 }
                 dgwResources.Rows.RemoveAt(index);
+            }
+        }
+
+        private void btnDeleteType_Click(object sender, EventArgs e)
+        {
+            if (dgwTypes.SelectedRows.Count == 0)
+                return;
+            DataGridViewRow row = dgwTypes.SelectedRows[0];
+            if (row != null)
+            {
+                int index = dgwTypes.Rows.IndexOf(row);
+                Type t = (Type)row.Tag;
+                if (t != null)
+                {
+                    List<Resource> deleted = new List<Resource>();
+                    List<DataGridViewRow> rows = new List<DataGridViewRow>();
+                    foreach (Resource res in resources.Values)
+                    {
+                        if (res.Type.ID == t.ID)
+                        {
+                            deleted.Add(res);
+                            foreach (DataGridViewRow r in dgwResources.Rows)
+                            {
+                                if (((Resource)r.Tag).ID == res.ID)
+                                {
+                                    rows.Add(r);
+                                }
+                            }
+                        }
+                    }
+                    foreach (Resource id in deleted)
+                    {
+                        resources.Remove(id.ID);
+                    }
+                    foreach (DataGridViewRow i in rows)
+                    {
+                        dgwResources.Rows.Remove(i);
+                    }
+                    types.Remove(t.ID);
+                }
+                dgwTypes.Rows.RemoveAt(index);
+            }
+        }
+
+        private void btnDeleteTag_Click(object sender, EventArgs e)
+        {
+            if (dgwTags.SelectedRows.Count == 0)
+                return;
+            DataGridViewRow row = dgwTags.SelectedRows[0];
+            if (row != null)
+            {
+                int index = dgwTags.Rows.IndexOf(row);
+                Tag t = (Tag)row.Tag;
+                if (t != null)
+                {
+                    foreach (Resource res in resources.Values)
+                    {
+                        //bool contains = false;
+                        foreach (Tag tg in res.Tags.Values)
+                        {
+                            if (tg.ID == t.ID)
+                            {
+                                res.Tags.Remove(t.ID);
+                            }
+                        }
+                    }
+                    tags.Remove(t.ID);
+                }
+                dgwTags.Rows.RemoveAt(index);
             }
         }
     }

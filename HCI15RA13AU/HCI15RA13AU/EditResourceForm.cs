@@ -56,7 +56,7 @@ namespace HCI15RA13AU
             dateTimePicker.Value = res.Discovered;
             lblTag.Text = res.Tags.Count.ToString();
 
-            foreach (Type t in MainForm.types)
+            foreach (Type t in MainForm.types.Values)
             {
                 cmbType.Items.Add(t.ID);
             }
