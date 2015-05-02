@@ -125,12 +125,20 @@ namespace HCI15RA13AU
                     }
                     if (!res.IconFileName.Equals(""))
                     {
-                        pbxIcon.Image = Image.FromFile(res.IconFileName);
-                        pbxIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+                        try
+                        {
+                            pbxIcon.Image = Image.FromFile(res.IconFileName);
+                            pbxIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+                        }
+                        catch (FileNotFoundException fnfe)
+                        {
+                            pbxIcon.Image = pbxIcon.ErrorImage;
+                            Console.WriteLine(fnfe.StackTrace);
+                        }
                     }
                     else
                     {
-                        pbxIcon.Image = null;
+                        pbxIcon.Image = pbxIcon.InitialImage;
                     }
                 }
             }
@@ -311,6 +319,15 @@ namespace HCI15RA13AU
                             }
                         }
                     }
+                    if (deleted.Count > 0)
+                    {
+                        DialogResult result = MessageBox.Show("Brisanjem tipa bice obrisani i svi resursi toga tipa. Da li zelite da nastavite sa brisanjem?",
+                            "Brisanje tipa resursa", MessageBoxButtons.OKCancel);
+                        if (result == DialogResult.Cancel)
+                        {
+                            return;
+                        }
+                    }
                     foreach (Resource id in deleted)
                     {
                         resources.Remove(id.ID);
@@ -376,15 +393,26 @@ namespace HCI15RA13AU
 
         private void DeserializeTags()
         {
-            XmlSerializer tagsSerialzer = new XmlSerializer(typeof(TagItem[]), new XmlRootAttribute("ListOfTags"));
-            FileStream buffer = File.Open("tags.xml", FileMode.Open);
-
-            TagItem[] items = tagsSerialzer.Deserialize(buffer) as TagItem[];
-            foreach (TagItem item in items)
+            try
             {
-                tags.Add(item.ID, new Tag(item));
+                XmlSerializer tagsSerialzer = new XmlSerializer(typeof(TagItem[]), new XmlRootAttribute("ListOfTags"));
+                FileStream buffer = File.Open("tags.xml", FileMode.Open);
+
+                TagItem[] items = tagsSerialzer.Deserialize(buffer) as TagItem[];
+                foreach (TagItem item in items)
+                {
+                    tags.Add(item.ID, new Tag(item));
+                }
+                buffer.Close();
             }
-            buffer.Close();
+            catch (IOException e1)
+            {
+                Console.WriteLine(e1.StackTrace);
+            }
+            catch (InvalidOperationException e2)
+            {
+                Console.WriteLine(e2.StackTrace);
+            }
         }
 
         private void DeserializeTypes()
@@ -413,15 +441,26 @@ namespace HCI15RA13AU
 
         private void DeserializeResources()
         {
-            XmlSerializer resSerialzer = new XmlSerializer(typeof(ResourceItem[]), new XmlRootAttribute("ListOfResources"));
-            FileStream buffer = File.Open("resources.xml", FileMode.Open);
-
-            ResourceItem[] items = resSerialzer.Deserialize(buffer) as ResourceItem[];
-            foreach (ResourceItem item in items)
+            try
             {
-                resources.Add(item.ID, new Resource(item));
+                XmlSerializer resSerialzer = new XmlSerializer(typeof(ResourceItem[]), new XmlRootAttribute("ListOfResources"));
+                FileStream buffer = File.Open("resources.xml", FileMode.Open);
+
+                ResourceItem[] items = resSerialzer.Deserialize(buffer) as ResourceItem[];
+                foreach (ResourceItem item in items)
+                {
+                    resources.Add(item.ID, new Resource(item));
+                }
+                buffer.Close();
             }
-            buffer.Close();
+            catch (IOException e1)
+            {
+                Console.WriteLine(e1.StackTrace);
+            }
+            catch (InvalidOperationException e2)
+            {
+                Console.WriteLine(e2.StackTrace);
+            }
         }
 
         private void dgwTypes_SelectionChanged(object sender, EventArgs e)
@@ -439,12 +478,20 @@ namespace HCI15RA13AU
                     txtTypeDesc.Text = t.Description;
                     if (!t.IconFileName.Equals(""))
                     {
-                        pbxTypeIcon.Image = Image.FromFile(t.IconFileName);
-                        pbxTypeIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+                        try
+                        {
+                            pbxTypeIcon.Image = Image.FromFile(t.IconFileName);
+                            pbxTypeIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+                        }
+                        catch (FileNotFoundException e1)
+                        {
+                            pbxTypeIcon.Image = pbxTypeIcon.ErrorImage;
+                            Console.WriteLine(e1.StackTrace);
+                        }
                     }
                     else
                     {
-                        pbxTypeIcon.Image = null;
+                        pbxTypeIcon.Image = pbxTypeIcon.InitialImage; ;
                     }
                 }
             }
@@ -455,7 +502,7 @@ namespace HCI15RA13AU
             if (dgwTags.SelectedRows.Count == 0)
             {
                 txtTagDesc.Text = "";
-                pbxTypeIcon.Image = null;
+                txtColor.ForeColor = Color.White;
             }
             else
             {
@@ -463,8 +510,35 @@ namespace HCI15RA13AU
                 if (t != null)
                 {
                     txtTagDesc.Text = t.Description;
+                    txtColor.BackColor = t.Color;
                 }
             }
+        }
+
+        private void sačuvajToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            XmlSerializer tagsSerialzer = new XmlSerializer(typeof(TagItem[]), new XmlRootAttribute("ListOfTags"));
+            FileStream buffer = File.Open("tags.xml", FileMode.Create);
+
+            tagsSerialzer.Serialize(buffer, tags.Select(kv => new TagItem(kv.Value)).ToArray());
+            buffer.Close();
+
+            XmlSerializer typesSerialzer = new XmlSerializer(typeof(Type[]), new XmlRootAttribute("ListOfTypes"));
+            FileStream buffer1 = File.Open("types.xml", FileMode.Create);
+
+            typesSerialzer.Serialize(buffer1, types.Select(kv => new Type(kv.Value)).ToArray());
+            buffer1.Close();
+
+            XmlSerializer resSerialzer = new XmlSerializer(typeof(ResourceItem[]), new XmlRootAttribute("ListOfResources"));
+            FileStream buffer2 = File.Open("resources.xml", FileMode.Create);
+
+            resSerialzer.Serialize(buffer2, resources.Select(kv => new ResourceItem(kv.Value)).ToArray());
+            buffer2.Close();
+        }
+
+        private void izlazToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

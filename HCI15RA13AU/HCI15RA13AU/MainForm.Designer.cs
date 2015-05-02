@@ -32,7 +32,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSelectedResource = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnSave = new System.Windows.Forms.Button();
             this.btnDeleteResource = new System.Windows.Forms.Button();
             this.grbDetails = new System.Windows.Forms.GroupBox();
             this.pbxIcon = new System.Windows.Forms.PictureBox();
@@ -93,8 +92,15 @@
             this.btnEditTag = new System.Windows.Forms.Button();
             this.btnNewTag = new System.Windows.Forms.Button();
             this.dgwTags = new System.Windows.Forms.DataGridView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.datotekaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sačuvajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pomoćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblColor = new System.Windows.Forms.Label();
+            this.txtColor = new System.Windows.Forms.TextBox();
             this.TagID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TagColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.izlazToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.grbDetails.SuspendLayout();
@@ -114,6 +120,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgwTypes)).BeginInit();
             this.gbxTag.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwTags)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -136,7 +143,7 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.btnSave);
+            this.tabPage2.Controls.Add(this.pbxIcon);
             this.tabPage2.Controls.Add(this.btnDeleteResource);
             this.tabPage2.Controls.Add(this.grbDetails);
             this.tabPage2.Controls.Add(this.btnEditResource);
@@ -146,20 +153,10 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage2.Size = new System.Drawing.Size(1172, 661);
+            this.tabPage2.Size = new System.Drawing.Size(1172, 639);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tabelarni prikaz";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(999, 234);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(84, 31);
-            this.btnSave.TabIndex = 16;
-            this.btnSave.Text = "Sacuvaj";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnDeleteResource
             // 
@@ -173,7 +170,6 @@
             // 
             // grbDetails
             // 
-            this.grbDetails.Controls.Add(this.pbxIcon);
             this.grbDetails.Controls.Add(this.groupBox1);
             this.grbDetails.Controls.Add(this.lvTags);
             this.grbDetails.Controls.Add(this.lblTags);
@@ -193,7 +189,7 @@
             this.grbDetails.Controls.Add(this.lblName);
             this.grbDetails.Controls.Add(this.lblId);
             this.grbDetails.Controls.Add(this.txtId);
-            this.grbDetails.Location = new System.Drawing.Point(8, 433);
+            this.grbDetails.Location = new System.Drawing.Point(8, 400);
             this.grbDetails.Margin = new System.Windows.Forms.Padding(4);
             this.grbDetails.Name = "grbDetails";
             this.grbDetails.Padding = new System.Windows.Forms.Padding(4);
@@ -204,9 +200,9 @@
             // 
             // pbxIcon
             // 
-            this.pbxIcon.Location = new System.Drawing.Point(666, 98);
+            this.pbxIcon.Location = new System.Drawing.Point(945, 242);
             this.pbxIcon.Name = "pbxIcon";
-            this.pbxIcon.Size = new System.Drawing.Size(51, 50);
+            this.pbxIcon.Size = new System.Drawing.Size(150, 150);
             this.pbxIcon.TabIndex = 62;
             this.pbxIcon.TabStop = false;
             // 
@@ -476,7 +472,7 @@
             this.dgwResources.Name = "dgwResources";
             this.dgwResources.ReadOnly = true;
             this.dgwResources.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwResources.Size = new System.Drawing.Size(845, 417);
+            this.dgwResources.Size = new System.Drawing.Size(845, 384);
             this.dgwResources.TabIndex = 11;
             this.dgwResources.SelectionChanged += new System.EventHandler(this.dgwResources_SelectionChanged);
             // 
@@ -540,7 +536,7 @@
             this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage1.Size = new System.Drawing.Size(1172, 661);
+            this.tabPage1.Size = new System.Drawing.Size(1172, 639);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Mapa";
             // 
@@ -551,7 +547,7 @@
             this.pictureBox2.Location = new System.Drawing.Point(9, 8);
             this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1215, 692);
+            this.pictureBox2.Size = new System.Drawing.Size(1159, 644);
             this.pictureBox2.TabIndex = 0;
             this.pictureBox2.TabStop = false;
             // 
@@ -560,11 +556,11 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(3, 3);
+            this.tabControl1.Location = new System.Drawing.Point(3, 25);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1180, 692);
+            this.tabControl1.Size = new System.Drawing.Size(1180, 670);
             this.tabControl1.TabIndex = 10;
             // 
             // tabPage4
@@ -572,7 +568,7 @@
             this.tabPage4.Controls.Add(this.splitContainer1);
             this.tabPage4.Location = new System.Drawing.Point(4, 27);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1172, 661);
+            this.tabPage4.Size = new System.Drawing.Size(1172, 639);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Tipovi i Etikete";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -602,7 +598,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.btnEditTag);
             this.splitContainer1.Panel2.Controls.Add(this.btnNewTag);
             this.splitContainer1.Panel2.Controls.Add(this.dgwTags);
-            this.splitContainer1.Size = new System.Drawing.Size(1172, 661);
+            this.splitContainer1.Size = new System.Drawing.Size(1172, 639);
             this.splitContainer1.SplitterDistance = 574;
             this.splitContainer1.SplitterIncrement = 5;
             this.splitContainer1.SplitterWidth = 2;
@@ -614,24 +610,24 @@
             this.gbxType.Controls.Add(this.txtTypeDesc);
             this.gbxType.Controls.Add(this.lblIcon);
             this.gbxType.Controls.Add(this.lblTypeDesc);
-            this.gbxType.Location = new System.Drawing.Point(11, 405);
+            this.gbxType.Location = new System.Drawing.Point(11, 373);
             this.gbxType.Name = "gbxType";
-            this.gbxType.Size = new System.Drawing.Size(457, 231);
+            this.gbxType.Size = new System.Drawing.Size(430, 242);
             this.gbxType.TabIndex = 13;
             this.gbxType.TabStop = false;
             this.gbxType.Text = "Detalji o tipu";
             // 
             // pbxTypeIcon
             // 
-            this.pbxTypeIcon.Location = new System.Drawing.Point(97, 163);
+            this.pbxTypeIcon.Location = new System.Drawing.Point(97, 153);
             this.pbxTypeIcon.Name = "pbxTypeIcon";
-            this.pbxTypeIcon.Size = new System.Drawing.Size(100, 62);
+            this.pbxTypeIcon.Size = new System.Drawing.Size(100, 83);
             this.pbxTypeIcon.TabIndex = 3;
             this.pbxTypeIcon.TabStop = false;
             // 
             // txtTypeDesc
             // 
-            this.txtTypeDesc.Location = new System.Drawing.Point(97, 53);
+            this.txtTypeDesc.Location = new System.Drawing.Point(97, 32);
             this.txtTypeDesc.Multiline = true;
             this.txtTypeDesc.Name = "txtTypeDesc";
             this.txtTypeDesc.ReadOnly = true;
@@ -641,7 +637,7 @@
             // lblIcon
             // 
             this.lblIcon.AutoSize = true;
-            this.lblIcon.Location = new System.Drawing.Point(2, 183);
+            this.lblIcon.Location = new System.Drawing.Point(18, 183);
             this.lblIcon.Name = "lblIcon";
             this.lblIcon.Size = new System.Drawing.Size(55, 18);
             this.lblIcon.TabIndex = 1;
@@ -650,7 +646,7 @@
             // lblTypeDesc
             // 
             this.lblTypeDesc.AutoSize = true;
-            this.lblTypeDesc.Location = new System.Drawing.Point(2, 53);
+            this.lblTypeDesc.Location = new System.Drawing.Point(18, 35);
             this.lblTypeDesc.Name = "lblTypeDesc";
             this.lblTypeDesc.Size = new System.Drawing.Size(39, 18);
             this.lblTypeDesc.TabIndex = 0;
@@ -658,30 +654,33 @@
             // 
             // btnDeleteType
             // 
-            this.btnDeleteType.Location = new System.Drawing.Point(378, 103);
+            this.btnDeleteType.Location = new System.Drawing.Point(351, 81);
             this.btnDeleteType.Name = "btnDeleteType";
             this.btnDeleteType.Size = new System.Drawing.Size(90, 32);
             this.btnDeleteType.TabIndex = 12;
             this.btnDeleteType.Text = "Obrisi tip";
             this.btnDeleteType.UseVisualStyleBackColor = true;
+            this.btnDeleteType.Click += new System.EventHandler(this.btnDeleteType_Click);
             // 
             // btnEditType
             // 
-            this.btnEditType.Location = new System.Drawing.Point(378, 51);
+            this.btnEditType.Location = new System.Drawing.Point(351, 43);
             this.btnEditType.Name = "btnEditType";
             this.btnEditType.Size = new System.Drawing.Size(90, 32);
             this.btnEditType.TabIndex = 11;
             this.btnEditType.Text = "Izmeni tip";
             this.btnEditType.UseVisualStyleBackColor = true;
+            this.btnEditType.Click += new System.EventHandler(this.btnEditType_Click);
             // 
             // btnNewType
             // 
-            this.btnNewType.Location = new System.Drawing.Point(378, 3);
+            this.btnNewType.Location = new System.Drawing.Point(351, 5);
             this.btnNewType.Name = "btnNewType";
             this.btnNewType.Size = new System.Drawing.Size(90, 32);
             this.btnNewType.TabIndex = 10;
             this.btnNewType.Text = "Dodaj tip";
             this.btnNewType.UseVisualStyleBackColor = true;
+            this.btnNewType.Click += new System.EventHandler(this.btnNewType_Click);
             // 
             // dgwTypes
             // 
@@ -696,7 +695,7 @@
             this.dgwTypes.Location = new System.Drawing.Point(11, 3);
             this.dgwTypes.Name = "dgwTypes";
             this.dgwTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwTypes.Size = new System.Drawing.Size(243, 376);
+            this.dgwTypes.Size = new System.Drawing.Size(243, 364);
             this.dgwTypes.TabIndex = 9;
             this.dgwTypes.SelectionChanged += new System.EventHandler(this.dgwTypes_SelectionChanged);
             // 
@@ -712,11 +711,13 @@
             // 
             // gbxTag
             // 
+            this.gbxTag.Controls.Add(this.txtColor);
+            this.gbxTag.Controls.Add(this.lblColor);
             this.gbxTag.Controls.Add(this.txtTagDesc);
             this.gbxTag.Controls.Add(this.lblTagDesc);
-            this.gbxTag.Location = new System.Drawing.Point(12, 426);
+            this.gbxTag.Location = new System.Drawing.Point(12, 373);
             this.gbxTag.Name = "gbxTag";
-            this.gbxTag.Size = new System.Drawing.Size(430, 210);
+            this.gbxTag.Size = new System.Drawing.Size(430, 242);
             this.gbxTag.TabIndex = 14;
             this.gbxTag.TabStop = false;
             this.gbxTag.Text = "Detalji o etiketi";
@@ -733,7 +734,7 @@
             // lblTagDesc
             // 
             this.lblTagDesc.AutoSize = true;
-            this.lblTagDesc.Location = new System.Drawing.Point(40, 32);
+            this.lblTagDesc.Location = new System.Drawing.Point(20, 35);
             this.lblTagDesc.Name = "lblTagDesc";
             this.lblTagDesc.Size = new System.Drawing.Size(39, 18);
             this.lblTagDesc.TabIndex = 0;
@@ -747,6 +748,7 @@
             this.btnDeleteTag.TabIndex = 13;
             this.btnDeleteTag.Text = "Obrisi etiketu";
             this.btnDeleteTag.UseVisualStyleBackColor = true;
+            this.btnDeleteTag.Click += new System.EventHandler(this.btnDeleteTag_Click);
             // 
             // btnEditTag
             // 
@@ -756,15 +758,17 @@
             this.btnEditTag.TabIndex = 12;
             this.btnEditTag.Text = "Izmeni etiketu";
             this.btnEditTag.UseVisualStyleBackColor = true;
+            this.btnEditTag.Click += new System.EventHandler(this.btnEditTag_Click);
             // 
             // btnNewTag
             // 
-            this.btnNewTag.Location = new System.Drawing.Point(331, 4);
+            this.btnNewTag.Location = new System.Drawing.Point(331, 5);
             this.btnNewTag.Name = "btnNewTag";
             this.btnNewTag.Size = new System.Drawing.Size(111, 32);
             this.btnNewTag.TabIndex = 11;
             this.btnNewTag.Text = "Dodaj etiketu";
             this.btnNewTag.UseVisualStyleBackColor = true;
+            this.btnNewTag.Click += new System.EventHandler(this.btnNewTag_Click);
             // 
             // dgwTags
             // 
@@ -774,24 +778,84 @@
             this.dgwTags.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgwTags.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TagID,
-            this.Color});
+            this.TagColor});
             this.dgwTags.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgwTags.Location = new System.Drawing.Point(12, 3);
             this.dgwTags.Name = "dgwTags";
             this.dgwTags.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwTags.Size = new System.Drawing.Size(244, 383);
+            this.dgwTags.Size = new System.Drawing.Size(244, 364);
             this.dgwTags.TabIndex = 10;
             this.dgwTags.SelectionChanged += new System.EventHandler(this.dgwTags_SelectionChanged);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.datotekaToolStripMenuItem,
+            this.pomoćToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1184, 28);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // datotekaToolStripMenuItem
+            // 
+            this.datotekaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sačuvajToolStripMenuItem,
+            this.izlazToolStripMenuItem});
+            this.datotekaToolStripMenuItem.Name = "datotekaToolStripMenuItem";
+            this.datotekaToolStripMenuItem.Size = new System.Drawing.Size(82, 24);
+            this.datotekaToolStripMenuItem.Text = "Datoteka";
+            // 
+            // sačuvajToolStripMenuItem
+            // 
+            this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
+            this.sačuvajToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
+            this.sačuvajToolStripMenuItem.Click += new System.EventHandler(this.sačuvajToolStripMenuItem_Click);
+            // 
+            // pomoćToolStripMenuItem
+            // 
+            this.pomoćToolStripMenuItem.Name = "pomoćToolStripMenuItem";
+            this.pomoćToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.pomoćToolStripMenuItem.Text = "Pomoć";
+            // 
+            // lblColor
+            // 
+            this.lblColor.AutoSize = true;
+            this.lblColor.Location = new System.Drawing.Point(20, 183);
+            this.lblColor.Name = "lblColor";
+            this.lblColor.Size = new System.Drawing.Size(85, 18);
+            this.lblColor.TabIndex = 2;
+            this.lblColor.Text = "Boja etikete";
+            // 
+            // txtColor
+            // 
+            this.txtColor.Location = new System.Drawing.Point(122, 182);
+            this.txtColor.Name = "txtColor";
+            this.txtColor.ReadOnly = true;
+            this.txtColor.Size = new System.Drawing.Size(279, 24);
+            this.txtColor.TabIndex = 3;
             // 
             // TagID
             // 
             this.TagID.HeaderText = "ID";
             this.TagID.Name = "TagID";
             // 
-            // Color
+            // TagColor
             // 
-            this.Color.HeaderText = "Boja";
-            this.Color.Name = "Color";
+            this.TagColor.HeaderText = "Boja";
+            this.TagColor.Name = "TagColor";
+            // 
+            // izlazToolStripMenuItem
+            // 
+            this.izlazToolStripMenuItem.Name = "izlazToolStripMenuItem";
+            this.izlazToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.izlazToolStripMenuItem.Size = new System.Drawing.Size(178, 24);
+            this.izlazToolStripMenuItem.Text = "Izlaz";
+            this.izlazToolStripMenuItem.Click += new System.EventHandler(this.izlazToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -801,8 +865,11 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.lblSelectedResource);
             this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Mapa svetskih resursa";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -829,6 +896,8 @@
             this.gbxTag.ResumeLayout(false);
             this.gbxTag.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwTags)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -839,7 +908,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblSelectedResource;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnDeleteResource;
         private System.Windows.Forms.GroupBox grbDetails;
         private System.Windows.Forms.PictureBox pbxIcon;
@@ -900,8 +968,15 @@
         private System.Windows.Forms.Button btnEditTag;
         private System.Windows.Forms.Button btnNewTag;
         private System.Windows.Forms.DataGridView dgwTags;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem datotekaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sačuvajToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pomoćToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtColor;
+        private System.Windows.Forms.Label lblColor;
         private System.Windows.Forms.DataGridViewTextBoxColumn TagID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Color;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TagColor;
+        private System.Windows.Forms.ToolStripMenuItem izlazToolStripMenuItem;
 
     }
 }

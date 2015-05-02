@@ -33,6 +33,9 @@ namespace HCI15RA13AU
                 lblIconName.Text = type.IconFileName;
             else
                 lblIconName.Text = "";
+
+            txtId.ReadOnly = true;
+            this.Text = "Izmena tipa resursa";
         }
 
         private void txtId_Validating(object sender, CancelEventArgs e)
@@ -41,6 +44,11 @@ namespace HCI15RA13AU
             {
                 formIsValid = false;
                 epType.SetError(txtId, "Unos oznake je obavezan");
+            }
+            else if (MainForm.types.ContainsKey(txtId.Text))
+            {
+                formIsValid = false;
+                epType.SetError(txtId, "Tip resursa sa ovom oznakom već postoji");
             }
             else
             {

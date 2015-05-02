@@ -51,9 +51,8 @@
             this.lblIconName.Location = new System.Drawing.Point(437, 400);
             this.lblIconName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.lblIconName.Name = "lblIconName";
-            this.lblIconName.Size = new System.Drawing.Size(141, 18);
+            this.lblIconName.Size = new System.Drawing.Size(0, 18);
             this.lblIconName.TabIndex = 39;
-            this.lblIconName.Text = "Ikonica nije izabrana";
             // 
             // btnIcon
             // 

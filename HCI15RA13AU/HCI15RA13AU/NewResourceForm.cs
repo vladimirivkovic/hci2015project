@@ -49,6 +49,11 @@ namespace HCI15RA13AU
                 formIsValid = false;
                 epAdd.SetError(txtId, "Unos oznake je obavezan");
             }
+            else if (MainForm.tags.ContainsKey(txtId.Text))
+            {
+                formIsValid = false;
+                epAdd.SetError(txtId, "Resurs sa ovom oznakom već postoji");
+            }
             else
             {
                 epAdd.SetError(txtId, "");

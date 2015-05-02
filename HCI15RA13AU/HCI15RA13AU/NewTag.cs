@@ -27,6 +27,9 @@ namespace HCI15RA13AU
             txtDescription.Text = t.Description;
             txtColor.BackColor = t.Color;
             color = txtColor.BackColor;
+
+            txtId.ReadOnly = true;
+            this.Text = "Izmena etikete";
         }
 
         public Tag GetTag()
@@ -55,6 +58,11 @@ namespace HCI15RA13AU
             {
                 formIsValid = false;
                 epTag.SetError(txtId, "Unos oznake je obavezan");
+            }
+            else if(MainForm.tags.ContainsKey(txtId.Text))
+            {
+                formIsValid = false;
+                epTag.SetError(txtId, "Etiketa sa ovom oznakom već postoji");
             }
             else
             {

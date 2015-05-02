@@ -41,9 +41,10 @@
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(404, 311);
+            this.btnCancel.Location = new System.Drawing.Point(606, 431);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.Size = new System.Drawing.Size(112, 32);
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -52,9 +53,10 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(314, 311);
+            this.btnOk.Location = new System.Drawing.Point(471, 431);
+            this.btnOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(75, 23);
+            this.btnOk.Size = new System.Drawing.Size(112, 32);
             this.btnOk.TabIndex = 1;
             this.btnOk.Text = "OK";
             this.btnOk.UseVisualStyleBackColor = true;
@@ -63,26 +65,31 @@
             // lstAllTags
             // 
             this.lstAllTags.FormattingEnabled = true;
-            this.lstAllTags.Location = new System.Drawing.Point(12, 12);
+            this.lstAllTags.ItemHeight = 18;
+            this.lstAllTags.Location = new System.Drawing.Point(18, 17);
+            this.lstAllTags.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lstAllTags.Name = "lstAllTags";
             this.lstAllTags.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstAllTags.Size = new System.Drawing.Size(164, 212);
+            this.lstAllTags.Size = new System.Drawing.Size(244, 292);
             this.lstAllTags.TabIndex = 2;
             // 
             // lstSelectedTags
             // 
             this.lstSelectedTags.FormattingEnabled = true;
-            this.lstSelectedTags.Location = new System.Drawing.Point(269, 12);
+            this.lstSelectedTags.ItemHeight = 18;
+            this.lstSelectedTags.Location = new System.Drawing.Point(404, 17);
+            this.lstSelectedTags.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.lstSelectedTags.Name = "lstSelectedTags";
             this.lstSelectedTags.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
-            this.lstSelectedTags.Size = new System.Drawing.Size(161, 212);
+            this.lstSelectedTags.Size = new System.Drawing.Size(240, 292);
             this.lstSelectedTags.TabIndex = 3;
             // 
             // brnAdd
             // 
-            this.brnAdd.Location = new System.Drawing.Point(207, 12);
+            this.brnAdd.Location = new System.Drawing.Point(310, 17);
+            this.brnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.brnAdd.Name = "brnAdd";
-            this.brnAdd.Size = new System.Drawing.Size(30, 23);
+            this.brnAdd.Size = new System.Drawing.Size(45, 32);
             this.brnAdd.TabIndex = 4;
             this.brnAdd.Text = ">";
             this.brnAdd.UseVisualStyleBackColor = true;
@@ -90,9 +97,10 @@
             // 
             // btnAddAll
             // 
-            this.btnAddAll.Location = new System.Drawing.Point(207, 41);
+            this.btnAddAll.Location = new System.Drawing.Point(310, 57);
+            this.btnAddAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAddAll.Name = "btnAddAll";
-            this.btnAddAll.Size = new System.Drawing.Size(30, 23);
+            this.btnAddAll.Size = new System.Drawing.Size(45, 32);
             this.btnAddAll.TabIndex = 5;
             this.btnAddAll.Text = ">>";
             this.btnAddAll.UseVisualStyleBackColor = true;
@@ -100,9 +108,10 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(207, 70);
+            this.btnRemove.Location = new System.Drawing.Point(310, 97);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(30, 23);
+            this.btnRemove.Size = new System.Drawing.Size(45, 32);
             this.btnRemove.TabIndex = 6;
             this.btnRemove.Text = "<";
             this.btnRemove.UseVisualStyleBackColor = true;
@@ -110,9 +119,10 @@
             // 
             // btnRemoveAll
             // 
-            this.btnRemoveAll.Location = new System.Drawing.Point(207, 99);
+            this.btnRemoveAll.Location = new System.Drawing.Point(310, 137);
+            this.btnRemoveAll.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRemoveAll.Name = "btnRemoveAll";
-            this.btnRemoveAll.Size = new System.Drawing.Size(30, 23);
+            this.btnRemoveAll.Size = new System.Drawing.Size(45, 32);
             this.btnRemoveAll.TabIndex = 7;
             this.btnRemoveAll.Text = "<<";
             this.btnRemoveAll.UseVisualStyleBackColor = true;
@@ -120,9 +130,9 @@
             // 
             // SelectTagForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(491, 346);
+            this.ClientSize = new System.Drawing.Size(736, 479);
             this.Controls.Add(this.btnRemoveAll);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAddAll);
@@ -131,6 +141,8 @@
             this.Controls.Add(this.lstAllTags);
             this.Controls.Add(this.btnOk);
             this.Controls.Add(this.btnCancel);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "SelectTagForm";
             this.Text = "SelectTagForm";
             this.ResumeLayout(false);

@@ -82,14 +82,36 @@ namespace HCI15RA13AU
             Cost = r.Cost;
             Discovered = r.Discovered;
             Unit = StringToUnit(r.UnitName);
+            Frequency = StringToFrequency(r.FrequencyName);
             IconFileName = r.IconFileName;
-            Type = MainForm.types[r.TypeName];
+            if (MainForm.types.ContainsKey(r.TypeName))
+            {
+                Type = MainForm.types[r.TypeName];
+            }
             IconFileName = r.IconFileName;
 
             Tags = new Dictionary<string, Tag>();
             foreach (string s in r.TagIds)
             {
-                Tags.Add(s, MainForm.tags[s]);
+                if (MainForm.tags.ContainsKey(s))
+                {
+                    Tags.Add(s, MainForm.tags[s]);
+                }
+            }
+        }
+
+        private static Frequency StringToFrequency(string p)
+        {
+            switch (p)
+            {
+                case "čest" :
+                    return Frequency.FREQUENT;
+                case "redak":
+                    return  Frequency.RARE;
+                case "univerzalan":
+                    return Frequency.UNIVERSAL;
+                default:
+                    return Frequency.UNIVERSAL;
             }
         }
 
@@ -119,7 +141,7 @@ namespace HCI15RA13AU
                 case Frequency.RARE:
                     return "redak";
                 case Frequency.UNIVERSAL:
-                    return "univezalan";
+                    return "univerzalan";
                 default:
                     return "";
             }
