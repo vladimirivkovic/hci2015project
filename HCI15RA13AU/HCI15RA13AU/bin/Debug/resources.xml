@@ -9,7 +9,7 @@
     <Important>true</Important>
     <Cost>234</Cost>
     <Discovered>2015-05-02T11:49:35.4677067+02:00</Discovered>
-    <IconFileName>E:\Documents\Zabava\Slike\Auto-Moto\12F.JPG</IconFileName>
+    <IconFileName>images\3.jpg</IconFileName>
     <listOfTags>
       <tag>b</tag>
       <tag>af</tag>
@@ -22,13 +22,17 @@
     <ID>www</ID>
     <Description>www</Description>
     <Name>www</Name>
-    <Renewable>false</Renewable>
+    <Renewable>true</Renewable>
     <Exploatable>true</Exploatable>
     <Important>true</Important>
     <Cost>567</Cost>
     <Discovered>2015-05-02T11:54:37.2401724+02:00</Discovered>
-    <IconFileName>E:\Documents\Zabava\Slike\Auto-Moto\9F.JPG</IconFileName>
-    <listOfTags />
+    <IconFileName>images\04.JPG</IconFileName>
+    <listOfTags>
+      <tag>a</tag>
+      <tag>b</tag>
+      <tag>af</tag>
+    </listOfTags>
     <UnitName>barel</UnitName>
     <FrequencyName>čest</FrequencyName>
     <TypeName>b</TypeName>
@@ -42,7 +46,7 @@
     <Important>true</Important>
     <Cost>456</Cost>
     <Discovered>2015-05-02T11:54:55.4529869+02:00</Discovered>
-    <IconFileName>E:\Documents\Zabava\Slike\Auto-Moto\WRC121.JPG</IconFileName>
+    <IconFileName>images\1.jpg</IconFileName>
     <listOfTags>
       <tag>a</tag>
       <tag>b</tag>
@@ -51,5 +55,53 @@
     <UnitName>barel</UnitName>
     <FrequencyName>redak</FrequencyName>
     <TypeName>c</TypeName>
+  </ResourceItem>
+  <ResourceItem>
+    <ID>yyy</ID>
+    <Description>yyy</Description>
+    <Name>yyy</Name>
+    <Renewable>false</Renewable>
+    <Exploatable>false</Exploatable>
+    <Important>true</Important>
+    <Cost>345</Cost>
+    <Discovered>2015-05-04T09:51:14.7199196+02:00</Discovered>
+    <IconFileName>images\Bigwall.jpg</IconFileName>
+    <listOfTags />
+    <UnitName>tona</UnitName>
+    <FrequencyName>univerzalan</FrequencyName>
+    <TypeName>c</TypeName>
+  </ResourceItem>
+  <ResourceItem>
+    <ID>ppp</ID>
+    <Description>ppp</Description>
+    <Name>ppp</Name>
+    <Renewable>true</Renewable>
+    <Exploatable>false</Exploatable>
+    <Important>false</Important>
+    <Cost>789</Cost>
+    <Discovered>2015-05-04T10:04:40.4357161+02:00</Discovered>
+    <IconFileName>images\CRATER_L.JPG</IconFileName>
+    <listOfTags />
+    <UnitName>barel</UnitName>
+    <FrequencyName>univerzalan</FrequencyName>
+    <TypeName>b</TypeName>
+  </ResourceItem>
+  <ResourceItem>
+    <ID>nnn</ID>
+    <Description>jnijnjononoj</Description>
+    <Name>nnn</Name>
+    <Renewable>true</Renewable>
+    <Exploatable>false</Exploatable>
+    <Important>true</Important>
+    <Cost>999</Cost>
+    <Discovered>2015-05-04T10:06:32.9152421+02:00</Discovered>
+    <IconFileName>images\NATURE11.JPG</IconFileName>
+    <listOfTags>
+      <tag>a</tag>
+      <tag>af</tag>
+    </listOfTags>
+    <UnitName>merica</UnitName>
+    <FrequencyName>redak</FrequencyName>
+    <TypeName>qefewf</TypeName>
   </ResourceItem>
 </ListOfResources>

@@ -32,9 +32,9 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblSelectedResource = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pbxIcon = new System.Windows.Forms.PictureBox();
             this.btnDeleteResource = new System.Windows.Forms.Button();
             this.grbDetails = new System.Windows.Forms.GroupBox();
-            this.pbxIcon = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTypeName = new System.Windows.Forms.TextBox();
             this.txtTypeId = new System.Windows.Forms.TextBox();
@@ -86,25 +86,25 @@
             this.TypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxTag = new System.Windows.Forms.GroupBox();
+            this.txtColor = new System.Windows.Forms.TextBox();
+            this.lblColor = new System.Windows.Forms.Label();
             this.txtTagDesc = new System.Windows.Forms.TextBox();
             this.lblTagDesc = new System.Windows.Forms.Label();
             this.btnDeleteTag = new System.Windows.Forms.Button();
             this.btnEditTag = new System.Windows.Forms.Button();
             this.btnNewTag = new System.Windows.Forms.Button();
             this.dgwTags = new System.Windows.Forms.DataGridView();
+            this.TagID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TagColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.datotekaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sačuvajToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pomoćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblColor = new System.Windows.Forms.Label();
-            this.txtColor = new System.Windows.Forms.TextBox();
-            this.TagID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TagColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.izlazToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pomoćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage2.SuspendLayout();
-            this.grbDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).BeginInit();
+            this.grbDetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
             this.tabPage1.SuspendLayout();
@@ -158,6 +158,14 @@
             this.tabPage2.Text = "Tabelarni prikaz";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // pbxIcon
+            // 
+            this.pbxIcon.Location = new System.Drawing.Point(945, 242);
+            this.pbxIcon.Name = "pbxIcon";
+            this.pbxIcon.Size = new System.Drawing.Size(150, 150);
+            this.pbxIcon.TabIndex = 62;
+            this.pbxIcon.TabStop = false;
+            // 
             // btnDeleteResource
             // 
             this.btnDeleteResource.Location = new System.Drawing.Point(983, 88);
@@ -197,14 +205,6 @@
             this.grbDetails.TabIndex = 14;
             this.grbDetails.TabStop = false;
             this.grbDetails.Text = "Detalji";
-            // 
-            // pbxIcon
-            // 
-            this.pbxIcon.Location = new System.Drawing.Point(945, 242);
-            this.pbxIcon.Name = "pbxIcon";
-            this.pbxIcon.Size = new System.Drawing.Size(150, 150);
-            this.pbxIcon.TabIndex = 62;
-            this.pbxIcon.TabStop = false;
             // 
             // groupBox1
             // 
@@ -658,7 +658,7 @@
             this.btnDeleteType.Name = "btnDeleteType";
             this.btnDeleteType.Size = new System.Drawing.Size(90, 32);
             this.btnDeleteType.TabIndex = 12;
-            this.btnDeleteType.Text = "Obrisi tip";
+            this.btnDeleteType.Text = "Obriši tip";
             this.btnDeleteType.UseVisualStyleBackColor = true;
             this.btnDeleteType.Click += new System.EventHandler(this.btnDeleteType_Click);
             // 
@@ -722,6 +722,23 @@
             this.gbxTag.TabStop = false;
             this.gbxTag.Text = "Detalji o etiketi";
             // 
+            // txtColor
+            // 
+            this.txtColor.Location = new System.Drawing.Point(122, 182);
+            this.txtColor.Name = "txtColor";
+            this.txtColor.ReadOnly = true;
+            this.txtColor.Size = new System.Drawing.Size(279, 24);
+            this.txtColor.TabIndex = 3;
+            // 
+            // lblColor
+            // 
+            this.lblColor.AutoSize = true;
+            this.lblColor.Location = new System.Drawing.Point(20, 183);
+            this.lblColor.Name = "lblColor";
+            this.lblColor.Size = new System.Drawing.Size(85, 18);
+            this.lblColor.TabIndex = 2;
+            this.lblColor.Text = "Boja etikete";
+            // 
             // txtTagDesc
             // 
             this.txtTagDesc.Location = new System.Drawing.Point(122, 32);
@@ -746,7 +763,7 @@
             this.btnDeleteTag.Name = "btnDeleteTag";
             this.btnDeleteTag.Size = new System.Drawing.Size(111, 32);
             this.btnDeleteTag.TabIndex = 13;
-            this.btnDeleteTag.Text = "Obrisi etiketu";
+            this.btnDeleteTag.Text = "Obriši etiketu";
             this.btnDeleteTag.UseVisualStyleBackColor = true;
             this.btnDeleteTag.Click += new System.EventHandler(this.btnDeleteTag_Click);
             // 
@@ -787,6 +804,16 @@
             this.dgwTags.TabIndex = 10;
             this.dgwTags.SelectionChanged += new System.EventHandler(this.dgwTags_SelectionChanged);
             // 
+            // TagID
+            // 
+            this.TagID.HeaderText = "ID";
+            this.TagID.Name = "TagID";
+            // 
+            // TagColor
+            // 
+            this.TagColor.HeaderText = "Boja";
+            this.TagColor.Name = "TagColor";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -812,50 +839,23 @@
             // 
             this.sačuvajToolStripMenuItem.Name = "sačuvajToolStripMenuItem";
             this.sačuvajToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.sačuvajToolStripMenuItem.Size = new System.Drawing.Size(178, 24);
             this.sačuvajToolStripMenuItem.Text = "Sačuvaj";
             this.sačuvajToolStripMenuItem.Click += new System.EventHandler(this.sačuvajToolStripMenuItem_Click);
-            // 
-            // pomoćToolStripMenuItem
-            // 
-            this.pomoćToolStripMenuItem.Name = "pomoćToolStripMenuItem";
-            this.pomoćToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.pomoćToolStripMenuItem.Text = "Pomoć";
-            // 
-            // lblColor
-            // 
-            this.lblColor.AutoSize = true;
-            this.lblColor.Location = new System.Drawing.Point(20, 183);
-            this.lblColor.Name = "lblColor";
-            this.lblColor.Size = new System.Drawing.Size(85, 18);
-            this.lblColor.TabIndex = 2;
-            this.lblColor.Text = "Boja etikete";
-            // 
-            // txtColor
-            // 
-            this.txtColor.Location = new System.Drawing.Point(122, 182);
-            this.txtColor.Name = "txtColor";
-            this.txtColor.ReadOnly = true;
-            this.txtColor.Size = new System.Drawing.Size(279, 24);
-            this.txtColor.TabIndex = 3;
-            // 
-            // TagID
-            // 
-            this.TagID.HeaderText = "ID";
-            this.TagID.Name = "TagID";
-            // 
-            // TagColor
-            // 
-            this.TagColor.HeaderText = "Boja";
-            this.TagColor.Name = "TagColor";
             // 
             // izlazToolStripMenuItem
             // 
             this.izlazToolStripMenuItem.Name = "izlazToolStripMenuItem";
-            this.izlazToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.izlazToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
             this.izlazToolStripMenuItem.Size = new System.Drawing.Size(178, 24);
             this.izlazToolStripMenuItem.Text = "Izlaz";
             this.izlazToolStripMenuItem.Click += new System.EventHandler(this.izlazToolStripMenuItem_Click);
+            // 
+            // pomoćToolStripMenuItem
+            // 
+            this.pomoćToolStripMenuItem.Name = "pomoćToolStripMenuItem";
+            this.pomoćToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
+            this.pomoćToolStripMenuItem.Text = "Pomoć";
             // 
             // MainForm
             // 
@@ -875,9 +875,9 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).EndInit();
             this.grbDetails.ResumeLayout(false);
             this.grbDetails.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).EndInit();

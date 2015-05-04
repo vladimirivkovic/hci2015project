@@ -14,7 +14,7 @@ namespace HCI15RA13AU
     public partial class MainForm : Form
     {
 
-        private Dictionary<string, Resource> resources = new Dictionary<string, Resource>();
+        public static Dictionary<string, Resource> resources = new Dictionary<string, Resource>();
 
         public static Dictionary<string, Type> types = new Dictionary<string, Type>();
 
@@ -43,7 +43,7 @@ namespace HCI15RA13AU
                     res.Cost.ToString("C"), res.Important, res.Renewable,
                     Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit) });
                 dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
-                dgwResources.CurrentCell = dgwResources.Rows[0].Cells[0];
+                dgwResources.CurrentCell = dgwResources.Rows[dgwResources.Rows.Count - 1].Cells[0];
                 dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
             }
         }
@@ -68,6 +68,7 @@ namespace HCI15RA13AU
                                 res.Cost.ToString("C"), res.Important, res.Renewable,
                                 Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit) });
                             dgwResources.Rows[index].Tag = res;
+                            dgwResources.CurrentCell = dgwResources.Rows[index].Cells[0];
                             resources.Remove(res.ID);
                             resources.Add(res.ID, res);
                             break;
@@ -198,7 +199,7 @@ namespace HCI15RA13AU
                 types.Add(t.ID, t);
                 dgwTypes.Rows.Add(new object[] { t.ID, t.Name} );
                 dgwTypes.Rows[dgwTypes.Rows.Count - 1].Tag = t;
-                dgwTypes.CurrentCell = dgwTypes.Rows[0].Cells[0];
+                dgwTypes.CurrentCell = dgwTypes.Rows[dgwTypes.Rows.Count - 1].Cells[0];
             }
         }
 
@@ -321,7 +322,7 @@ namespace HCI15RA13AU
                     }
                     if (deleted.Count > 0)
                     {
-                        DialogResult result = MessageBox.Show("Brisanjem tipa bice obrisani i svi resursi toga tipa. Da li zelite da nastavite sa brisanjem?",
+                        DialogResult result = MessageBox.Show("Brisanjem tipa biće obrisani i svi resursi toga tipa. Da li želite da nastavite sa brisanjem?",
                             "Brisanje tipa resursa", MessageBoxButtons.OKCancel);
                         if (result == DialogResult.Cancel)
                         {

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace HCI15RA13AU
 {
@@ -15,6 +16,7 @@ namespace HCI15RA13AU
         private bool formIsValid = true;
         private Dictionary<string, Tag> tags;
         private Type type;
+        private string fullFileName = "";
         private string fname = "";
 
         public NewResourceForm()
@@ -37,7 +39,8 @@ namespace HCI15RA13AU
             DialogResult d = ofd.ShowDialog();
             if (d == DialogResult.OK)
             {
-                fname = ofd.FileName;
+                fullFileName = ofd.FileName;
+                fname = ofd.SafeFileName;
                 lblIconName.Text = fname;
             }
         }
@@ -49,7 +52,7 @@ namespace HCI15RA13AU
                 formIsValid = false;
                 epAdd.SetError(txtId, "Unos oznake je obavezan");
             }
-            else if (MainForm.tags.ContainsKey(txtId.Text))
+            else if (MainForm.resources.ContainsKey(txtId.Text))
             {
                 formIsValid = false;
                 epAdd.SetError(txtId, "Resurs sa ovom oznakom već postoji");
@@ -181,7 +184,15 @@ namespace HCI15RA13AU
                     }
                 }
             }
-            res.IconFileName = fname;
+            try
+            {
+                File.Copy(fullFileName, "images\\" + fname);
+            }
+            catch
+            {
+                Console.WriteLine("File allready exists");
+            }
+            res.IconFileName = "images\\" + fname;
 
             return res;
         }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace HCI15RA13AU
 {
@@ -16,6 +17,7 @@ namespace HCI15RA13AU
         private bool formIsValid = true;
         private Dictionary<string, Tag> tags;
         private Type type;
+        private string fullFileName = "";
         private string fname = "";
 
         public EditResourceForm(Resource res)
@@ -55,8 +57,8 @@ namespace HCI15RA13AU
             txtCost.Text = res.Cost.ToString();
             dateTimePicker.Value = res.Discovered;
             lblTag.Text = res.Tags.Count.ToString();
-            fname = res.IconFileName;
-            lblIconName.Text = fname;
+            fullFileName = res.IconFileName;
+            lblIconName.Text = fullFileName;
             
 
             foreach (Type t in MainForm.types.Values)
@@ -86,7 +88,22 @@ namespace HCI15RA13AU
             res.Cost = double.Parse(txtCost.Text);
             res.Discovered = dateTimePicker.Value;
             res.Tags = tags;
-            res.IconFileName = fname;
+            if (!fname.Equals(""))
+            {
+                try
+                {
+                    File.Copy(fullFileName, "images\\" + fname);
+                }
+                catch
+                {
+                    Console.WriteLine("File allready exists");
+                }
+                res.IconFileName = "images\\" + fname;
+            }
+            else
+            {
+                res.IconFileName = fullFileName;
+            }
             res.Type = type;
             if (cmbType.SelectedItem != null)
             {
@@ -108,8 +125,9 @@ namespace HCI15RA13AU
             DialogResult d = ofd.ShowDialog();
             if (d == DialogResult.OK)
             {
-                fname = ofd.FileName;
-                lblIconName.Text = fname;
+                fullFileName = ofd.FileName;
+                fname = ofd.SafeFileName;
+                lblIconName.Text = "images\\" + fname;
             }
         }
 
