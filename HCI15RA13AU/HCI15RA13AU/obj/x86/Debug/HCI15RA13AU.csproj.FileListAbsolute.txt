@@ -42,3 +42,8 @@ G:\hci2015project-master\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.Selec
 G:\hci2015project-master\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TypeForm.resources
 G:\hci2015project-master\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\GenerateResource.read.1.tlog
 G:\hci2015project-master\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\GenerateResource.write.1.tlog
+G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourcesTable.resources
+E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourcesTable.resources
+E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TypesTable.resources
+E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TagsTable.resources
+E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourcesFilter.resources

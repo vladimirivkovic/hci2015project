@@ -7,15 +7,15 @@
     <Renewable>false</Renewable>
     <Exploatable>false</Exploatable>
     <Important>true</Important>
-    <Cost>234</Cost>
+    <Cost>2340</Cost>
     <Discovered>2015-05-02T11:49:35.4677067+02:00</Discovered>
     <IconFileName>images\3.jpg</IconFileName>
     <listOfTags>
-      <tag>b</tag>
       <tag>af</tag>
+      <tag>cvb</tag>
     </listOfTags>
     <UnitName>merica</UnitName>
-    <FrequencyName>univerzalan</FrequencyName>
+    <FrequencyName>čest</FrequencyName>
     <TypeName>b</TypeName>
   </ResourceItem>
   <ResourceItem>
@@ -30,8 +30,7 @@
     <IconFileName>images\04.JPG</IconFileName>
     <listOfTags>
       <tag>a</tag>
-      <tag>b</tag>
-      <tag>af</tag>
+      <tag>ert</tag>
     </listOfTags>
     <UnitName>barel</UnitName>
     <FrequencyName>čest</FrequencyName>
@@ -40,7 +39,7 @@
   <ResourceItem>
     <ID>eee</ID>
     <Description>eee</Description>
-    <Name>eee</Name>
+    <Name>dofknbkoem</Name>
     <Renewable>true</Renewable>
     <Exploatable>false</Exploatable>
     <Important>true</Important>
@@ -49,7 +48,6 @@
     <IconFileName>images\1.jpg</IconFileName>
     <listOfTags>
       <tag>a</tag>
-      <tag>b</tag>
       <tag>af</tag>
     </listOfTags>
     <UnitName>barel</UnitName>
@@ -79,9 +77,13 @@
     <Exploatable>false</Exploatable>
     <Important>false</Important>
     <Cost>789</Cost>
-    <Discovered>2015-05-04T10:04:40.4357161+02:00</Discovered>
+    <Discovered>1753-01-01T10:04:40</Discovered>
     <IconFileName>images\CRATER_L.JPG</IconFileName>
-    <listOfTags />
+    <listOfTags>
+      <tag>a</tag>
+      <tag>ert</tag>
+      <tag>af</tag>
+    </listOfTags>
     <UnitName>barel</UnitName>
     <FrequencyName>univerzalan</FrequencyName>
     <TypeName>b</TypeName>
@@ -103,5 +105,76 @@
     <UnitName>merica</UnitName>
     <FrequencyName>redak</FrequencyName>
     <TypeName>qefewf</TypeName>
+  </ResourceItem>
+  <ResourceItem>
+    <ID>qeqe</ID>
+    <Description>wrvrvwrvwr</Description>
+    <Name>wrvw</Name>
+    <Renewable>false</Renewable>
+    <Exploatable>false</Exploatable>
+    <Important>true</Important>
+    <Cost>445</Cost>
+    <Discovered>2015-05-04T10:37:13.2358544+02:00</Discovered>
+    <IconFileName>images\200008_08.JPG</IconFileName>
+    <listOfTags>
+      <tag>cvb</tag>
+    </listOfTags>
+    <UnitName>barel</UnitName>
+    <FrequencyName>univerzalan</FrequencyName>
+    <TypeName>b</TypeName>
+  </ResourceItem>
+  <ResourceItem>
+    <ID>pdpdpd</ID>
+    <Description>welcknreoknoverv</Description>
+    <Name>tebtrb</Name>
+    <Renewable>false</Renewable>
+    <Exploatable>true</Exploatable>
+    <Important>false</Important>
+    <Cost>676</Cost>
+    <Discovered>2000-05-04T10:39:42</Discovered>
+    <IconFileName>images\MOUNTIN0.JPG</IconFileName>
+    <listOfTags>
+      <tag>af</tag>
+      <tag>ert</tag>
+    </listOfTags>
+    <UnitName>tona</UnitName>
+    <FrequencyName>čest</FrequencyName>
+    <TypeName>qefewf</TypeName>
+  </ResourceItem>
+  <ResourceItem>
+    <ID>f6ildt.itd.7,tyut</ID>
+    <Description>fku,./okw4m6o,</Description>
+    <Name>fxhnm k, dtul.</Name>
+    <Renewable>true</Renewable>
+    <Exploatable>true</Exploatable>
+    <Important>false</Important>
+    <Cost>1234568907543</Cost>
+    <Discovered>2010-06-08T12:49:38</Discovered>
+    <IconFileName>images\</IconFileName>
+    <listOfTags>
+      <tag>af</tag>
+      <tag>duyhfikfid</tag>
+    </listOfTags>
+    <UnitName>barel</UnitName>
+    <FrequencyName>čest</FrequencyName>
+    <TypeName>i797,y7ymj gncgfjlkmhg67tuj,xyhchnr</TypeName>
+  </ResourceItem>
+  <ResourceItem>
+    <ID>novi</ID>
+    <Description>njegov opis</Description>
+    <Name>resurs</Name>
+    <Renewable>false</Renewable>
+    <Exploatable>true</Exploatable>
+    <Important>true</Important>
+    <Cost>23</Cost>
+    <Discovered>2015-05-10T18:39:44.7876889+02:00</Discovered>
+    <IconFileName>images\Vinca.jpg</IconFileName>
+    <listOfTags>
+      <tag>cvb</tag>
+      <tag>duyhfikfid</tag>
+    </listOfTags>
+    <UnitName>barel</UnitName>
+    <FrequencyName>čest</FrequencyName>
+    <TypeName>c</TypeName>
   </ResourceItem>
 </ListOfResources>

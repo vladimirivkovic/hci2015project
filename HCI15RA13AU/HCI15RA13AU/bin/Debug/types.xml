@@ -2,20 +2,32 @@
 <ListOfTypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Type>
     <ID>b</ID>
-    <Name>b</Name>
-    <IconFileName>C:\Users\Vlado\Pictures\95863073.jpg</IconFileName>
-    <Description>b</Description>
+    <Name>baba</Name>
+    <IconFileName>images\SKY.JPG</IconFileName>
+    <Description>bwevkmwkenv</Description>
   </Type>
   <Type>
     <ID>c</ID>
     <Name>c</Name>
-    <IconFileName>C:\Users\Vlado\Pictures\wooden_path-wide.jpg</IconFileName>
+    <IconFileName>images\SUNSET_2.JPG</IconFileName>
     <Description>wnvwe</Description>
   </Type>
   <Type>
     <ID>qefewf</ID>
     <Name>wegwrgrweg</Name>
-    <IconFileName>E:\Documents\Zabava\Slike\Auto-Moto\egwvv3qvqerver.JPG</IconFileName>
+    <IconFileName>images\Vinca.jpg</IconFileName>
     <Description>qwfwefw4g4gw4</Description>
+  </Type>
+  <Type>
+    <ID>i797,y7ymj gncgfjlkmhg67tuj,xyhchnr</ID>
+    <Name>edfghjkl;</Name>
+    <IconFileName>images\Tulips.jpg</IconFileName>
+    <Description>gm,d46yns36hg7.htfkufuf</Description>
+  </Type>
+  <Type>
+    <ID>novi</ID>
+    <Name>tip</Name>
+    <IconFileName>images\woscn11.jpg</IconFileName>
+    <Description>njevog opis</Description>
   </Type>
 </ListOfTypes>

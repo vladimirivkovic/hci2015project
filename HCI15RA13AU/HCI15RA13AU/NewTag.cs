@@ -59,7 +59,7 @@ namespace HCI15RA13AU
                 formIsValid = false;
                 epTag.SetError(txtId, "Unos oznake je obavezan");
             }
-            else if(MainForm.tags.ContainsKey(txtId.Text))
+            else if(MainForm.tags.ContainsKey(txtId.Text) && !txtId.ReadOnly)
             {
                 formIsValid = false;
                 epTag.SetError(txtId, "Etiketa sa ovom oznakom već postoji");

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace HCI15RA13AU
 {
@@ -45,7 +46,7 @@ namespace HCI15RA13AU
                 formIsValid = false;
                 epType.SetError(txtId, "Unos oznake je obavezan");
             }
-            else if (MainForm.types.ContainsKey(txtId.Text))
+            else if (MainForm.types.ContainsKey(txtId.Text) && !txtId.ReadOnly)
             {
                 formIsValid = false;
                 epType.SetError(txtId, "Tip resursa sa ovom oznakom već postoji");
@@ -128,6 +129,16 @@ namespace HCI15RA13AU
             if (d == DialogResult.OK)
             {
                 string fname = ofd.FileName;
+                try
+                {
+                    File.Copy(fname, "images\\" + ofd.SafeFileName);
+                    
+                }
+                catch
+                {
+                    Console.WriteLine("File allready exists");
+                }
+                fname = "images\\" + ofd.SafeFileName;
                 lblIconName.Text = fname;
             }
         }
