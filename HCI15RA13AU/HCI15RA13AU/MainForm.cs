@@ -20,6 +20,8 @@ namespace HCI15RA13AU
 
         public static Dictionary<string, Tag> tags = new Dictionary<string, Tag>();
 
+        public static Dictionary<string, Resource> mappedResources = new Dictionary<string, Resource>();
+
         internal static string dateFormat = "dd.MM.yyyy";
 
         public MainForm()
@@ -656,5 +658,72 @@ namespace HCI15RA13AU
             TagsTable tagsTable = new TagsTable();
             tagsTable.ShowDialog();
         }
+
+        private void pnlResources_Paint(object sender, PaintEventArgs e)
+        {
+
+            
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            int off = 10;
+
+            pnlResources.Controls.Clear();
+            foreach (Resource res in resources.Values)
+            {
+                if (!mappedResources.ContainsKey(res.ID))
+                {
+                    ResourceControl resControl = new ResourceControl(res, off);
+                    pnlResources.Controls.Add(resControl);
+
+                    off += 60;
+                }
+            }
+            pnlResources.Refresh();
+        }
+
+        private void pnlMap_DragEnter(object sender, DragEventArgs e)
+        {
+            Resource r = new Resource();
+            if ((e.Data.GetDataPresent(r.GetType())))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void pnlMap_DragDrop(object sender, DragEventArgs e)
+        {
+            Resource r = new Resource();
+            Panel dropPicturePanel = (Panel)sender;
+            if (e.Data.GetDataPresent(r.GetType()))
+            {
+                Graphics g = pbxMap.CreateGraphics();
+                Resource res = (Resource)e.Data.GetData(r.GetType());
+                Image img = Image.FromFile(res.IconFileName);
+
+                g.DrawRectangle(new Pen(Color.Red), e.X - pbxMap.Location.X - this.Location.X - 30 - 2,
+                    e.Y - pbxMap.Location.Y - this.Location.Y - 70 - 2, 34, 34);
+
+
+                g.DrawImage(Image.FromFile(res.IconFileName), e.X - pbxMap.Location.X - this.Location.X - 30,
+                    e.Y - pbxMap.Location.Y - this.Location.Y - 70, 30, 30);
+
+                mappedResources.Add(res.ID, res);
+                MainForm_Load(this, EventArgs.Empty);
+            }
+        }
+
+        private void MainForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            lblX.Text = e.X.ToString();
+            lblY.Text = e.Y.ToString();
+        }
+
+
     }
 }

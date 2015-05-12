@@ -40,10 +40,15 @@
             this.tipoviResursaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.etiketeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomoćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pnlMap = new System.Windows.Forms.Panel();
+            this.pbxMap = new System.Windows.Forms.PictureBox();
+            this.pnlResources = new System.Windows.Forms.Panel();
+            this.lblX = new System.Windows.Forms.Label();
+            this.lblY = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnlMap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxMap)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -139,23 +144,63 @@
             this.pomoćToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.pomoćToolStripMenuItem.Text = "Pomoć";
             // 
-            // pictureBox2
+            // pnlMap
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(18, 32);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(1159, 644);
-            this.pictureBox2.TabIndex = 12;
-            this.pictureBox2.TabStop = false;
+            this.pnlMap.AllowDrop = true;
+            this.pnlMap.Controls.Add(this.pbxMap);
+            this.pnlMap.Location = new System.Drawing.Point(12, 31);
+            this.pnlMap.Name = "pnlMap";
+            this.pnlMap.Size = new System.Drawing.Size(899, 587);
+            this.pnlMap.TabIndex = 13;
+            this.pnlMap.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlMap_DragDrop);
+            this.pnlMap.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlMap_DragEnter);
+            // 
+            // pbxMap
+            // 
+            this.pbxMap.Image = ((System.Drawing.Image)(resources.GetObject("pbxMap.Image")));
+            this.pbxMap.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbxMap.InitialImage")));
+            this.pbxMap.Location = new System.Drawing.Point(6, 4);
+            this.pbxMap.Margin = new System.Windows.Forms.Padding(4);
+            this.pbxMap.Name = "pbxMap";
+            this.pbxMap.Size = new System.Drawing.Size(814, 502);
+            this.pbxMap.TabIndex = 12;
+            this.pbxMap.TabStop = false;
+            // 
+            // pnlResources
+            // 
+            this.pnlResources.Location = new System.Drawing.Point(942, 31);
+            this.pnlResources.Name = "pnlResources";
+            this.pnlResources.Size = new System.Drawing.Size(230, 652);
+            this.pnlResources.TabIndex = 14;
+            this.pnlResources.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlResources_Paint);
+            // 
+            // lblX
+            // 
+            this.lblX.AutoSize = true;
+            this.lblX.Location = new System.Drawing.Point(23, 661);
+            this.lblX.Name = "lblX";
+            this.lblX.Size = new System.Drawing.Size(32, 18);
+            this.lblX.TabIndex = 15;
+            this.lblX.Text = "lblX";
+            // 
+            // lblY
+            // 
+            this.lblY.AutoSize = true;
+            this.lblY.Location = new System.Drawing.Point(82, 661);
+            this.lblY.Name = "lblY";
+            this.lblY.Size = new System.Drawing.Size(31, 18);
+            this.lblY.TabIndex = 16;
+            this.lblY.Text = "lblY";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 695);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.lblY);
+            this.Controls.Add(this.lblX);
+            this.Controls.Add(this.pnlResources);
+            this.Controls.Add(this.pnlMap);
             this.Controls.Add(this.lblSelectedResource);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
@@ -165,10 +210,13 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "Mapa svetskih resursa";
+            this.Load += new System.EventHandler(this.MainForm_Load);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnlMap.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxMap)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,7 +235,11 @@
         private System.Windows.Forms.ToolStripMenuItem resursiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tipoviResursaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem etiketeToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel pnlMap;
+        private System.Windows.Forms.Panel pnlResources;
+        private System.Windows.Forms.PictureBox pbxMap;
+        private System.Windows.Forms.Label lblX;
+        private System.Windows.Forms.Label lblY;
 
     }
 }
