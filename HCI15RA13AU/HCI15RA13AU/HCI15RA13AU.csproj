@@ -79,6 +79,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resource.cs" />
+    <Compile Include="ResourceIcon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ResourceIcon.Designer.cs">
+      <DependentUpon>ResourceIcon.cs</DependentUpon>
+    </Compile>
     <Compile Include="ResourcesFilter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ResourceIcon.resx">
+      <DependentUpon>ResourceIcon.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ResourcesFilter.resx">
       <DependentUpon>ResourcesFilter.cs</DependentUpon>
     </EmbeddedResource>

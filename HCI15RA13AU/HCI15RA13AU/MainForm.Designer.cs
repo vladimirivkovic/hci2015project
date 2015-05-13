@@ -41,14 +41,11 @@
             this.etiketeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomoćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMap = new System.Windows.Forms.Panel();
-            this.pbxMap = new System.Windows.Forms.PictureBox();
             this.pnlResources = new System.Windows.Forms.Panel();
             this.lblX = new System.Windows.Forms.Label();
             this.lblY = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            this.pnlMap.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxMap)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -147,24 +144,13 @@
             // pnlMap
             // 
             this.pnlMap.AllowDrop = true;
-            this.pnlMap.Controls.Add(this.pbxMap);
+            this.pnlMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMap.BackgroundImage")));
             this.pnlMap.Location = new System.Drawing.Point(12, 31);
             this.pnlMap.Name = "pnlMap";
-            this.pnlMap.Size = new System.Drawing.Size(899, 587);
+            this.pnlMap.Size = new System.Drawing.Size(814, 501);
             this.pnlMap.TabIndex = 13;
             this.pnlMap.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlMap_DragDrop);
             this.pnlMap.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlMap_DragEnter);
-            // 
-            // pbxMap
-            // 
-            this.pbxMap.Image = ((System.Drawing.Image)(resources.GetObject("pbxMap.Image")));
-            this.pbxMap.InitialImage = ((System.Drawing.Image)(resources.GetObject("pbxMap.InitialImage")));
-            this.pbxMap.Location = new System.Drawing.Point(6, 4);
-            this.pbxMap.Margin = new System.Windows.Forms.Padding(4);
-            this.pbxMap.Name = "pbxMap";
-            this.pbxMap.Size = new System.Drawing.Size(814, 502);
-            this.pbxMap.TabIndex = 12;
-            this.pbxMap.TabStop = false;
             // 
             // pnlResources
             // 
@@ -215,8 +201,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.pnlMap.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbxMap)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -237,7 +221,6 @@
         private System.Windows.Forms.ToolStripMenuItem etiketeToolStripMenuItem;
         private System.Windows.Forms.Panel pnlMap;
         private System.Windows.Forms.Panel pnlResources;
-        private System.Windows.Forms.PictureBox pbxMap;
         private System.Windows.Forms.Label lblX;
         private System.Windows.Forms.Label lblY;
 

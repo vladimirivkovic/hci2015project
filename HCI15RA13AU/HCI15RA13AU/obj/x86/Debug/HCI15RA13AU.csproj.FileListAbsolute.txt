@@ -48,3 +48,4 @@ E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TypesTab
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TagsTable.resources
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourcesFilter.resources
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourceControl.resources
+E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourceIcon.resources
