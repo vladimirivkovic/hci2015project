@@ -70,11 +70,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.pbxIcon);
             this.Name = "ResourceControl";
-            this.Size = new System.Drawing.Size(100, 60);
+            this.Size = new System.Drawing.Size(120, 60);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ResourceControl_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ResourceControl_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).EndInit();

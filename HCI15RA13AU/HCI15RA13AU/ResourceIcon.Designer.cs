@@ -42,6 +42,7 @@
             this.pbxIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ResourceIcon_MouseDown);
             this.pbxIcon.MouseHover += new System.EventHandler(this.pbxIcon_MouseHover);
             this.pbxIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ResourceIcon_MouseMove);
+            this.pbxIcon.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ResourceIcon_MouseDoubleClick);
             // 
             // ResourceIcon
             // 
@@ -51,6 +52,7 @@
             this.Controls.Add(this.pbxIcon);
             this.Name = "ResourceIcon";
             this.Size = new System.Drawing.Size(36, 36);
+            this.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.ResourceIcon_MouseDoubleClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ResourceIcon_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ResourceIcon_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).EndInit();

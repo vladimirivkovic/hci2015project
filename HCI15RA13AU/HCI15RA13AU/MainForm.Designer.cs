@@ -42,8 +42,6 @@
             this.pomoćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMap = new System.Windows.Forms.Panel();
             this.pnlResources = new System.Windows.Forms.Panel();
-            this.lblX = new System.Windows.Forms.Label();
-            this.lblY = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -154,37 +152,18 @@
             // 
             // pnlResources
             // 
-            this.pnlResources.Location = new System.Drawing.Point(942, 31);
+            this.pnlResources.AutoScroll = true;
+            this.pnlResources.Location = new System.Drawing.Point(922, 31);
             this.pnlResources.Name = "pnlResources";
-            this.pnlResources.Size = new System.Drawing.Size(230, 652);
+            this.pnlResources.Size = new System.Drawing.Size(250, 652);
             this.pnlResources.TabIndex = 14;
             this.pnlResources.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlResources_Paint);
-            // 
-            // lblX
-            // 
-            this.lblX.AutoSize = true;
-            this.lblX.Location = new System.Drawing.Point(23, 661);
-            this.lblX.Name = "lblX";
-            this.lblX.Size = new System.Drawing.Size(32, 18);
-            this.lblX.TabIndex = 15;
-            this.lblX.Text = "lblX";
-            // 
-            // lblY
-            // 
-            this.lblY.AutoSize = true;
-            this.lblY.Location = new System.Drawing.Point(82, 661);
-            this.lblY.Name = "lblY";
-            this.lblY.Size = new System.Drawing.Size(31, 18);
-            this.lblY.TabIndex = 16;
-            this.lblY.Text = "lblY";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 695);
-            this.Controls.Add(this.lblY);
-            this.Controls.Add(this.lblX);
             this.Controls.Add(this.pnlResources);
             this.Controls.Add(this.pnlMap);
             this.Controls.Add(this.lblSelectedResource);
@@ -221,8 +200,6 @@
         private System.Windows.Forms.ToolStripMenuItem etiketeToolStripMenuItem;
         private System.Windows.Forms.Panel pnlMap;
         private System.Windows.Forms.Panel pnlResources;
-        private System.Windows.Forms.Label lblX;
-        private System.Windows.Forms.Label lblY;
 
     }
 }

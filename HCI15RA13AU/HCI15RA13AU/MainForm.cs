@@ -20,7 +20,7 @@ namespace HCI15RA13AU
 
         public static Dictionary<string, Tag> tags = new Dictionary<string, Tag>();
 
-        public static Dictionary<string, Resource> mappedResources = new Dictionary<string, Resource>();
+        public static Dictionary<string, ResourcePosition> resourceCoordinates = new Dictionary<string, ResourcePosition>();
 
         internal static string dateFormat = "dd.MM.yyyy";
 
@@ -30,6 +30,7 @@ namespace HCI15RA13AU
             DeserializeTags();
             DeserializeTypes();
             DeserializeResources();
+            DeserializeCoordinates();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -125,6 +126,30 @@ namespace HCI15RA13AU
             }
         }
 
+        private void DeserializeCoordinates()
+        {
+            try
+            {
+                XmlSerializer coordSerialzer = new XmlSerializer(typeof(ResourcePosition[]), new XmlRootAttribute("ListOfResourceCoordinates"));
+                FileStream buffer = File.Open("coordinates.xml", FileMode.Open);
+
+                ResourcePosition[] items = coordSerialzer.Deserialize(buffer) as ResourcePosition[];
+                foreach (ResourcePosition item in items)
+                {
+                    resourceCoordinates.Add(item.ID, new ResourcePosition(item));
+                }
+                buffer.Close();
+            }
+            catch (IOException e1)
+            {
+                Console.WriteLine(e1.StackTrace);
+            }
+            catch (InvalidOperationException e2)
+            {
+                Console.WriteLine(e2.StackTrace);
+            }
+        }
+
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             XmlSerializer tagsSerialzer = new XmlSerializer(typeof(TagItem[]), new XmlRootAttribute("ListOfTags"));
@@ -144,6 +169,12 @@ namespace HCI15RA13AU
 
             resSerialzer.Serialize(buffer2, resources.Select(kv => new ResourceItem(kv.Value)).ToArray());
             buffer2.Close();
+
+            XmlSerializer coordSerialzer = new XmlSerializer(typeof(ResourcePosition[]), new XmlRootAttribute("ListOfResourceCoordinates"));
+            FileStream buffer3 = File.Open("coordinates.xml", FileMode.Create);
+
+            coordSerialzer.Serialize(buffer3, resourceCoordinates.Select(kv => new ResourcePosition(kv.Value)).ToArray());
+            buffer3.Close();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -155,6 +186,8 @@ namespace HCI15RA13AU
         {
             ResourcesTable resourcesTable = new ResourcesTable();
             resourcesTable.ShowDialog();
+
+            updateMap();
         }
 
         private void typesResursaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -200,15 +233,34 @@ namespace HCI15RA13AU
             pnlResources.Controls.Clear();
             foreach (Resource res in resources.Values)
             {
-                if (!mappedResources.ContainsKey(res.ID))
+                if (!resourceCoordinates.ContainsKey(res.ID))
                 {
                     ResourceControl resControl = new ResourceControl(res, off);
                     pnlResources.Controls.Add(resControl);
 
-                    off += 60;
+                    off += 80;
                 }
             }
             pnlResources.Refresh();
+
+            if (e == null)
+                return;
+
+            pnlMap.Controls.Clear();
+            foreach (ResourcePosition rpos in resourceCoordinates.Values)
+            {
+                if (resources.ContainsKey(rpos.ID))
+                {
+                    ResourceIcon resIcon = new ResourceIcon(resources[rpos.ID]);
+                    pnlMap.Controls.Add(resIcon);
+                    resIcon.Left = rpos.X;
+                    resIcon.Top = rpos.Y;
+                }
+                else
+                {
+                    // delete from resourceCoordinates
+                }
+            }
         }
 
         private void pnlMap_DragEnter(object sender, DragEventArgs e)
@@ -247,38 +299,62 @@ namespace HCI15RA13AU
                     }
                 }
 
-                if (pnlMap.Controls.ContainsKey(res.ID))
-                {
-                    lblX.Text = "Mujo";
-                }
-
-                lblX.Text = e.X.ToString();
-                lblY.Text = e.Y.ToString();
-
                 //resIcon.Left = (e.X - this.Left)/2;
                 //resIcon.Top = (e.Y - this.Top)/2;
 
                 pnlMap.Controls.Add(resIcon);
 
-                resIcon.Left = (e.X - this.Left - pnlMap.Left - menuStrip1.Left - 16);
-                resIcon.Top = (e.Y - this.Top - pnlMap.Top - menuStrip1.Top - 16);
+                resIcon.Left = (e.X - this.Left - pnlMap.Left - menuStrip1.Left - 30);
+                resIcon.Top = (e.Y - this.Top - pnlMap.Top - menuStrip1.Top - 40);
 
                 pnlMap.Refresh();
 
-                if (!mappedResources.ContainsKey(res.ID))
+                if (!resourceCoordinates.ContainsKey(res.ID))
                 {
-                    mappedResources.Add(res.ID, res);
-                    MainForm_Load(this, EventArgs.Empty);
+                    resourceCoordinates.Add(res.ID, new ResourcePosition(res, resIcon.Left, resIcon.Top));
+                    MainForm_Load(this, null);
                 }
+                else
+                {
+                    resourceCoordinates[res.ID].X = resIcon.Left;
+                    resourceCoordinates[res.ID].Y = resIcon.Top;
+                }
+
+                
             }
         }
 
         private void MainForm_MouseMove(object sender, MouseEventArgs e)
         {
-            lblX.Text = e.X.ToString();
-            lblY.Text = e.Y.ToString();
         }
 
+        private void updateMap()
+        {
+            List<Control> deletedControls = new List<Control>();
+            ResourceIcon dummyIcon = new ResourceIcon();
+
+            foreach (Control ctrl in pnlMap.Controls)
+            {
+                if (ctrl.GetType().Equals(dummyIcon.GetType()))
+                {
+                    ResourceIcon resIcon = (ResourceIcon)ctrl;
+                    if (!resources.ContainsKey(((Resource)resIcon.Tag).ID))
+                    {
+                        deletedControls.Add(ctrl);
+                    }
+                    else
+                    {
+                        Resource res = (Resource)resIcon.Tag;
+                        resIcon.SetToolTip("ID: " + res.ID + "\nNaziv: " + res.Name);
+                    }
+                }
+            }
+
+            foreach (Control ctrl in deletedControls)
+            {
+                pnlMap.Controls.Remove(ctrl);
+            }
+        }
 
     }
 }

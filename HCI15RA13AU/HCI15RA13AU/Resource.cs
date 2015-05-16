@@ -286,4 +286,33 @@ namespace HCI15RA13AU
             }
         }
     }
+
+    public class ResourcePosition
+    {
+        [XmlElement]
+        public string ID { get; set; }
+        [XmlElement]
+        public int X { get; set; }
+        [XmlElement]
+        public int Y { get; set; }
+
+        public ResourcePosition()
+        {
+
+        }
+
+        public ResourcePosition(Resource res, int x, int y)
+        {
+            ID = res.ID;
+            X = x;
+            Y = y;
+        }
+
+        public ResourcePosition(ResourcePosition rp)
+        {
+            ID = rp.ID;
+            X = rp.X;
+            Y = rp.Y;
+        }
+    }
 }

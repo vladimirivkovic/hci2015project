@@ -2,7 +2,7 @@
 <ListOfResources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ResourceItem>
     <ID>qqq</ID>
-    <Description>qqq</Description>
+    <Description>qqqwvwv</Description>
     <Name>qqq</Name>
     <Renewable>false</Renewable>
     <Exploatable>false</Exploatable>
@@ -84,7 +84,7 @@
       <tag>ert</tag>
       <tag>af</tag>
     </listOfTags>
-    <UnitName>barel</UnitName>
+    <UnitName>tona</UnitName>
     <FrequencyName>univerzalan</FrequencyName>
     <TypeName>b</TypeName>
   </ResourceItem>
@@ -155,7 +155,7 @@
       <tag>af</tag>
       <tag>duyhfikfid</tag>
     </listOfTags>
-    <UnitName>barel</UnitName>
+    <UnitName>merica</UnitName>
     <FrequencyName>čest</FrequencyName>
     <TypeName>i797,y7ymj gncgfjlkmhg67tuj,xyhchnr</TypeName>
   </ResourceItem>
@@ -176,5 +176,41 @@
     <UnitName>barel</UnitName>
     <FrequencyName>čest</FrequencyName>
     <TypeName>c</TypeName>
+  </ResourceItem>
+  <ResourceItem>
+    <ID>aaa</ID>
+    <Description>aaa</Description>
+    <Name>aaa</Name>
+    <Renewable>true</Renewable>
+    <Exploatable>false</Exploatable>
+    <Important>true</Important>
+    <Cost>987</Cost>
+    <Discovered>1987-05-16T14:19:45</Discovered>
+    <IconFileName>images\SKYSUN2.JPG</IconFileName>
+    <listOfTags>
+      <tag>af</tag>
+    </listOfTags>
+    <UnitName>tona</UnitName>
+    <FrequencyName>čest</FrequencyName>
+    <TypeName>novi</TypeName>
+  </ResourceItem>
+  <ResourceItem>
+    <ID>fff</ID>
+    <Description>sss</Description>
+    <Name>ddd</Name>
+    <Renewable>true</Renewable>
+    <Exploatable>true</Exploatable>
+    <Important>false</Important>
+    <Cost>999</Cost>
+    <Discovered>1777-05-16T14:20:42</Discovered>
+    <IconFileName>images\MOUNTIN2.JPG</IconFileName>
+    <listOfTags>
+      <tag>a</tag>
+      <tag>ert</tag>
+      <tag>af</tag>
+    </listOfTags>
+    <UnitName>merica</UnitName>
+    <FrequencyName>univerzalan</FrequencyName>
+    <TypeName>qefewf</TypeName>
   </ResourceItem>
 </ListOfResources>

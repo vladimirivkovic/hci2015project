@@ -14,6 +14,7 @@ namespace HCI15RA13AU
     {
         private Rectangle mouseDownSelectionWindow;
         private Point displayOffset;
+        private ToolTip tt;
 
         public ResourceIcon()
         {
@@ -38,6 +39,9 @@ namespace HCI15RA13AU
 
             this.Tag = res;
             this.AllowDrop = false;
+
+            tt = new ToolTip();
+            tt.SetToolTip(pbxIcon, "ID: " + res.ID + "\nNaziv: " + res.Name); 
         }
 
         private void ResourceIcon_MouseDown(object sender, MouseEventArgs e)
@@ -62,6 +66,28 @@ namespace HCI15RA13AU
         private void pbxIcon_MouseHover(object sender, EventArgs e)
         {
             this.Cursor = Cursors.Hand;
+            Resource res = (Resource)Tag;
+            tt.SetToolTip(pbxIcon, "ID: " + MainForm.resources[res.ID].ID + "\nNaziv: " + MainForm.resources[res.ID].Name);
+            tt.Active = true;
+        }
+
+        private void ResourceIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            EditResourceForm erf = new EditResourceForm(MainForm.resources[((Resource) Tag).ID]);
+            erf.ShowDialog();
+
+            if (erf.DialogResult == DialogResult.OK)
+            {
+                Resource res = erf.GetResource();
+                tt.SetToolTip(pbxIcon, "ID: " + res.ID + "\nNaziv: " + res.Name);
+                MainForm.resources[res.ID] = res;
+                Tag = res;
+            }
+        }
+
+        internal void SetToolTip(string p)
+        {
+            tt.SetToolTip(pbxIcon, p);
         }
     }
 }
