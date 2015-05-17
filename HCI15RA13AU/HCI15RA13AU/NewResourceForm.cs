@@ -18,6 +18,7 @@ namespace HCI15RA13AU
         private Type type;
         private string fullFileName = "";
         private string fname = "";
+        private ApproxDate approxDate = null;
 
         public NewResourceForm()
         {
@@ -171,6 +172,7 @@ namespace HCI15RA13AU
                 res.Frequency = Frequency.UNIVERSAL;
             res.Cost = double.Parse(txtCost.Text);
             res.Discovered = dateTimePicker.Value;
+            res.ApproxDiscovered = approxDate;
             res.Tags = tags;      
             res.Type = type;
             if (cmbType.SelectedItem != null)
@@ -199,7 +201,7 @@ namespace HCI15RA13AU
 
         private void dateTimePicker_Validating(object sender, CancelEventArgs e)
         {
-            if (dateTimePicker.Value.CompareTo(DateTime.Now) > 0)
+            if (dateTimePicker.Value.CompareTo(DateTime.Now) > 0 && approxDate == null)
             {
                 formIsValid = false;
                 epAdd.SetError(dateTimePicker, "Datum mora biti u prošlosti");
@@ -262,6 +264,24 @@ namespace HCI15RA13AU
             {
                 epAdd.SetError(cmbType, "");
             }
+        }
+
+        private void btnDate_Click(object sender, EventArgs e)
+        {
+            ChooseDate cd = new ChooseDate();
+            cd.ShowDialog();
+
+            if (cd.DialogResult == DialogResult.OK)
+            {
+                approxDate = cd.getApproxDate();
+                lblApproxDate.Text = approxDate.ToString();
+            }
+        }
+
+        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            approxDate = null;
+            lblApproxDate.Text = "";
         }
     }
 }

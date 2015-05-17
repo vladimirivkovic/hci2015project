@@ -19,6 +19,7 @@ namespace HCI15RA13AU
         private Type type;
         private string fullFileName = "";
         private string fname = "";
+        private ApproxDate approxDate = null;
 
         public EditResourceForm(Resource res)
         {
@@ -59,6 +60,11 @@ namespace HCI15RA13AU
             lblTag.Text = res.Tags.Count.ToString();
             fullFileName = res.IconFileName;
             lblIconName.Text = fullFileName;
+            if (res.ApproxDiscovered != null)
+            {
+                approxDate = res.ApproxDiscovered;
+                lblApproxDate.Text = res.ApproxDiscovered.ToString();
+            }
             
 
             foreach (Type t in MainForm.types.Values)
@@ -87,6 +93,7 @@ namespace HCI15RA13AU
                 res.Frequency = Frequency.UNIVERSAL;
             res.Cost = double.Parse(txtCost.Text);
             res.Discovered = dateTimePicker.Value;
+            res.ApproxDiscovered = approxDate;
             res.Tags = tags;
             if (!fname.Equals(""))
             {
@@ -274,6 +281,24 @@ namespace HCI15RA13AU
                 }
                 lblTag.Text = tags.Count.ToString() + " etiketa";
             }
+        }
+
+        private void btnDate_Click(object sender, EventArgs e)
+        {
+            ChooseDate cd = new ChooseDate(approxDate);
+            cd.ShowDialog();
+
+            if (cd.DialogResult == DialogResult.OK)
+            {
+                approxDate = cd.getApproxDate();
+                lblApproxDate.Text = approxDate.ToString();
+            }
+        }
+
+        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
+        {
+            approxDate = null;
+            lblApproxDate.Text = "";
         }
 
         //private void btnType_Click(object sender, EventArgs e)

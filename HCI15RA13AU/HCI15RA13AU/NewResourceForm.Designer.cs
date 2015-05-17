@@ -59,6 +59,8 @@
             this.btnTag = new System.Windows.Forms.Button();
             this.lblType = new System.Windows.Forms.Label();
             this.cmbType = new System.Windows.Forms.ComboBox();
+            this.btnDate = new System.Windows.Forms.Button();
+            this.lblApproxDate = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.epAdd)).BeginInit();
             this.grbFrequency.SuspendLayout();
             this.SuspendLayout();
@@ -302,8 +304,9 @@
             this.dateTimePicker.Location = new System.Drawing.Point(852, 395);
             this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker.Name = "dateTimePicker";
-            this.dateTimePicker.Size = new System.Drawing.Size(298, 24);
+            this.dateTimePicker.Size = new System.Drawing.Size(240, 24);
             this.dateTimePicker.TabIndex = 16;
+            this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             this.dateTimePicker.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimePicker_Validating);
             // 
             // cmbUnit
@@ -396,11 +399,32 @@
             this.cmbType.TabIndex = 36;
             this.cmbType.Validating += new System.ComponentModel.CancelEventHandler(this.cmbType_Validating);
             // 
+            // btnDate
+            // 
+            this.btnDate.Location = new System.Drawing.Point(1100, 395);
+            this.btnDate.Name = "btnDate";
+            this.btnDate.Size = new System.Drawing.Size(50, 23);
+            this.btnDate.TabIndex = 37;
+            this.btnDate.Text = ". . .";
+            this.btnDate.UseVisualStyleBackColor = true;
+            this.btnDate.Click += new System.EventHandler(this.btnDate_Click);
+            // 
+            // lblApproxDate
+            // 
+            this.lblApproxDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblApproxDate.AutoSize = true;
+            this.lblApproxDate.Location = new System.Drawing.Point(1090, 421);
+            this.lblApproxDate.Name = "lblApproxDate";
+            this.lblApproxDate.Size = new System.Drawing.Size(0, 18);
+            this.lblApproxDate.TabIndex = 38;
+            // 
             // NewResourceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 576);
+            this.Controls.Add(this.lblApproxDate);
+            this.Controls.Add(this.btnDate);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.btnTag);
@@ -471,5 +495,7 @@
         private System.Windows.Forms.Label lblTags;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.ComboBox cmbType;
+        private System.Windows.Forms.Button btnDate;
+        private System.Windows.Forms.Label lblApproxDate;
     }
 }

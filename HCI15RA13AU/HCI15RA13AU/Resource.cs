@@ -39,6 +39,8 @@ namespace HCI15RA13AU
         public double Cost { get; set; }
         [XmlElement]
         public DateTime Discovered { get; set; }
+        [XmlElement]
+        public ApproxDate ApproxDiscovered { get; set; }
         [XmlIgnore]
         public Unit Unit { get; set; }
         [XmlElement]
@@ -81,6 +83,7 @@ namespace HCI15RA13AU
             Important = r.Important;
             Cost = r.Cost;
             Discovered = r.Discovered;
+            ApproxDiscovered = r.ApproxDiscovered;
             Unit = StringToUnit(r.UnitName);
             Frequency = StringToFrequency(r.FrequencyName);
             IconFileName = r.IconFileName;
@@ -278,6 +281,7 @@ namespace HCI15RA13AU
             UnitName = Resource.UnitToString(Unit);
             FrequencyName = Resource.FrequencyToString(Frequency);
             TypeName = r.Type.ID;
+            ApproxDiscovered = r.ApproxDiscovered;
 
             TagIds = new List<string>();
             foreach (string key in Tags.Keys)
@@ -313,6 +317,50 @@ namespace HCI15RA13AU
             ID = rp.ID;
             X = rp.X;
             Y = rp.Y;
+        }
+    }
+
+    public class ApproxDate
+    {
+        [XmlElement]
+        public int Year { get; set; }
+        [XmlElement]
+        public int Century { get; set; }
+        [XmlElement]
+        public bool AD { get; set; }
+        [XmlElement]
+        public bool Unknown { get; set; }
+
+        public ApproxDate()
+        {
+
+        }
+
+        public ApproxDate(int y, int c, bool ad, bool un)
+        {
+            Year = y;
+            Century = c;
+            AD = ad;
+            Unknown = un;
+        }
+
+        public override string ToString()
+        {
+            if (Unknown)
+            {
+                return "nepoznat";
+            }
+            else
+            {
+                if (Year >= 0)
+                {
+                    return Year + ". g." + (AD ? "" : " p.") + "n.e.";
+                }
+                else
+                {
+                    return Century + ". vek " + (AD ? "" : " p.") + "n.e.";
+                }
+            }
         }
     }
 }

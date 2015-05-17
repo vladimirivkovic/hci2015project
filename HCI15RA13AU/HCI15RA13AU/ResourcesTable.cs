@@ -99,11 +99,20 @@ namespace HCI15RA13AU
 
         private void ResourcesTable_Load(object sender, EventArgs e)
         {
+            string date;
+
             dgwResources.Rows.Clear();
             foreach (Resource res in MainForm.resources.Values)
             {
+                date = res.Discovered.ToString(MainForm.dateFormat);
+
+                if (res.ApproxDiscovered != null)
+                {
+                    date = res.ApproxDiscovered.ToString();
+                }
+
                 dgwResources.Rows.Add(new object[] { res.ID, res.Name, 
-                    res.Discovered.ToString(MainForm.dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable,
+                    date, res.Cost.ToString("C"), res.Important, res.Renewable,
                     Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit)});
                 dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
             }
@@ -121,9 +130,18 @@ namespace HCI15RA13AU
 
             if (addForm.DialogResult == DialogResult.OK)
             {
+                
                 Resource res = addForm.GetResource();
+                string date =  res.Discovered.ToString(MainForm.dateFormat);
+
+                if (res.ApproxDiscovered != null)
+                {
+                    date = res.ApproxDiscovered.ToString();
+                }
+
                 MainForm.resources.Add(res.ID, res);
-                dgwResources.Rows.Add(new object[] { res.ID, res.Name, res.Discovered.ToString(MainForm.dateFormat),
+                MainForm.addedResources.Add(res.ID);
+                dgwResources.Rows.Add(new object[] { res.ID, res.Name, date,
                     res.Cost.ToString("C"), res.Important, res.Renewable,
                     Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit) });
                 dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
@@ -146,9 +164,16 @@ namespace HCI15RA13AU
                         if (row.Selected)
                         {
                             Resource res = erf.GetResource();
+                            String date = res.Discovered.ToString(MainForm.dateFormat);
+
+                            if (res.ApproxDiscovered != null)
+                            {
+                                date = res.ApproxDiscovered.ToString();
+                            }
+
                             int index = dgwResources.Rows.IndexOf(row);
                             dgwResources.Rows.RemoveAt(index);
-                            dgwResources.Rows.Insert(index, new object[] { res.ID, res.Name, res.Discovered.ToString(MainForm.dateFormat),
+                            dgwResources.Rows.Insert(index, new object[] { res.ID, res.Name, date,
                                 res.Cost.ToString("C"), res.Important, res.Renewable,
                                 Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit) });
                             dgwResources.Rows[index].Tag = res;
@@ -167,28 +192,38 @@ namespace HCI15RA13AU
         {
             if (dgwResources.SelectedRows.Count == 0)
                 return;
-            DataGridViewRow row = dgwResources.SelectedRows[0];
-            if (row != null)
+            DataGridViewSelectedRowCollection selectedRows = dgwResources.SelectedRows;
+            foreach (DataGridViewRow row in selectedRows)
             {
-                int index = dgwResources.Rows.IndexOf(row);
-                Resource res = (Resource)row.Tag;
-                if (res != null)
+                if (row != null)
                 {
-                    MainForm.resources.Remove(res.ID);
+                    int index = dgwResources.Rows.IndexOf(row);
+                    Resource res = (Resource)row.Tag;
+                    if (res != null)
+                    {
+                        MainForm.resources.Remove(res.ID);
+                    }
+                    dgwResources.Rows.RemoveAt(index);
                 }
-                dgwResources.Rows.RemoveAt(index);
             }
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
+            string date;
             if (txtSearch.Text.Equals(""))
             {
                 dgwResources.Rows.Clear();
                 foreach (Resource res in MainForm.resources.Values)
                 {
+                    date = res.Discovered.ToString(MainForm.dateFormat);
+
+                    if (res.ApproxDiscovered != null)
+                    {
+                        date = res.ApproxDiscovered.ToString();
+                    }
                     dgwResources.Rows.Add(new object[] { res.ID, res.Name, 
-                    res.Discovered.ToString(MainForm.dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable,
+                    date, res.Cost.ToString("C"), res.Important, res.Renewable,
                     Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit)});
                     dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
                 }
@@ -205,8 +240,15 @@ namespace HCI15RA13AU
                 {
                     if (res.ID.StartsWith(txtSearch.Text))
                     {
+                        date = res.Discovered.ToString(MainForm.dateFormat);
+
+                        if (res.ApproxDiscovered != null)
+                        {
+                            date = res.ApproxDiscovered.ToString();
+                        }
+
                         dgwResources.Rows.Add(new object[] { res.ID, res.Name, 
-                        res.Discovered.ToString(MainForm.dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable,
+                        date, res.Cost.ToString("C"), res.Important, res.Renewable,
                         Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit)});
                         dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
                     }

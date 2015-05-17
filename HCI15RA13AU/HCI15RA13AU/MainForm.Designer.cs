@@ -42,6 +42,7 @@
             this.pomoćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMap = new System.Windows.Forms.Panel();
             this.pnlResources = new System.Windows.Forms.Panel();
+            this.pnlDelete = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -159,11 +160,23 @@
             this.pnlResources.TabIndex = 14;
             this.pnlResources.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlResources_Paint);
             // 
+            // pnlDelete
+            // 
+            this.pnlDelete.AllowDrop = true;
+            this.pnlDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlDelete.BackgroundImage")));
+            this.pnlDelete.Location = new System.Drawing.Point(18, 583);
+            this.pnlDelete.Name = "pnlDelete";
+            this.pnlDelete.Size = new System.Drawing.Size(111, 100);
+            this.pnlDelete.TabIndex = 15;
+            this.pnlDelete.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlDelete_DragDrop);
+            this.pnlDelete.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlDelete_DragEnter);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 695);
+            this.Controls.Add(this.pnlDelete);
             this.Controls.Add(this.pnlResources);
             this.Controls.Add(this.pnlMap);
             this.Controls.Add(this.lblSelectedResource);
@@ -200,6 +213,7 @@
         private System.Windows.Forms.ToolStripMenuItem etiketeToolStripMenuItem;
         private System.Windows.Forms.Panel pnlMap;
         private System.Windows.Forms.Panel pnlResources;
+        private System.Windows.Forms.Panel pnlDelete;
 
     }
 }

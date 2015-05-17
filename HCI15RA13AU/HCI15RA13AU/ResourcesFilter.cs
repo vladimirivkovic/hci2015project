@@ -14,6 +14,8 @@ namespace HCI15RA13AU
         private double minCost;
         private double maxCost;
 
+        private List<string> tags = new List<string>();
+
         public ResourcesFilter()
         {
             InitializeComponent();
@@ -36,6 +38,7 @@ namespace HCI15RA13AU
             chbFrequency_CheckedChanged(this, EventArgs.Empty);
             chbCost_CheckedChanged(this, EventArgs.Empty);
             chbType_CheckedChanged(this, EventArgs.Empty);
+            chbTags_CheckedChanged(this, EventArgs.Empty);
         }
 
         private void chbID_CheckedChanged(object sender, EventArgs e)
@@ -82,11 +85,20 @@ namespace HCI15RA13AU
 
         private void ResourcesFilter_Load(object sender, EventArgs e)
         {
+            string date;
+
             dgwResources.Rows.Clear();
             foreach (Resource res in MainForm.resources.Values)
             {
+                date = res.Discovered.ToString(MainForm.dateFormat);
+
+                if (res.ApproxDiscovered != null)
+                {
+                    date = res.ApproxDiscovered.ToString();
+                }
+
                 dgwResources.Rows.Add(new object[] { res.ID, res.Name, 
-                    res.Discovered.ToString(MainForm.dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable,
+                    date, res.Cost.ToString("C"), res.Important, res.Renewable,
                     Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit)});
                 dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
             }
@@ -104,10 +116,13 @@ namespace HCI15RA13AU
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
+            string date;
+
             double.TryParse(txtCostMin.Text, out minCost);
             double.TryParse(txtCostMax.Text, out maxCost);
 
-            IEnumerable<Resource> result = from res in MainForm.resources.Values
+            List<Resource> result = new List<Resource>();
+            IEnumerable<Resource> result1 = from res in MainForm.resources.Values
                                            where ((!txtID.Enabled || txtID.Text.Equals(res.ID))
                                                 && (!txtName.Enabled || txtName.Text.Equals(res.Name))
                                                 && (!chbIsImportant.Enabled || chbIsImportant.Checked == res.Important)
@@ -129,10 +144,41 @@ namespace HCI15RA13AU
                                                 // tags
                                             select res;
             dgwResources.Rows.Clear();
+
+            if (chbTags.Checked)
+            {
+                bool contains;
+                foreach (Resource res in result1)
+                {
+                    contains = true;
+                    foreach (string tagId in tags)
+                    {
+                        if (!res.Tags.ContainsKey(tagId))
+                        {
+                            contains = false;
+                        }
+                    }
+                    if (contains)
+                    {
+                        result.Add(res);
+                    }
+                }
+            }
+            else
+            {
+                result = result1.ToList();
+            }
+
             foreach (Resource res in result)
             {
+                date = res.Discovered.ToString(MainForm.dateFormat);
+
+                if (res.ApproxDiscovered != null)
+                {
+                    date = res.ApproxDiscovered.ToString();
+                }
                 dgwResources.Rows.Add(new object[] { res.ID, res.Name, 
-                    res.Discovered.ToString(MainForm.dateFormat), res.Cost.ToString("C"), res.Important, res.Renewable,
+                    date, res.Cost.ToString("C"), res.Important, res.Renewable,
                     Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit)});
                 dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
             }
@@ -146,6 +192,22 @@ namespace HCI15RA13AU
         private void chbType_CheckedChanged(object sender, EventArgs e)
         {
             cmbType.Enabled = chbType.Checked;
+        }
+
+        private void chbTags_CheckedChanged(object sender, EventArgs e)
+        {
+            btnTags.Enabled = chbTags.Checked;
+        }
+
+        private void btnTags_Click(object sender, EventArgs e)
+        {
+            SelectTagForm stf = new SelectTagForm();
+            stf.ShowDialog();
+
+            if (stf.DialogResult == DialogResult.OK)
+            {
+                tags = stf.GetSelectedTags();
+            }
         }
     }
 }

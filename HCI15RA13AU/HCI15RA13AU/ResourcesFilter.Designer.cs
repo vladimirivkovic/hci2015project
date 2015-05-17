@@ -62,6 +62,8 @@
             this.btnFilter = new System.Windows.Forms.Button();
             this.chbType = new System.Windows.Forms.CheckBox();
             this.cmbType = new System.Windows.Forms.ComboBox();
+            this.chbTags = new System.Windows.Forms.CheckBox();
+            this.btnTags = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +72,7 @@
             this.chbID.AutoSize = true;
             this.chbID.Location = new System.Drawing.Point(897, 13);
             this.chbID.Name = "chbID";
-            this.chbID.Size = new System.Drawing.Size(63, 17);
+            this.chbID.Size = new System.Drawing.Size(79, 22);
             this.chbID.TabIndex = 0;
             this.chbID.Text = "Oznaka";
             this.chbID.UseVisualStyleBackColor = true;
@@ -81,7 +83,7 @@
             this.chbName.AutoSize = true;
             this.chbName.Location = new System.Drawing.Point(1040, 12);
             this.chbName.Name = "chbName";
-            this.chbName.Size = new System.Drawing.Size(53, 17);
+            this.chbName.Size = new System.Drawing.Size(64, 22);
             this.chbName.TabIndex = 1;
             this.chbName.Text = "Naziv";
             this.chbName.UseVisualStyleBackColor = true;
@@ -90,9 +92,9 @@
             // chbDate
             // 
             this.chbDate.AutoSize = true;
-            this.chbDate.Location = new System.Drawing.Point(897, 83);
+            this.chbDate.Location = new System.Drawing.Point(897, 66);
             this.chbDate.Name = "chbDate";
-            this.chbDate.Size = new System.Drawing.Size(57, 17);
+            this.chbDate.Size = new System.Drawing.Size(71, 22);
             this.chbDate.TabIndex = 2;
             this.chbDate.Text = "Datum";
             this.chbDate.UseVisualStyleBackColor = true;
@@ -101,9 +103,9 @@
             // chbCost
             // 
             this.chbCost.AutoSize = true;
-            this.chbCost.Location = new System.Drawing.Point(897, 380);
+            this.chbCost.Location = new System.Drawing.Point(897, 375);
             this.chbCost.Name = "chbCost";
-            this.chbCost.Size = new System.Drawing.Size(108, 17);
+            this.chbCost.Size = new System.Drawing.Size(145, 22);
             this.chbCost.TabIndex = 3;
             this.chbCost.Text = "Cena (u dolarima)";
             this.chbCost.UseVisualStyleBackColor = true;
@@ -114,7 +116,7 @@
             this.chbImportant.AutoSize = true;
             this.chbImportant.Location = new System.Drawing.Point(897, 213);
             this.chbImportant.Name = "chbImportant";
-            this.chbImportant.Size = new System.Drawing.Size(111, 17);
+            this.chbImportant.Size = new System.Drawing.Size(146, 22);
             this.chbImportant.TabIndex = 4;
             this.chbImportant.Text = "Strateska vaznost";
             this.chbImportant.UseVisualStyleBackColor = true;
@@ -125,7 +127,7 @@
             this.chbRenewable.AutoSize = true;
             this.chbRenewable.Location = new System.Drawing.Point(1040, 213);
             this.chbRenewable.Name = "chbRenewable";
-            this.chbRenewable.Size = new System.Drawing.Size(84, 17);
+            this.chbRenewable.Size = new System.Drawing.Size(108, 22);
             this.chbRenewable.TabIndex = 5;
             this.chbRenewable.Text = "Obnovljivost";
             this.chbRenewable.UseVisualStyleBackColor = true;
@@ -136,7 +138,7 @@
             this.chbFrequency.AutoSize = true;
             this.chbFrequency.Location = new System.Drawing.Point(897, 293);
             this.chbFrequency.Name = "chbFrequency";
-            this.chbFrequency.Size = new System.Drawing.Size(81, 17);
+            this.chbFrequency.Size = new System.Drawing.Size(102, 22);
             this.chbFrequency.TabIndex = 6;
             this.chbFrequency.Text = "Frekvencija";
             this.chbFrequency.UseVisualStyleBackColor = true;
@@ -147,7 +149,7 @@
             this.chbUnit.AutoSize = true;
             this.chbUnit.Location = new System.Drawing.Point(1040, 293);
             this.chbUnit.Name = "chbUnit";
-            this.chbUnit.Size = new System.Drawing.Size(91, 17);
+            this.chbUnit.Size = new System.Drawing.Size(119, 22);
             this.chbUnit.TabIndex = 7;
             this.chbUnit.Text = "Jedinica mere";
             this.chbUnit.UseVisualStyleBackColor = true;
@@ -234,54 +236,56 @@
             // 
             this.txtID.Location = new System.Drawing.Point(897, 36);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 20);
+            this.txtID.Size = new System.Drawing.Size(100, 24);
             this.txtID.TabIndex = 71;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(1040, 35);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 20);
+            this.txtName.Size = new System.Drawing.Size(100, 24);
             this.txtName.TabIndex = 72;
             // 
             // dtpMax
             // 
-            this.dtpMax.Location = new System.Drawing.Point(897, 158);
+            this.dtpMax.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpMax.Location = new System.Drawing.Point(897, 160);
             this.dtpMax.Name = "dtpMax";
-            this.dtpMax.Size = new System.Drawing.Size(200, 20);
+            this.dtpMax.Size = new System.Drawing.Size(102, 24);
             this.dtpMax.TabIndex = 74;
             // 
             // dtpMin
             // 
-            this.dtpMin.Location = new System.Drawing.Point(897, 119);
+            this.dtpMin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpMin.Location = new System.Drawing.Point(897, 112);
             this.dtpMin.Name = "dtpMin";
-            this.dtpMin.Size = new System.Drawing.Size(200, 20);
+            this.dtpMin.Size = new System.Drawing.Size(102, 24);
             this.dtpMin.TabIndex = 75;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(894, 103);
+            this.label1.Location = new System.Drawing.Point(894, 91);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(24, 13);
+            this.label1.Size = new System.Drawing.Size(32, 18);
             this.label1.TabIndex = 76;
             this.label1.Text = "Od:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(894, 142);
+            this.label2.Location = new System.Drawing.Point(894, 139);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 13);
+            this.label2.Size = new System.Drawing.Size(32, 18);
             this.label2.TabIndex = 77;
             this.label2.Text = "Do:";
             // 
             // chbIsImportant
             // 
             this.chbIsImportant.AutoSize = true;
-            this.chbIsImportant.Location = new System.Drawing.Point(917, 244);
+            this.chbIsImportant.Location = new System.Drawing.Point(929, 241);
             this.chbIsImportant.Name = "chbIsImportant";
-            this.chbIsImportant.Size = new System.Drawing.Size(56, 17);
+            this.chbIsImportant.Size = new System.Drawing.Size(68, 22);
             this.chbIsImportant.TabIndex = 78;
             this.chbIsImportant.Text = "Vazan";
             this.chbIsImportant.UseVisualStyleBackColor = true;
@@ -289,9 +293,9 @@
             // chbIsRenewable
             // 
             this.chbIsRenewable.AutoSize = true;
-            this.chbIsRenewable.Location = new System.Drawing.Point(1060, 244);
+            this.chbIsRenewable.Location = new System.Drawing.Point(1053, 241);
             this.chbIsRenewable.Name = "chbIsRenewable";
-            this.chbIsRenewable.Size = new System.Drawing.Size(70, 17);
+            this.chbIsRenewable.Size = new System.Drawing.Size(87, 22);
             this.chbIsRenewable.TabIndex = 79;
             this.chbIsRenewable.Text = "Obnovljiv";
             this.chbIsRenewable.UseVisualStyleBackColor = true;
@@ -305,7 +309,7 @@
             "univerzalan"});
             this.cmbFrequency.Location = new System.Drawing.Point(897, 316);
             this.cmbFrequency.Name = "cmbFrequency";
-            this.cmbFrequency.Size = new System.Drawing.Size(121, 21);
+            this.cmbFrequency.Size = new System.Drawing.Size(121, 26);
             this.cmbFrequency.TabIndex = 80;
             // 
             // cmbUnit
@@ -318,21 +322,21 @@
             "kilogram"});
             this.cmbUnit.Location = new System.Drawing.Point(1040, 316);
             this.cmbUnit.Name = "cmbUnit";
-            this.cmbUnit.Size = new System.Drawing.Size(121, 21);
+            this.cmbUnit.Size = new System.Drawing.Size(121, 26);
             this.cmbUnit.TabIndex = 81;
             // 
             // txtCostMin
             // 
-            this.txtCostMin.Location = new System.Drawing.Point(897, 416);
+            this.txtCostMin.Location = new System.Drawing.Point(897, 421);
             this.txtCostMin.Name = "txtCostMin";
-            this.txtCostMin.Size = new System.Drawing.Size(100, 20);
+            this.txtCostMin.Size = new System.Drawing.Size(100, 24);
             this.txtCostMin.TabIndex = 82;
             // 
             // txtCostMax
             // 
-            this.txtCostMax.Location = new System.Drawing.Point(897, 455);
+            this.txtCostMax.Location = new System.Drawing.Point(897, 469);
             this.txtCostMax.Name = "txtCostMax";
-            this.txtCostMax.Size = new System.Drawing.Size(100, 20);
+            this.txtCostMax.Size = new System.Drawing.Size(100, 24);
             this.txtCostMax.TabIndex = 83;
             // 
             // label3
@@ -340,16 +344,16 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(894, 400);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(24, 13);
+            this.label3.Size = new System.Drawing.Size(32, 18);
             this.label3.TabIndex = 84;
             this.label3.Text = "Od:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(894, 439);
+            this.label4.Location = new System.Drawing.Point(894, 448);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(24, 13);
+            this.label4.Size = new System.Drawing.Size(32, 18);
             this.label4.TabIndex = 85;
             this.label4.Text = "Do:";
             // 
@@ -366,9 +370,9 @@
             // chbType
             // 
             this.chbType.AutoSize = true;
-            this.chbType.Location = new System.Drawing.Point(1040, 380);
+            this.chbType.Location = new System.Drawing.Point(1040, 375);
             this.chbType.Name = "chbType";
-            this.chbType.Size = new System.Drawing.Size(78, 17);
+            this.chbType.Size = new System.Drawing.Size(101, 22);
             this.chbType.TabIndex = 87;
             this.chbType.Text = "Tip resursa";
             this.chbType.UseVisualStyleBackColor = true;
@@ -377,15 +381,38 @@
             // cmbType
             // 
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(1040, 415);
+            this.cmbType.Location = new System.Drawing.Point(1040, 421);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(121, 21);
+            this.cmbType.Size = new System.Drawing.Size(121, 26);
             this.cmbType.TabIndex = 88;
+            // 
+            // chbTags
+            // 
+            this.chbTags.AutoSize = true;
+            this.chbTags.Location = new System.Drawing.Point(1040, 66);
+            this.chbTags.Name = "chbTags";
+            this.chbTags.Size = new System.Drawing.Size(72, 22);
+            this.chbTags.TabIndex = 89;
+            this.chbTags.Text = "Etikete";
+            this.chbTags.UseVisualStyleBackColor = true;
+            this.chbTags.CheckedChanged += new System.EventHandler(this.chbTags_CheckedChanged);
+            // 
+            // btnTags
+            // 
+            this.btnTags.Location = new System.Drawing.Point(1065, 106);
+            this.btnTags.Name = "btnTags";
+            this.btnTags.Size = new System.Drawing.Size(75, 30);
+            this.btnTags.TabIndex = 90;
+            this.btnTags.Text = "Izaberi";
+            this.btnTags.UseVisualStyleBackColor = true;
+            this.btnTags.Click += new System.EventHandler(this.btnTags_Click);
             // 
             // ResourcesFilter
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1172, 630);
+            this.Controls.Add(this.btnTags);
+            this.Controls.Add(this.chbTags);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.chbType);
             this.Controls.Add(this.btnFilter);
@@ -412,8 +439,9 @@
             this.Controls.Add(this.chbDate);
             this.Controls.Add(this.chbName);
             this.Controls.Add(this.chbID);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ResourcesFilter";
-            this.Text = "ResourcesFilter";
+            this.Text = "Filtriranje resursa";
             this.Load += new System.EventHandler(this.ResourcesFilter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).EndInit();
             this.ResumeLayout(false);
@@ -457,5 +485,7 @@
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.CheckBox chbType;
         private System.Windows.Forms.ComboBox cmbType;
+        private System.Windows.Forms.CheckBox chbTags;
+        private System.Windows.Forms.Button btnTags;
     }
 }

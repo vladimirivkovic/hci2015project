@@ -69,5 +69,10 @@ namespace HCI15RA13AU
                 }
             }
         }
+
+        public void SetName(string name)
+        {
+            lblName.Text = name;
+        }
     }
 }

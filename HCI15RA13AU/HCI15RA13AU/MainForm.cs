@@ -24,6 +24,10 @@ namespace HCI15RA13AU
 
         internal static string dateFormat = "dd.MM.yyyy";
 
+        public static List<string> addedResources = new List<string>();
+
+        private int off;
+
         public MainForm()
         {
             InitializeComponent();
@@ -228,7 +232,7 @@ namespace HCI15RA13AU
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            int off = 10;
+            off = 10;
 
             pnlResources.Controls.Clear();
             foreach (Resource res in resources.Values)
@@ -279,7 +283,6 @@ namespace HCI15RA13AU
         private void pnlMap_DragDrop(object sender, DragEventArgs e)
         {
             Resource r = new Resource();
-            Panel dropPicturePanel = (Panel)sender;
             if (e.Data.GetDataPresent(r.GetType()))
             {
                 Resource res = (Resource)e.Data.GetData(r.GetType());
@@ -332,6 +335,7 @@ namespace HCI15RA13AU
         {
             List<Control> deletedControls = new List<Control>();
             ResourceIcon dummyIcon = new ResourceIcon();
+            ResourceControl dummyResCtrl = new ResourceControl();
 
             foreach (Control ctrl in pnlMap.Controls)
             {
@@ -353,6 +357,83 @@ namespace HCI15RA13AU
             foreach (Control ctrl in deletedControls)
             {
                 pnlMap.Controls.Remove(ctrl);
+            }
+
+            deletedControls.Clear();
+
+            foreach (Control ctrl in pnlResources.Controls)
+            {
+                if (ctrl.GetType().Equals(dummyResCtrl.GetType()))
+                {
+                    ResourceControl resCtrl = (ResourceControl)ctrl;
+                    if (!resources.ContainsKey(((Resource)resCtrl.Tag).ID))
+                    {
+                        deletedControls.Add(ctrl);
+                    }
+                    else
+                    {
+                        Resource res = (Resource)resCtrl.Tag;
+                        resCtrl.SetName(res.Name);
+                    }
+                }
+            }
+
+            int index, offset;
+            Control subsitution;
+            foreach (Control ctrl in deletedControls)
+            {
+                offset = ctrl.Top;
+                index = pnlResources.Controls.IndexOf(ctrl);
+                pnlResources.Controls.Remove(ctrl);
+                //subsitution = pnlResources.Controls[pnlResources.Controls.Count - 1];
+                //subsitution.Top = offset;
+            }
+
+            foreach (string id in addedResources)
+            {
+                Control ctrl = new ResourceControl(resources[id], pnlResources.Controls.Count * 80 + 10);
+                pnlResources.Controls.Add(ctrl);
+            }
+            addedResources.Clear();
+        }
+
+        private void pnlDelete_DragEnter(object sender, DragEventArgs e)
+        {
+            Resource r = new Resource();
+            if ((e.Data.GetDataPresent(r.GetType())))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void pnlDelete_DragDrop(object sender, DragEventArgs e)
+        {
+            Resource r = new Resource();
+            if (e.Data.GetDataPresent(r.GetType()))
+            {
+                Resource res = (Resource)e.Data.GetData(r.GetType());
+
+                Control deleted = null;
+
+                foreach (Control ctrl in pnlMap.Controls)
+                {
+                    if (ctrl.Tag.Equals(res))
+                    {
+                        deleted = ctrl;
+                        break;
+                    }
+                }
+
+                if (deleted != null)
+                {
+                    pnlMap.Controls.Remove(deleted);
+                    resourceCoordinates.Remove(res.ID);
+                    pnlResources.Controls.Add(new ResourceControl(res, pnlResources.Controls.Count*80 + 10));
+                }
             }
         }
 
