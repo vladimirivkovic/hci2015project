@@ -28,10 +28,10 @@
     <Cost>789</Cost>
     <Discovered>2015-05-17T14:59:15.1601314+02:00</Discovered>
     <ApproxDiscovered>
-      <Year>33</Year>
+      <Year>-1</Year>
       <Century>-1</Century>
       <AD>false</AD>
-      <Unknown>false</Unknown>
+      <Unknown>true</Unknown>
     </ApproxDiscovered>
     <IconFileName>images\FALL04.JPG</IconFileName>
     <listOfTags>

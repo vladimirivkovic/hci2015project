@@ -33,6 +33,9 @@ namespace HCI15RA13AU
             tags = new Dictionary<string, Tag>();
             type = new Type();
             type.ID = "";
+
+            ToolTip tt = new ToolTip();
+            tt.SetToolTip(btnDate, "Izbor okvirnog datuma");
         }
 
         private void btnIcon_Click(object sender, EventArgs e)

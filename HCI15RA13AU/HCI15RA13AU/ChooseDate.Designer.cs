@@ -116,7 +116,7 @@
             // chbYear
             // 
             this.chbYear.AutoSize = true;
-            this.chbYear.Location = new System.Drawing.Point(299, 71);
+            this.chbYear.Location = new System.Drawing.Point(310, 71);
             this.chbYear.Name = "chbYear";
             this.chbYear.Size = new System.Drawing.Size(63, 22);
             this.chbYear.TabIndex = 7;
@@ -126,7 +126,7 @@
             // chbCentury
             // 
             this.chbCentury.AutoSize = true;
-            this.chbCentury.Location = new System.Drawing.Point(299, 171);
+            this.chbCentury.Location = new System.Drawing.Point(310, 171);
             this.chbCentury.Name = "chbCentury";
             this.chbCentury.Size = new System.Drawing.Size(63, 22);
             this.chbCentury.TabIndex = 8;

@@ -61,6 +61,7 @@
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.btnDate = new System.Windows.Forms.Button();
             this.lblApproxDate = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.epEdit)).BeginInit();
             this.grbFrequency.SuspendLayout();
             this.SuspendLayout();
@@ -406,11 +407,11 @@
             // btnDate
             // 
             this.btnDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDate.Location = new System.Drawing.Point(1100, 395);
+            this.btnDate.Location = new System.Drawing.Point(1027, 443);
             this.btnDate.Name = "btnDate";
-            this.btnDate.Size = new System.Drawing.Size(50, 23);
+            this.btnDate.Size = new System.Drawing.Size(65, 32);
             this.btnDate.TabIndex = 63;
-            this.btnDate.Text = ". . .";
+            this.btnDate.Text = "Izaberi";
             this.btnDate.UseVisualStyleBackColor = true;
             this.btnDate.Click += new System.EventHandler(this.btnDate_Click);
             // 
@@ -418,16 +419,27 @@
             // 
             this.lblApproxDate.AutoSize = true;
             this.lblApproxDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApproxDate.Location = new System.Drawing.Point(1090, 421);
+            this.lblApproxDate.Location = new System.Drawing.Point(867, 450);
             this.lblApproxDate.Name = "lblApproxDate";
             this.lblApproxDate.Size = new System.Drawing.Size(0, 18);
             this.lblApproxDate.TabIndex = 64;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(700, 450);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 18);
+            this.label1.TabIndex = 65;
+            this.label1.Text = "Okvirni datum otkivanja\r\n";
             // 
             // EditResourceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 576);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lblApproxDate);
             this.Controls.Add(this.btnDate);
             this.Controls.Add(this.cmbType);
@@ -500,6 +512,7 @@
         private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.Button btnDate;
         private System.Windows.Forms.Label lblApproxDate;
+        private System.Windows.Forms.Label label1;
 
     }
 }

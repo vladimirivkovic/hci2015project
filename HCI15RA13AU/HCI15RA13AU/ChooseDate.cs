@@ -11,6 +11,10 @@ namespace HCI15RA13AU
 {
     public partial class ChooseDate : Form
     {
+        private bool formIsValid;
+        private int year;
+        private int century;
+
         public ChooseDate()
         {
             InitializeComponent();
@@ -49,15 +53,41 @@ namespace HCI15RA13AU
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            formIsValid = true;
+            this.ValidateChildren();
+            if (formIsValid)
+            {
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                // TODO : error
+            }
         }
 
         private void txtYear_Validating(object sender, CancelEventArgs e)
         {
             if (rbtYear.Checked)
             {
-                // error cheching
+                bool success = int.TryParse(txtYear.Text, out century);
+                if (success)
+                {
+                    if (century <= 0)
+                    {
+                        formIsValid = false;
+                        epDate.SetError(txtYear, "Godina treba da bude pozitivan ceo broj");
+                    }
+                    else
+                    {
+                        epDate.SetError(txtYear, "");
+                    }
+                }
+                else
+                {
+                    formIsValid = false;
+                    epDate.SetError(txtYear, "Godina treba da bude pozitivan ceo broj");
+                }
             }
             else
             {
@@ -69,7 +99,24 @@ namespace HCI15RA13AU
         {
             if (rbtCentury.Checked)
             {
-                // error cheching
+                bool success = int.TryParse(txtCentury.Text, out year);
+                if (success)
+                {
+                    if (year <= 0)
+                    {
+                        formIsValid = false;
+                        epDate.SetError(txtCentury, "Vek treba da bude pozitivan ceo broj");
+                    }
+                    else
+                    {
+                        epDate.SetError(txtCentury, "");
+                    }
+                }
+                else
+                {
+                    formIsValid = false;
+                    epDate.SetError(txtCentury, "Vek treba da bude pozitivan ceo broj");
+                }
             }
             else
             {
