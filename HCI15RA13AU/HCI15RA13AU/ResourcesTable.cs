@@ -154,7 +154,7 @@ namespace HCI15RA13AU
         {
             if (dgwResources.SelectedRows.Count > 0)
             {
-                EditResourceForm erf = new EditResourceForm((Resource)dgwResources.SelectedRows[0].Tag);
+                NewResourceForm erf = new NewResourceForm((Resource)dgwResources.SelectedRows[0].Tag);
                 erf.ShowDialog();
 
                 if (erf.DialogResult == DialogResult.OK)

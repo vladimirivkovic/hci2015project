@@ -43,6 +43,7 @@
             this.pnlMap = new System.Windows.Forms.Panel();
             this.pnlResources = new System.Windows.Forms.Panel();
             this.pnlDelete = new System.Windows.Forms.Panel();
+            this.lblUnmappedResources = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -154,9 +155,9 @@
             // pnlResources
             // 
             this.pnlResources.AutoScroll = true;
-            this.pnlResources.Location = new System.Drawing.Point(922, 31);
+            this.pnlResources.Location = new System.Drawing.Point(922, 61);
             this.pnlResources.Name = "pnlResources";
-            this.pnlResources.Size = new System.Drawing.Size(250, 652);
+            this.pnlResources.Size = new System.Drawing.Size(250, 622);
             this.pnlResources.TabIndex = 14;
             this.pnlResources.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlResources_Paint);
             // 
@@ -164,18 +165,28 @@
             // 
             this.pnlDelete.AllowDrop = true;
             this.pnlDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlDelete.BackgroundImage")));
-            this.pnlDelete.Location = new System.Drawing.Point(18, 583);
+            this.pnlDelete.Location = new System.Drawing.Point(12, 573);
             this.pnlDelete.Name = "pnlDelete";
-            this.pnlDelete.Size = new System.Drawing.Size(111, 100);
+            this.pnlDelete.Size = new System.Drawing.Size(110, 110);
             this.pnlDelete.TabIndex = 15;
             this.pnlDelete.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlDelete_DragDrop);
             this.pnlDelete.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlDelete_DragEnter);
+            // 
+            // lblUnmappedResources
+            // 
+            this.lblUnmappedResources.AutoSize = true;
+            this.lblUnmappedResources.Location = new System.Drawing.Point(919, 31);
+            this.lblUnmappedResources.Name = "lblUnmappedResources";
+            this.lblUnmappedResources.Size = new System.Drawing.Size(132, 18);
+            this.lblUnmappedResources.TabIndex = 16;
+            this.lblUnmappedResources.Text = "Nemapirani resursi";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1184, 695);
+            this.Controls.Add(this.lblUnmappedResources);
             this.Controls.Add(this.pnlDelete);
             this.Controls.Add(this.pnlResources);
             this.Controls.Add(this.pnlMap);
@@ -214,6 +225,7 @@
         private System.Windows.Forms.Panel pnlMap;
         private System.Windows.Forms.Panel pnlResources;
         private System.Windows.Forms.Panel pnlDelete;
+        private System.Windows.Forms.Label lblUnmappedResources;
 
     }
 }

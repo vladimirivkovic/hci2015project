@@ -18,7 +18,9 @@ namespace HCI15RA13AU
         private Type type;
         private string fullFileName = "";
         private string fname = "";
-        private ApproxDate approxDate = null;
+        private int year;
+        private int century;
+        private bool edit = false;
 
         public NewResourceForm()
         {
@@ -34,9 +36,92 @@ namespace HCI15RA13AU
             type = new Type();
             type.ID = "";
 
-            ToolTip tt = new ToolTip();
-            tt.SetToolTip(btnDate, "Izbor okvirnog datuma");
+            rbtUnknown.Checked = true;
+            rbtDate.Checked = true;
+            rbtDate_CheckedChanged(this, EventArgs.Empty);
+            rbtApproxDate_CheckedChanged(this, EventArgs.Empty);
         }
+                
+        public NewResourceForm(Resource res)
+        {
+            InitializeComponent();
+            this.Text = "Uredi podatke o resursu";
+            edit = true;
+            ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
+            this.cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cmbType.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            tags = res.Tags;
+            type = res.Type;
+
+            txtId.Text = res.ID;
+            txtId.ReadOnly = true;
+            txtName.Text = res.Name;
+            txtDescription.Text = res.Description;
+            lblIconName.Text = res.IconFileName;
+            if (res.Renewable)
+                chbRenewable.Checked = true;
+            if (res.Important)
+                chbImportant.Checked = true;
+            if (res.Exploatable)
+                chbExploatable.Checked = true;
+            cmbUnit.Text = Resource.UnitToString(res.Unit);
+            switch (res.Frequency)
+            {
+                case Frequency.FREQUENT:
+                    rbtFrequent.Checked = true;
+                    break;
+                case Frequency.RARE:
+                    rbtRare.Checked = true;
+                    break;
+                case Frequency.UNIVERSAL:
+                    rbtUniversal.Checked = true;
+                    break;
+            }
+            txtCost.Text = res.Cost.ToString();
+            dateTimePicker.Value = res.Discovered;
+            lblTag.Text = res.Tags.Count.ToString();
+            fullFileName = res.IconFileName;
+            lblIconName.Text = fullFileName;
+            if (res.ApproxDiscovered != null)
+            {
+                rbtApproxDate.Checked = true;
+                // TODO : fill approxDate group box
+                if (res.ApproxDiscovered.Unknown)
+                {
+                    rbtUnknown.Checked = true;
+                }
+                else if (res.ApproxDiscovered.Year >= 0)
+                {
+                    rbtYear.Checked = true;
+                    txtYear.Text = res.ApproxDiscovered.Year.ToString();
+                    chbYear.Checked = !res.ApproxDiscovered.AD;
+                }
+                else if (res.ApproxDiscovered.Century >= 0)
+                {
+                    rbtCentury.Checked = true;
+                    txtCentury.Text = res.ApproxDiscovered.Century.ToString();
+                    chbCentury.Checked = !res.ApproxDiscovered.AD;
+                }
+            }
+            else
+            {
+                rbtUnknown.Checked = true;
+                rbtDate.Checked = true;
+            }
+
+            foreach (Type t in MainForm.types.Values)
+            {
+                cmbType.Items.Add(t.ID);
+            }
+            cmbType.SelectedItem = res.Type.ID;
+
+            
+            
+            rbtDate_CheckedChanged(this, EventArgs.Empty);
+            rbtApproxDate_CheckedChanged(this, EventArgs.Empty);
+        }
+
 
         private void btnIcon_Click(object sender, EventArgs e)
         {
@@ -56,7 +141,7 @@ namespace HCI15RA13AU
                 formIsValid = false;
                 epAdd.SetError(txtId, "Unos oznake je obavezan");
             }
-            else if (MainForm.resources.ContainsKey(txtId.Text))
+            else if (!edit && MainForm.resources.ContainsKey(txtId.Text))
             {
                 formIsValid = false;
                 epAdd.SetError(txtId, "Resurs sa ovom oznakom već postoji");
@@ -174,8 +259,18 @@ namespace HCI15RA13AU
             else
                 res.Frequency = Frequency.UNIVERSAL;
             res.Cost = double.Parse(txtCost.Text);
-            res.Discovered = dateTimePicker.Value;
-            res.ApproxDiscovered = approxDate;
+            if (rbtDate.Checked)
+            {
+                res.Discovered = dateTimePicker.Value;
+                res.ApproxDiscovered = null;
+            }
+            else
+            {
+                res.Discovered = dateTimePicker.Value;
+                res.ApproxDiscovered = getApproxDate();
+            }
+            //res.Discovered = dateTimePicker.Value;
+            //res.ApproxDiscovered = approxDate;
             res.Tags = tags;      
             res.Type = type;
             if (cmbType.SelectedItem != null)
@@ -204,7 +299,7 @@ namespace HCI15RA13AU
 
         private void dateTimePicker_Validating(object sender, CancelEventArgs e)
         {
-            if (dateTimePicker.Value.CompareTo(DateTime.Now) > 0 && approxDate == null)
+            if (dateTimePicker.Value.CompareTo(DateTime.Now) > 0 && rbtDate.Checked)
             {
                 formIsValid = false;
                 epAdd.SetError(dateTimePicker, "Datum mora biti u prošlosti");
@@ -269,22 +364,110 @@ namespace HCI15RA13AU
             }
         }
 
-        private void btnDate_Click(object sender, EventArgs e)
+        private void rbtDate_CheckedChanged(object sender, EventArgs e)
         {
-            ChooseDate cd = new ChooseDate();
-            cd.ShowDialog();
+            dateTimePicker.Enabled = rbtDate.Checked;
+        }
 
-            if (cd.DialogResult == DialogResult.OK)
+        private void rbtApproxDate_CheckedChanged(object sender, EventArgs e)
+        {
+            gbxApproxDate.Visible = rbtApproxDate.Checked;
+        }
+
+        private void txtYear_Validating(object sender, CancelEventArgs e)
+        {
+            if (rbtYear.Checked)
             {
-                approxDate = cd.getApproxDate();
-                lblApproxDate.Text = approxDate.ToString();
+                bool success = int.TryParse(txtYear.Text, out century);
+                if (success)
+                {
+                    if (century <= 0)
+                    {
+                        formIsValid = false;
+                        epAdd.SetError(txtYear, "Godina treba da bude pozitivan ceo broj");
+                    }
+                    else
+                    {
+                        epAdd.SetError(txtYear, "");
+                    }
+                }
+                else
+                {
+                    formIsValid = false;
+                    epAdd.SetError(txtYear, "Godina treba da bude pozitivan ceo broj");
+                }
+            }
+            else
+            {
+                epAdd.SetError(txtYear, "");
             }
         }
 
-        private void dateTimePicker_ValueChanged(object sender, EventArgs e)
+        private void txtCentury_Validating(object sender, CancelEventArgs e)
         {
-            approxDate = null;
-            lblApproxDate.Text = "";
+            if (rbtCentury.Checked)
+            {
+                bool success = int.TryParse(txtCentury.Text, out year);
+                if (success)
+                {
+                    if (year <= 0)
+                    {
+                        formIsValid = false;
+                        epAdd.SetError(txtCentury, "Vek treba da bude pozitivan ceo broj");
+                    }
+                    else
+                    {
+                        epAdd.SetError(txtCentury, "");
+                    }
+                }
+                else
+                {
+                    formIsValid = false;
+                    epAdd.SetError(txtCentury, "Vek treba da bude pozitivan ceo broj");
+                }
+            }
+            else
+            {
+                epAdd.SetError(txtCentury, "");
+            }
+        }
+
+        private void gbxDate_Validating(object sender, CancelEventArgs e)
+        {
+            if (rbtApproxDate.Checked || rbtDate.Checked)
+            {
+                epAdd.SetError(txtCentury, "");
+            }
+            else
+            {
+                formIsValid = false;
+                epAdd.SetError(txtCentury, "Izbor datuma je obavezan");
+            }
+        }
+
+        private ApproxDate getApproxDate()
+        {
+            int year = -1;
+            int century = -1;
+            bool unknown = false;
+            bool ad = false;
+
+            if (rbtYear.Checked)
+            {
+                year = int.Parse(txtYear.Text);
+                ad = !chbYear.Checked;
+            }
+            else if (rbtCentury.Checked)
+            {
+                century = int.Parse(txtCentury.Text);
+                ad = !chbCentury.Checked;
+            }
+            else
+            {
+                unknown = true;
+            }
+
+            return new ApproxDate(year, century, ad, unknown);
         }
     }
 }

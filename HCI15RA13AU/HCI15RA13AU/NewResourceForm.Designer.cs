@@ -43,7 +43,6 @@
             this.chbExploatable = new System.Windows.Forms.CheckBox();
             this.lblIcon = new System.Windows.Forms.Label();
             this.lblCost = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
             this.txtCost = new System.Windows.Forms.TextBox();
             this.rbtRare = new System.Windows.Forms.RadioButton();
             this.rbtFrequent = new System.Windows.Forms.RadioButton();
@@ -59,11 +58,21 @@
             this.btnTag = new System.Windows.Forms.Button();
             this.lblType = new System.Windows.Forms.Label();
             this.cmbType = new System.Windows.Forms.ComboBox();
-            this.btnDate = new System.Windows.Forms.Button();
-            this.lblApproxDate = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.gbxDate = new System.Windows.Forms.GroupBox();
+            this.rbtApproxDate = new System.Windows.Forms.RadioButton();
+            this.rbtDate = new System.Windows.Forms.RadioButton();
+            this.chbYear = new System.Windows.Forms.CheckBox();
+            this.txtYear = new System.Windows.Forms.TextBox();
+            this.rbtYear = new System.Windows.Forms.RadioButton();
+            this.chbCentury = new System.Windows.Forms.CheckBox();
+            this.txtCentury = new System.Windows.Forms.TextBox();
+            this.rbtCentury = new System.Windows.Forms.RadioButton();
+            this.rbtUnknown = new System.Windows.Forms.RadioButton();
+            this.gbxApproxDate = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.epAdd)).BeginInit();
             this.grbFrequency.SuspendLayout();
+            this.gbxDate.SuspendLayout();
+            this.gbxApproxDate.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblId
@@ -220,17 +229,6 @@
             this.lblCost.TabIndex = 19;
             this.lblCost.Text = "Cena (u dolarima)";
             // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(700, 400);
-            this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(119, 18);
-            this.lblDate.TabIndex = 20;
-            this.lblDate.Text = "Datum otkrivanja";
-            // 
             // txtCost
             // 
             this.txtCost.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -302,12 +300,11 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker.Location = new System.Drawing.Point(852, 395);
+            this.dateTimePicker.Location = new System.Drawing.Point(175, 25);
             this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(240, 24);
             this.dateTimePicker.TabIndex = 16;
-            this.dateTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker_ValueChanged);
             this.dateTimePicker.Validating += new System.ComponentModel.CancelEventHandler(this.dateTimePicker_Validating);
             // 
             // cmbUnit
@@ -400,42 +397,134 @@
             this.cmbType.TabIndex = 36;
             this.cmbType.Validating += new System.ComponentModel.CancelEventHandler(this.cmbType_Validating);
             // 
-            // btnDate
+            // gbxDate
             // 
-            this.btnDate.Location = new System.Drawing.Point(1025, 443);
-            this.btnDate.Name = "btnDate";
-            this.btnDate.Size = new System.Drawing.Size(65, 32);
-            this.btnDate.TabIndex = 37;
-            this.btnDate.Text = "Izaberi";
-            this.btnDate.UseVisualStyleBackColor = true;
-            this.btnDate.Click += new System.EventHandler(this.btnDate_Click);
+            this.gbxDate.Controls.Add(this.gbxApproxDate);
+            this.gbxDate.Controls.Add(this.rbtApproxDate);
+            this.gbxDate.Controls.Add(this.rbtDate);
+            this.gbxDate.Controls.Add(this.dateTimePicker);
+            this.gbxDate.Location = new System.Drawing.Point(700, 330);
+            this.gbxDate.Name = "gbxDate";
+            this.gbxDate.Size = new System.Drawing.Size(449, 187);
+            this.gbxDate.TabIndex = 40;
+            this.gbxDate.TabStop = false;
+            this.gbxDate.Text = "Datum otkrivanja resursa";
+            this.gbxDate.Validating += new System.ComponentModel.CancelEventHandler(this.gbxDate_Validating);
             // 
-            // lblApproxDate
+            // rbtApproxDate
             // 
-            this.lblApproxDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblApproxDate.AutoSize = true;
-            this.lblApproxDate.Location = new System.Drawing.Point(867, 450);
-            this.lblApproxDate.Name = "lblApproxDate";
-            this.lblApproxDate.Size = new System.Drawing.Size(0, 18);
-            this.lblApproxDate.TabIndex = 38;
+            this.rbtApproxDate.AutoSize = true;
+            this.rbtApproxDate.Location = new System.Drawing.Point(16, 68);
+            this.rbtApproxDate.Name = "rbtApproxDate";
+            this.rbtApproxDate.Size = new System.Drawing.Size(117, 22);
+            this.rbtApproxDate.TabIndex = 41;
+            this.rbtApproxDate.TabStop = true;
+            this.rbtApproxDate.Text = "Okvirni datum";
+            this.rbtApproxDate.UseVisualStyleBackColor = true;
+            this.rbtApproxDate.CheckedChanged += new System.EventHandler(this.rbtApproxDate_CheckedChanged);
             // 
-            // label1
+            // rbtDate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(700, 450);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 18);
-            this.label1.TabIndex = 39;
-            this.label1.Text = "Okvirni datum otkivanja\r\n";
+            this.rbtDate.AutoSize = true;
+            this.rbtDate.Location = new System.Drawing.Point(16, 28);
+            this.rbtDate.Name = "rbtDate";
+            this.rbtDate.Size = new System.Drawing.Size(112, 22);
+            this.rbtDate.TabIndex = 40;
+            this.rbtDate.TabStop = true;
+            this.rbtDate.Text = "Tacan datum";
+            this.rbtDate.UseVisualStyleBackColor = true;
+            this.rbtDate.CheckedChanged += new System.EventHandler(this.rbtDate_CheckedChanged);
+            // 
+            // chbYear
+            // 
+            this.chbYear.AutoSize = true;
+            this.chbYear.Location = new System.Drawing.Point(267, 15);
+            this.chbYear.Name = "chbYear";
+            this.chbYear.Size = new System.Drawing.Size(63, 22);
+            this.chbYear.TabIndex = 44;
+            this.chbYear.Text = "p.n.e.";
+            this.chbYear.UseVisualStyleBackColor = true;
+            // 
+            // txtYear
+            // 
+            this.txtYear.Location = new System.Drawing.Point(139, 15);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(100, 24);
+            this.txtYear.TabIndex = 43;
+            this.txtYear.Validating += new System.ComponentModel.CancelEventHandler(this.txtYear_Validating);
+            // 
+            // rbtYear
+            // 
+            this.rbtYear.AutoSize = true;
+            this.rbtYear.Location = new System.Drawing.Point(11, 16);
+            this.rbtYear.Name = "rbtYear";
+            this.rbtYear.Size = new System.Drawing.Size(74, 22);
+            this.rbtYear.TabIndex = 42;
+            this.rbtYear.TabStop = true;
+            this.rbtYear.Text = "Godina";
+            this.rbtYear.UseVisualStyleBackColor = true;
+            // 
+            // chbCentury
+            // 
+            this.chbCentury.AutoSize = true;
+            this.chbCentury.Location = new System.Drawing.Point(267, 43);
+            this.chbCentury.Name = "chbCentury";
+            this.chbCentury.Size = new System.Drawing.Size(63, 22);
+            this.chbCentury.TabIndex = 47;
+            this.chbCentury.Text = "p.n.e.";
+            this.chbCentury.UseVisualStyleBackColor = true;
+            // 
+            // txtCentury
+            // 
+            this.txtCentury.Location = new System.Drawing.Point(139, 43);
+            this.txtCentury.Name = "txtCentury";
+            this.txtCentury.Size = new System.Drawing.Size(100, 24);
+            this.txtCentury.TabIndex = 46;
+            this.txtCentury.Validating += new System.ComponentModel.CancelEventHandler(this.txtCentury_Validating);
+            // 
+            // rbtCentury
+            // 
+            this.rbtCentury.AutoSize = true;
+            this.rbtCentury.Location = new System.Drawing.Point(11, 44);
+            this.rbtCentury.Name = "rbtCentury";
+            this.rbtCentury.Size = new System.Drawing.Size(51, 22);
+            this.rbtCentury.TabIndex = 45;
+            this.rbtCentury.TabStop = true;
+            this.rbtCentury.Text = "Vek";
+            this.rbtCentury.UseVisualStyleBackColor = true;
+            // 
+            // rbtUnknown
+            // 
+            this.rbtUnknown.AutoSize = true;
+            this.rbtUnknown.Location = new System.Drawing.Point(11, 72);
+            this.rbtUnknown.Name = "rbtUnknown";
+            this.rbtUnknown.Size = new System.Drawing.Size(99, 22);
+            this.rbtUnknown.TabIndex = 48;
+            this.rbtUnknown.TabStop = true;
+            this.rbtUnknown.Text = "Nepoznato";
+            this.rbtUnknown.UseVisualStyleBackColor = true;
+            // 
+            // gbxApproxDate
+            // 
+            this.gbxApproxDate.Controls.Add(this.rbtUnknown);
+            this.gbxApproxDate.Controls.Add(this.chbCentury);
+            this.gbxApproxDate.Controls.Add(this.txtCentury);
+            this.gbxApproxDate.Controls.Add(this.rbtCentury);
+            this.gbxApproxDate.Controls.Add(this.chbYear);
+            this.gbxApproxDate.Controls.Add(this.txtYear);
+            this.gbxApproxDate.Controls.Add(this.rbtYear);
+            this.gbxApproxDate.Location = new System.Drawing.Point(36, 87);
+            this.gbxApproxDate.Name = "gbxApproxDate";
+            this.gbxApproxDate.Size = new System.Drawing.Size(336, 100);
+            this.gbxApproxDate.TabIndex = 49;
+            this.gbxApproxDate.TabStop = false;
             // 
             // NewResourceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 576);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblApproxDate);
-            this.Controls.Add(this.btnDate);
+            this.Controls.Add(this.gbxDate);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.btnTag);
@@ -444,10 +533,8 @@
             this.Controls.Add(this.grbFrequency);
             this.Controls.Add(this.lblIconName);
             this.Controls.Add(this.cmbUnit);
-            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.btnIcon);
             this.Controls.Add(this.txtCost);
-            this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblCost);
             this.Controls.Add(this.lblIcon);
             this.Controls.Add(this.chbExploatable);
@@ -469,6 +556,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.epAdd)).EndInit();
             this.grbFrequency.ResumeLayout(false);
             this.grbFrequency.PerformLayout();
+            this.gbxDate.ResumeLayout(false);
+            this.gbxDate.PerformLayout();
+            this.gbxApproxDate.ResumeLayout(false);
+            this.gbxApproxDate.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -490,7 +581,6 @@
         private System.Windows.Forms.CheckBox chbExploatable;
         private System.Windows.Forms.Label lblIcon;
         private System.Windows.Forms.Label lblCost;
-        private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.TextBox txtCost;
         private System.Windows.Forms.RadioButton rbtRare;
         private System.Windows.Forms.RadioButton rbtFrequent;
@@ -506,8 +596,16 @@
         private System.Windows.Forms.Label lblTags;
         private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.ComboBox cmbType;
-        private System.Windows.Forms.Button btnDate;
-        private System.Windows.Forms.Label lblApproxDate;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox gbxDate;
+        private System.Windows.Forms.RadioButton rbtApproxDate;
+        private System.Windows.Forms.RadioButton rbtDate;
+        private System.Windows.Forms.CheckBox chbYear;
+        private System.Windows.Forms.TextBox txtYear;
+        private System.Windows.Forms.RadioButton rbtYear;
+        private System.Windows.Forms.CheckBox chbCentury;
+        private System.Windows.Forms.TextBox txtCentury;
+        private System.Windows.Forms.RadioButton rbtCentury;
+        private System.Windows.Forms.GroupBox gbxApproxDate;
+        private System.Windows.Forms.RadioButton rbtUnknown;
     }
 }

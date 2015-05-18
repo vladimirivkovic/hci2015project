@@ -43,7 +43,6 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.btnIcon = new System.Windows.Forms.Button();
             this.txtCost = new System.Windows.Forms.TextBox();
-            this.lblDate = new System.Windows.Forms.Label();
             this.lblCost = new System.Windows.Forms.Label();
             this.lblIcon = new System.Windows.Forms.Label();
             this.chbExploatable = new System.Windows.Forms.CheckBox();
@@ -61,9 +60,12 @@
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.btnDate = new System.Windows.Forms.Button();
             this.lblApproxDate = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbtApproxDate = new System.Windows.Forms.RadioButton();
+            this.rbtDate = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.epEdit)).BeginInit();
             this.grbFrequency.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // epEdit
@@ -196,7 +198,7 @@
             // dateTimePicker
             // 
             this.dateTimePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker.Location = new System.Drawing.Point(852, 395);
+            this.dateTimePicker.Location = new System.Drawing.Point(168, 25);
             this.dateTimePicker.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePicker.Name = "dateTimePicker";
             this.dateTimePicker.Size = new System.Drawing.Size(240, 24);
@@ -225,17 +227,6 @@
             this.txtCost.Size = new System.Drawing.Size(111, 24);
             this.txtCost.TabIndex = 50;
             this.txtCost.Validating += new System.ComponentModel.CancelEventHandler(this.txtCost_Validating);
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(700, 400);
-            this.lblDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(119, 18);
-            this.lblDate.TabIndex = 57;
-            this.lblDate.Text = "Datum otkrivanja";
             // 
             // lblCost
             // 
@@ -407,7 +398,7 @@
             // btnDate
             // 
             this.btnDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDate.Location = new System.Drawing.Point(1027, 443);
+            this.btnDate.Location = new System.Drawing.Point(343, 75);
             this.btnDate.Name = "btnDate";
             this.btnDate.Size = new System.Drawing.Size(65, 32);
             this.btnDate.TabIndex = 63;
@@ -419,29 +410,56 @@
             // 
             this.lblApproxDate.AutoSize = true;
             this.lblApproxDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApproxDate.Location = new System.Drawing.Point(867, 450);
+            this.lblApproxDate.Location = new System.Drawing.Point(165, 82);
             this.lblApproxDate.Name = "lblApproxDate";
             this.lblApproxDate.Size = new System.Drawing.Size(0, 18);
             this.lblApproxDate.TabIndex = 64;
             // 
-            // label1
+            // groupBox1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(700, 450);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 18);
-            this.label1.TabIndex = 65;
-            this.label1.Text = "Okvirni datum otkivanja\r\n";
+            this.groupBox1.Controls.Add(this.rbtApproxDate);
+            this.groupBox1.Controls.Add(this.lblApproxDate);
+            this.groupBox1.Controls.Add(this.rbtDate);
+            this.groupBox1.Controls.Add(this.btnDate);
+            this.groupBox1.Controls.Add(this.dateTimePicker);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.groupBox1.Location = new System.Drawing.Point(700, 370);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(437, 133);
+            this.groupBox1.TabIndex = 66;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Datum otrkrivanja resursa";
+            // 
+            // rbtApproxDate
+            // 
+            this.rbtApproxDate.AutoSize = true;
+            this.rbtApproxDate.Location = new System.Drawing.Point(14, 80);
+            this.rbtApproxDate.Name = "rbtApproxDate";
+            this.rbtApproxDate.Size = new System.Drawing.Size(117, 22);
+            this.rbtApproxDate.TabIndex = 68;
+            this.rbtApproxDate.TabStop = true;
+            this.rbtApproxDate.Text = "Okvirni datum";
+            this.rbtApproxDate.UseVisualStyleBackColor = true;
+            this.rbtApproxDate.CheckedChanged += new System.EventHandler(this.rbtApproxDate_CheckedChanged);
+            // 
+            // rbtDate
+            // 
+            this.rbtDate.AutoSize = true;
+            this.rbtDate.Location = new System.Drawing.Point(14, 28);
+            this.rbtDate.Name = "rbtDate";
+            this.rbtDate.Size = new System.Drawing.Size(112, 22);
+            this.rbtDate.TabIndex = 67;
+            this.rbtDate.TabStop = true;
+            this.rbtDate.Text = "Tacan datum";
+            this.rbtDate.UseVisualStyleBackColor = true;
+            this.rbtDate.CheckedChanged += new System.EventHandler(this.rbtDate_CheckedChanged);
             // 
             // EditResourceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 576);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblApproxDate);
-            this.Controls.Add(this.btnDate);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.btnTag);
@@ -450,10 +468,8 @@
             this.Controls.Add(this.grbFrequency);
             this.Controls.Add(this.lblIconName);
             this.Controls.Add(this.cmbUnit);
-            this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.btnIcon);
             this.Controls.Add(this.txtCost);
-            this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblCost);
             this.Controls.Add(this.lblIcon);
             this.Controls.Add(this.chbExploatable);
@@ -473,6 +489,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.epEdit)).EndInit();
             this.grbFrequency.ResumeLayout(false);
             this.grbFrequency.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,7 +512,6 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         private System.Windows.Forms.Button btnIcon;
         private System.Windows.Forms.TextBox txtCost;
-        private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblCost;
         private System.Windows.Forms.Label lblIcon;
         private System.Windows.Forms.CheckBox chbExploatable;
@@ -512,7 +529,9 @@
         private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.Button btnDate;
         private System.Windows.Forms.Label lblApproxDate;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbtApproxDate;
+        private System.Windows.Forms.RadioButton rbtDate;
 
     }
 }

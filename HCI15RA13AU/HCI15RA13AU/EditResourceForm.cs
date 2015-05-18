@@ -73,6 +73,12 @@ namespace HCI15RA13AU
             }
             cmbType.SelectedItem = res.Type.ID;
 
+            ToolTip tt = new ToolTip();
+            tt.SetToolTip(btnDate, "Izbor okvirnog datuma");
+
+            lblApproxDate.Enabled = rbtApproxDate.Checked;
+            btnDate.Enabled = rbtApproxDate.Checked;
+            dateTimePicker.Enabled = rbtDate.Checked;
         }
 
         public Resource GetResource()
@@ -92,8 +98,18 @@ namespace HCI15RA13AU
             else
                 res.Frequency = Frequency.UNIVERSAL;
             res.Cost = double.Parse(txtCost.Text);
-            res.Discovered = dateTimePicker.Value;
-            res.ApproxDiscovered = approxDate;
+            if (rbtDate.Checked)
+            {
+                res.Discovered = dateTimePicker.Value;
+                res.ApproxDiscovered = null;
+            }
+            else
+            {
+                res.Discovered = DateTime.MaxValue;
+                res.ApproxDiscovered = approxDate;
+            }
+            //res.Discovered = dateTimePicker.Value;
+            //res.ApproxDiscovered = approxDate;
             res.Tags = tags;
             if (!fname.Equals(""))
             {
@@ -230,7 +246,7 @@ namespace HCI15RA13AU
 
         private void dateTimePicker_Validating(object sender, CancelEventArgs e)
         {
-            if (dateTimePicker.Value.CompareTo(DateTime.Now) > 0)
+            if (dateTimePicker.Value.CompareTo(DateTime.Now) > 0 && rbtDate.Checked)
             {
                 formIsValid = false;
                 epEdit.SetError(dateTimePicker, "Datum mora biti u prošlosti");
@@ -299,6 +315,17 @@ namespace HCI15RA13AU
         {
             approxDate = null;
             lblApproxDate.Text = "";
+        }
+
+        private void rbtApproxDate_CheckedChanged(object sender, EventArgs e)
+        {
+            lblApproxDate.Enabled = rbtApproxDate.Checked;
+            btnDate.Enabled = rbtApproxDate.Checked;
+        }
+
+        private void rbtDate_CheckedChanged(object sender, EventArgs e)
+        {
+            dateTimePicker.Enabled = rbtDate.Checked;
         }
 
         //private void btnType_Click(object sender, EventArgs e)
