@@ -15,7 +15,7 @@ namespace HCI15RA13AU
         private OpenFileDialog ofd = new OpenFileDialog();
         private bool formIsValid = true;
         private Dictionary<string, Tag> tags;
-        private Type type;
+        private Type type = null;
         private string fullFileName = "";
         private string fname = "";
         private int year;
@@ -27,14 +27,8 @@ namespace HCI15RA13AU
             InitializeComponent();
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
             this.cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.cmbType.DropDownStyle = ComboBoxStyle.DropDownList;
-            foreach (Type t in MainForm.types.Values)
-            {
-                cmbType.Items.Add(t.ID);
-            }
+
             tags = new Dictionary<string, Tag>();
-            type = new Type();
-            type.ID = "";
 
             rbtUnknown.Checked = true;
             rbtDate.Checked = true;
@@ -49,7 +43,6 @@ namespace HCI15RA13AU
             edit = true;
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
             this.cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.cmbType.DropDownStyle = ComboBoxStyle.DropDownList;
 
             tags = res.Tags;
             type = res.Type;
@@ -59,6 +52,7 @@ namespace HCI15RA13AU
             txtName.Text = res.Name;
             txtDescription.Text = res.Description;
             lblIconName.Text = res.IconFileName;
+            lblTypeID.Text = type.ID;
             if (res.Renewable)
                 chbRenewable.Checked = true;
             if (res.Important)
@@ -80,7 +74,7 @@ namespace HCI15RA13AU
             }
             txtCost.Text = res.Cost.ToString();
             dateTimePicker.Value = res.Discovered;
-            lblTag.Text = res.Tags.Count.ToString();
+            lblTag.Text = res.Tags.Count.ToString() + " etiketa";
             fullFileName = res.IconFileName;
             char[] sep = { '\\' };
             fname = lblIconName.Text = fullFileName.Split(sep).Last();
@@ -110,12 +104,6 @@ namespace HCI15RA13AU
                 rbtUnknown.Checked = true;
                 rbtDate.Checked = true;
             }
-
-            foreach (Type t in MainForm.types.Values)
-            {
-                cmbType.Items.Add(t.ID);
-            }
-            cmbType.SelectedItem = res.Type.ID;
 
             
             
@@ -274,17 +262,6 @@ namespace HCI15RA13AU
             //res.ApproxDiscovered = approxDate;
             res.Tags = tags;      
             res.Type = type;
-            if (cmbType.SelectedItem != null)
-            {
-                string typeID = cmbType.SelectedItem.ToString();
-                foreach (Type t in MainForm.types.Values)
-                {
-                    if (t.ID == typeID)
-                    {
-                        res.Type = t;
-                    }
-                }
-            }
             try
             {
                 File.Copy(fullFileName, "..\\..\\images\\" + fname);
@@ -349,20 +326,6 @@ namespace HCI15RA13AU
                     }
                 }
                 lblTag.Text = tags.Count.ToString() + " etiketa";
-            }
-        }
-
-        private void cmbType_Validating(object sender, CancelEventArgs e)
-        {
-            return;
-            if (cmbType.SelectedItem == null)
-            {
-                formIsValid = false;
-                epAdd.SetError(cmbType, "Izbor tipa je neophodan");
-            }
-            else
-            {
-                epAdd.SetError(cmbType, "");
             }
         }
 
@@ -474,12 +437,25 @@ namespace HCI15RA13AU
 
         private void btnType_Click(object sender, EventArgs e)
         {
-            TypesTable typesTable = new TypesTable(true);
+            TypesTableForm typesTable = new TypesTableForm(true);
             typesTable.ShowDialog();
 
             if (typesTable.DialogResult == DialogResult.OK)
             {
                 type = typesTable.GetType();
+                lblTypeID.Text = type.ID;
+            }
+        }
+
+        private void btnType_Validating(object sender, CancelEventArgs e)
+        {
+            if (type != null)
+            {
+                epAdd.SetError(btnType, "");
+            }
+            else
+            {
+                epAdd.SetError(btnType, "Izbor tipa je obavezan");
             }
         }
     }

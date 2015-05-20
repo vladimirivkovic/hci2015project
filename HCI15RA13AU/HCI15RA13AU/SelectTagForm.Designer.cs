@@ -36,6 +36,7 @@
             this.btnAddAll = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.btnRemoveAll = new System.Windows.Forms.Button();
+            this.txtTag = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -66,7 +67,7 @@
             // 
             this.lstAllTags.FormattingEnabled = true;
             this.lstAllTags.ItemHeight = 18;
-            this.lstAllTags.Location = new System.Drawing.Point(18, 17);
+            this.lstAllTags.Location = new System.Drawing.Point(13, 43);
             this.lstAllTags.Margin = new System.Windows.Forms.Padding(4);
             this.lstAllTags.Name = "lstAllTags";
             this.lstAllTags.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
@@ -77,7 +78,7 @@
             // 
             this.lstSelectedTags.FormattingEnabled = true;
             this.lstSelectedTags.ItemHeight = 18;
-            this.lstSelectedTags.Location = new System.Drawing.Point(404, 17);
+            this.lstSelectedTags.Location = new System.Drawing.Point(399, 43);
             this.lstSelectedTags.Margin = new System.Windows.Forms.Padding(4);
             this.lstSelectedTags.Name = "lstSelectedTags";
             this.lstSelectedTags.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
@@ -86,7 +87,7 @@
             // 
             // brnAdd
             // 
-            this.brnAdd.Location = new System.Drawing.Point(310, 17);
+            this.brnAdd.Location = new System.Drawing.Point(305, 43);
             this.brnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.brnAdd.Name = "brnAdd";
             this.brnAdd.Size = new System.Drawing.Size(45, 32);
@@ -97,7 +98,7 @@
             // 
             // btnAddAll
             // 
-            this.btnAddAll.Location = new System.Drawing.Point(310, 57);
+            this.btnAddAll.Location = new System.Drawing.Point(305, 83);
             this.btnAddAll.Margin = new System.Windows.Forms.Padding(4);
             this.btnAddAll.Name = "btnAddAll";
             this.btnAddAll.Size = new System.Drawing.Size(45, 32);
@@ -108,7 +109,7 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(310, 97);
+            this.btnRemove.Location = new System.Drawing.Point(305, 123);
             this.btnRemove.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(45, 32);
@@ -119,7 +120,7 @@
             // 
             // btnRemoveAll
             // 
-            this.btnRemoveAll.Location = new System.Drawing.Point(310, 137);
+            this.btnRemoveAll.Location = new System.Drawing.Point(305, 163);
             this.btnRemoveAll.Margin = new System.Windows.Forms.Padding(4);
             this.btnRemoveAll.Name = "btnRemoveAll";
             this.btnRemoveAll.Size = new System.Drawing.Size(45, 32);
@@ -128,11 +129,20 @@
             this.btnRemoveAll.UseVisualStyleBackColor = true;
             this.btnRemoveAll.Click += new System.EventHandler(this.btnRemoveAll_Click);
             // 
+            // txtTag
+            // 
+            this.txtTag.Location = new System.Drawing.Point(13, 12);
+            this.txtTag.Name = "txtTag";
+            this.txtTag.Size = new System.Drawing.Size(154, 24);
+            this.txtTag.TabIndex = 8;
+            this.txtTag.TextChanged += new System.EventHandler(this.txtTag_TextChanged);
+            // 
             // SelectTagForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(736, 479);
+            this.Controls.Add(this.txtTag);
             this.Controls.Add(this.btnRemoveAll);
             this.Controls.Add(this.btnRemove);
             this.Controls.Add(this.btnAddAll);
@@ -146,6 +156,7 @@
             this.Name = "SelectTagForm";
             this.Text = "Izbor etiketa";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -159,5 +170,6 @@
         private System.Windows.Forms.Button btnAddAll;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.Button btnRemoveAll;
+        private System.Windows.Forms.TextBox txtTag;
     }
 }

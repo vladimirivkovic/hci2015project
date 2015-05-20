@@ -57,7 +57,6 @@
             this.lblTag = new System.Windows.Forms.Label();
             this.btnTag = new System.Windows.Forms.Button();
             this.lblType = new System.Windows.Forms.Label();
-            this.cmbType = new System.Windows.Forms.ComboBox();
             this.gbxDate = new System.Windows.Forms.GroupBox();
             this.gbxApproxDate = new System.Windows.Forms.GroupBox();
             this.rbtUnknown = new System.Windows.Forms.RadioButton();
@@ -70,6 +69,7 @@
             this.rbtApproxDate = new System.Windows.Forms.RadioButton();
             this.rbtDate = new System.Windows.Forms.RadioButton();
             this.btnType = new System.Windows.Forms.Button();
+            this.lblTypeID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.epAdd)).BeginInit();
             this.grbFrequency.SuspendLayout();
             this.gbxDate.SuspendLayout();
@@ -389,15 +389,6 @@
             this.lblType.TabIndex = 35;
             this.lblType.Text = "Tip resursa";
             // 
-            // cmbType
-            // 
-            this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(195, 496);
-            this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(121, 26);
-            this.cmbType.TabIndex = 36;
-            this.cmbType.Validating += new System.ComponentModel.CancelEventHandler(this.cmbType_Validating);
-            // 
             // gbxDate
             // 
             this.gbxDate.Controls.Add(this.gbxApproxDate);
@@ -522,22 +513,31 @@
             // 
             // btnType
             // 
-            this.btnType.Location = new System.Drawing.Point(339, 494);
+            this.btnType.Location = new System.Drawing.Point(195, 493);
             this.btnType.Name = "btnType";
             this.btnType.Size = new System.Drawing.Size(75, 32);
             this.btnType.TabIndex = 41;
             this.btnType.Text = "Izaberi";
             this.btnType.UseVisualStyleBackColor = true;
             this.btnType.Click += new System.EventHandler(this.btnType_Click);
+            this.btnType.Validating += new System.ComponentModel.CancelEventHandler(this.btnType_Validating);
+            // 
+            // lblTypeID
+            // 
+            this.lblTypeID.AutoSize = true;
+            this.lblTypeID.Location = new System.Drawing.Point(328, 504);
+            this.lblTypeID.Name = "lblTypeID";
+            this.lblTypeID.Size = new System.Drawing.Size(0, 18);
+            this.lblTypeID.TabIndex = 42;
             // 
             // NewResourceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 576);
+            this.Controls.Add(this.lblTypeID);
             this.Controls.Add(this.btnType);
             this.Controls.Add(this.gbxDate);
-            this.Controls.Add(this.cmbType);
             this.Controls.Add(this.lblType);
             this.Controls.Add(this.btnTag);
             this.Controls.Add(this.lblTag);
@@ -607,7 +607,6 @@
         private System.Windows.Forms.Label lblTag;
         private System.Windows.Forms.Label lblTags;
         private System.Windows.Forms.Label lblType;
-        private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.GroupBox gbxDate;
         private System.Windows.Forms.RadioButton rbtApproxDate;
         private System.Windows.Forms.RadioButton rbtDate;
@@ -620,5 +619,6 @@
         private System.Windows.Forms.GroupBox gbxApproxDate;
         private System.Windows.Forms.RadioButton rbtUnknown;
         private System.Windows.Forms.Button btnType;
+        private System.Windows.Forms.Label lblTypeID;
     }
 }

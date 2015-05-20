@@ -52,11 +52,11 @@
     <Compile Include="ChooseDate.Designer.cs">
       <DependentUpon>ChooseDate.cs</DependentUpon>
     </Compile>
-    <Compile Include="ChooseType.cs">
+    <Compile Include="ChooseTypeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ChooseType.Designer.cs">
-      <DependentUpon>ChooseType.cs</DependentUpon>
+    <Compile Include="ChooseTypeForm.Designer.cs">
+      <DependentUpon>ChooseTypeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="NewResourceForm.cs">
       <SubType>Form</SubType>
@@ -76,11 +76,11 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewTag.cs">
+    <Compile Include="NewTagFrom.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewTag.Designer.cs">
-      <DependentUpon>NewTag.cs</DependentUpon>
+    <Compile Include="NewTagFrom.Designer.cs">
+      <DependentUpon>NewTagFrom.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,17 +91,17 @@
     <Compile Include="ResourceIcon.Designer.cs">
       <DependentUpon>ResourceIcon.cs</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesFilter.cs">
+    <Compile Include="ResourcesFilterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ResourcesFilter.Designer.cs">
-      <DependentUpon>ResourcesFilter.cs</DependentUpon>
+    <Compile Include="ResourcesFilterForm.Designer.cs">
+      <DependentUpon>ResourcesFilterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ResourcesTable.cs">
+    <Compile Include="ResourcesTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ResourcesTable.Designer.cs">
-      <DependentUpon>ResourcesTable.cs</DependentUpon>
+    <Compile Include="ResourcesTableForm.Designer.cs">
+      <DependentUpon>ResourcesTableForm.cs</DependentUpon>
     </Compile>
     <Compile Include="SelectTagForm.cs">
       <SubType>Form</SubType>
@@ -109,11 +109,11 @@
     <Compile Include="SelectTagForm.Designer.cs">
       <DependentUpon>SelectTagForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TagsTable.cs">
+    <Compile Include="TagsTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TagsTable.Designer.cs">
-      <DependentUpon>TagsTable.cs</DependentUpon>
+    <Compile Include="TagsTableForm.Designer.cs">
+      <DependentUpon>TagsTableForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TypeForm.cs">
       <SubType>Form</SubType>
@@ -121,11 +121,11 @@
     <Compile Include="TypeForm.Designer.cs">
       <DependentUpon>TypeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="TypesTable.cs">
+    <Compile Include="TypesTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TypesTable.Designer.cs">
-      <DependentUpon>TypesTable.cs</DependentUpon>
+    <Compile Include="TypesTableForm.Designer.cs">
+      <DependentUpon>TypesTableForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ResourceControl.cs">
       <SubType>UserControl</SubType>
@@ -136,8 +136,8 @@
     <EmbeddedResource Include="ChooseDate.resx">
       <DependentUpon>ChooseDate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ChooseType.resx">
-      <DependentUpon>ChooseType.cs</DependentUpon>
+    <EmbeddedResource Include="ChooseTypeForm.resx">
+      <DependentUpon>ChooseTypeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NewResourceForm.resx">
       <DependentUpon>NewResourceForm.cs</DependentUpon>
@@ -148,8 +148,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewTag.resx">
-      <DependentUpon>NewTag.cs</DependentUpon>
+    <EmbeddedResource Include="NewTagFrom.resx">
+      <DependentUpon>NewTagFrom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -163,23 +163,23 @@
     <EmbeddedResource Include="ResourceIcon.resx">
       <DependentUpon>ResourceIcon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesFilter.resx">
-      <DependentUpon>ResourcesFilter.cs</DependentUpon>
+    <EmbeddedResource Include="ResourcesFilterForm.resx">
+      <DependentUpon>ResourcesFilterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ResourcesTable.resx">
-      <DependentUpon>ResourcesTable.cs</DependentUpon>
+    <EmbeddedResource Include="ResourcesTableForm.resx">
+      <DependentUpon>ResourcesTableForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SelectTagForm.resx">
       <DependentUpon>SelectTagForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TagsTable.resx">
-      <DependentUpon>TagsTable.cs</DependentUpon>
+    <EmbeddedResource Include="TagsTableForm.resx">
+      <DependentUpon>TagsTableForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TypeForm.resx">
       <DependentUpon>TypeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="TypesTable.resx">
-      <DependentUpon>TypesTable.cs</DependentUpon>
+    <EmbeddedResource Include="TypesTableForm.resx">
+      <DependentUpon>TypesTableForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ResourceControl.resx">
       <DependentUpon>ResourceControl.cs</DependentUpon>

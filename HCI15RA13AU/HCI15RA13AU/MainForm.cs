@@ -167,7 +167,7 @@ namespace HCI15RA13AU
 
         private void resourcesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ResourcesTable resourcesTable = new ResourcesTable();
+            ResourcesTableForm resourcesTable = new ResourcesTableForm();
             resourcesTable.ShowDialog();
 
             updateMap();
@@ -175,31 +175,31 @@ namespace HCI15RA13AU
 
         private void typesResursaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TypesTable typesTable = new TypesTable();
+            TypesTableForm typesTable = new TypesTableForm();
             typesTable.ShowDialog();
         }
 
         private void tagsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TagsTable tagsTable = new TagsTable();
+            TagsTableForm tagsTable = new TagsTableForm();
             tagsTable.ShowDialog();
         }
 
         private void resursiToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ResourcesTable resourcesTable = new ResourcesTable();
+            ResourcesTableForm resourcesTable = new ResourcesTableForm();
             resourcesTable.ShowDialog();
         }
 
         private void tipoviResursaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TypesTable typesTable = new TypesTable();
+            TypesTableForm typesTable = new TypesTableForm();
             typesTable.ShowDialog();
         }
 
         private void etiketeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TagsTable tagsTable = new TagsTable();
+            TagsTableForm tagsTable = new TagsTableForm();
             tagsTable.ShowDialog();
         }
 
@@ -249,9 +249,40 @@ namespace HCI15RA13AU
         private void pnlMap_DragEnter(object sender, DragEventArgs e)
         {
             Resource r = new Resource();
+            ResourceIcon resIcon = new ResourceIcon();
             if ((e.Data.GetDataPresent(r.GetType())))
             {
-                e.Effect = DragDropEffects.Copy;
+                //Rectangle rect = new Rectangle(
+                //    e.X - this.Left - pnlMap.Left - menuStrip1.Left - 30,
+                //    e.Y - this.Top - pnlMap.Top - menuStrip1.Top - 40,
+                //    resIcon.Width, resIcon.Height);
+
+                //bool boom = false;
+
+                //foreach (Control ctrl in pnlMap.Controls)
+                //{
+                //    if (ctrl.GetType().Equals(resIcon.GetType()))
+                //    {
+                //        if (ctrl.Equals(resIcon))
+                //        {
+                //            continue;
+                //        }
+                //        if (rect.IntersectsWith(ctrl.Bounds))
+                //        {
+                //            boom = true;
+                //            break;
+                //        }
+                //    }
+                //}
+                //if (boom)
+                //{
+                //    this.Cursor = Cursors.No;
+                //    e.Effect = DragDropEffects.Copy;
+                //}
+                //else
+                //{
+                    e.Effect = DragDropEffects.Copy;
+                //}
             }
             else
             {
@@ -266,9 +297,37 @@ namespace HCI15RA13AU
             {
                 Resource res = (Resource)e.Data.GetData(r.GetType());
 
-
                 ResourceIcon resIcon = new ResourceIcon(res);
                 resIcon.Name = res.ID;
+
+                Rectangle rect = new Rectangle(
+                    e.X - this.Left - pnlMap.Left - menuStrip1.Left - 30,
+                    e.Y - this.Top - pnlMap.Top - menuStrip1.Top - 40,
+                    resIcon.Width, resIcon.Height);
+
+                bool boom = false;
+
+                foreach (Control ctrl in pnlMap.Controls)
+                {
+                    if (ctrl.GetType().Equals(resIcon.GetType()))
+                    {
+                        if (ctrl.Equals(resIcon))
+                        {
+                            continue;
+                        }
+                        if (rect.IntersectsWith(ctrl.Bounds))
+                        {
+                            boom = true;
+                            break;
+                        }
+                    }
+                }
+
+                this.Cursor = Cursors.Default;
+                if (boom)
+                {
+                    return;
+                }
 
                 foreach (Control ctrl in pnlMap.Controls)
                 {
@@ -277,17 +336,42 @@ namespace HCI15RA13AU
                         if (((Resource)resIcon.Tag).ID == ((Resource)((ResourceIcon)ctrl).Tag).ID)
                         {
                             pnlMap.Controls.Remove(ctrl);
+                            break;
                         }
                     }
                 }
-
-                //resIcon.Left = (e.X - this.Left)/2;
-                //resIcon.Top = (e.Y - this.Top)/2;
 
                 pnlMap.Controls.Add(resIcon);
 
                 resIcon.Left = (e.X - this.Left - pnlMap.Left - menuStrip1.Left - 30);
                 resIcon.Top = (e.Y - this.Top - pnlMap.Top - menuStrip1.Top - 40);
+
+                /*Rectangle rect = resIcon.Bounds;
+
+                foreach (Control ctrl in pnlMap.Controls)
+                {
+                    if (ctrl.GetType().Equals(resIcon.GetType()))
+                    {
+                        if (ctrl.Equals(resIcon))
+                        {
+                            continue;
+                        }
+                        if (rect.IntersectsWith(ctrl.Bounds))
+                        {
+                            if (oldLeft >= 0)
+                            {
+                                resIcon.Left = oldLeft;
+                                resIcon.Top = oldTop;
+                                break;
+                            }
+                            else
+                            {
+                                pnlMap.Controls.Remove(resIcon);
+                                return;
+                            }
+                        }
+                    }
+                }*/
 
                 pnlMap.Refresh();
 
@@ -300,9 +384,7 @@ namespace HCI15RA13AU
                 {
                     resourceCoordinates[res.ID].X = resIcon.Left;
                     resourceCoordinates[res.ID].Y = resIcon.Top;
-                }
-
-                
+                }     
             }
         }
 

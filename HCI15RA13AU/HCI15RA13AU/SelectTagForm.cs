@@ -133,5 +133,36 @@ namespace HCI15RA13AU
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void txtTag_TextChanged(object sender, EventArgs e)
+        {
+            lstAllTags.Items.Clear();
+
+            Dictionary<string, Tag> tags = new Dictionary<string, Tag>(MainForm.tags);
+            foreach (var item in lstSelectedTags.Items)
+            {
+                if (MainForm.tags.ContainsKey((string)item))
+                {
+                    tags.Remove((string)item);
+                }
+            }
+            if (txtTag.Text.Equals(""))
+            {
+                foreach (Tag t in tags.Values)
+                {
+                    lstAllTags.Items.Add(t.ID);
+                }
+            }
+            else
+            {
+                foreach (Tag t in tags.Values)
+                {
+                    if (t.ID.StartsWith(txtTag.Text))
+                    {
+                        lstAllTags.Items.Add(t.ID);
+                    }
+                }
+            }
+        }
     }
 }
