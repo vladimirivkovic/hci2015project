@@ -115,13 +115,13 @@ namespace HCI15RA13AU
             {
                 try
                 {
-                    File.Copy(fullFileName, "images\\" + fname);
+                    File.Copy(fullFileName, "..\\..\\images\\" + fname);
                 }
                 catch
                 {
                     Console.WriteLine("File allready exists");
                 }
-                res.IconFileName = "images\\" + fname;
+                res.IconFileName = "..\\..\\images\\" + fname;
             }
             else
             {
@@ -150,7 +150,7 @@ namespace HCI15RA13AU
             {
                 fullFileName = ofd.FileName;
                 fname = ofd.SafeFileName;
-                lblIconName.Text = "images\\" + fname;
+                lblIconName.Text = "..\\..\\images\\" + fname;
             }
         }
 

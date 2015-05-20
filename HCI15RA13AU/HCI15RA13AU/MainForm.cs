@@ -37,33 +37,12 @@ namespace HCI15RA13AU
             DeserializeCoordinates();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            XmlSerializer tagsSerialzer = new XmlSerializer(typeof(TagItem[]), new XmlRootAttribute("ListOfTags"));
-            FileStream buffer = File.Open("tags.xml", FileMode.Create);
-
-            tagsSerialzer.Serialize(buffer, tags.Select(kv => new TagItem(kv.Value)).ToArray());
-            buffer.Close();
-
-            XmlSerializer typesSerialzer = new XmlSerializer(typeof(Type[]), new XmlRootAttribute("ListOfTypes"));
-            FileStream buffer1 = File.Open("types.xml", FileMode.Create);
-
-            typesSerialzer.Serialize(buffer1, types.Select(kv => new Type(kv.Value)).ToArray());
-            buffer1.Close();
-
-            XmlSerializer resSerialzer = new XmlSerializer(typeof(ResourceItem[]), new XmlRootAttribute("ListOfResources"));
-            FileStream buffer2 = File.Open("resources.xml", FileMode.Create);
-
-            resSerialzer.Serialize(buffer2, resources.Select(kv => new ResourceItem(kv.Value)).ToArray());
-            buffer2.Close();
-        }
-
         private void DeserializeTags()
         {
             try
             {
                 XmlSerializer tagsSerialzer = new XmlSerializer(typeof(TagItem[]), new XmlRootAttribute("ListOfTags"));
-                FileStream buffer = File.Open("tags.xml", FileMode.Open);
+                FileStream buffer = File.Open("..\\..\\data\\tags.xml", FileMode.Open);
 
                 TagItem[] items = tagsSerialzer.Deserialize(buffer) as TagItem[];
                 foreach (TagItem item in items)
@@ -87,7 +66,7 @@ namespace HCI15RA13AU
             try
             {
                 XmlSerializer typesSerialzer = new XmlSerializer(typeof(Type[]), new XmlRootAttribute("ListOfTypes"));
-                FileStream buffer = File.Open("types.xml", FileMode.Open);
+                FileStream buffer = File.Open("..\\..\\data\\types.xml", FileMode.Open);
 
                 Type[] items = typesSerialzer.Deserialize(buffer) as Type[];
                 foreach (Type item in items)
@@ -111,7 +90,7 @@ namespace HCI15RA13AU
             try
             {
                 XmlSerializer resSerialzer = new XmlSerializer(typeof(ResourceItem[]), new XmlRootAttribute("ListOfResources"));
-                FileStream buffer = File.Open("resources.xml", FileMode.Open);
+                FileStream buffer = File.Open("..\\..\\data\\resources.xml", FileMode.Open);
 
                 ResourceItem[] items = resSerialzer.Deserialize(buffer) as ResourceItem[];
                 foreach (ResourceItem item in items)
@@ -135,7 +114,7 @@ namespace HCI15RA13AU
             try
             {
                 XmlSerializer coordSerialzer = new XmlSerializer(typeof(ResourcePosition[]), new XmlRootAttribute("ListOfResourceCoordinates"));
-                FileStream buffer = File.Open("coordinates.xml", FileMode.Open);
+                FileStream buffer = File.Open("..\\..\\data\\coordinates.xml", FileMode.Open);
 
                 ResourcePosition[] items = coordSerialzer.Deserialize(buffer) as ResourcePosition[];
                 foreach (ResourcePosition item in items)
@@ -157,25 +136,25 @@ namespace HCI15RA13AU
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             XmlSerializer tagsSerialzer = new XmlSerializer(typeof(TagItem[]), new XmlRootAttribute("ListOfTags"));
-            FileStream buffer = File.Open("tags.xml", FileMode.Create);
+            FileStream buffer = File.Open("..\\..\\data\\tags.xml", FileMode.Create);
 
             tagsSerialzer.Serialize(buffer, tags.Select(kv => new TagItem(kv.Value)).ToArray());
             buffer.Close();
 
             XmlSerializer typesSerialzer = new XmlSerializer(typeof(Type[]), new XmlRootAttribute("ListOfTypes"));
-            FileStream buffer1 = File.Open("types.xml", FileMode.Create);
+            FileStream buffer1 = File.Open("..\\..\\data\\types.xml", FileMode.Create);
 
             typesSerialzer.Serialize(buffer1, types.Select(kv => new Type(kv.Value)).ToArray());
             buffer1.Close();
 
             XmlSerializer resSerialzer = new XmlSerializer(typeof(ResourceItem[]), new XmlRootAttribute("ListOfResources"));
-            FileStream buffer2 = File.Open("resources.xml", FileMode.Create);
+            FileStream buffer2 = File.Open("..\\..\\data\\resources.xml", FileMode.Create);
 
             resSerialzer.Serialize(buffer2, resources.Select(kv => new ResourceItem(kv.Value)).ToArray());
             buffer2.Close();
 
             XmlSerializer coordSerialzer = new XmlSerializer(typeof(ResourcePosition[]), new XmlRootAttribute("ListOfResourceCoordinates"));
-            FileStream buffer3 = File.Open("coordinates.xml", FileMode.Create);
+            FileStream buffer3 = File.Open("..\\..\\data\\coordinates.xml", FileMode.Create);
 
             coordSerialzer.Serialize(buffer3, resourceCoordinates.Select(kv => new ResourcePosition(kv.Value)).ToArray());
             buffer3.Close();

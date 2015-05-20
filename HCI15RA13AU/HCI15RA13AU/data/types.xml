@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<ListOfTypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Type>
+    <ID>prvi</ID>
+    <Name>tip</Name>
+    <IconFileName>..\..\images\WFALLS13.JPE</IconFileName>
+    <Description>nakon dugo vremena</Description>
+  </Type>
+  <Type>
+    <ID>novi</ID>
+    <Name>tip</Name>
+    <IconFileName>..\..\images\EARTH41.JPG</IconFileName>
+    <Description>resursa</Description>
+  </Type>
+</ListOfTypes>

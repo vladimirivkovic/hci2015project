@@ -72,15 +72,15 @@ namespace HCI15RA13AU
 
         private void txtDescription_Validating(object sender, CancelEventArgs e)
         {
-            if (txtDescription.Text.Length == 0)
-            {
-                formIsValid = false;
-                epType.SetError(txtDescription, "Unos naziva je obavezan");
-            }
-            else
-            {
+            //if (txtDescription.Text.Length == 0)
+            //{
+            //    formIsValid = false;
+            //    epType.SetError(txtDescription, "Unos naziva je obavezan");
+            //}
+            //else
+            //{
                 epType.SetError(txtDescription, "");
-            }
+            //}
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -131,14 +131,14 @@ namespace HCI15RA13AU
                 string fname = ofd.FileName;
                 try
                 {
-                    File.Copy(fname, "images\\" + ofd.SafeFileName);
+                    File.Copy(fname, "..\\..\\images\\" + ofd.SafeFileName);
                     
                 }
                 catch
                 {
                     Console.WriteLine("File allready exists");
                 }
-                fname = "images\\" + ofd.SafeFileName;
+                fname = "..\\..\\images\\" + ofd.SafeFileName;
                 lblIconName.Text = fname;
             }
         }

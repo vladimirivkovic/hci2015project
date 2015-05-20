@@ -32,8 +32,15 @@ namespace HCI15RA13AU
             }
             catch (FileNotFoundException fnfe)
             {
-                pbxIcon.Image = pbxIcon.InitialImage;
-                Console.WriteLine(fnfe.StackTrace);
+                try
+                {
+                    pbxIcon.Image = Image.FromFile(res.Type.IconFileName);
+                }
+                catch (FileNotFoundException fnfe1)
+                {
+                    pbxIcon.Image = pbxIcon.InitialImage;
+                    Console.WriteLine(fnfe1.StackTrace);
+                }
             }
             pbxIcon.SizeMode = PictureBoxSizeMode.StretchImage;
 

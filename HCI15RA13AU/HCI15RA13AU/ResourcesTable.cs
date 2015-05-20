@@ -31,7 +31,6 @@ namespace HCI15RA13AU
                 txtDescription.Text = "";
                 txtTypeId.Text = "";
                 txtTypeName.Text = "";
-                lvTags.Clear();
                 pbxIcon.Hide();
             }
             else
@@ -49,20 +48,24 @@ namespace HCI15RA13AU
                     txtDescription.Text = res.Description;
                     txtTypeId.Text = res.Type.ID;
                     txtTypeName.Text = res.Type.Name;
-                    lvTags.Clear();
                     if (res.Tags.Count > 0)
                     {
-                        int i = 0;
+                        int off = 3;
+                        Label lbl;
+                        pnlTags.Controls.Clear();
                         foreach (Tag t in res.Tags.Values)
                         {
-                            ListViewItem lvi = new ListViewItem(t.ID);
-                            lvi.BackColor = t.Color;
-                            lvTags.Items.Add(lvi);
-                            if (++i > 4)
-                            {
-                                break;
-                            }
+                            lbl = new Label();
+                            lbl.Width = 15 + 5 * t.ID.Length;
+                            lbl.Text = t.ID;
+                            lbl.BackColor = t.Color;
+                            lbl.Left = off;
+                            pnlTags.Controls.Add(lbl);
+                            lbl.Left = off;
+                            off += lbl.Width + 3;
                         }
+
+                        pnlTags.Refresh();
                     }
                     pbxIcon.Show();
                     if (!res.IconFileName.Equals(""))

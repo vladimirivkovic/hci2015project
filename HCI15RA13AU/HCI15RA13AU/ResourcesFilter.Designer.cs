@@ -64,6 +64,7 @@
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.chbTags = new System.Windows.Forms.CheckBox();
             this.btnTags = new System.Windows.Forms.Button();
+            this.pnlTags = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
             this.SuspendLayout();
             // 
@@ -236,14 +237,14 @@
             // 
             this.txtID.Location = new System.Drawing.Point(897, 36);
             this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 24);
+            this.txtID.Size = new System.Drawing.Size(121, 24);
             this.txtID.TabIndex = 71;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(1040, 35);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(100, 24);
+            this.txtName.Size = new System.Drawing.Size(119, 24);
             this.txtName.TabIndex = 72;
             // 
             // dtpMax
@@ -251,7 +252,7 @@
             this.dtpMax.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpMax.Location = new System.Drawing.Point(897, 160);
             this.dtpMax.Name = "dtpMax";
-            this.dtpMax.Size = new System.Drawing.Size(102, 24);
+            this.dtpMax.Size = new System.Drawing.Size(121, 24);
             this.dtpMax.TabIndex = 74;
             // 
             // dtpMin
@@ -259,7 +260,7 @@
             this.dtpMin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpMin.Location = new System.Drawing.Point(897, 112);
             this.dtpMin.Name = "dtpMin";
-            this.dtpMin.Size = new System.Drawing.Size(102, 24);
+            this.dtpMin.Size = new System.Drawing.Size(121, 24);
             this.dtpMin.TabIndex = 75;
             // 
             // label1
@@ -329,14 +330,14 @@
             // 
             this.txtCostMin.Location = new System.Drawing.Point(897, 421);
             this.txtCostMin.Name = "txtCostMin";
-            this.txtCostMin.Size = new System.Drawing.Size(100, 24);
+            this.txtCostMin.Size = new System.Drawing.Size(121, 24);
             this.txtCostMin.TabIndex = 82;
             // 
             // txtCostMax
             // 
             this.txtCostMax.Location = new System.Drawing.Point(897, 469);
             this.txtCostMax.Name = "txtCostMax";
-            this.txtCostMax.Size = new System.Drawing.Size(100, 24);
+            this.txtCostMax.Size = new System.Drawing.Size(121, 24);
             this.txtCostMax.TabIndex = 83;
             // 
             // label3
@@ -407,10 +408,19 @@
             this.btnTags.UseVisualStyleBackColor = true;
             this.btnTags.Click += new System.EventHandler(this.btnTags_Click);
             // 
+            // pnlTags
+            // 
+            this.pnlTags.AutoScroll = true;
+            this.pnlTags.Location = new System.Drawing.Point(1037, 142);
+            this.pnlTags.Name = "pnlTags";
+            this.pnlTags.Size = new System.Drawing.Size(122, 42);
+            this.pnlTags.TabIndex = 92;
+            // 
             // ResourcesFilter
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1172, 630);
+            this.Controls.Add(this.pnlTags);
             this.Controls.Add(this.btnTags);
             this.Controls.Add(this.chbTags);
             this.Controls.Add(this.cmbType);
@@ -487,5 +497,6 @@
         private System.Windows.Forms.ComboBox cmbType;
         private System.Windows.Forms.CheckBox chbTags;
         private System.Windows.Forms.Button btnTags;
+        private System.Windows.Forms.Panel pnlTags;
     }
 }

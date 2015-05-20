@@ -197,6 +197,7 @@ namespace HCI15RA13AU
         private void chbTags_CheckedChanged(object sender, EventArgs e)
         {
             btnTags.Enabled = chbTags.Checked;
+            pnlTags.Enabled = chbTags.Checked;
         }
 
         private void btnTags_Click(object sender, EventArgs e)
@@ -207,6 +208,23 @@ namespace HCI15RA13AU
             if (stf.DialogResult == DialogResult.OK)
             {
                 tags = stf.GetSelectedTags();
+
+                int off = 3;
+                Label lbl;
+                pnlTags.Controls.Clear();
+                foreach (string t in tags)
+                {
+                    lbl = new Label();
+                    lbl.Width = 15 + 5*t.Length;
+                    lbl.Text = MainForm.tags[t].ID;
+                    lbl.BackColor = MainForm.tags[t].Color;
+                    lbl.Left = off;
+                    pnlTags.Controls.Add(lbl);
+                    lbl.Left = off;
+                    off += lbl.Width + 3;
+                }
+
+                pnlTags.Refresh();
             }
         }
     }

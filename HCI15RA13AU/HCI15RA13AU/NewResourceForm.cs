@@ -286,13 +286,13 @@ namespace HCI15RA13AU
             }
             try
             {
-                File.Copy(fullFileName, "images\\" + fname);
+                File.Copy(fullFileName, "..\\..\\images\\" + fname);
             }
             catch
             {
                 Console.WriteLine("File allready exists");
             }
-            res.IconFileName = "images\\" + fname;
+            res.IconFileName = "..\\..\\images\\" + fname;
 
             return res;
         }

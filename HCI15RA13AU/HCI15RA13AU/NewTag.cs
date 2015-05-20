@@ -72,15 +72,15 @@ namespace HCI15RA13AU
 
         private void txtDescription_Validating(object sender, CancelEventArgs e)
         {
-            if (txtDescription.Text.Length == 0)
-            {
-                formIsValid = false;
-                epTag.SetError(txtDescription, "Unos naziva je obavezan");
-            }
-            else
-            {
+            //if (txtDescription.Text.Length == 0)
+            //{
+            //    formIsValid = false;
+            //    epTag.SetError(txtDescription, "Unos naziva je obavezan");
+            //}
+            //else
+            //{
                 epTag.SetError(txtDescription, "");
-            }
+            //}
         }
 
         private void btnOk_Click(object sender, EventArgs e)

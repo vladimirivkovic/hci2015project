@@ -38,7 +38,6 @@
             this.txtTypeId = new System.Windows.Forms.TextBox();
             this.lblTypeName = new System.Windows.Forms.Label();
             this.lblTypeId = new System.Windows.Forms.Label();
-            this.lvTags = new System.Windows.Forms.ListView();
             this.lblTags = new System.Windows.Forms.Label();
             this.tag3 = new System.Windows.Forms.Label();
             this.tag2 = new System.Windows.Forms.Label();
@@ -68,6 +67,7 @@
             this.Frequency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnFilter = new System.Windows.Forms.Button();
+            this.pnlTags = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).BeginInit();
             this.grbDetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -113,8 +113,8 @@
             // 
             // grbDetails
             // 
+            this.grbDetails.Controls.Add(this.pnlTags);
             this.grbDetails.Controls.Add(this.groupBox1);
-            this.grbDetails.Controls.Add(this.lvTags);
             this.grbDetails.Controls.Add(this.lblTags);
             this.grbDetails.Controls.Add(this.tag3);
             this.grbDetails.Controls.Add(this.tag2);
@@ -190,15 +190,6 @@
             this.lblTypeId.Size = new System.Drawing.Size(60, 18);
             this.lblTypeId.TabIndex = 0;
             this.lblTypeId.Text = "Oznaka";
-            // 
-            // lvTags
-            // 
-            this.lvTags.Location = new System.Drawing.Point(468, 179);
-            this.lvTags.Name = "lvTags";
-            this.lvTags.Scrollable = false;
-            this.lvTags.Size = new System.Drawing.Size(165, 29);
-            this.lvTags.TabIndex = 60;
-            this.lvTags.UseCompatibleStateImageBehavior = false;
             // 
             // lblTags
             // 
@@ -483,6 +474,14 @@
             this.btnFilter.UseVisualStyleBackColor = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
+            // pnlTags
+            // 
+            this.pnlTags.AutoScroll = true;
+            this.pnlTags.Location = new System.Drawing.Point(468, 177);
+            this.pnlTags.Name = "pnlTags";
+            this.pnlTags.Size = new System.Drawing.Size(180, 40);
+            this.pnlTags.TabIndex = 93;
+            // 
             // ResourcesTable
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -523,7 +522,6 @@
         private System.Windows.Forms.TextBox txtTypeId;
         private System.Windows.Forms.Label lblTypeName;
         private System.Windows.Forms.Label lblTypeId;
-        private System.Windows.Forms.ListView lvTags;
         private System.Windows.Forms.Label lblTags;
         private System.Windows.Forms.Label tag3;
         private System.Windows.Forms.Label tag2;
@@ -553,5 +551,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Frequency;
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
         private System.Windows.Forms.Button btnFilter;
+        private System.Windows.Forms.Panel pnlTags;
     }
 }
