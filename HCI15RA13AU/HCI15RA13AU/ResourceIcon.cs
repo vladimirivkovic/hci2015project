@@ -91,9 +91,28 @@ namespace HCI15RA13AU
             }
         }
 
-        internal void SetToolTip(string p)
+        internal void UpdateControl()
         {
-            tt.SetToolTip(pbxIcon, p);
+            Resource res = (Resource)this.Tag;
+
+            tt.SetToolTip(pbxIcon, "ID: " + res.ID + "\nNaziv: " + res.Name);
+            try
+            {
+                pbxIcon.Image = Image.FromFile(res.IconFileName);
+            }
+            catch (FileNotFoundException fnfe)
+            {
+                try
+                {
+                    pbxIcon.Image = Image.FromFile(res.Type.IconFileName);
+                }
+                catch (FileNotFoundException fnfe1)
+                {
+                    pbxIcon.Image = pbxIcon.InitialImage;
+                    Console.WriteLine(fnfe1.StackTrace);
+                }
+            }
+            pbxIcon.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }
 }

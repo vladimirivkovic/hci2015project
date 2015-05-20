@@ -33,14 +33,14 @@
       <AD>false</AD>
       <Unknown>true</Unknown>
     </ApproxDiscovered>
-    <IconFileName>..\..\images\FALL04.JPG</IconFileName>
+    <IconFileName>..\..\images\Nature5.jpg</IconFileName>
     <listOfTags>
       <tag>af</tag>
       <tag>cvb</tag>
     </listOfTags>
     <UnitName>barel</UnitName>
     <FrequencyName>univerzalan</FrequencyName>
-    <TypeName>prvi</TypeName>
+    <TypeName>novi</TypeName>
   </ResourceItem>
   <ResourceItem>
     <ID>treci</ID>
@@ -75,13 +75,13 @@
     <Important>true</Important>
     <Cost>34</Cost>
     <Discovered>1800-05-17T15:18:14</Discovered>
-    <IconFileName>..\..\images\04.JPG</IconFileName>
+    <IconFileName>..\..\images\FALLS_1_.JPG</IconFileName>
     <listOfTags>
       <tag>duyhfikfid</tag>
     </listOfTags>
     <UnitName>barel</UnitName>
     <FrequencyName>čest</FrequencyName>
-    <TypeName>prvi</TypeName>
+    <TypeName>novi</TypeName>
   </ResourceItem>
   <ResourceItem>
     <ID>q</ID>
@@ -103,6 +103,8 @@
       <tag>a</tag>
       <tag>af</tag>
       <tag>duyhfikfid</tag>
+      <tag>ert</tag>
+      <tag>cvb</tag>
     </listOfTags>
     <UnitName>barel</UnitName>
     <FrequencyName>univerzalan</FrequencyName>
@@ -111,13 +113,13 @@
   <ResourceItem>
     <ID>a</ID>
     <Description>a</Description>
-    <Name>a</Name>
+    <Name>aqwe</Name>
     <Renewable>false</Renewable>
     <Exploatable>false</Exploatable>
     <Important>true</Important>
     <Cost>123</Cost>
     <Discovered>1999-05-17T16:30:17</Discovered>
-    <IconFileName>..\..\images\144084B.JPG</IconFileName>
+    <IconFileName>..\..\images\0.jpg</IconFileName>
     <listOfTags>
       <tag>af</tag>
       <tag>duyhfikfid</tag>
@@ -141,13 +143,13 @@
       <AD>false</AD>
       <Unknown>false</Unknown>
     </ApproxDiscovered>
-    <IconFileName>..\..\images\CANY22.JPG</IconFileName>
+    <IconFileName>..\..\images\FALL08.JPG</IconFileName>
     <listOfTags>
       <tag>ert</tag>
     </listOfTags>
     <UnitName>barel</UnitName>
     <FrequencyName>univerzalan</FrequencyName>
-    <TypeName>prvi</TypeName>
+    <TypeName>novi</TypeName>
   </ResourceItem>
   <ResourceItem>
     <ID>peti</ID>
@@ -172,5 +174,26 @@
     <UnitName>tona</UnitName>
     <FrequencyName>redak</FrequencyName>
     <TypeName>prvi</TypeName>
+  </ResourceItem>
+  <ResourceItem>
+    <ID>wer</ID>
+    <Description>iop</Description>
+    <Name>tyu</Name>
+    <Renewable>false</Renewable>
+    <Exploatable>false</Exploatable>
+    <Important>true</Important>
+    <Cost>787</Cost>
+    <Discovered>2015-05-20T10:40:55.0443871+02:00</Discovered>
+    <ApproxDiscovered>
+      <Year>-1</Year>
+      <Century>-1</Century>
+      <AD>false</AD>
+      <Unknown>true</Unknown>
+    </ApproxDiscovered>
+    <IconFileName>..\..\images\</IconFileName>
+    <listOfTags />
+    <UnitName>merica</UnitName>
+    <FrequencyName>univerzalan</FrequencyName>
+    <TypeName>novi</TypeName>
   </ResourceItem>
 </ListOfResources>

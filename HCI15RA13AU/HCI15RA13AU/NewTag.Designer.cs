@@ -56,7 +56,7 @@
             // txtDescription
             // 
             this.txtDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescription.Location = new System.Drawing.Point(260, 57);
+            this.txtDescription.Location = new System.Drawing.Point(134, 57);
             this.txtDescription.Margin = new System.Windows.Forms.Padding(6);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
@@ -67,7 +67,7 @@
             // txtId
             // 
             this.txtId.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtId.Location = new System.Drawing.Point(260, 7);
+            this.txtId.Location = new System.Drawing.Point(134, 7);
             this.txtId.Margin = new System.Windows.Forms.Padding(6);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(238, 24);
@@ -100,7 +100,7 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(693, 440);
+            this.btnCancel.Location = new System.Drawing.Point(568, 455);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(6);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(150, 39);
@@ -113,7 +113,7 @@
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.Location = new System.Drawing.Point(531, 440);
+            this.btnOk.Location = new System.Drawing.Point(406, 455);
             this.btnOk.Margin = new System.Windows.Forms.Padding(6);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(150, 39);
@@ -125,7 +125,7 @@
             // btnColor
             // 
             this.btnColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnColor.Location = new System.Drawing.Point(260, 393);
+            this.btnColor.Location = new System.Drawing.Point(134, 393);
             this.btnColor.Margin = new System.Windows.Forms.Padding(4);
             this.btnColor.Name = "btnColor";
             this.btnColor.Size = new System.Drawing.Size(112, 32);
@@ -143,18 +143,18 @@
             this.txtColor.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.txtColor.Enabled = false;
             this.txtColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtColor.Location = new System.Drawing.Point(123, 397);
+            this.txtColor.Location = new System.Drawing.Point(262, 397);
             this.txtColor.Margin = new System.Windows.Forms.Padding(4);
             this.txtColor.Name = "txtColor";
             this.txtColor.ReadOnly = true;
             this.txtColor.Size = new System.Drawing.Size(110, 24);
             this.txtColor.TabIndex = 43;
             // 
-            // NewTag
+            // TagForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(866, 526);
+            this.ClientSize = new System.Drawing.Size(733, 509);
             this.Controls.Add(this.txtColor);
             this.Controls.Add(this.btnColor);
             this.Controls.Add(this.btnCancel);
@@ -166,7 +166,7 @@
             this.Controls.Add(this.lblId);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "NewTag";
+            this.Name = "TagForm";
             this.Text = "Nova etiketa";
             ((System.ComponentModel.ISupportInitialize)(this.epTag)).EndInit();
             this.ResumeLayout(false);

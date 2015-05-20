@@ -45,6 +45,7 @@
             // 
             // gbxTag
             // 
+            this.gbxTag.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.gbxTag.Controls.Add(this.txtColor);
             this.gbxTag.Controls.Add(this.lblColor);
             this.gbxTag.Controls.Add(this.txtTagDesc);

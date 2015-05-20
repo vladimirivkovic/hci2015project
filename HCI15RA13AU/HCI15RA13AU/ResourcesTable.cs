@@ -48,11 +48,12 @@ namespace HCI15RA13AU
                     txtDescription.Text = res.Description;
                     txtTypeId.Text = res.Type.ID;
                     txtTypeName.Text = res.Type.Name;
+                    pnlTags.Controls.Clear();
                     if (res.Tags.Count > 0)
                     {
                         int off = 3;
                         Label lbl;
-                        pnlTags.Controls.Clear();
+                        
                         foreach (Tag t in res.Tags.Values)
                         {
                             lbl = new Label();

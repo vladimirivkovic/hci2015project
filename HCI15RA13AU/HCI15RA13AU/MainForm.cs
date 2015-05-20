@@ -327,8 +327,9 @@ namespace HCI15RA13AU
                     }
                     else
                     {
-                        Resource res = (Resource)resIcon.Tag;
-                        resIcon.SetToolTip("ID: " + res.ID + "\nNaziv: " + res.Name);
+                        Resource res = MainForm.resources[((Resource)resIcon.Tag).ID];
+                        resIcon.Tag = res;
+                        resIcon.UpdateControl();
                     }
                 }
             }
@@ -337,6 +338,13 @@ namespace HCI15RA13AU
             {
                 pnlMap.Controls.Remove(ctrl);
             }
+
+            foreach (string id in addedResources)
+            {
+                Control ctrl = new ResourceControl(resources[id], pnlResources.Controls.Count * 80 + 10);
+                pnlResources.Controls.Add(ctrl);
+            }
+            addedResources.Clear();
 
             deletedControls.Clear();
 
@@ -351,8 +359,9 @@ namespace HCI15RA13AU
                     }
                     else
                     {
-                        Resource res = (Resource)resCtrl.Tag;
-                        resCtrl.SetName(res.Name);
+                        Resource res = MainForm.resources[((Resource)resCtrl.Tag).ID];
+                        resCtrl.Tag = res;
+                        resCtrl.UpdateControl();
                     }
                 }
             }
@@ -367,13 +376,7 @@ namespace HCI15RA13AU
                 //subsitution = pnlResources.Controls[pnlResources.Controls.Count - 1];
                 //subsitution.Top = offset;
             }
-
-            foreach (string id in addedResources)
-            {
-                Control ctrl = new ResourceControl(resources[id], pnlResources.Controls.Count * 80 + 10);
-                pnlResources.Controls.Add(ctrl);
-            }
-            addedResources.Clear();
+            
         }
 
         private void pnlDelete_DragEnter(object sender, DragEventArgs e)

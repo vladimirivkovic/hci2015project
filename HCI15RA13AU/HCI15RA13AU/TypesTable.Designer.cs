@@ -46,6 +46,7 @@
             // 
             // gbxType
             // 
+            this.gbxType.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.gbxType.Controls.Add(this.pbxTypeIcon);
             this.gbxType.Controls.Add(this.txtTypeDesc);
             this.gbxType.Controls.Add(this.lblIcon);

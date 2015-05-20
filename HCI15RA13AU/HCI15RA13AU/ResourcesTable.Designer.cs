@@ -33,6 +33,7 @@
             this.pbxIcon = new System.Windows.Forms.PictureBox();
             this.btnDeleteResource = new System.Windows.Forms.Button();
             this.grbDetails = new System.Windows.Forms.GroupBox();
+            this.pnlTags = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtTypeName = new System.Windows.Forms.TextBox();
             this.txtTypeId = new System.Windows.Forms.TextBox();
@@ -67,7 +68,6 @@
             this.Frequency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnFilter = new System.Windows.Forms.Button();
-            this.pnlTags = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).BeginInit();
             this.grbDetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -113,6 +113,7 @@
             // 
             // grbDetails
             // 
+            this.grbDetails.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.grbDetails.Controls.Add(this.pnlTags);
             this.grbDetails.Controls.Add(this.groupBox1);
             this.grbDetails.Controls.Add(this.lblTags);
@@ -140,6 +141,14 @@
             this.grbDetails.TabIndex = 70;
             this.grbDetails.TabStop = false;
             this.grbDetails.Text = "Detalji";
+            // 
+            // pnlTags
+            // 
+            this.pnlTags.AutoScroll = true;
+            this.pnlTags.Location = new System.Drawing.Point(468, 177);
+            this.pnlTags.Name = "pnlTags";
+            this.pnlTags.Size = new System.Drawing.Size(180, 40);
+            this.pnlTags.TabIndex = 93;
             // 
             // groupBox1
             // 
@@ -473,14 +482,6 @@
             this.btnFilter.Text = "Filtriraj";
             this.btnFilter.UseVisualStyleBackColor = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
-            // 
-            // pnlTags
-            // 
-            this.pnlTags.AutoScroll = true;
-            this.pnlTags.Location = new System.Drawing.Point(468, 177);
-            this.pnlTags.Name = "pnlTags";
-            this.pnlTags.Size = new System.Drawing.Size(180, 40);
-            this.pnlTags.TabIndex = 93;
             // 
             // ResourcesTable
             // 

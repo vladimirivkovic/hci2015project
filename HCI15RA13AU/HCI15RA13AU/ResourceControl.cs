@@ -77,9 +77,27 @@ namespace HCI15RA13AU
             }
         }
 
-        public void SetName(string name)
+        internal void UpdateControl()
         {
-            lblName.Text = name;
+            Resource res = (Resource)this.Tag;
+            lblName.Text = res.Name;
+            try
+            {
+                pbxIcon.Image = Image.FromFile(res.IconFileName);
+            }
+            catch (FileNotFoundException fnfe)
+            {
+                try
+                {
+                    pbxIcon.Image = Image.FromFile(res.Type.IconFileName);
+                }
+                catch (FileNotFoundException fnfe1)
+                {
+                    pbxIcon.Image = pbxIcon.InitialImage;
+                    Console.WriteLine(fnfe1.StackTrace);
+                }
+            }
+            pbxIcon.SizeMode = PictureBoxSizeMode.StretchImage;
         }
     }
 }
