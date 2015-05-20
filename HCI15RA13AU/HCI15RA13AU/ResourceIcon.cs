@@ -43,6 +43,22 @@ namespace HCI15RA13AU
             }
             pbxIcon.SizeMode = PictureBoxSizeMode.StretchImage;
 
+            Panel pnlColor;
+            int i = 0;
+            foreach (Tag tag in res.Tags.Values)
+            {
+                pnlColor = new Panel();
+                pnlColor.Width = 7;
+                pnlColor.Height = 10;
+                pnlColor.BackColor = tag.Color;
+                
+                pnlColor.Left = i++ * 8;
+                pnlColor.Top = 36;
+
+                this.Controls.Add(pnlColor);
+            }
+
+
             this.Tag = res;
             this.AllowDrop = false;
 
@@ -91,7 +107,7 @@ namespace HCI15RA13AU
             }
         }
 
-        internal void UpdateControl()
+        public void UpdateControl()
         {
             Resource res = (Resource)this.Tag;
 
@@ -113,6 +129,31 @@ namespace HCI15RA13AU
                 }
             }
             pbxIcon.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            Panel pnlColor = new Panel();
+
+            for (int j = 0; j < this.Controls.Count; j++)
+            {
+                if (this.Controls[j].GetType().Equals(pnlColor.GetType()))
+                {
+                    this.Controls.RemoveAt(j);
+                    j--;
+                }
+            }
+
+            int i = 0;
+            foreach (Tag tag in res.Tags.Values)
+            {
+                pnlColor = new Panel();
+                pnlColor.Width = 10;
+                pnlColor.Height = 13;
+                pnlColor.BackColor = tag.Color;
+
+                pnlColor.Left = i++ * 11;
+                pnlColor.Top = 50;
+
+                this.Controls.Add(pnlColor);
+            }
         }
     }
 }

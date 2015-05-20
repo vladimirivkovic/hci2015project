@@ -12,9 +12,19 @@ namespace HCI15RA13AU
 {
     public partial class TypesTable : Form
     {
+        private Type selectedType = null;
+        private bool selection = false; 
+
         public TypesTable()
         {
             InitializeComponent();
+            btnSelect.Hide();
+        }
+
+        public TypesTable(bool selection)
+        {
+            InitializeComponent();
+            this.selection = selection;
         }
 
         private void btnNewType_Click(object sender, EventArgs e)
@@ -35,7 +45,7 @@ namespace HCI15RA13AU
 
         private void btnEditType_Click(object sender, EventArgs e)
         {
-            if (dgwTypes.SelectedRows.Count > 0)
+            if (dgwTypes.SelectedRows.Count > 0 && !selection)
             {
                 TypeForm tf = new TypeForm((Type)dgwTypes.SelectedRows[0].Tag);
                 tf.ShowDialog();
@@ -63,7 +73,7 @@ namespace HCI15RA13AU
 
         private void btnDeleteType_Click(object sender, EventArgs e)
         {
-            if (dgwTypes.SelectedRows.Count == 0)
+            if (dgwTypes.SelectedRows.Count == 0 || selection)
                 return;
             DataGridViewRow row = dgwTypes.SelectedRows[0];
             if (row != null)
@@ -164,6 +174,22 @@ namespace HCI15RA13AU
                 dgwTypes.CurrentCell = dgwTypes.Rows[0].Cells[0];
                 dgwTypes_SelectionChanged(dgwTypes, EventArgs.Empty);
             }
+        }
+
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            if (dgwTypes.SelectedRows.Count == 0)
+                return;
+            DataGridViewRow row = dgwTypes.SelectedRows[0];
+            selectedType = (Type) row.Tag;
+
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        public Type GetType()
+        {
+            return selectedType;
         }
     }
 }

@@ -59,16 +59,17 @@
             this.lblType = new System.Windows.Forms.Label();
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.gbxDate = new System.Windows.Forms.GroupBox();
-            this.rbtApproxDate = new System.Windows.Forms.RadioButton();
-            this.rbtDate = new System.Windows.Forms.RadioButton();
-            this.chbYear = new System.Windows.Forms.CheckBox();
-            this.txtYear = new System.Windows.Forms.TextBox();
-            this.rbtYear = new System.Windows.Forms.RadioButton();
+            this.gbxApproxDate = new System.Windows.Forms.GroupBox();
+            this.rbtUnknown = new System.Windows.Forms.RadioButton();
             this.chbCentury = new System.Windows.Forms.CheckBox();
             this.txtCentury = new System.Windows.Forms.TextBox();
             this.rbtCentury = new System.Windows.Forms.RadioButton();
-            this.rbtUnknown = new System.Windows.Forms.RadioButton();
-            this.gbxApproxDate = new System.Windows.Forms.GroupBox();
+            this.chbYear = new System.Windows.Forms.CheckBox();
+            this.txtYear = new System.Windows.Forms.TextBox();
+            this.rbtYear = new System.Windows.Forms.RadioButton();
+            this.rbtApproxDate = new System.Windows.Forms.RadioButton();
+            this.rbtDate = new System.Windows.Forms.RadioButton();
+            this.btnType = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.epAdd)).BeginInit();
             this.grbFrequency.SuspendLayout();
             this.gbxDate.SuspendLayout();
@@ -411,58 +412,31 @@
             this.gbxDate.Text = "Datum otkrivanja resursa";
             this.gbxDate.Validating += new System.ComponentModel.CancelEventHandler(this.gbxDate_Validating);
             // 
-            // rbtApproxDate
+            // gbxApproxDate
             // 
-            this.rbtApproxDate.AutoSize = true;
-            this.rbtApproxDate.Location = new System.Drawing.Point(16, 68);
-            this.rbtApproxDate.Name = "rbtApproxDate";
-            this.rbtApproxDate.Size = new System.Drawing.Size(117, 22);
-            this.rbtApproxDate.TabIndex = 41;
-            this.rbtApproxDate.TabStop = true;
-            this.rbtApproxDate.Text = "Okvirni datum";
-            this.rbtApproxDate.UseVisualStyleBackColor = true;
-            this.rbtApproxDate.CheckedChanged += new System.EventHandler(this.rbtApproxDate_CheckedChanged);
+            this.gbxApproxDate.Controls.Add(this.rbtUnknown);
+            this.gbxApproxDate.Controls.Add(this.chbCentury);
+            this.gbxApproxDate.Controls.Add(this.txtCentury);
+            this.gbxApproxDate.Controls.Add(this.rbtCentury);
+            this.gbxApproxDate.Controls.Add(this.chbYear);
+            this.gbxApproxDate.Controls.Add(this.txtYear);
+            this.gbxApproxDate.Controls.Add(this.rbtYear);
+            this.gbxApproxDate.Location = new System.Drawing.Point(36, 87);
+            this.gbxApproxDate.Name = "gbxApproxDate";
+            this.gbxApproxDate.Size = new System.Drawing.Size(336, 100);
+            this.gbxApproxDate.TabIndex = 49;
+            this.gbxApproxDate.TabStop = false;
             // 
-            // rbtDate
+            // rbtUnknown
             // 
-            this.rbtDate.AutoSize = true;
-            this.rbtDate.Location = new System.Drawing.Point(16, 28);
-            this.rbtDate.Name = "rbtDate";
-            this.rbtDate.Size = new System.Drawing.Size(112, 22);
-            this.rbtDate.TabIndex = 40;
-            this.rbtDate.TabStop = true;
-            this.rbtDate.Text = "Tacan datum";
-            this.rbtDate.UseVisualStyleBackColor = true;
-            this.rbtDate.CheckedChanged += new System.EventHandler(this.rbtDate_CheckedChanged);
-            // 
-            // chbYear
-            // 
-            this.chbYear.AutoSize = true;
-            this.chbYear.Location = new System.Drawing.Point(267, 15);
-            this.chbYear.Name = "chbYear";
-            this.chbYear.Size = new System.Drawing.Size(63, 22);
-            this.chbYear.TabIndex = 44;
-            this.chbYear.Text = "p.n.e.";
-            this.chbYear.UseVisualStyleBackColor = true;
-            // 
-            // txtYear
-            // 
-            this.txtYear.Location = new System.Drawing.Point(139, 15);
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(100, 24);
-            this.txtYear.TabIndex = 43;
-            this.txtYear.Validating += new System.ComponentModel.CancelEventHandler(this.txtYear_Validating);
-            // 
-            // rbtYear
-            // 
-            this.rbtYear.AutoSize = true;
-            this.rbtYear.Location = new System.Drawing.Point(11, 16);
-            this.rbtYear.Name = "rbtYear";
-            this.rbtYear.Size = new System.Drawing.Size(74, 22);
-            this.rbtYear.TabIndex = 42;
-            this.rbtYear.TabStop = true;
-            this.rbtYear.Text = "Godina";
-            this.rbtYear.UseVisualStyleBackColor = true;
+            this.rbtUnknown.AutoSize = true;
+            this.rbtUnknown.Location = new System.Drawing.Point(11, 72);
+            this.rbtUnknown.Name = "rbtUnknown";
+            this.rbtUnknown.Size = new System.Drawing.Size(99, 22);
+            this.rbtUnknown.TabIndex = 48;
+            this.rbtUnknown.TabStop = true;
+            this.rbtUnknown.Text = "Nepoznato";
+            this.rbtUnknown.UseVisualStyleBackColor = true;
             // 
             // chbCentury
             // 
@@ -493,37 +467,75 @@
             this.rbtCentury.Text = "Vek";
             this.rbtCentury.UseVisualStyleBackColor = true;
             // 
-            // rbtUnknown
+            // chbYear
             // 
-            this.rbtUnknown.AutoSize = true;
-            this.rbtUnknown.Location = new System.Drawing.Point(11, 72);
-            this.rbtUnknown.Name = "rbtUnknown";
-            this.rbtUnknown.Size = new System.Drawing.Size(99, 22);
-            this.rbtUnknown.TabIndex = 48;
-            this.rbtUnknown.TabStop = true;
-            this.rbtUnknown.Text = "Nepoznato";
-            this.rbtUnknown.UseVisualStyleBackColor = true;
+            this.chbYear.AutoSize = true;
+            this.chbYear.Location = new System.Drawing.Point(267, 15);
+            this.chbYear.Name = "chbYear";
+            this.chbYear.Size = new System.Drawing.Size(63, 22);
+            this.chbYear.TabIndex = 44;
+            this.chbYear.Text = "p.n.e.";
+            this.chbYear.UseVisualStyleBackColor = true;
             // 
-            // gbxApproxDate
+            // txtYear
             // 
-            this.gbxApproxDate.Controls.Add(this.rbtUnknown);
-            this.gbxApproxDate.Controls.Add(this.chbCentury);
-            this.gbxApproxDate.Controls.Add(this.txtCentury);
-            this.gbxApproxDate.Controls.Add(this.rbtCentury);
-            this.gbxApproxDate.Controls.Add(this.chbYear);
-            this.gbxApproxDate.Controls.Add(this.txtYear);
-            this.gbxApproxDate.Controls.Add(this.rbtYear);
-            this.gbxApproxDate.Location = new System.Drawing.Point(36, 87);
-            this.gbxApproxDate.Name = "gbxApproxDate";
-            this.gbxApproxDate.Size = new System.Drawing.Size(336, 100);
-            this.gbxApproxDate.TabIndex = 49;
-            this.gbxApproxDate.TabStop = false;
+            this.txtYear.Location = new System.Drawing.Point(139, 15);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(100, 24);
+            this.txtYear.TabIndex = 43;
+            this.txtYear.Validating += new System.ComponentModel.CancelEventHandler(this.txtYear_Validating);
+            // 
+            // rbtYear
+            // 
+            this.rbtYear.AutoSize = true;
+            this.rbtYear.Location = new System.Drawing.Point(11, 16);
+            this.rbtYear.Name = "rbtYear";
+            this.rbtYear.Size = new System.Drawing.Size(74, 22);
+            this.rbtYear.TabIndex = 42;
+            this.rbtYear.TabStop = true;
+            this.rbtYear.Text = "Godina";
+            this.rbtYear.UseVisualStyleBackColor = true;
+            // 
+            // rbtApproxDate
+            // 
+            this.rbtApproxDate.AutoSize = true;
+            this.rbtApproxDate.Location = new System.Drawing.Point(16, 68);
+            this.rbtApproxDate.Name = "rbtApproxDate";
+            this.rbtApproxDate.Size = new System.Drawing.Size(117, 22);
+            this.rbtApproxDate.TabIndex = 41;
+            this.rbtApproxDate.TabStop = true;
+            this.rbtApproxDate.Text = "Okvirni datum";
+            this.rbtApproxDate.UseVisualStyleBackColor = true;
+            this.rbtApproxDate.CheckedChanged += new System.EventHandler(this.rbtApproxDate_CheckedChanged);
+            // 
+            // rbtDate
+            // 
+            this.rbtDate.AutoSize = true;
+            this.rbtDate.Location = new System.Drawing.Point(16, 28);
+            this.rbtDate.Name = "rbtDate";
+            this.rbtDate.Size = new System.Drawing.Size(112, 22);
+            this.rbtDate.TabIndex = 40;
+            this.rbtDate.TabStop = true;
+            this.rbtDate.Text = "Tacan datum";
+            this.rbtDate.UseVisualStyleBackColor = true;
+            this.rbtDate.CheckedChanged += new System.EventHandler(this.rbtDate_CheckedChanged);
+            // 
+            // btnType
+            // 
+            this.btnType.Location = new System.Drawing.Point(339, 494);
+            this.btnType.Name = "btnType";
+            this.btnType.Size = new System.Drawing.Size(75, 32);
+            this.btnType.TabIndex = 41;
+            this.btnType.Text = "Izaberi";
+            this.btnType.UseVisualStyleBackColor = true;
+            this.btnType.Click += new System.EventHandler(this.btnType_Click);
             // 
             // NewResourceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 576);
+            this.Controls.Add(this.btnType);
             this.Controls.Add(this.gbxDate);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.lblType);
@@ -607,5 +619,6 @@
         private System.Windows.Forms.RadioButton rbtCentury;
         private System.Windows.Forms.GroupBox gbxApproxDate;
         private System.Windows.Forms.RadioButton rbtUnknown;
+        private System.Windows.Forms.Button btnType;
     }
 }

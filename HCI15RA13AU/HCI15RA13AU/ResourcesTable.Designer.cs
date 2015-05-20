@@ -68,6 +68,7 @@
             this.Frequency = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnFilter = new System.Windows.Forms.Button();
+            this.btnReload = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).BeginInit();
             this.grbDetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -78,7 +79,7 @@
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblSearch.Location = new System.Drawing.Point(967, 178);
+            this.lblSearch.Location = new System.Drawing.Point(967, 196);
             this.lblSearch.Name = "lblSearch";
             this.lblSearch.Size = new System.Drawing.Size(133, 18);
             this.lblSearch.TabIndex = 72;
@@ -86,7 +87,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(950, 199);
+            this.txtSearch.Location = new System.Drawing.Point(950, 217);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(150, 24);
             this.txtSearch.TabIndex = 68;
@@ -256,7 +257,6 @@
             // chbExploatable
             // 
             this.chbExploatable.AutoSize = true;
-            this.chbExploatable.Enabled = false;
             this.chbExploatable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chbExploatable.Location = new System.Drawing.Point(408, 128);
             this.chbExploatable.Margin = new System.Windows.Forms.Padding(4);
@@ -269,7 +269,6 @@
             // chbImportant
             // 
             this.chbImportant.AutoSize = true;
-            this.chbImportant.Enabled = false;
             this.chbImportant.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chbImportant.Location = new System.Drawing.Point(408, 78);
             this.chbImportant.Margin = new System.Windows.Forms.Padding(4);
@@ -282,7 +281,6 @@
             // chbRenewable
             // 
             this.chbRenewable.AutoSize = true;
-            this.chbRenewable.Enabled = false;
             this.chbRenewable.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chbRenewable.Location = new System.Drawing.Point(408, 28);
             this.chbRenewable.Margin = new System.Windows.Forms.Padding(4);
@@ -483,10 +481,21 @@
             this.btnFilter.UseVisualStyleBackColor = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
+            // btnReload
+            // 
+            this.btnReload.Location = new System.Drawing.Point(988, 167);
+            this.btnReload.Name = "btnReload";
+            this.btnReload.Size = new System.Drawing.Size(112, 23);
+            this.btnReload.TabIndex = 74;
+            this.btnReload.Text = "Ponisti filter";
+            this.btnReload.UseVisualStyleBackColor = true;
+            this.btnReload.Click += new System.EventHandler(this.btnReload_Click);
+            // 
             // ResourcesTable
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1202, 642);
+            this.Controls.Add(this.btnReload);
             this.Controls.Add(this.btnFilter);
             this.Controls.Add(this.lblSearch);
             this.Controls.Add(this.txtSearch);
@@ -553,5 +562,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.Panel pnlTags;
+        private System.Windows.Forms.Button btnReload;
     }
 }

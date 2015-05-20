@@ -419,5 +419,53 @@ namespace HCI15RA13AU
             }
         }
 
+        private void pnlResources_DragEnter(object sender, DragEventArgs e)
+        {
+            Resource r = new Resource();
+            if ((e.Data.GetDataPresent(r.GetType())))
+            {
+                Resource res = (Resource)e.Data.GetData(r.GetType());
+                if(!resourceCoordinates.ContainsKey(res.ID))
+                {
+                    e.Effect = DragDropEffects.None;
+                }
+                else
+                {
+                    e.Effect = DragDropEffects.Copy;
+                }
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void pnlResources_DragDrop(object sender, DragEventArgs e)
+        {
+            Resource r = new Resource();
+            if (e.Data.GetDataPresent(r.GetType()))
+            {
+                Resource res = (Resource)e.Data.GetData(r.GetType());
+
+                Control deleted = null;
+
+                foreach (Control ctrl in pnlMap.Controls)
+                {
+                    if (ctrl.Tag.Equals(res))
+                    {
+                        deleted = ctrl;
+                        break;
+                    }
+                }
+
+                if (deleted != null)
+                {
+                    pnlMap.Controls.Remove(deleted);
+                    resourceCoordinates.Remove(res.ID);
+                    pnlResources.Controls.Add(new ResourceControl(res, pnlResources.Controls.Count * 80 + 10));
+                }
+            }
+        }
+
     }
 }

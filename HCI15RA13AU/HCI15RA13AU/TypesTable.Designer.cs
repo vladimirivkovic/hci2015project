@@ -39,6 +39,7 @@
             this.dgwTypes = new System.Windows.Forms.DataGridView();
             this.TypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSelect = new System.Windows.Forms.Button();
             this.gbxType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTypeIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwTypes)).BeginInit();
@@ -150,10 +151,21 @@
             this.TypeName.HeaderText = "Naziv";
             this.TypeName.Name = "TypeName";
             // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(352, 128);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(90, 32);
+            this.btnSelect.TabIndex = 19;
+            this.btnSelect.Text = "Izaberi";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+            // 
             // TypesTable
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(459, 636);
+            this.Controls.Add(this.btnSelect);
             this.Controls.Add(this.gbxType);
             this.Controls.Add(this.btnDeleteType);
             this.Controls.Add(this.btnEditType);
@@ -184,5 +196,6 @@
         private System.Windows.Forms.DataGridView dgwTypes;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeName;
+        private System.Windows.Forms.Button btnSelect;
     }
 }

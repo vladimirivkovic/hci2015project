@@ -16,9 +16,13 @@ namespace HCI15RA13AU
 
         private List<string> tags = new List<string>();
 
+        private List<Resource> resources;
+
         public ResourcesFilter()
         {
             InitializeComponent();
+
+            resources = MainForm.resources.Values.ToList();
 
             cmbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbFrequency.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -121,7 +125,7 @@ namespace HCI15RA13AU
             double.TryParse(txtCostMin.Text, out minCost);
             double.TryParse(txtCostMax.Text, out maxCost);
 
-            List<Resource> result = new List<Resource>();
+            resources.Clear();
             IEnumerable<Resource> result1 = from res in MainForm.resources.Values
                                            where ((!txtID.Enabled || txtID.Text.Equals(res.ID))
                                                 && (!txtName.Enabled || txtName.Text.Equals(res.Name))
@@ -141,7 +145,6 @@ namespace HCI15RA13AU
                                                     || (dtpMax.Value.CompareTo(res.Discovered) >= 0 
                                                     && dtpMin.Value.CompareTo(res.Discovered) <= 0)))
                                                 // exploation
-                                                // tags
                                             select res;
             dgwResources.Rows.Clear();
 
@@ -160,16 +163,16 @@ namespace HCI15RA13AU
                     }
                     if (contains)
                     {
-                        result.Add(res);
+                        resources.Add(res);
                     }
                 }
             }
             else
             {
-                result = result1.ToList();
+                resources = result1.ToList();
             }
 
-            foreach (Resource res in result)
+            foreach (Resource res in resources)
             {
                 date = res.Discovered.ToString(MainForm.dateFormat);
 
@@ -226,6 +229,17 @@ namespace HCI15RA13AU
 
                 pnlTags.Refresh();
             }
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        public List<Resource> GetResources()
+        {
+            return resources;
         }
     }
 }

@@ -82,7 +82,8 @@ namespace HCI15RA13AU
             dateTimePicker.Value = res.Discovered;
             lblTag.Text = res.Tags.Count.ToString();
             fullFileName = res.IconFileName;
-            lblIconName.Text = fullFileName;
+            char[] sep = { '\\' };
+            fname = lblIconName.Text = fullFileName.Split(sep).Last();
             if (res.ApproxDiscovered != null)
             {
                 rbtApproxDate.Checked = true;
@@ -353,6 +354,7 @@ namespace HCI15RA13AU
 
         private void cmbType_Validating(object sender, CancelEventArgs e)
         {
+            return;
             if (cmbType.SelectedItem == null)
             {
                 formIsValid = false;
@@ -468,6 +470,17 @@ namespace HCI15RA13AU
             }
 
             return new ApproxDate(year, century, ad, unknown);
+        }
+
+        private void btnType_Click(object sender, EventArgs e)
+        {
+            TypesTable typesTable = new TypesTable(true);
+            typesTable.ShowDialog();
+
+            if (typesTable.DialogResult == DialogResult.OK)
+            {
+                type = typesTable.GetType();
+            }
         }
     }
 }

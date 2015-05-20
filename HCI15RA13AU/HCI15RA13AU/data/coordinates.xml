@@ -1,23 +1,28 @@
 <?xml version="1.0"?>
 <ListOfResourceCoordinates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ResourcePosition>
-    <ID>prvi</ID>
-    <X>456</X>
-    <Y>248</Y>
-  </ResourcePosition>
-  <ResourcePosition>
     <ID>a</ID>
     <X>209</X>
     <Y>184</Y>
   </ResourcePosition>
   <ResourcePosition>
+    <ID>drugi</ID>
+    <X>644</X>
+    <Y>184</Y>
+  </ResourcePosition>
+  <ResourcePosition>
+    <ID>prvi</ID>
+    <X>447</X>
+    <Y>85</Y>
+  </ResourcePosition>
+  <ResourcePosition>
     <ID>treci</ID>
-    <X>431</X>
-    <Y>119</Y>
+    <X>705</X>
+    <Y>81</Y>
   </ResourcePosition>
   <ResourcePosition>
     <ID>peti</ID>
-    <X>657</X>
-    <Y>315</Y>
+    <X>614</X>
+    <Y>381</Y>
   </ResourcePosition>
 </ListOfResourceCoordinates>

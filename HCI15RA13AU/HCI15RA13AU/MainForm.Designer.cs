@@ -154,11 +154,14 @@
             // 
             // pnlResources
             // 
+            this.pnlResources.AllowDrop = true;
             this.pnlResources.AutoScroll = true;
             this.pnlResources.Location = new System.Drawing.Point(922, 61);
             this.pnlResources.Name = "pnlResources";
             this.pnlResources.Size = new System.Drawing.Size(250, 622);
             this.pnlResources.TabIndex = 14;
+            this.pnlResources.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlResources_DragDrop);
+            this.pnlResources.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlResources_DragEnter);
             this.pnlResources.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlResources_Paint);
             // 
             // pnlDelete
