@@ -35,6 +35,10 @@ namespace HCI15RA13AU
             DeserializeTypes();
             DeserializeResources();
             DeserializeCoordinates();
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
 
         private void DeserializeTags()
@@ -133,7 +137,7 @@ namespace HCI15RA13AU
             }
         }
 
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        public static void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             XmlSerializer tagsSerialzer = new XmlSerializer(typeof(TagItem[]), new XmlRootAttribute("ListOfTags"));
             FileStream buffer = File.Open("..\\..\\data\\tags.xml", FileMode.Create);
@@ -300,9 +304,10 @@ namespace HCI15RA13AU
                 ResourceIcon resIcon = new ResourceIcon(res);
                 resIcon.Name = res.ID;
 
+                Point p = pnlMap.PointToClient(new Point(e.X, e.Y));
+
                 Rectangle rect = new Rectangle(
-                    e.X - this.Left - pnlMap.Left - menuStrip1.Left - 30,
-                    e.Y - this.Top - pnlMap.Top - menuStrip1.Top - 40,
+                    p.X - 20, p.Y - 20,
                     resIcon.Width, resIcon.Height);
 
                 bool boom = false;
@@ -343,8 +348,8 @@ namespace HCI15RA13AU
 
                 pnlMap.Controls.Add(resIcon);
 
-                resIcon.Left = (e.X - this.Left - pnlMap.Left - menuStrip1.Left - 30);
-                resIcon.Top = (e.Y - this.Top - pnlMap.Top - menuStrip1.Top - 40);
+                resIcon.Left = p.X - 20;
+                resIcon.Top = p.Y - 20;
 
                 /*Rectangle rect = resIcon.Bounds;
 

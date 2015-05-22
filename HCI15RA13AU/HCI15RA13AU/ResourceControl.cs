@@ -26,6 +26,14 @@ namespace HCI15RA13AU
             InitializeComponent();
             lblID.Text = res.ID;
             lblName.Text = res.Name;
+            lblType.Text = res.Type.ID;
+
+            ToolTip tt = new ToolTip();
+            tt.SetToolTip(lblID, "oznaka resursa");
+            tt.SetToolTip(lblName, "naziv resursa");
+            tt.SetToolTip(lblType, "oznaka tipa");
+
+
             try
             {
                 pbxIcon.Image = Image.FromFile(res.IconFileName);
@@ -81,6 +89,8 @@ namespace HCI15RA13AU
         {
             Resource res = (Resource)this.Tag;
             lblName.Text = res.Name;
+            lblType.Text = res.Type.ID;
+
             try
             {
                 pbxIcon.Image = Image.FromFile(res.IconFileName);

@@ -31,6 +31,7 @@
             this.pbxIcon = new System.Windows.Forms.PictureBox();
             this.lblID = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
+            this.lblType = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,11 +67,22 @@
             this.lblName.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ResourceControl_MouseDown);
             this.lblName.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ResourceControl_MouseMove);
             // 
+            // lblType
+            // 
+            this.lblType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblType.AutoSize = true;
+            this.lblType.Location = new System.Drawing.Point(85, 46);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(35, 13);
+            this.lblType.TabIndex = 3;
+            this.lblType.Text = "label1";
+            // 
             // ResourceControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.lblType);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.pbxIcon);
@@ -89,5 +101,6 @@
         private System.Windows.Forms.PictureBox pbxIcon;
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblType;
     }
 }

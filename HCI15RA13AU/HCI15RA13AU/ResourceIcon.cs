@@ -45,14 +45,20 @@ namespace HCI15RA13AU
 
             Panel pnlColor;
             int i = 0;
+            int count = res.Tags.Count;
+            int w = 0;
+            if (count > 0)
+            {
+                w = this.Width / count;
+            }
             foreach (Tag tag in res.Tags.Values)
             {
                 pnlColor = new Panel();
-                pnlColor.Width = 7;
+                pnlColor.Width = w;
                 pnlColor.Height = 10;
                 pnlColor.BackColor = tag.Color;
                 
-                pnlColor.Left = i++ * 8;
+                pnlColor.Left = i++ * w;
                 pnlColor.Top = 36;
 
                 this.Controls.Add(pnlColor);

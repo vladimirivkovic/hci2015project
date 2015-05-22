@@ -71,10 +71,14 @@
             this.chbId = new System.Windows.Forms.CheckBox();
             this.chbName = new System.Windows.Forms.CheckBox();
             this.chbType = new System.Windows.Forms.CheckBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.datotekaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).BeginInit();
             this.grbDetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSearch
@@ -420,6 +424,7 @@
             this.dgwResources.Size = new System.Drawing.Size(845, 384);
             this.dgwResources.TabIndex = 69;
             this.dgwResources.SelectionChanged += new System.EventHandler(this.dgwResources_SelectionChanged);
+            this.dgwResources.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgwResources_MouseDoubleClick);
             // 
             // Id
             // 
@@ -492,6 +497,7 @@
             this.chbId.TabIndex = 75;
             this.chbId.Text = "oznaci";
             this.chbId.UseVisualStyleBackColor = true;
+            this.chbId.CheckedChanged += new System.EventHandler(this.chbId_CheckedChanged);
             // 
             // chbName
             // 
@@ -502,6 +508,7 @@
             this.chbName.TabIndex = 76;
             this.chbName.Text = "imenu";
             this.chbName.UseVisualStyleBackColor = true;
+            this.chbName.CheckedChanged += new System.EventHandler(this.chbName_CheckedChanged);
             // 
             // chbType
             // 
@@ -512,8 +519,35 @@
             this.chbType.TabIndex = 77;
             this.chbType.Text = "oznaci tipa";
             this.chbType.UseVisualStyleBackColor = true;
+            this.chbType.CheckedChanged += new System.EventHandler(this.chbType_CheckedChanged);
             // 
-            // ResourcesTable
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.datotekaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1202, 24);
+            this.menuStrip1.TabIndex = 78;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // datotekaToolStripMenuItem
+            // 
+            this.datotekaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem});
+            this.datotekaToolStripMenuItem.Name = "datotekaToolStripMenuItem";
+            this.datotekaToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.datotekaToolStripMenuItem.Text = "Datoteka";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // ResourcesTableForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1202, 642);
@@ -529,8 +563,10 @@
             this.Controls.Add(this.btnEditResource);
             this.Controls.Add(this.btnAddResource);
             this.Controls.Add(this.dgwResources);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "ResourcesTable";
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "ResourcesTableForm";
             this.Text = "Tabela resursa";
             this.Load += new System.EventHandler(this.ResourcesTable_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).EndInit();
@@ -539,6 +575,8 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -589,5 +627,8 @@
         private System.Windows.Forms.CheckBox chbId;
         private System.Windows.Forms.CheckBox chbName;
         private System.Windows.Forms.CheckBox chbType;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem datotekaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
     }
 }

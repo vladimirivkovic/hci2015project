@@ -12,8 +12,8 @@
   </ResourcePosition>
   <ResourcePosition>
     <ID>prvi</ID>
-    <X>447</X>
-    <Y>85</Y>
+    <X>466</X>
+    <Y>226</Y>
   </ResourcePosition>
   <ResourcePosition>
     <ID>treci</ID>
@@ -24,5 +24,20 @@
     <ID>peti</ID>
     <X>614</X>
     <Y>381</Y>
+  </ResourcePosition>
+  <ResourcePosition>
+    <ID>q</ID>
+    <X>299</X>
+    <Y>41</Y>
+  </ResourcePosition>
+  <ResourcePosition>
+    <ID>wer</ID>
+    <X>283</X>
+    <Y>316</Y>
+  </ResourcePosition>
+  <ResourcePosition>
+    <ID>novi</ID>
+    <X>727</X>
+    <Y>259</Y>
   </ResourcePosition>
 </ListOfResourceCoordinates>

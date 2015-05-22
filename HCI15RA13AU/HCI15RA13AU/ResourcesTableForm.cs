@@ -15,6 +15,7 @@ namespace HCI15RA13AU
         public ResourcesTableForm()
         {
             InitializeComponent();
+            menuStrip1.Hide();
         }
 
         private void dgwResources_SelectionChanged(object sender, EventArgs e)
@@ -310,6 +311,31 @@ namespace HCI15RA13AU
                 dgwResources.CurrentCell = dgwResources.Rows[0].Cells[0];
                 dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
             }
+        }
+
+        private void chbId_CheckedChanged(object sender, EventArgs e)
+        {
+            txtSearch_TextChanged(this, EventArgs.Empty);
+        }
+
+        private void chbName_CheckedChanged(object sender, EventArgs e)
+        {
+            txtSearch_TextChanged(this, EventArgs.Empty);
+        }
+
+        private void chbType_CheckedChanged(object sender, EventArgs e)
+        {
+            txtSearch_TextChanged(this, EventArgs.Empty);
+        }
+
+        private void dgwResources_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            btnEditResource_Click(this, EventArgs.Empty);
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MainForm.saveToolStripMenuItem_Click(sender, e);
         }
     }
 }
