@@ -13,6 +13,8 @@
     <listOfTags>
       <tag>a</tag>
       <tag>ert</tag>
+      <tag>af</tag>
+      <tag>cvb</tag>
     </listOfTags>
     <UnitName>barel</UnitName>
     <FrequencyName>redak</FrequencyName>
@@ -61,6 +63,7 @@
     <listOfTags>
       <tag>ert</tag>
       <tag>cvb</tag>
+      <tag>af</tag>
     </listOfTags>
     <UnitName>tona</UnitName>
     <FrequencyName>univerzalan</FrequencyName>
@@ -191,7 +194,11 @@
       <Unknown>true</Unknown>
     </ApproxDiscovered>
     <IconFileName>..\..\images\</IconFileName>
-    <listOfTags />
+    <listOfTags>
+      <tag>ert</tag>
+      <tag>af</tag>
+      <tag>cvb</tag>
+    </listOfTags>
     <UnitName>merica</UnitName>
     <FrequencyName>univerzalan</FrequencyName>
     <TypeName>novi</TypeName>

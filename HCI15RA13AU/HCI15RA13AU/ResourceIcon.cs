@@ -25,51 +25,12 @@ namespace HCI15RA13AU
         {
             InitializeComponent();
 
-            try
-            {
-                pbxIcon.Image = Image.FromFile(res.IconFileName);
-            }
-            catch (FileNotFoundException fnfe)
-            {
-                try
-                {
-                    pbxIcon.Image = Image.FromFile(res.Type.IconFileName);
-                }
-                catch (FileNotFoundException fnfe1)
-                {
-                    pbxIcon.Image = pbxIcon.InitialImage;
-                    Console.WriteLine(fnfe1.StackTrace);
-                }
-            }
-            pbxIcon.SizeMode = PictureBoxSizeMode.StretchImage;
-
-            Panel pnlColor;
-            int i = 0;
-            int count = res.Tags.Count;
-            int w = 0;
-            if (count > 0)
-            {
-                w = this.Width / count;
-            }
-            foreach (Tag tag in res.Tags.Values)
-            {
-                pnlColor = new Panel();
-                pnlColor.Width = w;
-                pnlColor.Height = 10;
-                pnlColor.BackColor = tag.Color;
-                
-                pnlColor.Left = i++ * w;
-                pnlColor.Top = 36;
-
-                this.Controls.Add(pnlColor);
-            }
-
-
-            this.Tag = res;
-            this.AllowDrop = false;
-
             tt = new ToolTip();
-            tt.SetToolTip(pbxIcon, "ID: " + res.ID + "\nNaziv: " + res.Name); 
+            this.Tag = res;
+
+            pbxIcon.ContextMenuStrip = contextMenu;
+
+            UpdateControl();
         }
 
         private void ResourceIcon_MouseDown(object sender, MouseEventArgs e)
@@ -147,19 +108,51 @@ namespace HCI15RA13AU
                 }
             }
 
+            //Panel pnlColor;
             int i = 0;
+            int count = res.Tags.Count;
+            int w = 0;
+            if (count > 0)
+            {
+                w = this.Width / count;
+            }
             foreach (Tag tag in res.Tags.Values)
             {
                 pnlColor = new Panel();
-                pnlColor.Width = 10;
-                pnlColor.Height = 13;
+                pnlColor.Width = w;
+                pnlColor.Height = this.Height / 4;
                 pnlColor.BackColor = tag.Color;
 
-                pnlColor.Left = i++ * 11;
-                pnlColor.Top = 50;
+                pnlColor.Left = i++ * w;
+                pnlColor.Top = pbxIcon.Top + pbxIcon.Height;
 
                 this.Controls.Add(pnlColor);
             }
+
+            this.Refresh();
+        }
+
+        private void ukloniSaMapeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ((MainForm)MainForm.ActiveForm).moveToPnlResources(this);
+        }
+
+        private void urediToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NewResourceForm erf = new NewResourceForm(MainForm.resources[((Resource)Tag).ID]);
+            erf.ShowDialog();
+
+            if (erf.DialogResult == DialogResult.OK)
+            {
+                Resource res = erf.GetResource();
+                MainForm.resources[res.ID] = res;
+                UpdateControl();
+            }
+        }
+
+        private void obrišiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ((MainForm)MainForm.ActiveForm).removeResource(this);
         }
     }
 }

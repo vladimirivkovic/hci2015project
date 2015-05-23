@@ -44,8 +44,12 @@
             this.pnlResources = new System.Windows.Forms.Panel();
             this.pnlDelete = new System.Windows.Forms.Panel();
             this.lblUnmappedResources = new System.Windows.Forms.Label();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.lblCoordinates = new System.Windows.Forms.ToolStripStatusLabel();
+            this.lblMessage = new System.Windows.Forms.ToolStripStatusLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -94,7 +98,7 @@
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(178, 24);
             this.saveToolStripMenuItem.Text = "Sačuvaj";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(MainForm.saveToolStripMenuItem_Click);
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click_1);
             // 
             // exitToolStripMenuItem
             // 
@@ -145,12 +149,14 @@
             // 
             this.pnlMap.AllowDrop = true;
             this.pnlMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMap.BackgroundImage")));
-            this.pnlMap.Location = new System.Drawing.Point(12, 31);
+            this.pnlMap.Location = new System.Drawing.Point(12, 61);
             this.pnlMap.Name = "pnlMap";
-            this.pnlMap.Size = new System.Drawing.Size(814, 501);
+            this.pnlMap.Size = new System.Drawing.Size(901, 490);
             this.pnlMap.TabIndex = 13;
             this.pnlMap.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlMap_DragDrop);
             this.pnlMap.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlMap_DragEnter);
+            this.pnlMap.DragOver += new System.Windows.Forms.DragEventHandler(this.pnlMap_DragOver);
+            this.pnlMap.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlMap_MouseMove);
             // 
             // pnlResources
             // 
@@ -158,17 +164,16 @@
             this.pnlResources.AutoScroll = true;
             this.pnlResources.Location = new System.Drawing.Point(922, 61);
             this.pnlResources.Name = "pnlResources";
-            this.pnlResources.Size = new System.Drawing.Size(250, 622);
+            this.pnlResources.Size = new System.Drawing.Size(250, 609);
             this.pnlResources.TabIndex = 14;
             this.pnlResources.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlResources_DragDrop);
             this.pnlResources.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlResources_DragEnter);
-            this.pnlResources.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlResources_Paint);
             // 
             // pnlDelete
             // 
             this.pnlDelete.AllowDrop = true;
             this.pnlDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlDelete.BackgroundImage")));
-            this.pnlDelete.Location = new System.Drawing.Point(12, 573);
+            this.pnlDelete.Location = new System.Drawing.Point(12, 557);
             this.pnlDelete.Name = "pnlDelete";
             this.pnlDelete.Size = new System.Drawing.Size(110, 110);
             this.pnlDelete.TabIndex = 15;
@@ -184,12 +189,35 @@
             this.lblUnmappedResources.TabIndex = 16;
             this.lblUnmappedResources.Text = "Nemapirani resursi";
             // 
+            // statusStrip
+            // 
+            this.statusStrip.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lblCoordinates,
+            this.lblMessage});
+            this.statusStrip.Location = new System.Drawing.Point(0, 673);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(1184, 22);
+            this.statusStrip.TabIndex = 17;
+            this.statusStrip.Text = "statusStrip1";
+            // 
+            // lblCoordinates
+            // 
+            this.lblCoordinates.Name = "lblCoordinates";
+            this.lblCoordinates.Size = new System.Drawing.Size(0, 17);
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(0, 17);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1184, 695);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.lblUnmappedResources);
             this.Controls.Add(this.pnlDelete);
             this.Controls.Add(this.pnlResources);
@@ -204,10 +232,11 @@
             this.Name = "MainForm";
             this.Text = "Mapa svetskih resursa";
             this.Load += new System.EventHandler(this.MainForm_Load);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MainForm_MouseMove);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -230,6 +259,9 @@
         private System.Windows.Forms.Panel pnlResources;
         private System.Windows.Forms.Panel pnlDelete;
         private System.Windows.Forms.Label lblUnmappedResources;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.ToolStripStatusLabel lblCoordinates;
+        private System.Windows.Forms.ToolStripStatusLabel lblMessage;
 
     }
 }

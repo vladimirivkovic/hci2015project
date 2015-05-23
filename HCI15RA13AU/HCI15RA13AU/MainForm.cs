@@ -207,15 +207,10 @@ namespace HCI15RA13AU
             tagsTable.ShowDialog();
         }
 
-        private void pnlResources_Paint(object sender, PaintEventArgs e)
-        {
-
-            
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
             off = 10;
+            int cnt = 0;
 
             pnlResources.Controls.Clear();
             foreach (Resource res in resources.Values)
@@ -226,9 +221,11 @@ namespace HCI15RA13AU
                     pnlResources.Controls.Add(resControl);
 
                     off += 80;
+                    cnt++;
                 }
             }
             pnlResources.Refresh();
+            lblUnmappedResources.Text = "Nemapirani resursi(" + cnt + ")";
 
             if (e == null)
                 return;
@@ -245,48 +242,59 @@ namespace HCI15RA13AU
                 }
                 else
                 {
-                    // delete from resourceCoordinates
+                    resourceCoordinates.Remove(rpos.ID);
                 }
             }
         }
 
+
+        //pnlMap event handlers
         private void pnlMap_DragEnter(object sender, DragEventArgs e)
         {
             Resource r = new Resource();
-            ResourceIcon resIcon = new ResourceIcon();
             if ((e.Data.GetDataPresent(r.GetType())))
             {
-                //Rectangle rect = new Rectangle(
-                //    e.X - this.Left - pnlMap.Left - menuStrip1.Left - 30,
-                //    e.Y - this.Top - pnlMap.Top - menuStrip1.Top - 40,
-                //    resIcon.Width, resIcon.Height);
+                Resource res = (Resource)e.Data.GetData(r.GetType());
 
-                //bool boom = false;
+                ResourceIcon resIcon = new ResourceIcon(res);
 
-                //foreach (Control ctrl in pnlMap.Controls)
-                //{
-                //    if (ctrl.GetType().Equals(resIcon.GetType()))
-                //    {
-                //        if (ctrl.Equals(resIcon))
-                //        {
-                //            continue;
-                //        }
-                //        if (rect.IntersectsWith(ctrl.Bounds))
-                //        {
-                //            boom = true;
-                //            break;
-                //        }
-                //    }
-                //}
-                //if (boom)
-                //{
-                //    this.Cursor = Cursors.No;
-                //    e.Effect = DragDropEffects.Copy;
-                //}
-                //else
-                //{
+                Point p = pnlMap.PointToClient(new Point(e.X, e.Y));
+
+                Rectangle rect = new Rectangle(
+                    p.X - resIcon.Width / 2, p.Y - resIcon.Height/2,
+                    resIcon.Width + 15, resIcon.Height + 15);
+                lblCoordinates.Text = p.X + ", " + p.Y;
+
+                bool boom = false;
+
+                foreach (Control ctrl in pnlMap.Controls)
+                {
+                    if (ctrl.GetType().Equals(resIcon.GetType()))
+                    {
+                        if (((Resource)ctrl.Tag).ID == res.ID)
+                        {
+                            continue;
+                        }
+                        if (rect.IntersectsWith(ctrl.Bounds))
+                        {
+                            boom = true;
+                            break;
+                        }
+                    }
+                }
+
+                lblMessage.Text = "";
+                if (boom)
+                {
+                    lblMessage.Text = "Nemoguce je preklapanje ikonica";
+                    e.Effect = DragDropEffects.None;
+                }
+                else
+                {
                     e.Effect = DragDropEffects.Copy;
-                //}
+                }
+
+                lblCoordinates.Text = p.X + ", " + p.Y;
             }
             else
             {
@@ -306,34 +314,6 @@ namespace HCI15RA13AU
 
                 Point p = pnlMap.PointToClient(new Point(e.X, e.Y));
 
-                Rectangle rect = new Rectangle(
-                    p.X - 20, p.Y - 20,
-                    resIcon.Width, resIcon.Height);
-
-                bool boom = false;
-
-                foreach (Control ctrl in pnlMap.Controls)
-                {
-                    if (ctrl.GetType().Equals(resIcon.GetType()))
-                    {
-                        if (ctrl.Equals(resIcon))
-                        {
-                            continue;
-                        }
-                        if (rect.IntersectsWith(ctrl.Bounds))
-                        {
-                            boom = true;
-                            break;
-                        }
-                    }
-                }
-
-                this.Cursor = Cursors.Default;
-                if (boom)
-                {
-                    return;
-                }
-
                 foreach (Control ctrl in pnlMap.Controls)
                 {
                     if(ctrl.GetType().Equals(resIcon.GetType()))
@@ -351,39 +331,38 @@ namespace HCI15RA13AU
                 resIcon.Left = p.X - 20;
                 resIcon.Top = p.Y - 20;
 
-                /*Rectangle rect = resIcon.Bounds;
-
-                foreach (Control ctrl in pnlMap.Controls)
-                {
-                    if (ctrl.GetType().Equals(resIcon.GetType()))
-                    {
-                        if (ctrl.Equals(resIcon))
-                        {
-                            continue;
-                        }
-                        if (rect.IntersectsWith(ctrl.Bounds))
-                        {
-                            if (oldLeft >= 0)
-                            {
-                                resIcon.Left = oldLeft;
-                                resIcon.Top = oldTop;
-                                break;
-                            }
-                            else
-                            {
-                                pnlMap.Controls.Remove(resIcon);
-                                return;
-                            }
-                        }
-                    }
-                }*/
-
                 pnlMap.Refresh();
 
                 if (!resourceCoordinates.ContainsKey(res.ID))
                 {
                     resourceCoordinates.Add(res.ID, new ResourcePosition(res, resIcon.Left, resIcon.Top));
-                    MainForm_Load(this, null);
+                    ////////////////
+                    Control sub = null, deleted = null;
+                    int maxTop = 0;
+
+                    foreach (Control ctrl in pnlResources.Controls)
+                    {
+                        if (ctrl.Tag.Equals(res))
+                        {
+                            deleted = ctrl;
+                            //break;
+                        }
+                        if (ctrl.Top > maxTop)
+                        {
+                            sub = ctrl;
+                            maxTop = ctrl.Top;
+                        }
+                    }
+
+                    if (deleted != null)
+                    {
+                        //ResourceControl resControl = deleted as ResourceControl;
+                        sub.Top = deleted.Top;
+                        pnlResources.Controls.Remove(deleted);
+                        lblUnmappedResources.Text = "Nemapirani resursi(" + pnlResources.Controls.Count + ")";
+                    }
+                    /////////////
+                    //MainForm_Load(this, null);
                 }
                 else
                 {
@@ -393,8 +372,16 @@ namespace HCI15RA13AU
             }
         }
 
-        private void MainForm_MouseMove(object sender, MouseEventArgs e)
+        private void pnlMap_MouseMove(object sender, MouseEventArgs e)
         {
+            lblMessage.Text = "";
+            lblCoordinates.Text = e.X + ", " + e.Y;
+        }
+
+        private void pnlMap_DragOver(object sender, DragEventArgs e)
+        {
+            pnlMap_DragEnter(sender, e);
+            
         }
 
         private void updateMap()
@@ -432,6 +419,7 @@ namespace HCI15RA13AU
                 pnlResources.Controls.Add(ctrl);
             }
             addedResources.Clear();
+            lblUnmappedResources.Text = "Nemapirani resursi(" + pnlResources.Controls.Count + ")";
 
             deletedControls.Clear();
 
@@ -453,19 +441,14 @@ namespace HCI15RA13AU
                 }
             }
 
-            int index, offset;
-            Control subsitution;
-            foreach (Control ctrl in deletedControls)
+            if (deletedControls.Count > 0)
             {
-                offset = ctrl.Top;
-                index = pnlResources.Controls.IndexOf(ctrl);
-                pnlResources.Controls.Remove(ctrl);
-                //subsitution = pnlResources.Controls[pnlResources.Controls.Count - 1];
-                //subsitution.Top = offset;
+                MainForm_Load(this, null);
             }
-            
         }
 
+
+        //pnlDelete event handlers
         private void pnlDelete_DragEnter(object sender, DragEventArgs e)
         {
             Resource r = new Resource();
@@ -499,13 +482,45 @@ namespace HCI15RA13AU
 
                 if (deleted != null)
                 {
-                    pnlMap.Controls.Remove(deleted);
-                    resourceCoordinates.Remove(res.ID);
-                    pnlResources.Controls.Add(new ResourceControl(res, pnlResources.Controls.Count*80 + 10));
+                    removeResource(deleted as ResourceIcon);
+                }
+                else
+                {
+                    
+                    Control sub = null;
+                    int maxTop = 0;
+
+                    foreach (Control ctrl in pnlResources.Controls)
+                    {
+                        if (ctrl.Tag.Equals(res))
+                        {
+                            deleted = ctrl;
+                            //break;
+                        }
+                        if(ctrl.Top > maxTop)
+                        {
+                            sub = ctrl;
+                            maxTop = ctrl.Top;
+                        }
+                    }
+
+                    if (deleted != null)
+                    {
+                        ///////////////////////
+                        sub.Top = deleted.Top;
+                        pnlResources.Controls.Remove(deleted);
+                        lblUnmappedResources.Text = "Nemapirani resursi(" + pnlResources.Controls.Count + ")";
+                        ////////////////////////
+                        //resources.Remove(res.ID);
+                        //MainForm_Load(this, null);
+                    }
+                    
                 }
             }
         }
 
+
+        //pnlResource events handlers
         private void pnlResources_DragEnter(object sender, DragEventArgs e)
         {
             Resource r = new Resource();
@@ -551,8 +566,35 @@ namespace HCI15RA13AU
                     resourceCoordinates.Remove(res.ID);
                     pnlResources.Controls.Add(new ResourceControl(res, pnlResources.Controls.Count * 80 + 10));
                 }
+                lblUnmappedResources.Text = "Nemapirani resursi(" + pnlResources.Controls.Count + ")";
             }
         }
 
+        internal void moveToPnlResources(ResourceIcon resourceIcon)
+        {
+            Resource res = resourceIcon.Tag as Resource;
+
+            pnlMap.Controls.Remove(resourceIcon);
+            resourceCoordinates.Remove(res.ID);
+
+            Control ctrl = new ResourceControl(resources[res.ID], pnlResources.Controls.Count * 80 + 10);
+            pnlResources.Controls.Add(ctrl);
+            lblUnmappedResources.Text = "Nemapirani resursi(" + pnlResources.Controls.Count + ")";
+        }
+
+        private void saveToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            saveToolStripMenuItem_Click(sender, e);
+        }
+
+
+        internal void removeResource(ResourceIcon resourceIcon)
+        {
+            Resource res = resourceIcon.Tag as Resource;
+
+            pnlMap.Controls.Remove(resourceIcon);
+            resourceCoordinates.Remove(res.ID);
+            resources.Remove(res.ID);
+        }
     }
 }
