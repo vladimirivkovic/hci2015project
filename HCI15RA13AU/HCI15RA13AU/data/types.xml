@@ -12,4 +12,10 @@
     <IconFileName>..\..\images\EARTH41.JPG</IconFileName>
     <Description>resursa</Description>
   </Type>
+  <Type>
+    <ID>ytr</ID>
+    <Name>hgf</Name>
+    <IconFileName>..\..\images\Shed in Field.jpg</IconFileName>
+    <Description>nbv</Description>
+  </Type>
 </ListOfTypes>

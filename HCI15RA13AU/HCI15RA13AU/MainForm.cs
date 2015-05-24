@@ -596,5 +596,12 @@ namespace HCI15RA13AU
             resourceCoordinates.Remove(res.ID);
             resources.Remove(res.ID);
         }
+
+        internal int GetPnlResourcesVerticalScroll()
+        {
+            if(pnlResources.VerticalScroll.Value > 0)
+                return (int) (pnlResources.VerticalScroll.Value/1.35);
+            return 0;
+        }
     }
 }

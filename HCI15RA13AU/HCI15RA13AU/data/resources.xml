@@ -155,28 +155,22 @@
     <TypeName>novi</TypeName>
   </ResourceItem>
   <ResourceItem>
-    <ID>peti</ID>
-    <Description>njegov opis</Description>
-    <Name>resurs</Name>
+    <ID>fds</ID>
+    <Description>hgf</Description>
+    <Name>gfd</Name>
     <Renewable>true</Renewable>
     <Exploatable>false</Exploatable>
-    <Important>true</Important>
-    <Cost>135</Cost>
-    <Discovered>2015-05-17T15:52:39.9899488+02:00</Discovered>
-    <ApproxDiscovered>
-      <Year>-1</Year>
-      <Century>1</Century>
-      <AD>true</AD>
-      <Unknown>false</Unknown>
-    </ApproxDiscovered>
-    <IconFileName>..\..\images\Koala.jpg</IconFileName>
+    <Important>false</Important>
+    <Cost>3453</Cost>
+    <Discovered>1987-05-24T20:32:12</Discovered>
+    <IconFileName>..\..\images\MOUNTIN0.JPG</IconFileName>
     <listOfTags>
-      <tag>af</tag>
       <tag>cvb</tag>
+      <tag>duyhfikfid</tag>
     </listOfTags>
-    <UnitName>tona</UnitName>
-    <FrequencyName>redak</FrequencyName>
-    <TypeName>prvi</TypeName>
+    <UnitName>barel</UnitName>
+    <FrequencyName>univerzalan</FrequencyName>
+    <TypeName>ytr</TypeName>
   </ResourceItem>
   <ResourceItem>
     <ID>wer</ID>

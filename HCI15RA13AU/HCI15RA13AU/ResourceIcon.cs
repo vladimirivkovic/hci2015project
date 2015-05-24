@@ -62,15 +62,14 @@ namespace HCI15RA13AU
 
         private void ResourceIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            EditResourceForm erf = new EditResourceForm(MainForm.resources[((Resource) Tag).ID]);
+            NewResourceForm erf = new NewResourceForm(MainForm.resources[((Resource)Tag).ID]);
             erf.ShowDialog();
 
             if (erf.DialogResult == DialogResult.OK)
             {
                 Resource res = erf.GetResource();
-                tt.SetToolTip(pbxIcon, "ID: " + res.ID + "\nNaziv: " + res.Name);
                 MainForm.resources[res.ID] = res;
-                Tag = res;
+                UpdateControl();
             }
         }
 

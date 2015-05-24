@@ -52,7 +52,13 @@ namespace HCI15RA13AU
             }
             pbxIcon.SizeMode = PictureBoxSizeMode.StretchImage;
 
-            this.Top = offset;
+            int vscroll = 0;
+            if (MainForm.ActiveForm as MainForm != null)
+            {
+                vscroll = ((MainForm)MainForm.ActiveForm).GetPnlResourcesVerticalScroll();
+            }
+
+            this.Top = offset - vscroll;
 
             this.Tag = res;
 

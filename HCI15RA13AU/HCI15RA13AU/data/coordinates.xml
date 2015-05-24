@@ -1,43 +1,28 @@
 <?xml version="1.0"?>
 <ListOfResourceCoordinates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ResourcePosition>
-    <ID>b</ID>
-    <X>506</X>
-    <Y>133</Y>
-  </ResourcePosition>
-  <ResourcePosition>
-    <ID>novi</ID>
-    <X>536</X>
-    <Y>277</Y>
-  </ResourcePosition>
-  <ResourcePosition>
-    <ID>a</ID>
-    <X>772</X>
-    <Y>303</Y>
-  </ResourcePosition>
-  <ResourcePosition>
-    <ID>q</ID>
-    <X>297</X>
-    <Y>256</Y>
-  </ResourcePosition>
-  <ResourcePosition>
     <ID>drugi</ID>
-    <X>721</X>
-    <Y>110</Y>
-  </ResourcePosition>
-  <ResourcePosition>
-    <ID>peti</ID>
-    <X>684</X>
-    <Y>405</Y>
-  </ResourcePosition>
-  <ResourcePosition>
-    <ID>wer</ID>
-    <X>189</X>
-    <Y>14</Y>
+    <X>500</X>
+    <Y>91</Y>
   </ResourcePosition>
   <ResourcePosition>
     <ID>treci</ID>
-    <X>209</X>
-    <Y>142</Y>
+    <X>275</X>
+    <Y>300</Y>
+  </ResourcePosition>
+  <ResourcePosition>
+    <ID>prvi</ID>
+    <X>219</X>
+    <Y>107</Y>
+  </ResourcePosition>
+  <ResourcePosition>
+    <ID>novi</ID>
+    <X>491</X>
+    <Y>170</Y>
+  </ResourcePosition>
+  <ResourcePosition>
+    <ID>wer</ID>
+    <X>726</X>
+    <Y>117</Y>
   </ResourcePosition>
 </ListOfResourceCoordinates>
