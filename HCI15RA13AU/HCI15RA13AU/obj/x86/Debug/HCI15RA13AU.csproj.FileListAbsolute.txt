@@ -19,7 +19,6 @@ G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.MainForm.resources
 G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.Properties.Resources.resources
 G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TypeForm.resources
 G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TagForm.resources
-G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ChooseType.resources
 G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.SelectTagForm.resources
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TagForm.resources
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.SelectTagForm.resources
@@ -38,16 +37,12 @@ G:\hci2015project-master\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.Selec
 G:\hci2015project-master\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TypeForm.resources
 G:\hci2015project-master\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\GenerateResource.read.1.tlog
 G:\hci2015project-master\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\GenerateResource.write.1.tlog
-G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourcesTable.resources
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourceControl.resources
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourceIcon.resources
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ChooseDate.resources
 G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.csprojResolveAssemblyReference.cache
 G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ChooseDate.resources
 G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourceIcon.resources
-G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourcesFilter.resources
-G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TagsTable.resources
-G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TypesTable.resources
 G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourceControl.resources
 G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.csproj.GenerateResource.Cache
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ChooseTypeForm.resources
@@ -55,3 +50,8 @@ E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.Resource
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TagsTableForm.resources
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourcesFilterForm.resources
 E:\fax\hci2015project\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TypesTableForm.resources
+G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ChooseTypeForm.resources
+G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourcesFilterForm.resources
+G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.ResourcesTableForm.resources
+G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TagsTableForm.resources
+G:\HCI15RA13AU\HCI15RA13AU\obj\x86\Debug\HCI15RA13AU.TypesTableForm.resources

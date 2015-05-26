@@ -197,4 +197,28 @@
     <FrequencyName>univerzalan</FrequencyName>
     <TypeName>novi</TypeName>
   </ResourceItem>
+  <ResourceItem>
+    <ID>љецљеце</ID>
+    <Description>цљецљецље&lt;/ResourceItem&gt;aevqevevqev</Description>
+    <Name>љцље</Name>
+    <Renewable>false</Renewable>
+    <Exploatable>true</Exploatable>
+    <Important>true</Important>
+    <Cost>123</Cost>
+    <Discovered>2015-05-25T20:42:36.4256636+02:00</Discovered>
+    <ApproxDiscovered>
+      <Year>101</Year>
+      <Century>-1</Century>
+      <AD>false</AD>
+      <Unknown>false</Unknown>
+    </ApproxDiscovered>
+    <IconFileName>..\..\images\NATURE08.JPG</IconFileName>
+    <listOfTags>
+      <tag>ert</tag>
+      <tag>cvb</tag>
+    </listOfTags>
+    <UnitName>barel</UnitName>
+    <FrequencyName>čest</FrequencyName>
+    <TypeName>novi</TypeName>
+  </ResourceItem>
 </ListOfResources>

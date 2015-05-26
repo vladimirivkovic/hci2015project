@@ -49,16 +49,16 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.dtpMax = new System.Windows.Forms.DateTimePicker();
             this.dtpMin = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblDate1 = new System.Windows.Forms.Label();
+            this.lblDate2 = new System.Windows.Forms.Label();
             this.chbIsImportant = new System.Windows.Forms.CheckBox();
             this.chbIsRenewable = new System.Windows.Forms.CheckBox();
             this.cmbFrequency = new System.Windows.Forms.ComboBox();
             this.cmbUnit = new System.Windows.Forms.ComboBox();
             this.txtCostMin = new System.Windows.Forms.TextBox();
             this.txtCostMax = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblCost1 = new System.Windows.Forms.Label();
+            this.lblCost2 = new System.Windows.Forms.Label();
             this.btnFilter = new System.Windows.Forms.Button();
             this.chbType = new System.Windows.Forms.CheckBox();
             this.cmbType = new System.Windows.Forms.ComboBox();
@@ -265,23 +265,23 @@
             this.dtpMin.Size = new System.Drawing.Size(121, 24);
             this.dtpMin.TabIndex = 75;
             // 
-            // label1
+            // lblDate1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(894, 91);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(32, 18);
-            this.label1.TabIndex = 76;
-            this.label1.Text = "Od:";
+            this.lblDate1.AutoSize = true;
+            this.lblDate1.Location = new System.Drawing.Point(894, 91);
+            this.lblDate1.Name = "lblDate1";
+            this.lblDate1.Size = new System.Drawing.Size(32, 18);
+            this.lblDate1.TabIndex = 76;
+            this.lblDate1.Text = "Od:";
             // 
-            // label2
+            // lblDate2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(894, 139);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 18);
-            this.label2.TabIndex = 77;
-            this.label2.Text = "Do:";
+            this.lblDate2.AutoSize = true;
+            this.lblDate2.Location = new System.Drawing.Point(894, 139);
+            this.lblDate2.Name = "lblDate2";
+            this.lblDate2.Size = new System.Drawing.Size(32, 18);
+            this.lblDate2.TabIndex = 77;
+            this.lblDate2.Text = "Do:";
             // 
             // chbIsImportant
             // 
@@ -342,23 +342,23 @@
             this.txtCostMax.Size = new System.Drawing.Size(121, 24);
             this.txtCostMax.TabIndex = 83;
             // 
-            // label3
+            // lblCost1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(894, 400);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 18);
-            this.label3.TabIndex = 84;
-            this.label3.Text = "Od:";
+            this.lblCost1.AutoSize = true;
+            this.lblCost1.Location = new System.Drawing.Point(894, 400);
+            this.lblCost1.Name = "lblCost1";
+            this.lblCost1.Size = new System.Drawing.Size(32, 18);
+            this.lblCost1.TabIndex = 84;
+            this.lblCost1.Text = "Od:";
             // 
-            // label4
+            // lblCost2
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(894, 448);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(32, 18);
-            this.label4.TabIndex = 85;
-            this.label4.Text = "Do:";
+            this.lblCost2.AutoSize = true;
+            this.lblCost2.Location = new System.Drawing.Point(894, 448);
+            this.lblCost2.Name = "lblCost2";
+            this.lblCost2.Size = new System.Drawing.Size(32, 18);
+            this.lblCost2.TabIndex = 85;
+            this.lblCost2.Text = "Do:";
             // 
             // btnFilter
             // 
@@ -392,7 +392,7 @@
             // chbTags
             // 
             this.chbTags.AutoSize = true;
-            this.chbTags.Location = new System.Drawing.Point(1040, 66);
+            this.chbTags.Location = new System.Drawing.Point(897, 499);
             this.chbTags.Name = "chbTags";
             this.chbTags.Size = new System.Drawing.Size(72, 22);
             this.chbTags.TabIndex = 89;
@@ -402,7 +402,7 @@
             // 
             // btnTags
             // 
-            this.btnTags.Location = new System.Drawing.Point(1065, 106);
+            this.btnTags.Location = new System.Drawing.Point(929, 527);
             this.btnTags.Name = "btnTags";
             this.btnTags.Size = new System.Drawing.Size(75, 30);
             this.btnTags.TabIndex = 90;
@@ -413,9 +413,10 @@
             // pnlTags
             // 
             this.pnlTags.AutoScroll = true;
-            this.pnlTags.Location = new System.Drawing.Point(1037, 142);
+            this.pnlTags.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlTags.Location = new System.Drawing.Point(1037, 453);
             this.pnlTags.Name = "pnlTags";
-            this.pnlTags.Size = new System.Drawing.Size(122, 42);
+            this.pnlTags.Size = new System.Drawing.Size(122, 104);
             this.pnlTags.TabIndex = 92;
             // 
             // groupBox1
@@ -437,7 +438,7 @@
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
-            // ResourcesFilter
+            // ResourcesFilterForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1172, 630);
@@ -449,16 +450,16 @@
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.chbType);
             this.Controls.Add(this.btnFilter);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblCost2);
+            this.Controls.Add(this.lblCost1);
             this.Controls.Add(this.txtCostMax);
             this.Controls.Add(this.txtCostMin);
             this.Controls.Add(this.cmbUnit);
             this.Controls.Add(this.cmbFrequency);
             this.Controls.Add(this.chbIsRenewable);
             this.Controls.Add(this.chbIsImportant);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblDate2);
+            this.Controls.Add(this.lblDate1);
             this.Controls.Add(this.dtpMin);
             this.Controls.Add(this.dtpMax);
             this.Controls.Add(this.txtName);
@@ -473,7 +474,7 @@
             this.Controls.Add(this.chbName);
             this.Controls.Add(this.chbID);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "ResourcesFilter";
+            this.Name = "ResourcesFilterForm";
             this.Text = "Filtriranje resursa";
             this.Load += new System.EventHandler(this.ResourcesFilter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).EndInit();
@@ -505,16 +506,16 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.DateTimePicker dtpMax;
         private System.Windows.Forms.DateTimePicker dtpMin;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblDate1;
+        private System.Windows.Forms.Label lblDate2;
         private System.Windows.Forms.CheckBox chbIsImportant;
         private System.Windows.Forms.CheckBox chbIsRenewable;
         private System.Windows.Forms.ComboBox cmbFrequency;
         private System.Windows.Forms.ComboBox cmbUnit;
         private System.Windows.Forms.TextBox txtCostMin;
         private System.Windows.Forms.TextBox txtCostMax;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblCost1;
+        private System.Windows.Forms.Label lblCost2;
         private System.Windows.Forms.Button btnFilter;
         private System.Windows.Forms.CheckBox chbType;
         private System.Windows.Forms.ComboBox cmbType;

@@ -66,7 +66,6 @@
             this.btnTags = new System.Windows.Forms.Button();
             this.pnlTags = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnOK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
             this.SuspendLayout();
             // 
@@ -427,21 +426,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalji";
             // 
-            // btnOK
-            // 
-            this.btnOK.Location = new System.Drawing.Point(1040, 578);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(121, 40);
-            this.btnOK.TabIndex = 94;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = true;
-            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
-            // 
             // ResourcesFilter
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1172, 630);
-            this.Controls.Add(this.btnOK);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlTags);
             this.Controls.Add(this.btnTags);
@@ -522,6 +510,5 @@
         private System.Windows.Forms.Button btnTags;
         private System.Windows.Forms.Panel pnlTags;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btnOK;
     }
 }

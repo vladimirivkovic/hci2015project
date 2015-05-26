@@ -28,6 +28,12 @@ namespace HCI15RA13AU
 
         private int off;
 
+        public static bool tutorialMode = false;
+
+        public static Color tutorialColor = Color.Red;
+
+        public static int tutorialStep = 0;
+
         public MainForm()
         {
             InitializeComponent();
@@ -39,6 +45,8 @@ namespace HCI15RA13AU
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+
+            btnEndTutorial.Hide();
         }
 
         private void DeserializeTags()
@@ -254,6 +262,10 @@ namespace HCI15RA13AU
             Resource r = new Resource();
             if ((e.Data.GetDataPresent(r.GetType())))
             {
+                if (tutorialMode && tutorialStep > 3)
+                {
+                    return;
+                }
                 Resource res = (Resource)e.Data.GetData(r.GetType());
 
                 ResourceIcon resIcon = new ResourceIcon(res);
@@ -332,6 +344,61 @@ namespace HCI15RA13AU
                 resIcon.Top = p.Y - 20;
 
                 pnlMap.Refresh();
+
+                if (tutorialMode)
+                {
+                    tutorialStep++;
+
+                    if (tutorialStep == 1)
+                    {
+                        resIcon.BackColor = tutorialColor;
+                        lblTutorial.Text = "Pomeri crvenu ikonicu na mapi";
+                        pnlResources.Controls.RemoveAt(0);
+                        foreach (Control ctrl in pnlResources.Controls)
+                        {
+                            if(!((Resource)ctrl.Tag).ID.Equals((((Resource)resIcon.Tag).ID)))
+                            ctrl.Top -= 108;
+                        }
+                    }
+                    else if (tutorialStep == 2)
+                    {
+                        resIcon.BackColor = Color.White;
+                        lblTutorial.Text = "Prevuci crvenu stavku na mapu";
+                        pnlResources.Controls[0].BackColor = tutorialColor;
+                    }
+                    else if (tutorialStep == 3)
+                    {
+                        resIcon.BackColor = tutorialColor;
+                        lblTutorial.Text = "Pomeri crvenu ikonicu na mapi";
+                        pnlResources.Controls.RemoveAt(0);
+                        foreach (Control ctrl in pnlResources.Controls)
+                        {
+                            if (!((Resource)ctrl.Tag).ID.Equals((((Resource)resIcon.Tag).ID)))
+                                ctrl.Top -= 108;
+                        }
+                    }
+                    else if (tutorialStep == 4)
+                    {
+                        foreach (Control ctrl in pnlMap.Controls)
+                        {
+                            if (!((Resource)ctrl.Tag).ID.Equals(((Resource)resIcon.Tag).ID))
+                            {
+                                resIcon = (ResourceIcon) ctrl;
+                                break;
+                            }
+                        }
+                        resIcon.BackColor = tutorialColor;
+                        lblTutorial.Text = "Prevuci crvenu ikonicu u kantu";
+                    }
+                    else if (tutorialStep == 5)
+                    {
+                        pnlMap.Controls[0].BackColor = tutorialColor;
+                        lblTutorial.Text = "Prevuci crvenu ikonicu na listu nemapiranih resursa";
+                    }
+
+
+                    return;
+                }
 
                 if (!resourceCoordinates.ContainsKey(res.ID))
                 {
@@ -454,6 +521,10 @@ namespace HCI15RA13AU
             Resource r = new Resource();
             if ((e.Data.GetDataPresent(r.GetType())))
             {
+                if (tutorialMode && tutorialStep != 4)
+                {
+                    return;
+                }
                 e.Effect = DragDropEffects.Copy;
             }
             else
@@ -480,9 +551,17 @@ namespace HCI15RA13AU
                     }
                 }
 
+                
+
                 if (deleted != null)
                 {
                     removeResource(deleted as ResourceIcon);
+                    if (tutorialMode)
+                    {
+                        tutorialStep++;
+                        pnlMap.Controls[0].BackColor = tutorialColor;
+                        lblTutorial.Text = "Prevuci crvenu ikonicu na listu nemapiranih resursa";
+                    }
                 }
                 else
                 {
@@ -527,7 +606,11 @@ namespace HCI15RA13AU
             if ((e.Data.GetDataPresent(r.GetType())))
             {
                 Resource res = (Resource)e.Data.GetData(r.GetType());
-                if(!resourceCoordinates.ContainsKey(res.ID))
+                if (tutorialMode && tutorialStep == 5)
+                {
+                    e.Effect = DragDropEffects.Copy;
+                }
+                else if(!resourceCoordinates.ContainsKey(res.ID))
                 {
                     e.Effect = DragDropEffects.None;
                 }
@@ -558,6 +641,11 @@ namespace HCI15RA13AU
                         deleted = ctrl;
                         break;
                     }
+                }
+
+                if (tutorialMode)
+                {
+                    lblTutorial.Text = "Tutorijal je uspesno zavrsen!";
                 }
 
                 if (deleted != null)
@@ -602,6 +690,40 @@ namespace HCI15RA13AU
             if(pnlResources.VerticalScroll.Value > 0)
                 return (int) (pnlResources.VerticalScroll.Value/1.35);
             return 0;
+        }
+
+        private void tutorijalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            tutorialMode = true;
+
+            Tutorial t = new Tutorial(this);
+            btnEndTutorial.Show();
+
+            menuStrip1.Enabled = false;
+
+            pnlMap.Controls.Clear();
+            pnlResources.Controls.Clear();
+            Resource[] dummyResources = t.GenerateDummyResources();
+
+            ResourceControl firstControl = new ResourceControl(dummyResources[0], 10);
+            firstControl.SetBackgroundColor(tutorialColor);
+            pnlResources.Controls.Add(firstControl);
+            for (int i = 1; i < dummyResources.Length; i++)
+            {
+                pnlResources.Controls.Add(new ResourceControl(dummyResources[i], pnlResources.Controls.Count * 80 + 10));
+            }
+
+            lblTutorial.Text = "Prevuci crvenu stavku na mapu";
+        }
+
+        private void btnEndTutorial_Click(object sender, EventArgs e)
+        {
+            tutorialMode = false;
+            tutorialStep = 0;
+            MainForm_Load(this, EventArgs.Empty);
+            btnEndTutorial.Hide();
+            menuStrip1.Enabled = true;
+            lblTutorial.Text = "";
         }
     }
 }

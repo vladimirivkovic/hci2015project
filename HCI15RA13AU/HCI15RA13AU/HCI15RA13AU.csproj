@@ -115,6 +115,7 @@
     <Compile Include="TagsTableForm.Designer.cs">
       <DependentUpon>TagsTableForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Tutorial.cs" />
     <Compile Include="TypeForm.cs">
       <SubType>Form</SubType>
     </Compile>

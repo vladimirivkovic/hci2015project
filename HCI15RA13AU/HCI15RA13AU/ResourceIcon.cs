@@ -46,6 +46,10 @@ namespace HCI15RA13AU
                 if ((mouseDownSelectionWindow != Rectangle.Empty)
                     && (!mouseDownSelectionWindow.Contains(e.X, e.Y)))
                 {
+                    if (MainForm.tutorialMode && !BackColor.Equals(MainForm.tutorialColor))
+                    {
+                        return;
+                    }
                     displayOffset = SystemInformation.WorkingArea.Location;
                     DragDropEffects dropEffect = this.DoDragDrop(Tag, DragDropEffects.Copy);
                 }
@@ -56,7 +60,7 @@ namespace HCI15RA13AU
         {
             this.Cursor = Cursors.Hand;
             Resource res = (Resource)Tag;
-            tt.SetToolTip(pbxIcon, "ID: " + MainForm.resources[res.ID].ID + "\nNaziv: " + MainForm.resources[res.ID].Name);
+            tt.SetToolTip(pbxIcon, "ID: " + res.ID + "\nNaziv: " + res.Name);
             tt.Active = true;
         }
 
@@ -82,13 +86,13 @@ namespace HCI15RA13AU
             {
                 pbxIcon.Image = Image.FromFile(res.IconFileName);
             }
-            catch (FileNotFoundException fnfe)
+            catch (Exception fnfe)
             {
                 try
                 {
                     pbxIcon.Image = Image.FromFile(res.Type.IconFileName);
                 }
-                catch (FileNotFoundException fnfe1)
+                catch (Exception fnfe1)
                 {
                     pbxIcon.Image = pbxIcon.InitialImage;
                     Console.WriteLine(fnfe1.StackTrace);

@@ -269,42 +269,6 @@ namespace HCI15RA13AU
         {
             ResourcesFilter resourcesFilter = new ResourcesFilter();
             resourcesFilter.ShowDialog();
-
-            if (resourcesFilter.DialogResult == DialogResult.OK)
-            {
-                TableReload(resourcesFilter.GetResources());
-            }
-        }
-
-        private void TableReload(List<Resource> list)
-        {
-            string date;
-
-            dgwResources.Rows.Clear();
-            foreach (Resource res in list)
-            {
-                date = res.Discovered.ToString(MainForm.dateFormat);
-
-                if (res.ApproxDiscovered != null)
-                {
-                    date = res.ApproxDiscovered.ToString();
-                }
-
-                dgwResources.Rows.Add(new object[] { res.ID, res.Name, 
-                    date, res.Cost.ToString("C"), res.Important, res.Renewable,
-                    Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit)});
-                dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
-            }
-            if (dgwResources.Rows.Count > 0)
-            {
-                dgwResources.CurrentCell = dgwResources.Rows[0].Cells[0];
-                dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
-            }
-        }
-
-        private void btnReload_Click(object sender, EventArgs e)
-        {
-            ResourcesTable_Load(this, EventArgs.Empty);
         }
     }
 }

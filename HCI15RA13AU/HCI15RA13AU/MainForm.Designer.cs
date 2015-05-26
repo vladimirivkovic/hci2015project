@@ -47,6 +47,9 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.lblCoordinates = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblMessage = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tutorijalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblTutorial = new System.Windows.Forms.Label();
+            this.btnEndTutorial = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -141,6 +144,8 @@
             // 
             // pomoćToolStripMenuItem
             // 
+            this.pomoćToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tutorijalToolStripMenuItem});
             this.pomoćToolStripMenuItem.Name = "pomoćToolStripMenuItem";
             this.pomoćToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.pomoćToolStripMenuItem.Text = "Pomoć";
@@ -211,12 +216,40 @@
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(0, 17);
             // 
+            // tutorijalToolStripMenuItem
+            // 
+            this.tutorijalToolStripMenuItem.Name = "tutorijalToolStripMenuItem";
+            this.tutorijalToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.tutorijalToolStripMenuItem.Text = "Tutorijal";
+            this.tutorijalToolStripMenuItem.Click += new System.EventHandler(this.tutorijalToolStripMenuItem_Click);
+            // 
+            // lblTutorial
+            // 
+            this.lblTutorial.AutoSize = true;
+            this.lblTutorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblTutorial.Location = new System.Drawing.Point(189, 554);
+            this.lblTutorial.Name = "lblTutorial";
+            this.lblTutorial.Size = new System.Drawing.Size(0, 31);
+            this.lblTutorial.TabIndex = 18;
+            // 
+            // btnEndTutorial
+            // 
+            this.btnEndTutorial.Location = new System.Drawing.Point(803, 557);
+            this.btnEndTutorial.Name = "btnEndTutorial";
+            this.btnEndTutorial.Size = new System.Drawing.Size(110, 45);
+            this.btnEndTutorial.TabIndex = 19;
+            this.btnEndTutorial.Text = "Zavrsi tutorijal";
+            this.btnEndTutorial.UseVisualStyleBackColor = true;
+            this.btnEndTutorial.Click += new System.EventHandler(this.btnEndTutorial_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1184, 695);
+            this.Controls.Add(this.btnEndTutorial);
+            this.Controls.Add(this.lblTutorial);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.lblUnmappedResources);
             this.Controls.Add(this.pnlDelete);
@@ -262,6 +295,9 @@
         private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel lblCoordinates;
         private System.Windows.Forms.ToolStripStatusLabel lblMessage;
+        private System.Windows.Forms.ToolStripMenuItem tutorijalToolStripMenuItem;
+        private System.Windows.Forms.Label lblTutorial;
+        private System.Windows.Forms.Button btnEndTutorial;
 
     }
 }
