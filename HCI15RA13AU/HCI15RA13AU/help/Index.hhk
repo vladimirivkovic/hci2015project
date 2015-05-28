@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="Precision Helper 2.0.1">
+<!-- Sitemap 1.0 -->
+</HEAD>
+<BODY>
+    <OBJECT type="text/site properties">
+      <param name="FrameName" value="right">
+    </OBJECT>
+    <UL>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Resurs">
+          <param name="Local" value="add.html">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Tip resursa">
+          <param name="Local" value="type_tag.html">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Mapa resursa">
+          <param name="Local" value="map.html">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Tutorijal">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Etiketa">
+          <param name="Local" value="type_tag.html">
+        </OBJECT>
+    </UL>
+</BODY>
+</HTML>

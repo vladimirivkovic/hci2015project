@@ -725,5 +725,10 @@ namespace HCI15RA13AU
             menuStrip1.Enabled = true;
             lblTutorial.Text = "";
         }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "..\\..\\help\\help project.chm");
+        }
     }
 }

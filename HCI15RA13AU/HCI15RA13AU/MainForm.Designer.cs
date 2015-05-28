@@ -40,6 +40,8 @@
             this.tipoviResursaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.etiketeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomoćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tutorijalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pomoćToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMap = new System.Windows.Forms.Panel();
             this.pnlResources = new System.Windows.Forms.Panel();
             this.pnlDelete = new System.Windows.Forms.Panel();
@@ -47,9 +49,9 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.lblCoordinates = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblMessage = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tutorijalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTutorial = new System.Windows.Forms.Label();
             this.btnEndTutorial = new System.Windows.Forms.Button();
+            this.helpProvider = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -145,17 +147,35 @@
             // pomoćToolStripMenuItem
             // 
             this.pomoćToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tutorijalToolStripMenuItem});
+            this.tutorijalToolStripMenuItem,
+            this.pomoćToolStripMenuItem1});
             this.pomoćToolStripMenuItem.Name = "pomoćToolStripMenuItem";
             this.pomoćToolStripMenuItem.Size = new System.Drawing.Size(67, 24);
             this.pomoćToolStripMenuItem.Text = "Pomoć";
+            // 
+            // tutorijalToolStripMenuItem
+            // 
+            this.tutorijalToolStripMenuItem.Name = "tutorijalToolStripMenuItem";
+            this.tutorijalToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.tutorijalToolStripMenuItem.Text = "Tutorijal";
+            this.tutorijalToolStripMenuItem.Click += new System.EventHandler(this.tutorijalToolStripMenuItem_Click);
+            // 
+            // pomoćToolStripMenuItem1
+            // 
+            this.pomoćToolStripMenuItem1.Name = "pomoćToolStripMenuItem1";
+            this.pomoćToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
+            this.pomoćToolStripMenuItem1.Text = "Help";
+            this.pomoćToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // pnlMap
             // 
             this.pnlMap.AllowDrop = true;
             this.pnlMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMap.BackgroundImage")));
+            this.helpProvider.SetHelpKeyword(this.pnlMap, "");
+            this.helpProvider.SetHelpNavigator(this.pnlMap, System.Windows.Forms.HelpNavigator.TableOfContents);
             this.pnlMap.Location = new System.Drawing.Point(12, 61);
             this.pnlMap.Name = "pnlMap";
+            this.helpProvider.SetShowHelp(this.pnlMap, true);
             this.pnlMap.Size = new System.Drawing.Size(901, 490);
             this.pnlMap.TabIndex = 13;
             this.pnlMap.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlMap_DragDrop);
@@ -216,13 +236,6 @@
             this.lblMessage.Name = "lblMessage";
             this.lblMessage.Size = new System.Drawing.Size(0, 17);
             // 
-            // tutorijalToolStripMenuItem
-            // 
-            this.tutorijalToolStripMenuItem.Name = "tutorijalToolStripMenuItem";
-            this.tutorijalToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
-            this.tutorijalToolStripMenuItem.Text = "Tutorijal";
-            this.tutorijalToolStripMenuItem.Click += new System.EventHandler(this.tutorijalToolStripMenuItem_Click);
-            // 
             // lblTutorial
             // 
             this.lblTutorial.AutoSize = true;
@@ -241,6 +254,10 @@
             this.btnEndTutorial.Text = "Zavrsi tutorijal";
             this.btnEndTutorial.UseVisualStyleBackColor = true;
             this.btnEndTutorial.Click += new System.EventHandler(this.btnEndTutorial_Click);
+            // 
+            // helpProvider
+            // 
+            this.helpProvider.HelpNamespace = "../../help/help project.chm";
             // 
             // MainForm
             // 
@@ -298,6 +315,8 @@
         private System.Windows.Forms.ToolStripMenuItem tutorijalToolStripMenuItem;
         private System.Windows.Forms.Label lblTutorial;
         private System.Windows.Forms.Button btnEndTutorial;
+        private System.Windows.Forms.ToolStripMenuItem pomoćToolStripMenuItem1;
+        private System.Windows.Forms.HelpProvider helpProvider;
 
     }
 }
