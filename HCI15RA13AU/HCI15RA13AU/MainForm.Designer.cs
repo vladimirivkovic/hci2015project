@@ -43,6 +43,7 @@
             this.tutorijalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomoćToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMap = new System.Windows.Forms.Panel();
+            this.pbxLeft = new System.Windows.Forms.PictureBox();
             this.pnlResources = new System.Windows.Forms.Panel();
             this.pnlDelete = new System.Windows.Forms.Panel();
             this.lblUnmappedResources = new System.Windows.Forms.Label();
@@ -52,9 +53,15 @@
             this.lblTutorial = new System.Windows.Forms.Label();
             this.btnEndTutorial = new System.Windows.Forms.Button();
             this.helpProvider = new System.Windows.Forms.HelpProvider();
+            this.pbxDown = new System.Windows.Forms.PictureBox();
+            this.pbxRight = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            this.pnlMap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLeft)).BeginInit();
             this.statusStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRight)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -156,32 +163,47 @@
             // tutorijalToolStripMenuItem
             // 
             this.tutorijalToolStripMenuItem.Name = "tutorijalToolStripMenuItem";
-            this.tutorijalToolStripMenuItem.Size = new System.Drawing.Size(152, 24);
+            this.tutorijalToolStripMenuItem.Size = new System.Drawing.Size(133, 24);
             this.tutorijalToolStripMenuItem.Text = "Tutorijal";
             this.tutorijalToolStripMenuItem.Click += new System.EventHandler(this.tutorijalToolStripMenuItem_Click);
             // 
             // pomoćToolStripMenuItem1
             // 
             this.pomoćToolStripMenuItem1.Name = "pomoćToolStripMenuItem1";
-            this.pomoćToolStripMenuItem1.Size = new System.Drawing.Size(152, 24);
+            this.pomoćToolStripMenuItem1.Size = new System.Drawing.Size(133, 24);
             this.pomoćToolStripMenuItem1.Text = "Help";
             this.pomoćToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // pnlMap
             // 
             this.pnlMap.AllowDrop = true;
+            this.pnlMap.BackColor = System.Drawing.Color.Transparent;
             this.pnlMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMap.BackgroundImage")));
+            this.pnlMap.Controls.Add(this.pbxRight);
+            this.pnlMap.Controls.Add(this.pbxDown);
+            this.pnlMap.Controls.Add(this.pbxLeft);
             this.helpProvider.SetHelpKeyword(this.pnlMap, "");
             this.helpProvider.SetHelpNavigator(this.pnlMap, System.Windows.Forms.HelpNavigator.TableOfContents);
             this.pnlMap.Location = new System.Drawing.Point(12, 61);
             this.pnlMap.Name = "pnlMap";
-            this.helpProvider.SetShowHelp(this.pnlMap, true);
+            this.helpProvider.SetShowHelp(this.pnlMap, false);
             this.pnlMap.Size = new System.Drawing.Size(901, 490);
             this.pnlMap.TabIndex = 13;
             this.pnlMap.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlMap_DragDrop);
             this.pnlMap.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlMap_DragEnter);
             this.pnlMap.DragOver += new System.Windows.Forms.DragEventHandler(this.pnlMap_DragOver);
             this.pnlMap.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlMap_MouseMove);
+            // 
+            // pbxLeft
+            // 
+            this.pbxLeft.BackColor = System.Drawing.Color.Transparent;
+            this.pbxLeft.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxLeft.BackgroundImage")));
+            this.pbxLeft.InitialImage = null;
+            this.pbxLeft.Location = new System.Drawing.Point(781, 32);
+            this.pbxLeft.Name = "pbxLeft";
+            this.pbxLeft.Size = new System.Drawing.Size(120, 56);
+            this.pbxLeft.TabIndex = 0;
+            this.pbxLeft.TabStop = false;
             // 
             // pnlResources
             // 
@@ -247,7 +269,7 @@
             // 
             // btnEndTutorial
             // 
-            this.btnEndTutorial.Location = new System.Drawing.Point(803, 557);
+            this.btnEndTutorial.Location = new System.Drawing.Point(803, 622);
             this.btnEndTutorial.Name = "btnEndTutorial";
             this.btnEndTutorial.Size = new System.Drawing.Size(110, 45);
             this.btnEndTutorial.TabIndex = 19;
@@ -258,6 +280,24 @@
             // helpProvider
             // 
             this.helpProvider.HelpNamespace = "../../help/help project.chm";
+            // 
+            // pbxDown
+            // 
+            this.pbxDown.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxDown.BackgroundImage")));
+            this.pbxDown.Location = new System.Drawing.Point(27, 367);
+            this.pbxDown.Name = "pbxDown";
+            this.pbxDown.Size = new System.Drawing.Size(56, 120);
+            this.pbxDown.TabIndex = 1;
+            this.pbxDown.TabStop = false;
+            // 
+            // pbxRight
+            // 
+            this.pbxRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxRight.BackgroundImage")));
+            this.pbxRight.Location = new System.Drawing.Point(781, 149);
+            this.pbxRight.Name = "pbxRight";
+            this.pbxRight.Size = new System.Drawing.Size(120, 56);
+            this.pbxRight.TabIndex = 2;
+            this.pbxRight.TabStop = false;
             // 
             // MainForm
             // 
@@ -285,8 +325,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.pnlMap.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxLeft)).EndInit();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRight)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -317,6 +361,9 @@
         private System.Windows.Forms.Button btnEndTutorial;
         private System.Windows.Forms.ToolStripMenuItem pomoćToolStripMenuItem1;
         private System.Windows.Forms.HelpProvider helpProvider;
+        private System.Windows.Forms.PictureBox pbxLeft;
+        private System.Windows.Forms.PictureBox pbxDown;
+        private System.Windows.Forms.PictureBox pbxRight;
 
     }
 }

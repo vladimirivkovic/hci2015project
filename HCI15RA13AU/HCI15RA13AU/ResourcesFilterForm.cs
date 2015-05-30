@@ -143,7 +143,8 @@ namespace HCI15RA13AU
                                                     && cmbType.SelectedItem.Equals(res.Type.ID)))
                                                 && (!dtpMax.Enabled 
                                                     || (dtpMax.Value.CompareTo(res.Discovered) >= 0 
-                                                    && dtpMin.Value.CompareTo(res.Discovered) <= 0)))
+                                                    && dtpMin.Value.CompareTo(res.Discovered) <= 0
+                                                    && res.ApproxDiscovered == null)))
                                                 // exploation
                                             select res;
             dgwResources.Rows.Clear();

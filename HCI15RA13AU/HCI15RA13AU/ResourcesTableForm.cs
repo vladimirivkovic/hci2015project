@@ -12,10 +12,14 @@ namespace HCI15RA13AU
 {
     public partial class ResourcesTableForm : Form
     {
+        private List<Resource> currentResources = new List<Resource>();
+        private bool filterOn = false;
+
         public ResourcesTableForm()
         {
             InitializeComponent();
             menuStrip1.Hide();
+            currentResources = MainForm.resources.Values.ToList();
         }
 
         private void dgwResources_SelectionChanged(object sender, EventArgs e)
@@ -217,10 +221,16 @@ namespace HCI15RA13AU
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
             string date;
+
+            if (!filterOn)
+            {
+                currentResources = MainForm.resources.Values.ToList();
+            }
+
             if (txtSearch.Text.Equals("") || !(chbId.Checked || chbName.Checked || chbType.Checked))
             {
                 dgwResources.Rows.Clear();
-                foreach (Resource res in MainForm.resources.Values)
+                foreach (Resource res in currentResources)
                 {
                     date = res.Discovered.ToString(MainForm.dateFormat);
 
@@ -242,7 +252,7 @@ namespace HCI15RA13AU
             else
             {
                 dgwResources.Rows.Clear();
-                foreach (Resource res in MainForm.resources.Values)
+                foreach (Resource res in currentResources)
                 {
                     if ((res.ID.Contains(txtSearch.Text) && chbId.Checked) ||
                         (res.Name.Contains(txtSearch.Text) && chbName.Checked) ||
@@ -275,6 +285,7 @@ namespace HCI15RA13AU
             {
                 ResourcesTable_Load(this, EventArgs.Empty);
                 btnFilter.Text = "Filtriraj";
+                filterOn = false;
                 return;
             }
             ResourcesFilterForm resourcesFilter = new ResourcesFilterForm();
@@ -284,6 +295,7 @@ namespace HCI15RA13AU
             {
                 TableReload(resourcesFilter.GetResources());
                 btnFilter.Text = "Ponisti filter";
+                filterOn = true;
             }
         }
 
@@ -291,8 +303,10 @@ namespace HCI15RA13AU
         {
             string date;
 
+            currentResources = list;
+
             dgwResources.Rows.Clear();
-            foreach (Resource res in list)
+            foreach (Resource res in currentResources)
             {
                 date = res.Discovered.ToString(MainForm.dateFormat);
 

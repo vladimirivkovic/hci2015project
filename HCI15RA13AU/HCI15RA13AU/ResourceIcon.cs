@@ -28,7 +28,8 @@ namespace HCI15RA13AU
             tt = new ToolTip();
             this.Tag = res;
 
-            pbxIcon.ContextMenuStrip = contextMenu;
+            if(MainForm.tutorialMode == false)
+                pbxIcon.ContextMenuStrip = contextMenu;
 
             UpdateControl();
         }
@@ -66,6 +67,11 @@ namespace HCI15RA13AU
 
         private void ResourceIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
+            if (MainForm.tutorialMode)
+            {
+                return;
+            }
+
             NewResourceForm erf = new NewResourceForm(MainForm.resources[((Resource)Tag).ID]);
             erf.ShowDialog();
 

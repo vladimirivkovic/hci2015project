@@ -43,10 +43,12 @@ namespace HCI15RA13AU
             DeserializeCoordinates();
 
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+
 
             btnEndTutorial.Hide();
+            pbxLeft.Hide();
+            pbxDown.Hide();
+            pbxRight.Hide();
         }
 
         private void DeserializeTags()
@@ -351,6 +353,7 @@ namespace HCI15RA13AU
 
                     if (tutorialStep == 1)
                     {
+                        pbxLeft.SendToBack();
                         resIcon.BackColor = tutorialColor;
                         lblTutorial.Text = "Pomeri crvenu ikonicu na mapi";
                         pnlResources.Controls.RemoveAt(0);
@@ -359,12 +362,14 @@ namespace HCI15RA13AU
                             if(!((Resource)ctrl.Tag).ID.Equals((((Resource)resIcon.Tag).ID)))
                             ctrl.Top -= 108;
                         }
+                        pbxLeft.Hide();
                     }
                     else if (tutorialStep == 2)
                     {
                         resIcon.BackColor = Color.White;
                         lblTutorial.Text = "Prevuci crvenu stavku na mapu";
                         pnlResources.Controls[0].BackColor = tutorialColor;
+                        pbxLeft.Show();
                     }
                     else if (tutorialStep == 3)
                     {
@@ -376,12 +381,13 @@ namespace HCI15RA13AU
                             if (!((Resource)ctrl.Tag).ID.Equals((((Resource)resIcon.Tag).ID)))
                                 ctrl.Top -= 108;
                         }
+                        pbxLeft.Hide();
                     }
                     else if (tutorialStep == 4)
                     {
                         foreach (Control ctrl in pnlMap.Controls)
                         {
-                            if (!((Resource)ctrl.Tag).ID.Equals(((Resource)resIcon.Tag).ID))
+                            if (ctrl.Tag != null && !((Resource)ctrl.Tag).ID.Equals(((Resource)resIcon.Tag).ID))
                             {
                                 resIcon = (ResourceIcon) ctrl;
                                 break;
@@ -389,11 +395,13 @@ namespace HCI15RA13AU
                         }
                         resIcon.BackColor = tutorialColor;
                         lblTutorial.Text = "Prevuci crvenu ikonicu u kantu";
+                        pbxDown.Show();
                     }
                     else if (tutorialStep == 5)
                     {
-                        pnlMap.Controls[0].BackColor = tutorialColor;
+                        pnlMap.Controls[3].BackColor = tutorialColor;
                         lblTutorial.Text = "Prevuci crvenu ikonicu na listu nemapiranih resursa";
+                        pbxRight.Show();
                     }
 
 
@@ -544,7 +552,7 @@ namespace HCI15RA13AU
 
                 foreach (Control ctrl in pnlMap.Controls)
                 {
-                    if (ctrl.Tag.Equals(res))
+                    if (ctrl.Tag != null && ctrl.Tag.Equals(res))
                     {
                         deleted = ctrl;
                         break;
@@ -559,8 +567,10 @@ namespace HCI15RA13AU
                     if (tutorialMode)
                     {
                         tutorialStep++;
-                        pnlMap.Controls[0].BackColor = tutorialColor;
+                        pnlMap.Controls[3].BackColor = tutorialColor;
                         lblTutorial.Text = "Prevuci crvenu ikonicu na listu nemapiranih resursa";
+                        pbxDown.Hide();
+                        pbxRight.Show();
                     }
                 }
                 else
@@ -636,7 +646,7 @@ namespace HCI15RA13AU
 
                 foreach (Control ctrl in pnlMap.Controls)
                 {
-                    if (ctrl.Tag.Equals(res))
+                    if (ctrl.Tag != null && ctrl.Tag.Equals(res))
                     {
                         deleted = ctrl;
                         break;
@@ -646,6 +656,7 @@ namespace HCI15RA13AU
                 if (tutorialMode)
                 {
                     lblTutorial.Text = "Tutorijal je uspesno zavrsen!";
+                    pbxRight.Hide();
                 }
 
                 if (deleted != null)
@@ -699,6 +710,7 @@ namespace HCI15RA13AU
             Tutorial t = new Tutorial(this);
             btnEndTutorial.Show();
 
+
             menuStrip1.Enabled = false;
 
             pnlMap.Controls.Clear();
@@ -714,6 +726,11 @@ namespace HCI15RA13AU
             }
 
             lblTutorial.Text = "Prevuci crvenu stavku na mapu";
+
+            pnlMap.Controls.Add(pbxLeft);
+            pnlMap.Controls.Add(pbxDown);
+            pnlMap.Controls.Add(pbxRight);
+            pbxLeft.Show();
         }
 
         private void btnEndTutorial_Click(object sender, EventArgs e)

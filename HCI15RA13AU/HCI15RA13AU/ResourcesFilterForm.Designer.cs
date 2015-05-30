@@ -65,7 +65,6 @@
             this.chbTags = new System.Windows.Forms.CheckBox();
             this.btnTags = new System.Windows.Forms.Button();
             this.pnlTags = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnOK = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
             this.SuspendLayout();
@@ -179,7 +178,7 @@
             this.dgwResources.Name = "dgwResources";
             this.dgwResources.ReadOnly = true;
             this.dgwResources.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwResources.Size = new System.Drawing.Size(845, 384);
+            this.dgwResources.Size = new System.Drawing.Size(845, 605);
             this.dgwResources.TabIndex = 70;
             this.dgwResources.SelectionChanged += new System.EventHandler(this.dgwResources_SelectionChanged);
             // 
@@ -419,15 +418,6 @@
             this.pnlTags.Size = new System.Drawing.Size(122, 104);
             this.pnlTags.TabIndex = 92;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(12, 420);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(846, 198);
-            this.groupBox1.TabIndex = 93;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Detalji";
-            // 
             // btnOK
             // 
             this.btnOK.Location = new System.Drawing.Point(1040, 578);
@@ -443,7 +433,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1172, 630);
             this.Controls.Add(this.btnOK);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pnlTags);
             this.Controls.Add(this.btnTags);
             this.Controls.Add(this.chbTags);
@@ -522,7 +511,6 @@
         private System.Windows.Forms.CheckBox chbTags;
         private System.Windows.Forms.Button btnTags;
         private System.Windows.Forms.Panel pnlTags;
-        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnOK;
     }
 }
