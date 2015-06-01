@@ -13,6 +13,8 @@ namespace HCI15RA13AU
     {
         private bool formIsValid;
         private Color color = Color.White;
+        private bool edit = false;
+        private string ID;
 
         public TagForm()
         {
@@ -23,12 +25,13 @@ namespace HCI15RA13AU
         public TagForm(Tag t)
         {
             InitializeComponent();
-            txtId.Text = t.ID;
+            txtId.Text = t.SecondID;
             txtDescription.Text = t.Description;
             txtColor.BackColor = t.Color;
             color = txtColor.BackColor;
 
-            txtId.ReadOnly = true;
+            ID = t.ID;
+            edit = true;
             this.Text = "Izmena etikete";
         }
 
@@ -37,7 +40,17 @@ namespace HCI15RA13AU
             Tag t = new Tag();
             t.Color = color;
             t.Description = txtDescription.Text;
-            t.ID = txtId.Text;
+
+            int i = 0;
+            t.ID = edit ? ID : txtId.Text;
+            if (!edit && MainForm.tags.ContainsKey(t.ID))
+            {
+                do { i++; } while (!edit && MainForm.tags.ContainsKey(t.ID + i));
+                t.ID += i++;
+            }
+
+            t.SecondID = txtId.Text;
+                
             return t;
         }
 
@@ -59,14 +72,28 @@ namespace HCI15RA13AU
                 formIsValid = false;
                 epTag.SetError(txtId, "Unos oznake je obavezan");
             }
-            else if(MainForm.tags.ContainsKey(txtId.Text) && !txtId.ReadOnly)
+            else if (txtId.Text.Contains(" "))
             {
                 formIsValid = false;
-                epTag.SetError(txtId, "Etiketa sa ovom oznakom već postoji");
+                epTag.SetError(txtId, "Oznaka ne sme sadrzavati razmake");
             }
             else
             {
-                epTag.SetError(txtId, "");
+                Tag t = MainForm.GetTagBySecondID(txtId.Text);
+                if (t != null && !edit)
+                {
+                    formIsValid = false;
+                    epTag.SetError(txtId, "Etiketa sa ovom oznakom već postoji");
+                }
+                else if (t != null && edit && !t.ID.Equals(ID))
+                {
+                    formIsValid = false;
+                    epTag.SetError(txtId, "Etiketa sa ovom oznakom već postoji");
+                }
+                else
+                {
+                    epTag.SetError(txtId, "");
+                }
             }
         }
 

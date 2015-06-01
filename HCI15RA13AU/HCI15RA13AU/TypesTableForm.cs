@@ -37,7 +37,7 @@ namespace HCI15RA13AU
             {
                 Type t = tf.GetResourceType();
                 MainForm.types.Add(t.ID, t);
-                dgwTypes.Rows.Add(new object[] { t.ID, t.Name });
+                dgwTypes.Rows.Add(new object[] { t.SecondID, t.Name });
                 dgwTypes.Rows[dgwTypes.Rows.Count - 1].Tag = t;
                 dgwTypes.CurrentCell = dgwTypes.Rows[dgwTypes.Rows.Count - 1].Cells[0];
             }
@@ -59,7 +59,7 @@ namespace HCI15RA13AU
                             Type t = tf.GetResourceType();
                             int index = dgwTypes.Rows.IndexOf(row);
                             dgwTypes.Rows.RemoveAt(index);
-                            dgwTypes.Rows.Insert(index, new object[] { t.ID, t.Name });
+                            dgwTypes.Rows.Insert(index, new object[] { t.SecondID, t.Name });
                             dgwTypes.Rows[index].Tag = t;
                             dgwTypes.CurrentCell = dgwTypes.Rows[index].Cells[0];
                             MainForm.types.Remove(t.ID);
@@ -103,7 +103,7 @@ namespace HCI15RA13AU
                         StringBuilder sb = new StringBuilder("Brisanjem tipa biće obrisani i sledeci resursi toga tipa:\n");
                         foreach (Resource res in deleted)
                         {
-                            sb.AppendLine(res.ID);
+                            sb.AppendLine(res.SecondID);
                         }
                         sb.AppendLine("Da li želite da nastavite sa brisanjem?");
                         DialogResult result = MessageBox.Show(sb.ToString(),
@@ -166,7 +166,7 @@ namespace HCI15RA13AU
             dgwTypes.Rows.Clear();
             foreach (Type t in MainForm.types.Values)
             {
-                dgwTypes.Rows.Add(new object[] { t.ID, t.Name });
+                dgwTypes.Rows.Add(new object[] { t.SecondID, t.Name });
                 dgwTypes.Rows[dgwTypes.Rows.Count - 1].Tag = t;
             }
             if (dgwTypes.Rows.Count > 0)

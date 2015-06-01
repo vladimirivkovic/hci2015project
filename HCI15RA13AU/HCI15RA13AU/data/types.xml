@@ -2,20 +2,30 @@
 <ListOfTypes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Type>
     <ID>prvi</ID>
+    <SecondID>prvi</SecondID>
     <Name>tip</Name>
     <IconFileName>..\..\images\WFALLS13.JPE</IconFileName>
     <Description>nakon dugo vremena</Description>
   </Type>
   <Type>
     <ID>novi</ID>
+    <SecondID>noviq</SecondID>
     <Name>tip</Name>
     <IconFileName>..\..\images\EARTH41.JPG</IconFileName>
     <Description>resursa</Description>
   </Type>
   <Type>
     <ID>ytr</ID>
+    <SecondID>ytr</SecondID>
     <Name>hgf</Name>
     <IconFileName>..\..\images\Shed in Field.jpg</IconFileName>
     <Description>nbv</Description>
+  </Type>
+  <Type>
+    <ID>novi1</ID>
+    <SecondID>novi</SecondID>
+    <Name>qascweovfn</Name>
+    <IconFileName>..\..\images\GRNDFOG.JPG</IconFileName>
+    <Description>wsdvonjowjenv</Description>
   </Type>
 </ListOfTypes>

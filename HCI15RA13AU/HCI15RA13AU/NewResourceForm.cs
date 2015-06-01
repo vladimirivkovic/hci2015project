@@ -21,6 +21,7 @@ namespace HCI15RA13AU
         private int year;
         private int century;
         private bool edit = false;
+        private string ID;
 
         public NewResourceForm()
         {
@@ -47,8 +48,9 @@ namespace HCI15RA13AU
             tags = res.Tags;
             type = res.Type;
 
-            txtId.Text = res.ID;
-            txtId.ReadOnly = true;
+            ID = res.ID;
+
+            txtId.Text = res.SecondID;
             txtName.Text = res.Name;
             txtDescription.Text = res.Description;
             lblIconName.Text = res.IconFileName;
@@ -135,14 +137,23 @@ namespace HCI15RA13AU
                 formIsValid = false;
                 epAdd.SetError(txtId, "Oznaka ne može sadržavati razmake");
             }
-            else if (!edit && MainForm.resources.ContainsKey(txtId.Text))
-            {
-                formIsValid = false;
-                epAdd.SetError(txtId, "Resurs sa ovom oznakom već postoji");
-            }
             else
             {
-                epAdd.SetError(txtId, "");
+                Resource res = MainForm.GetResourceBySecondID(txtId.Text);
+                if (res != null && !edit)
+                {
+                    formIsValid = false;
+                    epAdd.SetError(txtId, "Resurs sa ovom oznakom već postoji");
+                }
+                else if (res != null && edit && !res.ID.Equals(ID))
+                {
+                    formIsValid = false;
+                    epAdd.SetError(txtId, "Resurs sa ovom oznakom već postoji");
+                }
+                else
+                {
+                    epAdd.SetError(txtId, "");
+                }
             }
         }
 
@@ -239,7 +250,16 @@ namespace HCI15RA13AU
         public Resource GetResource()
         {
             Resource res = new Resource();
-            res.ID = txtId.Text;
+
+            int i=0;
+            res.ID = edit ? ID : txtId.Text;
+            if (!edit && MainForm.resources.ContainsKey(res.ID))
+            {
+                do { i++; } while (MainForm.resources.ContainsKey(res.ID + i));
+                res.ID += i++;
+            }
+            
+            res.SecondID = txtId.Text;
             res.Name = txtName.Text;
             res.Description = txtDescription.Text;
             res.Important = chbImportant.Checked;
@@ -361,6 +381,7 @@ namespace HCI15RA13AU
                         epAdd.SetError(txtYear, "");
                     }
                 }
+                    // TODO : CHECK 22 CENTURY
                 else
                 {
                     formIsValid = false;
@@ -385,6 +406,7 @@ namespace HCI15RA13AU
                         formIsValid = false;
                         epAdd.SetError(txtCentury, "Vek treba da bude pozitivan ceo broj");
                     }
+                        // TODO : CHECK 2222 YEAR
                     else
                     {
                         epAdd.SetError(txtCentury, "");
@@ -448,7 +470,7 @@ namespace HCI15RA13AU
             if (typesTable.DialogResult == DialogResult.OK)
             {
                 type = typesTable.GetType();
-                lblTypeID.Text = type.ID;
+                lblTypeID.Text = type.SecondID;
             }
         }
 

@@ -195,12 +195,16 @@ namespace HCI15RA13AU
         {
             TypesTableForm typesTable = new TypesTableForm();
             typesTable.ShowDialog();
+
+            updateMap();
         }
 
         private void tagsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TagsTableForm tagsTable = new TagsTableForm();
             tagsTable.ShowDialog();
+
+            updateMap();
         }
 
         private void resursiToolStripMenuItem_Click(object sender, EventArgs e)
@@ -515,8 +519,9 @@ namespace HCI15RA13AU
                     {
                         Resource res = MainForm.resources[((Resource)resCtrl.Tag).ID];
                         resCtrl.Tag = res;
-                        resCtrl.UpdateControl();
+                        
                     }
+                    resCtrl.UpdateControl();
                 }
             }
 
@@ -667,7 +672,7 @@ namespace HCI15RA13AU
                 {
                     pnlMap.Controls.Remove(deleted);
                     resourceCoordinates.Remove(res.ID);
-                    pnlResources.Controls.Add(new ResourceControl(res, pnlResources.Controls.Count * 80 + 10));
+                    pnlResources.Controls.Add(new ResourceControl(resources[res.ID], pnlResources.Controls.Count * 80 + 10));
                 }
                 lblUnmappedResources.Text = "Nemapirani resursi(" + pnlResources.Controls.Count + ")";
             }
@@ -846,6 +851,54 @@ namespace HCI15RA13AU
                     lblTutorial.Left -= pnlResources.Width - pnlDelete.Width;
                 }
             }
+        }
+
+        public static Tag GetTagBySecondID(string secondID)
+        {
+            Tag t = null;
+
+            foreach (Tag tg in tags.Values)
+            {
+                if (tg.SecondID.Equals(secondID))
+                {
+                    t = tg;
+                    break;
+                }
+            }
+
+            return t;
+        }
+
+        public static Type GetTypeBySecondID(string secondID)
+        {
+            Type t = null;
+
+            foreach (Type tg in types.Values)
+            {
+                if (tg.SecondID.Equals(secondID))
+                {
+                    t = tg;
+                    break;
+                }
+            }
+
+            return t;
+        }
+
+        public static Resource GetResourceBySecondID(string secondID)
+        {
+            Resource r = null;
+
+            foreach (Resource res in resources.Values)
+            {
+                if (res.SecondID.Equals(secondID))
+                {
+                    r = res;
+                    break;
+                }
+            }
+
+            return r;
         }
     }
 }

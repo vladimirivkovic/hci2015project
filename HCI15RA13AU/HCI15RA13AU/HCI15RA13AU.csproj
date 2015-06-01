@@ -46,29 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChooseDate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChooseDate.Designer.cs">
-      <DependentUpon>ChooseDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ChooseTypeForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ChooseTypeForm.Designer.cs">
-      <DependentUpon>ChooseTypeForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="NewResourceForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="NewResourceForm.Designer.cs">
       <DependentUpon>NewResourceForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EditResourceForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditResourceForm.Designer.cs">
-      <DependentUpon>EditResourceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -134,17 +116,8 @@
     <Compile Include="ResourceControl.Designer.cs">
       <DependentUpon>ResourceControl.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ChooseDate.resx">
-      <DependentUpon>ChooseDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ChooseTypeForm.resx">
-      <DependentUpon>ChooseTypeForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="NewResourceForm.resx">
       <DependentUpon>NewResourceForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EditResourceForm.resx">
-      <DependentUpon>EditResourceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -30,7 +30,7 @@ namespace HCI15RA13AU
             this.cmbType.DropDownStyle = ComboBoxStyle.DropDownList;
             foreach (Type t in MainForm.types.Values)
             {
-                cmbType.Items.Add(t.ID);
+                cmbType.Items.Add(t.SecondID);
             }
 
             chbID_CheckedChanged(this, EventArgs.Empty);
@@ -101,7 +101,7 @@ namespace HCI15RA13AU
                     date = res.ApproxDiscovered.ToString();
                 }
 
-                dgwResources.Rows.Add(new object[] { res.ID, res.Name, 
+                dgwResources.Rows.Add(new object[] { res.SecondID, res.Name, 
                     date, res.Cost.ToString("C"), res.Important, res.Renewable,
                     Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit)});
                 dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
@@ -127,7 +127,7 @@ namespace HCI15RA13AU
 
             resources.Clear();
             IEnumerable<Resource> result1 = from res in MainForm.resources.Values
-                                           where ((!txtID.Enabled || txtID.Text.Equals(res.ID))
+                                           where ((!txtID.Enabled || txtID.Text.Equals(res.SecondID))
                                                 && (!txtName.Enabled || txtName.Text.Equals(res.Name))
                                                 && (!chbIsImportant.Enabled || chbIsImportant.Checked == res.Important)
                                                 && (!chbIsRenewable.Enabled || chbIsRenewable.Checked == res.Renewable)
@@ -140,7 +140,7 @@ namespace HCI15RA13AU
                                                 && (!txtCostMax.Enabled || (minCost <= res.Cost && res.Cost <= maxCost))
                                                 && (!cmbType.Enabled 
                                                     || (cmbType.SelectedItem != null 
-                                                    && cmbType.SelectedItem.Equals(res.Type.ID)))
+                                                    && cmbType.SelectedItem.Equals(res.Type.SecondID)))
                                                 && (!dtpMax.Enabled 
                                                     || (dtpMax.Value.CompareTo(res.Discovered) >= 0 
                                                     && dtpMin.Value.CompareTo(res.Discovered) <= 0
@@ -181,7 +181,7 @@ namespace HCI15RA13AU
                 {
                     date = res.ApproxDiscovered.ToString();
                 }
-                dgwResources.Rows.Add(new object[] { res.ID, res.Name, 
+                dgwResources.Rows.Add(new object[] { res.SecondID, res.Name, 
                     date, res.Cost.ToString("C"), res.Important, res.Renewable,
                     Resource.FrequencyToString(res.Frequency), Resource.UnitToString(res.Unit)});
                 dgwResources.Rows[dgwResources.Rows.Count - 1].Tag = res;
@@ -228,7 +228,7 @@ namespace HCI15RA13AU
                     lbl = new Label();
                     //lbl.Width = 5*t.Length;
                     lbl.Top = off;
-                    lbl.Text = MainForm.tags[t].ID;
+                    lbl.Text = MainForm.tags[t].SecondID;
                     lbl.BackColor = MainForm.tags[t].Color;
                     //lbl.Left = off;
                     pnlTags.Controls.Add(lbl);

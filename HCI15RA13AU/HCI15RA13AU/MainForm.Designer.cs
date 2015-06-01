@@ -320,10 +320,13 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpProvider.SetHelpKeyword(this, "Mapa resursa");
+            this.helpProvider.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.Name = "MainForm";
+            this.helpProvider.SetShowHelp(this, true);
             this.Text = "Mapa svetskih resursa";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);

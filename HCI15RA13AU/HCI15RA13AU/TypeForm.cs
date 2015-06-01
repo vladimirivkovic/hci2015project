@@ -15,6 +15,8 @@ namespace HCI15RA13AU
         private OpenFileDialog ofd = new OpenFileDialog();
         private bool formIsValid;
         private Type type;
+        private bool edit = false;
+        private string ID;
 
         public TypeForm()
         {
@@ -27,7 +29,7 @@ namespace HCI15RA13AU
             ofd.Filter = "Image Files(*.BMP;*.JPG;*.PNG)|*.BMP;*.JPG;*.PNG";
             this.type = new Type();
             this.type = type;
-            txtId.Text = type.ID;
+            txtId.Text = type.SecondID;
             txtName.Text = type.Name;
             txtDescription.Text = type.Description;
             if (type.IconFileName != null)
@@ -35,7 +37,8 @@ namespace HCI15RA13AU
             else
                 lblIconName.Text = "";
 
-            txtId.ReadOnly = true;
+            ID = type.ID;
+            edit = true;
             this.Text = "Izmena tipa resursa";
         }
 
@@ -46,14 +49,28 @@ namespace HCI15RA13AU
                 formIsValid = false;
                 epType.SetError(txtId, "Unos oznake je obavezan");
             }
-            else if (MainForm.types.ContainsKey(txtId.Text) && !txtId.ReadOnly)
+            else if (txtId.Text.Contains(" "))
             {
                 formIsValid = false;
-                epType.SetError(txtId, "Tip resursa sa ovom oznakom već postoji");
+                epType.SetError(txtId, "Oznaka ne sme sadrzavati razmake");
             }
             else
             {
-                epType.SetError(txtId, "");
+                Type t = MainForm.GetTypeBySecondID(txtId.Text);
+                if (t != null && !edit)
+                {
+                    formIsValid = false;
+                    epType.SetError(txtId, "Tip sa ovom oznakom već postoji");
+                }
+                else if (t != null && edit && !t.ID.Equals(ID))
+                {
+                    formIsValid = false;
+                    epType.SetError(txtId, "Tip sa ovom oznakom već postoji");
+                }
+                else
+                {
+                    epType.SetError(txtId, "");
+                }
             }
         }
 
@@ -108,7 +125,14 @@ namespace HCI15RA13AU
         {
             Type t = new Type();
 
-            t.ID = txtId.Text;
+            int i = 0;
+            t.ID = edit ? ID : txtId.Text;
+            if (!edit && MainForm.types.ContainsKey(t.ID))
+            {
+                do { i++; } while (!edit && MainForm.types.ContainsKey(t.ID + i));
+                t.ID += i++;
+            }
+            t.SecondID = txtId.Text;
             t.Name = txtName.Text;
             t.Description = txtDescription.Text;
             if (lblIconName.Text != null)

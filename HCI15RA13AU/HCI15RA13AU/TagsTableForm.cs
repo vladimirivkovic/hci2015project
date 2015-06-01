@@ -28,7 +28,7 @@ namespace HCI15RA13AU
 
                 DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
                 cellStyle.BackColor = t.Color;
-                dgwTags.Rows.Add(new object[] { t.ID, "" });
+                dgwTags.Rows.Add(new object[] { t.SecondID, "" });
                 dgwTags.Rows[dgwTags.Rows.Count - 1].Tag = t;
                 dgwTags.Rows[dgwTags.Rows.Count - 1].Cells[1].Style = cellStyle;
                 dgwTags.CurrentCell = dgwTags.Rows[dgwTags.Rows.Count - 1].Cells[0];
@@ -55,12 +55,11 @@ namespace HCI15RA13AU
 
                             int index = dgwTags.Rows.IndexOf(row);
                             dgwTags.Rows.RemoveAt(index);
-                            dgwTags.Rows.Insert(index, new object[] { t.ID, "" });
+                            dgwTags.Rows.Insert(index, new object[] { t.SecondID, "" });
                             dgwTags.Rows[index].Tag = t;
                             dgwTags.Rows[index].Cells[1].Style = cellStyle;
                             dgwTags.CurrentCell = dgwTags.Rows[index].Cells[0];
-                            MainForm.tags.Remove(t.ID);
-                            MainForm.tags.Add(t.ID, t);
+                            MainForm.tags[t.ID] = t;
                             break;
                         }
                     }
@@ -112,7 +111,7 @@ namespace HCI15RA13AU
             {
                 DataGridViewCellStyle cellStyle = new DataGridViewCellStyle();
                 cellStyle.BackColor = t.Color;
-                dgwTags.Rows.Add(new object[] { t.ID, "" });
+                dgwTags.Rows.Add(new object[] { t.SecondID, "" });
                 dgwTags.Rows[dgwTags.Rows.Count - 1].Tag = t;
                 dgwTags.Rows[dgwTags.Rows.Count - 1].Cells[1].Style = cellStyle;
             }

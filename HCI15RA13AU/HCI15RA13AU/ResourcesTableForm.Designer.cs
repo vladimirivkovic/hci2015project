@@ -74,6 +74,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.datotekaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).BeginInit();
             this.grbDetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -543,9 +544,13 @@
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "../../help/help project.chm";
             // 
             // ResourcesTableForm
             // 
@@ -565,8 +570,11 @@
             this.Controls.Add(this.dgwResources);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpProvider1.SetHelpKeyword(this, "Resursi");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ResourcesTableForm";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Tabela resursa";
             this.Load += new System.EventHandler(this.ResourcesTable_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).EndInit();
@@ -630,5 +638,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem datotekaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

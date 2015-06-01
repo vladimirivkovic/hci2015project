@@ -16,7 +16,7 @@ namespace HCI15RA13AU
             InitializeComponent();
             foreach (Tag t in MainForm.tags.Values)
             {
-                lstAllTags.Items.Add(t.ID);
+                lstAllTags.Items.Add(t.SecondID);
             }
         }
 
@@ -27,11 +27,11 @@ namespace HCI15RA13AU
             {
                 if (tags.ContainsKey(t.ID))
                 {
-                    lstSelectedTags.Items.Add(t.ID);
+                    lstSelectedTags.Items.Add(t.SecondID);
                 }
                 else
                 {
-                    lstAllTags.Items.Add(t.ID);
+                    lstAllTags.Items.Add(t.SecondID);
                 }
             }
         }
@@ -44,12 +44,12 @@ namespace HCI15RA13AU
             {
                 foreach (var st in selectedTags)
                 {
-                    tags.Add(st as string);
+                    tags.Add(MainForm.GetTagBySecondID(st as string).ID);
                 }
                 foreach (string t in tags)
                 {
-                    lstAllTags.Items.Remove(t);
-                    lstSelectedTags.Items.Add(t);
+                    lstAllTags.Items.Remove(MainForm.tags[t].SecondID);
+                    lstSelectedTags.Items.Add(MainForm.tags[t].SecondID);
                 }
             }
         }
@@ -68,12 +68,12 @@ namespace HCI15RA13AU
             {
                 foreach (var st in selectedTags)
                 {
-                    tags.Add(st as string);
+                    tags.Add(MainForm.GetTagBySecondID(st as string).ID);
                 }
                 foreach (string t in tags)
                 {
-                    lstAllTags.Items.Remove(t);
-                    lstSelectedTags.Items.Add(t);
+                    lstAllTags.Items.Remove(MainForm.tags[t].SecondID);
+                    lstSelectedTags.Items.Add(MainForm.tags[t].SecondID);
                 }
             }
         }
@@ -86,12 +86,12 @@ namespace HCI15RA13AU
             {
                 foreach (var st in selectedTags)
                 {
-                    tags.Add(st as string);
+                    tags.Add(MainForm.GetTagBySecondID(st as string).ID);
                 }
                 foreach (string t in tags)
                 {
-                    lstAllTags.Items.Add(t);
-                    lstSelectedTags.Items.Remove(t);
+                    lstAllTags.Items.Add(MainForm.tags[t].SecondID);
+                    lstSelectedTags.Items.Remove(MainForm.tags[t].SecondID);
                 }
             }
         }
@@ -104,12 +104,12 @@ namespace HCI15RA13AU
             {
                 foreach (var st in selectedTags)
                 {
-                    tags.Add(st as string);
+                    tags.Add(MainForm.GetTagBySecondID(st as string).ID);
                 }
                 foreach (string t in tags)
                 {
-                    lstAllTags.Items.Add(t);
-                    lstSelectedTags.Items.Remove(t);
+                    lstAllTags.Items.Add(MainForm.tags[t].SecondID);
+                    lstSelectedTags.Items.Remove(MainForm.tags[t].SecondID);
                 }
             }
         }
@@ -122,7 +122,7 @@ namespace HCI15RA13AU
             {
                 foreach (var st in selectedTags)
                 {
-                    tags.Add(st as string);
+                    tags.Add(MainForm.GetTagBySecondID(st as string).ID);
                 }
             }
             return tags;
@@ -141,25 +141,25 @@ namespace HCI15RA13AU
             Dictionary<string, Tag> tags = new Dictionary<string, Tag>(MainForm.tags);
             foreach (var item in lstSelectedTags.Items)
             {
-                if (MainForm.tags.ContainsKey((string)item))
+                if (MainForm.tags.ContainsKey(MainForm.GetTagBySecondID(item as string).ID))
                 {
-                    tags.Remove((string)item);
+                    tags.Remove(MainForm.GetTagBySecondID(item as string).ID);
                 }
             }
             if (txtTag.Text.Equals(""))
             {
                 foreach (Tag t in tags.Values)
                 {
-                    lstAllTags.Items.Add(t.ID);
+                    lstAllTags.Items.Add(t.SecondID);
                 }
             }
             else
             {
                 foreach (Tag t in tags.Values)
                 {
-                    if (t.ID.StartsWith(txtTag.Text))
+                    if (t.SecondID.StartsWith(txtTag.Text))
                     {
-                        lstAllTags.Items.Add(t.ID);
+                        lstAllTags.Items.Add(t.SecondID);
                     }
                 }
             }

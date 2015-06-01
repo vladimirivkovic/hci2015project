@@ -67,6 +67,8 @@
             this.pnlTags = new System.Windows.Forms.Panel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
             this.SuspendLayout();
             // 
@@ -439,10 +441,26 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1040, 112);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(119, 24);
+            this.textBox1.TabIndex = 96;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(1040, 160);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(119, 24);
+            this.textBox2.TabIndex = 97;
+            // 
             // ResourcesFilterForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1172, 630);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.pnlTags);
@@ -525,5 +543,7 @@
         private System.Windows.Forms.Panel pnlTags;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
     }
 }

@@ -24,9 +24,9 @@ namespace HCI15RA13AU
         public ResourceControl(Resource res, int offset)
         {
             InitializeComponent();
-            lblID.Text = res.ID;
+            lblID.Text = res.SecondID;
             lblName.Text = res.Name;
-            lblType.Text = res.Type.ID;
+            lblType.Text = res.Type.SecondID;
 
             ToolTip tt = new ToolTip();
             tt.SetToolTip(lblID, "oznaka resursa");
@@ -99,8 +99,9 @@ namespace HCI15RA13AU
         internal void UpdateControl()
         {
             Resource res = (Resource)this.Tag;
+            lblID.Text = res.SecondID;
             lblName.Text = res.Name;
-            lblType.Text = res.Type.ID;
+            lblType.Text = MainForm.types[res.Type.ID].SecondID;
 
             try
             {

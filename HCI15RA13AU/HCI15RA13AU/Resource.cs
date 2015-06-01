@@ -22,6 +22,8 @@ namespace HCI15RA13AU
         [XmlElement]
         public string ID { get; set; }
         [XmlElement]
+        public string SecondID { get; set; }
+        [XmlElement]
         public string Description { get; set; }
         [XmlIgnore]
         public Type Type { get; set; }
@@ -57,6 +59,7 @@ namespace HCI15RA13AU
         public Resource(Resource r)
         {
             ID = r.ID;
+            SecondID = r.SecondID;
             Description = r.Description;
             Type = r.Type;
             Name = r.Name;
@@ -74,6 +77,7 @@ namespace HCI15RA13AU
         public Resource(ResourceItem r)
         {
             ID = r.ID;
+            SecondID = r.SecondID;
             Description = r.Description;
             Type = r.Type;
             Name = r.Name;
@@ -171,6 +175,8 @@ namespace HCI15RA13AU
         [XmlElement]
         public string ID { get; set; }
         [XmlElement]
+        public string SecondID { get; set; }
+        [XmlElement]
         public string Name { get; set; }
         [XmlElement]
         public string IconFileName { get; set; }
@@ -184,6 +190,7 @@ namespace HCI15RA13AU
         public Type(Type t)
         {
             ID = t.ID;
+            SecondID = t.SecondID;
             Name = t.Name;
             IconFileName = t.IconFileName;
             Description = t.Description;
@@ -194,6 +201,8 @@ namespace HCI15RA13AU
     {
         [XmlElement]
         public string ID { get; set; }
+        [XmlElement]
+        public string SecondID { get; set; }
         public Color Color { get; set; }
         [XmlElement]
         public string Description { get; set; }
@@ -205,6 +214,7 @@ namespace HCI15RA13AU
         public Tag(Tag t)
         {
             ID = t.ID;
+            SecondID = t.SecondID;
             Color = t.Color;
             Description = t.Description;
         }
@@ -212,6 +222,7 @@ namespace HCI15RA13AU
         public Tag(TagItem ti)
         {
             ID = ti.ID;
+            SecondID = ti.SecondID;
             Color = Color.FromArgb(ti.A, ti.R, ti.G, ti.B);
             Description = ti.Description;
         }
@@ -235,6 +246,7 @@ namespace HCI15RA13AU
         public TagItem(Tag t)
         {
             ID = t.ID;
+            SecondID = t.SecondID;
             Description = t.Description;
             Color = t.Color;
             A = t.Color.A;
@@ -265,6 +277,7 @@ namespace HCI15RA13AU
         public ResourceItem(Resource r)
         {
             ID = r.ID;
+            SecondID = r.SecondID;
             Description = r.Description;
             Type = r.Type;
             Name = r.Name;

@@ -61,7 +61,7 @@ namespace HCI15RA13AU
         {
             this.Cursor = Cursors.Hand;
             Resource res = (Resource)Tag;
-            tt.SetToolTip(pbxIcon, "ID: " + res.ID + "\nNaziv: " + res.Name);
+            tt.SetToolTip(pbxIcon, "ID: " + res.SecondID + "\nNaziv: " + res.Name);
             tt.Active = true;
         }
 
@@ -85,14 +85,14 @@ namespace HCI15RA13AU
 
         public void UpdateControl()
         {
-            Resource res = (Resource)this.Tag;
+            Resource res = MainForm.resources[((Resource)Tag).ID];
+            Tag = res;
 
-            tt.SetToolTip(pbxIcon, "ID: " + res.ID + "\nNaziv: " + res.Name);
             try
             {
                 pbxIcon.Image = Image.FromFile(res.IconFileName);
             }
-            catch (Exception fnfe)
+            catch (Exception)
             {
                 try
                 {

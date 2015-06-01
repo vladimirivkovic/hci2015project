@@ -19,6 +19,7 @@ namespace HCI15RA13AU
         {
             Type t = new Type();
             t.ID = "oznTipa";
+            t.SecondID = "oznTipa";
             t.Name = "nazivTipa";
             t.Description = "";
             t.IconFileName = "";
@@ -29,6 +30,7 @@ namespace HCI15RA13AU
             {
                 resources[i] = new Resource();
                 resources[i].ID = "resurs" + i;
+                resources[i].SecondID = "resurs" + i;
                 resources[i].Name = "naziv" + i;
                 resources[i].Discovered = DateTime.Now;
                 resources[i].IconFileName = "";

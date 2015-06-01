@@ -70,6 +70,7 @@
             this.rbtDate = new System.Windows.Forms.RadioButton();
             this.btnType = new System.Windows.Forms.Button();
             this.lblTypeID = new System.Windows.Forms.Label();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.epAdd)).BeginInit();
             this.grbFrequency.SuspendLayout();
             this.gbxDate.SuspendLayout();
@@ -320,7 +321,7 @@
             this.cmbUnit.Location = new System.Drawing.Point(862, 157);
             this.cmbUnit.Margin = new System.Windows.Forms.Padding(4);
             this.cmbUnit.Name = "cmbUnit";
-            this.cmbUnit.Size = new System.Drawing.Size(180, 26);
+            this.cmbUnit.Size = new System.Drawing.Size(111, 26);
             this.cmbUnit.TabIndex = 10;
             this.cmbUnit.Validating += new System.ComponentModel.CancelEventHandler(this.cmbUnit_Validating);
             // 
@@ -530,6 +531,10 @@
             this.lblTypeID.Size = new System.Drawing.Size(0, 18);
             this.lblTypeID.TabIndex = 42;
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "../../help/help project.chm";
+            // 
             // NewResourceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -562,8 +567,11 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblId);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpProvider1.SetHelpKeyword(this, "Resurs");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "NewResourceForm";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Dodaj novi resurs";
             ((System.ComponentModel.ISupportInitialize)(this.epAdd)).EndInit();
             this.grbFrequency.ResumeLayout(false);
@@ -620,5 +628,6 @@
         private System.Windows.Forms.RadioButton rbtUnknown;
         private System.Windows.Forms.Button btnType;
         private System.Windows.Forms.Label lblTypeID;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

@@ -1,9 +1,9 @@
 [OPTIONS]
-Title=Pomoc
+Title=Sistem pomoci
 Compiled file=
 Error log file=
-Default topic=
-Language=
+Default topic=main.html
+Language=0x0000 <unknown>
 Full text search stop list file=
 Contents file=Contents.hhc
 Index file=Index.hhk
