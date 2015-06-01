@@ -59,6 +59,7 @@ namespace HCI15RA13AU
             }
 
             this.Top = offset - vscroll;
+            this.Left = 20;
 
             this.Tag = res;
 

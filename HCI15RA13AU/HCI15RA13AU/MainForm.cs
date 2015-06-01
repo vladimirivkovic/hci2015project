@@ -34,6 +34,10 @@ namespace HCI15RA13AU
 
         public static int tutorialStep = 0;
 
+        private Rectangle mouseDownSelectionWindow;
+        private bool resourcesPanelRight = true;
+        private Point displayOffset;
+
         public MainForm()
         {
             InitializeComponent();
@@ -703,6 +707,8 @@ namespace HCI15RA13AU
             return 0;
         }
 
+        
+        // tutorial
         private void tutorijalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tutorialMode = true;
@@ -743,9 +749,103 @@ namespace HCI15RA13AU
             lblTutorial.Text = "";
         }
 
+
+        // help provider
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, "..\\..\\help\\help project.chm");
+        }
+
+        private void pnlResources_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if ((mouseDownSelectionWindow != Rectangle.Empty)
+                    && (!mouseDownSelectionWindow.Contains(e.X, e.Y)))
+                {
+                    if (MainForm.tutorialMode)
+                    {
+                        return;
+                    }
+                    displayOffset = SystemInformation.WorkingArea.Location;
+                    DragDropEffects dropEffect = this.DoDragDrop(pnlResources, DragDropEffects.Copy);
+                }
+            }
+        }
+
+        private void pnlResources_MouseDown(object sender, MouseEventArgs e)
+        {
+            Size dragSize = SystemInformation.DragSize;
+            mouseDownSelectionWindow = new Rectangle(new Point(e.X - (dragSize.Width / 2), e.Y - (dragSize.Height / 2)), dragSize);
+        }
+
+        private void MainForm_DragEnter(object sender, DragEventArgs e)
+        {
+            if ((e.Data.GetDataPresent(pnlResources.GetType())))
+            {
+                if (tutorialMode)
+                {
+                    e.Effect = DragDropEffects.None;
+                }
+
+                Point p = new Point(e.X, e.Y);
+                p = this.PointToClient(p);
+
+                if (p.X <= pnlResources.Width && resourcesPanelRight)
+                {
+                    e.Effect = DragDropEffects.Copy;
+                }
+                else if (p.X >= pnlMap.Width && !resourcesPanelRight)
+                {
+                    e.Effect = DragDropEffects.Copy;
+                }
+                else
+                {
+                    e.Effect = DragDropEffects.None;
+                }
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void MainForm_DragDrop(object sender, DragEventArgs e)
+        {
+            if ((e.Data.GetDataPresent(pnlResources.GetType())))
+            {
+                Image img;
+                if (resourcesPanelRight)
+                {
+                    pnlResources.Left = 12;
+                    lblUnmappedResources.Left = 12;
+                    pnlMap.Left += pnlResources.Width + 9;
+                    pnlDelete.Left += pnlMap.Width + 9 + pnlResources.Width - pnlDelete.Width;
+                    resourcesPanelRight = false;
+                    pbxDown.Left += pnlMap.Width - pnlDelete.Width;
+                    pbxLeft.Left = 0;
+                    pbxRight.Left = 0;
+                    img = pbxLeft.BackgroundImage;
+                    pbxLeft.BackgroundImage = pbxRight.BackgroundImage;
+                    pbxRight.BackgroundImage = img;
+                    lblTutorial.Left += pnlResources.Width - pnlDelete.Width;
+                }
+                else
+                {
+                    pnlResources.Left = pnlMap.Width + 19;
+                    lblUnmappedResources.Left = pnlMap.Width + 19;
+                    pnlMap.Left -= pnlResources.Width + 9;
+                    pnlDelete.Left -= pnlMap.Width + 9 + pnlResources.Width - pnlDelete.Width;
+                    resourcesPanelRight = true;
+                    pbxDown.Left -= pnlMap.Width - pnlDelete.Width;
+                    pbxLeft.Left = pnlMap.Width - pbxLeft.Width;
+                    pbxRight.Left = pnlMap.Width - pbxRight.Width;
+                    img = pbxLeft.BackgroundImage;
+                    pbxLeft.BackgroundImage = pbxRight.BackgroundImage;
+                    pbxRight.BackgroundImage = img;
+                    lblTutorial.Left -= pnlResources.Width - pnlDelete.Width;
+                }
+            }
         }
     }
 }

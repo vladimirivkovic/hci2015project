@@ -130,6 +130,11 @@ namespace HCI15RA13AU
                 formIsValid = false;
                 epAdd.SetError(txtId, "Unos oznake je obavezan");
             }
+            else if(txtId.Text.Contains(" "))
+            {
+                formIsValid = false;
+                epAdd.SetError(txtId, "Oznaka ne može sadržavati razmake");
+            }
             else if (!edit && MainForm.resources.ContainsKey(txtId.Text))
             {
                 formIsValid = false;

@@ -66,6 +66,7 @@
             this.btnTags = new System.Windows.Forms.Button();
             this.pnlTags = new System.Windows.Forms.Panel();
             this.btnOK = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
             this.SuspendLayout();
             // 
@@ -324,7 +325,7 @@
             "kilogram"});
             this.cmbUnit.Location = new System.Drawing.Point(1040, 316);
             this.cmbUnit.Name = "cmbUnit";
-            this.cmbUnit.Size = new System.Drawing.Size(121, 26);
+            this.cmbUnit.Size = new System.Drawing.Size(119, 26);
             this.cmbUnit.TabIndex = 81;
             // 
             // txtCostMin
@@ -361,11 +362,11 @@
             // 
             // btnFilter
             // 
-            this.btnFilter.Location = new System.Drawing.Point(897, 578);
+            this.btnFilter.Location = new System.Drawing.Point(892, 578);
             this.btnFilter.Name = "btnFilter";
-            this.btnFilter.Size = new System.Drawing.Size(133, 40);
+            this.btnFilter.Size = new System.Drawing.Size(85, 40);
             this.btnFilter.TabIndex = 86;
-            this.btnFilter.Text = "Primeni filter";
+            this.btnFilter.Text = "Primeni";
             this.btnFilter.UseVisualStyleBackColor = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
@@ -383,7 +384,7 @@
             // cmbType
             // 
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(1040, 421);
+            this.cmbType.Location = new System.Drawing.Point(1038, 421);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(121, 26);
             this.cmbType.TabIndex = 88;
@@ -420,18 +421,29 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(1040, 578);
+            this.btnOK.Location = new System.Drawing.Point(983, 578);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(121, 40);
+            this.btnOK.Size = new System.Drawing.Size(85, 40);
             this.btnOK.TabIndex = 94;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(1075, 578);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(85, 40);
+            this.btnCancel.TabIndex = 95;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
             // ResourcesFilterForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1172, 630);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.pnlTags);
             this.Controls.Add(this.btnTags);
@@ -512,5 +524,6 @@
         private System.Windows.Forms.Button btnTags;
         private System.Windows.Forms.Panel pnlTags;
         private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

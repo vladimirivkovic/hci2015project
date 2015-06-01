@@ -282,10 +282,10 @@ namespace HCI15RA13AU
         private void btnFilter_Click(object sender, EventArgs e)
         {
             if (btnFilter.Text.Equals("Ponisti filter"))
-            {
-                ResourcesTable_Load(this, EventArgs.Empty);
+            {  
                 btnFilter.Text = "Filtriraj";
                 filterOn = false;
+                txtSearch_TextChanged(this, EventArgs.Empty);
                 return;
             }
             ResourcesFilterForm resourcesFilter = new ResourcesFilterForm();
@@ -325,6 +325,12 @@ namespace HCI15RA13AU
                 dgwResources.CurrentCell = dgwResources.Rows[0].Cells[0];
                 dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
             }
+
+            chbId.Checked = false;
+            chbName.Checked = false;
+            chbType.Checked = false;
+
+            txtSearch.Text = "";
         }
 
         private void chbId_CheckedChanged(object sender, EventArgs e)

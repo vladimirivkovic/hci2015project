@@ -43,6 +43,8 @@
             this.tutorijalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomoćToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlMap = new System.Windows.Forms.Panel();
+            this.pbxRight = new System.Windows.Forms.PictureBox();
+            this.pbxDown = new System.Windows.Forms.PictureBox();
             this.pbxLeft = new System.Windows.Forms.PictureBox();
             this.pnlResources = new System.Windows.Forms.Panel();
             this.pnlDelete = new System.Windows.Forms.Panel();
@@ -53,15 +55,13 @@
             this.lblTutorial = new System.Windows.Forms.Label();
             this.btnEndTutorial = new System.Windows.Forms.Button();
             this.helpProvider = new System.Windows.Forms.HelpProvider();
-            this.pbxDown = new System.Windows.Forms.PictureBox();
-            this.pbxRight = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlMap.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLeft)).BeginInit();
             this.statusStrip.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxRight)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -194,6 +194,24 @@
             this.pnlMap.DragOver += new System.Windows.Forms.DragEventHandler(this.pnlMap_DragOver);
             this.pnlMap.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlMap_MouseMove);
             // 
+            // pbxRight
+            // 
+            this.pbxRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxRight.BackgroundImage")));
+            this.pbxRight.Location = new System.Drawing.Point(781, 149);
+            this.pbxRight.Name = "pbxRight";
+            this.pbxRight.Size = new System.Drawing.Size(120, 56);
+            this.pbxRight.TabIndex = 2;
+            this.pbxRight.TabStop = false;
+            // 
+            // pbxDown
+            // 
+            this.pbxDown.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxDown.BackgroundImage")));
+            this.pbxDown.Location = new System.Drawing.Point(27, 367);
+            this.pbxDown.Name = "pbxDown";
+            this.pbxDown.Size = new System.Drawing.Size(56, 120);
+            this.pbxDown.TabIndex = 1;
+            this.pbxDown.TabStop = false;
+            // 
             // pbxLeft
             // 
             this.pbxLeft.BackColor = System.Drawing.Color.Transparent;
@@ -209,12 +227,15 @@
             // 
             this.pnlResources.AllowDrop = true;
             this.pnlResources.AutoScroll = true;
+            this.pnlResources.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pnlResources.Location = new System.Drawing.Point(922, 61);
             this.pnlResources.Name = "pnlResources";
             this.pnlResources.Size = new System.Drawing.Size(250, 609);
             this.pnlResources.TabIndex = 14;
             this.pnlResources.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlResources_DragDrop);
             this.pnlResources.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlResources_DragEnter);
+            this.pnlResources.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlResources_MouseDown);
+            this.pnlResources.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlResources_MouseMove);
             // 
             // pnlDelete
             // 
@@ -262,7 +283,7 @@
             // 
             this.lblTutorial.AutoSize = true;
             this.lblTutorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblTutorial.Location = new System.Drawing.Point(189, 554);
+            this.lblTutorial.Location = new System.Drawing.Point(128, 557);
             this.lblTutorial.Name = "lblTutorial";
             this.lblTutorial.Size = new System.Drawing.Size(0, 31);
             this.lblTutorial.TabIndex = 18;
@@ -281,26 +302,9 @@
             // 
             this.helpProvider.HelpNamespace = "../../help/help project.chm";
             // 
-            // pbxDown
-            // 
-            this.pbxDown.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxDown.BackgroundImage")));
-            this.pbxDown.Location = new System.Drawing.Point(27, 367);
-            this.pbxDown.Name = "pbxDown";
-            this.pbxDown.Size = new System.Drawing.Size(56, 120);
-            this.pbxDown.TabIndex = 1;
-            this.pbxDown.TabStop = false;
-            // 
-            // pbxRight
-            // 
-            this.pbxRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxRight.BackgroundImage")));
-            this.pbxRight.Location = new System.Drawing.Point(781, 149);
-            this.pbxRight.Name = "pbxRight";
-            this.pbxRight.Size = new System.Drawing.Size(120, 56);
-            this.pbxRight.TabIndex = 2;
-            this.pbxRight.TabStop = false;
-            // 
             // MainForm
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
@@ -322,15 +326,17 @@
             this.Name = "MainForm";
             this.Text = "Mapa svetskih resursa";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.pnlMap.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbxRight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbxLeft)).EndInit();
             this.statusStrip.ResumeLayout(false);
             this.statusStrip.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbxRight)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

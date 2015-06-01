@@ -242,6 +242,7 @@ namespace HCI15RA13AU
 
         private void btnOK_Click(object sender, EventArgs e)
         {
+            btnFilter_Click(this, EventArgs.Empty);
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -249,6 +250,12 @@ namespace HCI15RA13AU
         public List<Resource> GetResources()
         {
             return resources;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
         }
     }
 }
