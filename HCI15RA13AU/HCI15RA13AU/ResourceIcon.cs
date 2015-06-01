@@ -85,8 +85,16 @@ namespace HCI15RA13AU
 
         public void UpdateControl()
         {
-            Resource res = MainForm.resources[((Resource)Tag).ID];
-            Tag = res;
+            Resource res;
+            if (!MainForm.tutorialMode)
+            {
+                res = MainForm.resources[((Resource)Tag).ID];
+                Tag = res;
+            }
+            else
+            {
+                res = (Resource)Tag;
+            }
 
             try
             {

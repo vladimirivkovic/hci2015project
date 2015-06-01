@@ -177,7 +177,7 @@
             // pnlMap
             // 
             this.pnlMap.AllowDrop = true;
-            this.pnlMap.BackColor = System.Drawing.Color.Transparent;
+            this.pnlMap.BackColor = System.Drawing.Color.White;
             this.pnlMap.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlMap.BackgroundImage")));
             this.pnlMap.Controls.Add(this.pbxRight);
             this.pnlMap.Controls.Add(this.pbxDown);
@@ -205,6 +205,7 @@
             // 
             // pbxDown
             // 
+            this.pbxDown.BackColor = System.Drawing.Color.Transparent;
             this.pbxDown.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxDown.BackgroundImage")));
             this.pbxDown.Location = new System.Drawing.Point(27, 367);
             this.pbxDown.Name = "pbxDown";

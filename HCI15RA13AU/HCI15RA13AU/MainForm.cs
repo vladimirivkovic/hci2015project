@@ -672,7 +672,14 @@ namespace HCI15RA13AU
                 {
                     pnlMap.Controls.Remove(deleted);
                     resourceCoordinates.Remove(res.ID);
-                    pnlResources.Controls.Add(new ResourceControl(resources[res.ID], pnlResources.Controls.Count * 80 + 10));
+                    if (tutorialMode)
+                    {
+                        pnlResources.Controls.Add(new ResourceControl(res, pnlResources.Controls.Count * 80 + 10));
+                    }
+                    else
+                    {
+                        pnlResources.Controls.Add(new ResourceControl(resources[res.ID], pnlResources.Controls.Count * 80 + 10));
+                    }
                 }
                 lblUnmappedResources.Text = "Nemapirani resursi(" + pnlResources.Controls.Count + ")";
             }

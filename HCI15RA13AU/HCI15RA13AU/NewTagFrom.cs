@@ -45,7 +45,7 @@ namespace HCI15RA13AU
             t.ID = edit ? ID : txtId.Text;
             if (!edit && MainForm.tags.ContainsKey(t.ID))
             {
-                do { i++; } while (!edit && MainForm.tags.ContainsKey(t.ID + i));
+                do { i++; } while (MainForm.tags.ContainsKey(t.ID + i));
                 t.ID += i++;
             }
 

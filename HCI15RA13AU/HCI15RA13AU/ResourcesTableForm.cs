@@ -63,10 +63,11 @@ namespace HCI15RA13AU
                         foreach (Tag t in res.Tags.Values)
                         {
                             lbl = new Label();
-                            lbl.Width = 15 + 5 * t.SecondID.Length;
+                            lbl.Width = 15 + 7 * t.SecondID.Length;
                             lbl.Text = t.SecondID;
                             lbl.BackColor = t.Color;
                             lbl.Left = off;
+                            lbl.ForeColor = Color.FromArgb(255 - t.Color.R, 255 - t.Color.G, 255 - t.Color.G);
                             pnlTags.Controls.Add(lbl);
                             lbl.Left = off;
                             off += lbl.Width + 3;
