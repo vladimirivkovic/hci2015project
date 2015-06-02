@@ -33,9 +33,9 @@
     <Discovered>2015-05-17T14:59:15.1601314+02:00</Discovered>
     <ApproxDiscovered>
       <Year>-1</Year>
-      <Century>-1</Century>
-      <AD>false</AD>
-      <Unknown>true</Unknown>
+      <Century>13</Century>
+      <AD>true</AD>
+      <Unknown>false</Unknown>
     </ApproxDiscovered>
     <IconFileName>..\..\images\Nature5.jpg</IconFileName>
     <listOfTags>
@@ -194,10 +194,10 @@
     <Cost>787</Cost>
     <Discovered>2015-05-20T10:40:55.0443871+02:00</Discovered>
     <ApproxDiscovered>
-      <Year>-1</Year>
+      <Year>1234</Year>
       <Century>-1</Century>
-      <AD>false</AD>
-      <Unknown>true</Unknown>
+      <AD>true</AD>
+      <Unknown>false</Unknown>
     </ApproxDiscovered>
     <IconFileName>..\..\images\</IconFileName>
     <listOfTags>

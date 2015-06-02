@@ -35,6 +35,8 @@ namespace HCI15RA13AU
             rbtDate.Checked = true;
             rbtDate_CheckedChanged(this, EventArgs.Empty);
             rbtApproxDate_CheckedChanged(this, EventArgs.Empty);
+
+            this.MaximizeBox = false;
         }
                 
         public NewResourceForm(Resource res)

@@ -115,7 +115,7 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.X)));
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.exitToolStripMenuItem.Size = new System.Drawing.Size(178, 24);
             this.exitToolStripMenuItem.Text = "Izlaz";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
@@ -133,21 +133,24 @@
             // resursiToolStripMenuItem
             // 
             this.resursiToolStripMenuItem.Name = "resursiToolStripMenuItem";
-            this.resursiToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
+            this.resursiToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
+            this.resursiToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
             this.resursiToolStripMenuItem.Text = "Resursi";
             this.resursiToolStripMenuItem.Click += new System.EventHandler(this.resourcesToolStripMenuItem_Click);
             // 
             // tipoviResursaToolStripMenuItem
             // 
             this.tipoviResursaToolStripMenuItem.Name = "tipoviResursaToolStripMenuItem";
-            this.tipoviResursaToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
+            this.tipoviResursaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.tipoviResursaToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
             this.tipoviResursaToolStripMenuItem.Text = "Tipovi resursa";
             this.tipoviResursaToolStripMenuItem.Click += new System.EventHandler(this.typesResursaToolStripMenuItem_Click);
             // 
             // etiketeToolStripMenuItem
             // 
             this.etiketeToolStripMenuItem.Name = "etiketeToolStripMenuItem";
-            this.etiketeToolStripMenuItem.Size = new System.Drawing.Size(169, 24);
+            this.etiketeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.etiketeToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
             this.etiketeToolStripMenuItem.Text = "Etikete";
             this.etiketeToolStripMenuItem.Click += new System.EventHandler(this.tagsToolStripMenuItem_Click);
             // 
@@ -163,14 +166,16 @@
             // tutorijalToolStripMenuItem
             // 
             this.tutorijalToolStripMenuItem.Name = "tutorijalToolStripMenuItem";
-            this.tutorijalToolStripMenuItem.Size = new System.Drawing.Size(133, 24);
+            this.tutorijalToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
+            this.tutorijalToolStripMenuItem.Size = new System.Drawing.Size(179, 24);
             this.tutorijalToolStripMenuItem.Text = "Tutorijal";
             this.tutorijalToolStripMenuItem.Click += new System.EventHandler(this.tutorijalToolStripMenuItem_Click);
             // 
             // pomoćToolStripMenuItem1
             // 
             this.pomoćToolStripMenuItem1.Name = "pomoćToolStripMenuItem1";
-            this.pomoćToolStripMenuItem1.Size = new System.Drawing.Size(133, 24);
+            this.pomoćToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+            this.pomoćToolStripMenuItem1.Size = new System.Drawing.Size(179, 24);
             this.pomoćToolStripMenuItem1.Text = "Help";
             this.pomoćToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
@@ -196,6 +201,7 @@
             // 
             // pbxRight
             // 
+            this.pbxRight.BackColor = System.Drawing.Color.Transparent;
             this.pbxRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxRight.BackgroundImage")));
             this.pbxRight.Location = new System.Drawing.Point(781, 149);
             this.pbxRight.Name = "pbxRight";

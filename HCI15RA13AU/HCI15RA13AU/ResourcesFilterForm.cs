@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace HCI15RA13AU
 {
@@ -17,6 +18,14 @@ namespace HCI15RA13AU
         private List<string> tags = new List<string>();
 
         private List<Resource> resources;
+
+        private bool formIsValid = true;
+
+        private Regex rxCentury;
+        private Regex rxYear;
+
+        private ApproxDate approxDateMin;
+        private ApproxDate approxDateMax;
 
         public ResourcesFilterForm()
         {
@@ -43,6 +52,17 @@ namespace HCI15RA13AU
             chbCost_CheckedChanged(this, EventArgs.Empty);
             chbType_CheckedChanged(this, EventArgs.Empty);
             chbTags_CheckedChanged(this, EventArgs.Empty);
+
+            rbtDateMin1.Checked = true;
+            rbtDateMax1.Checked = true;
+            rbtDateMin1_CheckedChanged(this, EventArgs.Empty);
+            rbtDateMin1_CheckedChanged(this, EventArgs.Empty);
+
+            rxCentury = new Regex("^[1-9][0-9]*\\.vek[ ](p\\.)?n\\.e\\.$");
+            rxYear = new Regex("^[1-9][0-9]*\\.g\\.[ ](p\\.)?n\\.e\\.$");
+
+            approxDateMax = new ApproxDate();
+            approxDateMin = new ApproxDate();
         }
 
         private void chbID_CheckedChanged(object sender, EventArgs e)
@@ -59,6 +79,10 @@ namespace HCI15RA13AU
         {
             dtpMin.Enabled = chbDate.Checked;
             dtpMax.Enabled = chbDate.Checked;
+            rbtDateMin1.Enabled = chbDate.Checked;
+            rbtDateMin2.Enabled = chbDate.Checked;
+            rbtDateMax1.Enabled = chbDate.Checked;
+            rbtDateMax2.Enabled = chbDate.Checked;
         }
 
         private void chbImportant_CheckedChanged(object sender, EventArgs e)
@@ -120,6 +144,12 @@ namespace HCI15RA13AU
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
+            formIsValid = true;
+            this.ValidateChildren();
+
+            if (!formIsValid)
+                return;
+
             string date;
 
             double.TryParse(txtCostMin.Text, out minCost);
@@ -141,10 +171,11 @@ namespace HCI15RA13AU
                                                 && (!cmbType.Enabled 
                                                     || (cmbType.SelectedItem != null 
                                                     && cmbType.SelectedItem.Equals(res.Type.SecondID)))
-                                                && (!dtpMax.Enabled 
-                                                    || (dtpMax.Value.CompareTo(res.Discovered) >= 0 
-                                                    && dtpMin.Value.CompareTo(res.Discovered) <= 0
-                                                    && res.ApproxDiscovered == null)))
+                                                //&& (!dtpMax.Enabled 
+                                                //    || (dtpMax.Value.CompareTo(res.Discovered) >= 0 
+                                                //    && dtpMin.Value.CompareTo(res.Discovered) <= 0
+                                                //    && res.ApproxDiscovered == null)))
+                                                )
                                                 // exploation
                                             select res;
             dgwResources.Rows.Clear();
@@ -171,6 +202,98 @@ namespace HCI15RA13AU
             else
             {
                 resources = result1.ToList();
+            }
+
+            if (chbDate.Checked)
+            {
+                for (int i = 0; i < resources.Count; i++)
+                {
+                    if (rbtDateMax1.Checked)
+                    {
+                        if (resources[i].ApproxDiscovered == null)
+                        {
+                            if (dtpMax.Value.CompareTo(resources[i].Discovered) < 0)
+                            {
+                                resources.RemoveAt(i);
+                                i--;
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if (resources[i].ApproxDiscovered.GetMinYear() > dtpMax.Value.Year)
+                            {
+                                resources.RemoveAt(i);
+                                i--;
+                                continue;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (resources[i].ApproxDiscovered == null)
+                        {
+                            if (resources[i].Discovered.Year > approxDateMax.GetMaxYear())
+                            {
+                                resources.RemoveAt(i);
+                                i--;
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if (resources[i].ApproxDiscovered.GetMinYear() > approxDateMax.GetMaxYear())
+                            {
+                                resources.RemoveAt(i);
+                                i--;
+                                continue;
+                            }
+                        }
+                    }
+
+                    if (rbtDateMin1.Checked)
+                    {
+                        if (resources[i].ApproxDiscovered == null)
+                        {
+                            if(dtpMin.Value.CompareTo(resources[i].Discovered) > 0)
+                            {
+                                resources.RemoveAt(i);
+                                i--;
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if (resources[i].ApproxDiscovered.GetMaxYear() < dtpMin.Value.Year)
+                            {
+                                resources.RemoveAt(i);
+                                i--;
+                                continue;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (resources[i].ApproxDiscovered == null)
+                        {
+                            if (resources[i].Discovered.Year < approxDateMin.GetMinYear())
+                            {
+                                resources.RemoveAt(i);
+                                i--;
+                                continue;
+                            }
+                        }
+                        else
+                        {
+                            if (resources[i].ApproxDiscovered.GetMaxYear() < approxDateMin.GetMaxYear())
+                            {
+                                resources.RemoveAt(i);
+                                i--;
+                                continue;
+                            }
+                        }
+                    }
+                }
             }
 
             foreach (Resource res in resources)
@@ -243,6 +366,11 @@ namespace HCI15RA13AU
         private void btnOK_Click(object sender, EventArgs e)
         {
             btnFilter_Click(this, EventArgs.Empty);
+            formIsValid = true;
+            this.ValidateChildren();
+
+            if (!formIsValid)
+                return;
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
@@ -256,6 +384,108 @@ namespace HCI15RA13AU
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void rbtDateMin1_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpMin.Enabled = rbtDateMin1.Checked;
+            txtDateMin.Enabled = !rbtDateMin1.Checked;
+        }
+
+        private void rbtDateMin2_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpMin.Enabled = !rbtDateMin2.Checked;
+            txtDateMin.Enabled = rbtDateMin2.Checked;
+        }
+
+        private void rbtDateMax1_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpMax.Enabled = rbtDateMax1.Checked;
+            txtDateMax.Enabled = !rbtDateMax1.Checked;
+        }
+
+        private void rbtDateMax2_CheckedChanged(object sender, EventArgs e)
+        {
+            dtpMax.Enabled = !rbtDateMax2.Checked;
+            txtDateMax.Enabled = rbtDateMax2.Checked;
+        }
+
+        private void txtDateMin_Validating(object sender, CancelEventArgs e)
+        {
+            if (rbtDateMin2.Checked && chbDate.Checked)
+            {
+                if (rxCentury.Match(txtDateMin.Text).Success)
+                {
+                    epDate.SetError(txtDateMin, "");
+                    formIsValid = true;
+
+                    String[] tokens = txtDateMin.Text.Split(new char[] {'.'});
+                    approxDateMin.Century = int.Parse(tokens[0]);
+                    approxDateMin.AD = tokens[2][0] == 'e';
+                    approxDateMin.Year = -1;
+                    approxDateMin.Unknown = false;
+                }
+                else if (rxYear.Match(txtDateMin.Text).Success)
+                {
+                    epDate.SetError(txtDateMin, "");
+                    formIsValid = true;
+
+                    String[] tokens = txtDateMin.Text.Split(new char[] { '.' });
+                    approxDateMin.Year = int.Parse(tokens[0]);
+                    approxDateMin.AD = tokens[3][0] == 'e';
+                    approxDateMin.Century = -1;
+                    approxDateMin.Unknown = false;
+                }
+                else
+                {
+                    epDate.SetError(txtDateMin, "Nije dobro formatiran datum,\nprimer za vek: \"1.vek p.n.e\" \nprimer za godinu: \"1123.g. n.e.\"");
+                    formIsValid = false;
+                }
+            }
+            else
+            {
+                epDate.SetError(txtDateMin, "");
+                formIsValid = true;
+            }
+        }
+
+        private void txtDateMax_Validating(object sender, CancelEventArgs e)
+        {
+            if (rbtDateMax2.Checked && chbDate.Checked)
+            {
+                if (rxCentury.Match(txtDateMax.Text).Success)
+                {
+                    epDate.SetError(txtDateMax, "");
+                    formIsValid = true;
+
+                    String[] tokens = txtDateMax.Text.Split(new char[] { '.' });
+                    approxDateMax.Century = int.Parse(tokens[0]);
+                    approxDateMax.AD = tokens[2][0] == 'e';
+                    approxDateMax.Year = -1;
+                    approxDateMax.Unknown = false;
+                }
+                else if (rxYear.Match(txtDateMax.Text).Success)
+                {
+                    epDate.SetError(txtDateMax, "");
+                    formIsValid = true;
+
+                    String[] tokens = txtDateMax.Text.Split(new char[] { '.' });
+                    approxDateMax.Year = int.Parse(tokens[0]);
+                    approxDateMax.AD = tokens[3][0] == 'e';
+                    approxDateMax.Century = -1;
+                    approxDateMax.Unknown = false;
+                }
+                else
+                {
+                    epDate.SetError(txtDateMax, "Nije dobro formatiran datum,\nprimer za vek: \"1.vek p.n.e\" \nprimer za godinu: \"1123.g. n.e.\"");
+                    formIsValid = false;
+                }
+            }
+            else
+            {
+                epDate.SetError(txtDateMax, "");
+                formIsValid = true;
+            }
         }
     }
 }

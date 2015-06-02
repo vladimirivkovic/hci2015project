@@ -15,6 +15,7 @@ namespace HCI15RA13AU
         private Rectangle mouseDownSelectionWindow;
         private Point displayOffset;
         private ToolTip tt;
+        private string tttext;
 
         public ResourceIcon()
         {
@@ -27,6 +28,9 @@ namespace HCI15RA13AU
 
             tt = new ToolTip();
             this.Tag = res;
+            tt.OwnerDraw = false;
+            //tt.Draw += new DrawToolTipEventHandler(toolTip_Draw);
+            //tt.Popup += new PopupEventHandler(toolTip_Popup);
 
             if(MainForm.tutorialMode == false)
                 pbxIcon.ContextMenuStrip = contextMenu;
@@ -170,6 +174,20 @@ namespace HCI15RA13AU
         private void obrišiToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ((MainForm)MainForm.ActiveForm).removeResource(this);
+        }
+
+        void toolTip_Draw(object sender, DrawToolTipEventArgs e)
+        {
+            Font f = new Font("Arial", 16.0f);
+            e.DrawBackground();
+            e.DrawBorder();
+            tttext = e.ToolTipText;
+            e.Graphics.DrawString(e.ToolTipText, f, Brushes.Black, new PointF(2, 2)); 
+        }
+
+        void toolTip_Popup(object sender, PopupEventArgs e)
+        {
+            e.ToolTipSize = TextRenderer.MeasureText(tttext, new Font("Arial", 16.0f));
         }
     }
 }

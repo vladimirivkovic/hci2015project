@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.chbID = new System.Windows.Forms.CheckBox();
             this.chbName = new System.Windows.Forms.CheckBox();
             this.chbDate = new System.Windows.Forms.CheckBox();
@@ -67,9 +68,21 @@
             this.pnlTags = new System.Windows.Forms.Panel();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtDateMin = new System.Windows.Forms.TextBox();
+            this.txtDateMax = new System.Windows.Forms.TextBox();
+            this.rbtDateMin1 = new System.Windows.Forms.RadioButton();
+            this.rbtDateMin2 = new System.Windows.Forms.RadioButton();
+            this.rbtDateMax1 = new System.Windows.Forms.RadioButton();
+            this.rbtDateMax2 = new System.Windows.Forms.RadioButton();
+            this.lblApprox = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.epDate = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epDate)).BeginInit();
             this.SuspendLayout();
             // 
             // chbID
@@ -123,7 +136,7 @@
             this.chbImportant.Name = "chbImportant";
             this.chbImportant.Size = new System.Drawing.Size(146, 22);
             this.chbImportant.TabIndex = 4;
-            this.chbImportant.Text = "Strateska vaznost";
+            this.chbImportant.Text = "Strateška važnost";
             this.chbImportant.UseVisualStyleBackColor = true;
             this.chbImportant.CheckedChanged += new System.EventHandler(this.chbImportant_CheckedChanged);
             // 
@@ -254,23 +267,23 @@
             // dtpMax
             // 
             this.dtpMax.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpMax.Location = new System.Drawing.Point(897, 160);
+            this.dtpMax.Location = new System.Drawing.Point(56, 6);
             this.dtpMax.Name = "dtpMax";
-            this.dtpMax.Size = new System.Drawing.Size(121, 24);
+            this.dtpMax.Size = new System.Drawing.Size(89, 24);
             this.dtpMax.TabIndex = 74;
             // 
             // dtpMin
             // 
             this.dtpMin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpMin.Location = new System.Drawing.Point(897, 112);
+            this.dtpMin.Location = new System.Drawing.Point(58, 6);
             this.dtpMin.Name = "dtpMin";
-            this.dtpMin.Size = new System.Drawing.Size(121, 24);
+            this.dtpMin.Size = new System.Drawing.Size(89, 24);
             this.dtpMin.TabIndex = 75;
             // 
             // lblDate1
             // 
             this.lblDate1.AutoSize = true;
-            this.lblDate1.Location = new System.Drawing.Point(894, 91);
+            this.lblDate1.Location = new System.Drawing.Point(7, 9);
             this.lblDate1.Name = "lblDate1";
             this.lblDate1.Size = new System.Drawing.Size(32, 18);
             this.lblDate1.TabIndex = 76;
@@ -279,7 +292,7 @@
             // lblDate2
             // 
             this.lblDate2.AutoSize = true;
-            this.lblDate2.Location = new System.Drawing.Point(894, 139);
+            this.lblDate2.Location = new System.Drawing.Point(5, 9);
             this.lblDate2.Name = "lblDate2";
             this.lblDate2.Size = new System.Drawing.Size(32, 18);
             this.lblDate2.TabIndex = 77;
@@ -292,7 +305,7 @@
             this.chbIsImportant.Name = "chbIsImportant";
             this.chbIsImportant.Size = new System.Drawing.Size(68, 22);
             this.chbIsImportant.TabIndex = 78;
-            this.chbIsImportant.Text = "Vazan";
+            this.chbIsImportant.Text = "Važan";
             this.chbIsImportant.UseVisualStyleBackColor = true;
             // 
             // chbIsRenewable
@@ -441,26 +454,119 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // textBox1
+            // txtDateMin
             // 
-            this.textBox1.Location = new System.Drawing.Point(1040, 112);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(119, 24);
-            this.textBox1.TabIndex = 96;
+            this.txtDateMin.Location = new System.Drawing.Point(173, 6);
+            this.txtDateMin.Name = "txtDateMin";
+            this.txtDateMin.Size = new System.Drawing.Size(99, 24);
+            this.txtDateMin.TabIndex = 96;
+            this.txtDateMin.Validating += new System.ComponentModel.CancelEventHandler(this.txtDateMin_Validating);
             // 
-            // textBox2
+            // txtDateMax
             // 
-            this.textBox2.Location = new System.Drawing.Point(1040, 160);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(119, 24);
-            this.textBox2.TabIndex = 97;
+            this.txtDateMax.Location = new System.Drawing.Point(171, 6);
+            this.txtDateMax.Name = "txtDateMax";
+            this.txtDateMax.Size = new System.Drawing.Size(99, 24);
+            this.txtDateMax.TabIndex = 97;
+            this.txtDateMax.Validating += new System.ComponentModel.CancelEventHandler(this.txtDateMax_Validating);
+            // 
+            // rbtDateMin1
+            // 
+            this.rbtDateMin1.AutoSize = true;
+            this.rbtDateMin1.Location = new System.Drawing.Point(38, 12);
+            this.rbtDateMin1.Name = "rbtDateMin1";
+            this.rbtDateMin1.Size = new System.Drawing.Size(14, 13);
+            this.rbtDateMin1.TabIndex = 98;
+            this.rbtDateMin1.TabStop = true;
+            this.rbtDateMin1.UseVisualStyleBackColor = true;
+            this.rbtDateMin1.CheckedChanged += new System.EventHandler(this.rbtDateMin1_CheckedChanged);
+            // 
+            // rbtDateMin2
+            // 
+            this.rbtDateMin2.AutoSize = true;
+            this.rbtDateMin2.Location = new System.Drawing.Point(153, 12);
+            this.rbtDateMin2.Name = "rbtDateMin2";
+            this.rbtDateMin2.Size = new System.Drawing.Size(14, 13);
+            this.rbtDateMin2.TabIndex = 99;
+            this.rbtDateMin2.TabStop = true;
+            this.rbtDateMin2.UseVisualStyleBackColor = true;
+            // 
+            // rbtDateMax1
+            // 
+            this.rbtDateMax1.AutoSize = true;
+            this.rbtDateMax1.Location = new System.Drawing.Point(36, 12);
+            this.rbtDateMax1.Name = "rbtDateMax1";
+            this.rbtDateMax1.Size = new System.Drawing.Size(14, 13);
+            this.rbtDateMax1.TabIndex = 100;
+            this.rbtDateMax1.TabStop = true;
+            this.rbtDateMax1.UseVisualStyleBackColor = true;
+            this.rbtDateMax1.CheckedChanged += new System.EventHandler(this.rbtDateMax1_CheckedChanged);
+            // 
+            // rbtDateMax2
+            // 
+            this.rbtDateMax2.AutoSize = true;
+            this.rbtDateMax2.Location = new System.Drawing.Point(151, 12);
+            this.rbtDateMax2.Name = "rbtDateMax2";
+            this.rbtDateMax2.Size = new System.Drawing.Size(14, 13);
+            this.rbtDateMax2.TabIndex = 101;
+            this.rbtDateMax2.TabStop = true;
+            this.rbtDateMax2.UseVisualStyleBackColor = true;
+            this.rbtDateMax2.CheckedChanged += new System.EventHandler(this.rbtDateMax2_CheckedChanged);
+            // 
+            // lblApprox
+            // 
+            this.lblApprox.AutoSize = true;
+            this.lblApprox.Location = new System.Drawing.Point(1057, 91);
+            this.lblApprox.Name = "lblApprox";
+            this.lblApprox.Size = new System.Drawing.Size(64, 18);
+            this.lblApprox.TabIndex = 102;
+            this.lblApprox.Text = "Okvirno:";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(942, 91);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(54, 18);
+            this.lblDate.TabIndex = 103;
+            this.lblDate.Text = "Tačno:";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rbtDateMin2);
+            this.panel1.Controls.Add(this.rbtDateMin1);
+            this.panel1.Controls.Add(this.txtDateMin);
+            this.panel1.Controls.Add(this.lblDate1);
+            this.panel1.Controls.Add(this.dtpMin);
+            this.panel1.Location = new System.Drawing.Point(887, 106);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(282, 40);
+            this.panel1.TabIndex = 104;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.rbtDateMax2);
+            this.panel2.Controls.Add(this.rbtDateMax1);
+            this.panel2.Controls.Add(this.txtDateMax);
+            this.panel2.Controls.Add(this.lblDate2);
+            this.panel2.Controls.Add(this.dtpMax);
+            this.panel2.Location = new System.Drawing.Point(889, 154);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(279, 40);
+            this.panel2.TabIndex = 105;
+            // 
+            // epDate
+            // 
+            this.epDate.ContainerControl = this;
             // 
             // ResourcesFilterForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1172, 630);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1184, 630);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.lblDate);
+            this.Controls.Add(this.lblApprox);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Controls.Add(this.pnlTags);
@@ -477,10 +583,6 @@
             this.Controls.Add(this.cmbFrequency);
             this.Controls.Add(this.chbIsRenewable);
             this.Controls.Add(this.chbIsImportant);
-            this.Controls.Add(this.lblDate2);
-            this.Controls.Add(this.lblDate1);
-            this.Controls.Add(this.dtpMin);
-            this.Controls.Add(this.dtpMax);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.dgwResources);
@@ -493,10 +595,17 @@
             this.Controls.Add(this.chbName);
             this.Controls.Add(this.chbID);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ResourcesFilterForm";
             this.Text = "Filtriranje resursa";
             this.Load += new System.EventHandler(this.ResourcesFilter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.epDate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -543,7 +652,16 @@
         private System.Windows.Forms.Panel pnlTags;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtDateMin;
+        private System.Windows.Forms.TextBox txtDateMax;
+        private System.Windows.Forms.RadioButton rbtDateMin1;
+        private System.Windows.Forms.RadioButton rbtDateMin2;
+        private System.Windows.Forms.RadioButton rbtDateMax1;
+        private System.Windows.Forms.RadioButton rbtDateMax2;
+        private System.Windows.Forms.Label lblApprox;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ErrorProvider epDate;
     }
 }

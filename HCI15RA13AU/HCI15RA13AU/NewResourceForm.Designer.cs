@@ -567,9 +567,11 @@
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.lblId);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.helpProvider1.SetHelpKeyword(this, "Resurs");
             this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "NewResourceForm";
             this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Dodaj novi resurs";

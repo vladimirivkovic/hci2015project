@@ -358,5 +358,32 @@ namespace HCI15RA13AU
         {
             MainForm.saveToolStripMenuItem_Click(sender, e);
         }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            KeyEventArgs e = new KeyEventArgs(keyData);
+            if (e.Control && e.KeyCode == Keys.N)
+            {
+                btnAddResource_Click(this, EventArgs.Empty);
+                return true;
+            }
+            if (e.Control && e.KeyCode == Keys.D)
+            {
+                btnDeleteResource_Click(this, EventArgs.Empty);
+                return true;
+            }
+            if (e.Control && e.KeyCode == Keys.E)
+            {
+                btnEditResource_Click(this, EventArgs.Empty);
+                return true;
+            }
+            if (e.Control && e.KeyCode == Keys.F)
+            {
+                btnFilter_Click(this, EventArgs.Empty);
+                return true;
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }

@@ -367,12 +367,36 @@ namespace HCI15RA13AU
             {
                 if (Year >= 0)
                 {
-                    return Year + ". g." + (AD ? "" : " p.") + "n.e.";
+                    return Year + ".g." + (AD ? "" : " p.") + "n.e.";
                 }
                 else
                 {
-                    return Century + ". vek " + (AD ? "" : " p.") + "n.e.";
+                    return Century + ".vek " + (AD ? "" : " p.") + "n.e.";
                 }
+            }
+        }
+
+        public int GetMaxYear()
+        {
+            if (Century > 0)
+            {
+                return (Century * 100 - 1) * (AD ? 1 : -1);
+            }
+            else
+            {
+                return Year * (AD ? 1 : -1);
+            }
+        }
+
+        public int GetMinYear()
+        {
+            if (Century > 0)
+            {
+                return ((Century - 1) * 100) * (AD ? 1 : -1);
+            }
+            else
+            {
+                return Year * (AD ? 1 : -1);
             }
         }
     }
