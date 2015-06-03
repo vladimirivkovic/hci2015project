@@ -59,6 +59,7 @@
             // 
             // txtColor
             // 
+            this.txtColor.Enabled = false;
             this.txtColor.Location = new System.Drawing.Point(122, 165);
             this.txtColor.Multiline = true;
             this.txtColor.Name = "txtColor";
@@ -138,6 +139,7 @@
             this.dgwTags.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwTags.Size = new System.Drawing.Size(244, 364);
             this.dgwTags.TabIndex = 18;
+            this.dgwTags.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwTags_CellContentClick);
             this.dgwTags.SelectionChanged += new System.EventHandler(this.dgwTags_SelectionChanged);
             // 
             // TagID
@@ -150,7 +152,7 @@
             this.TagColor.HeaderText = "Boja";
             this.TagColor.Name = "TagColor";
             // 
-            // TagsTable
+            // TagsTableForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(459, 636);
@@ -160,7 +162,7 @@
             this.Controls.Add(this.btnNewTag);
             this.Controls.Add(this.dgwTags);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "TagsTable";
+            this.Name = "TagsTableForm";
             this.Text = "Tabela etiketa";
             this.Load += new System.EventHandler(this.TagsTable_Load);
             this.gbxTag.ResumeLayout(false);

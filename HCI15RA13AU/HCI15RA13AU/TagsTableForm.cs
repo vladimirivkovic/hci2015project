@@ -139,5 +139,10 @@ namespace HCI15RA13AU
                 }
             }
         }
+
+        private void dgwTags_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEditTag_Click(this, EventArgs.Empty);
+        }
     }
 }

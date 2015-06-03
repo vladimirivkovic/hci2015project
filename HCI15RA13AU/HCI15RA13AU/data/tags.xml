@@ -60,4 +60,24 @@
     <G>255</G>
     <R>128</R>
   </TagItem>
+  <TagItem>
+    <ID>qwe</ID>
+    <SecondID>qweqwe</SecondID>
+    <Color />
+    <Description />
+    <A>255</A>
+    <B>0</B>
+    <G>128</G>
+    <R>255</R>
+  </TagItem>
+  <TagItem>
+    <ID>qwe1</ID>
+    <SecondID>qwe</SecondID>
+    <Color />
+    <Description />
+    <A>255</A>
+    <B>0</B>
+    <G>128</G>
+    <R>0</R>
+  </TagItem>
 </ListOfTags>

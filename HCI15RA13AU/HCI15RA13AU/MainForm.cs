@@ -46,7 +46,7 @@ namespace HCI15RA13AU
             DeserializeResources();
             DeserializeCoordinates();
 
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
 
 
             btnEndTutorial.Hide();

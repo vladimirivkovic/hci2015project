@@ -191,5 +191,10 @@ namespace HCI15RA13AU
         {
             return selectedType;
         }
+
+        private void dgwTypes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnEditType_Click(this, EventArgs.Empty);
+        }
     }
 }

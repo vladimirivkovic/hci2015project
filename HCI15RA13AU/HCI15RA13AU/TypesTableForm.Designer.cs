@@ -139,6 +139,7 @@
             this.dgwTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwTypes.Size = new System.Drawing.Size(243, 364);
             this.dgwTypes.TabIndex = 17;
+            this.dgwTypes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwTypes_CellContentClick);
             this.dgwTypes.SelectionChanged += new System.EventHandler(this.dgwTypes_SelectionChanged);
             // 
             // TypeID
@@ -161,7 +162,7 @@
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
-            // TypesTable
+            // TypesTableForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(459, 636);
@@ -172,7 +173,7 @@
             this.Controls.Add(this.btnNewType);
             this.Controls.Add(this.dgwTypes);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Name = "TypesTable";
+            this.Name = "TypesTableForm";
             this.Text = "Tabela tipova resursa";
             this.Load += new System.EventHandler(this.TypesTable_Load);
             this.gbxType.ResumeLayout(false);
