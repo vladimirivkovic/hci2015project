@@ -46,13 +46,15 @@ namespace HCI15RA13AU
             DeserializeResources();
             DeserializeCoordinates();
 
-            this.FormBorderStyle = FormBorderStyle.Sizable;
+            //this.FormBorderStyle = FormBorderStyle.Sizable;
 
 
             btnEndTutorial.Hide();
             pbxLeft.Hide();
             pbxDown.Hide();
             pbxRight.Hide();
+            pnlDragLeft.Hide();
+            pnlDragRight.Hide();
         }
 
         private void DeserializeTags()
@@ -781,6 +783,9 @@ namespace HCI15RA13AU
                     }
                     displayOffset = SystemInformation.WorkingArea.Location;
                     DragDropEffects dropEffect = this.DoDragDrop(pnlResources, DragDropEffects.Copy);
+
+                    pnlDragLeft.Hide();
+                    pnlDragRight.Hide();
                 }
             }
         }
@@ -829,10 +834,10 @@ namespace HCI15RA13AU
                 Image img;
                 if (resourcesPanelRight)
                 {
-                    pnlResources.Left = 12;
-                    lblUnmappedResources.Left = 12;
-                    pnlMap.Left += pnlResources.Width + 9;
-                    pnlDelete.Left += pnlMap.Width + 9 + pnlResources.Width - pnlDelete.Width;
+                    pnlResources.Left = pnlMap.Left;
+                    lblUnmappedResources.Left = pnlMap.Left;
+                    pnlMap.Left += pnlResources.Width + 30;
+                    pnlDelete.Left += pnlMap.Width + 30 + pnlResources.Width - pnlDelete.Width;
                     resourcesPanelRight = false;
                     pbxDown.Left += pnlMap.Width - pnlDelete.Width;
                     pbxLeft.Left = 0;
@@ -844,10 +849,10 @@ namespace HCI15RA13AU
                 }
                 else
                 {
-                    pnlResources.Left = pnlMap.Width + 19;
-                    lblUnmappedResources.Left = pnlMap.Width + 19;
-                    pnlMap.Left -= pnlResources.Width + 9;
-                    pnlDelete.Left -= pnlMap.Width + 9 + pnlResources.Width - pnlDelete.Width;
+                    pnlResources.Left = pnlMap.Width + 50;
+                    lblUnmappedResources.Left = pnlMap.Width + 50;
+                    pnlMap.Left -= pnlResources.Width + 30;
+                    pnlDelete.Left -= pnlMap.Width + 30 + pnlResources.Width - pnlDelete.Width;
                     resourcesPanelRight = true;
                     pbxDown.Left -= pnlMap.Width - pnlDelete.Width;
                     pbxLeft.Left = pnlMap.Width - pbxLeft.Width;
@@ -906,6 +911,60 @@ namespace HCI15RA13AU
             }
 
             return r;
+        }
+
+        private void pnlResources_DragLeave(object sender, EventArgs e)
+        {
+            if (resourcesPanelRight && pnlDragLeft.Visible == false)
+            {
+                pnlDragLeft.Show();
+            }
+            if (!resourcesPanelRight && pnlDragRight.Visible == false)
+            {
+                pnlDragRight.Show();
+            }
+        }
+
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.Width < pnlMap.Width + pnlResources.Width * 5 / 6)
+            {
+                if (pnlResources.Visible)
+                {
+                    if (resourcesPanelRight)
+                    {
+                        pnlResources.Hide();
+                        lblUnmappedResources.Hide();
+                    }
+                    else
+                    {
+                        pnlResources.Hide();
+                        lblUnmappedResources.Hide();
+                        pnlMap.Left -= pnlResources.Width;
+                        pnlDelete.Left -= pnlResources.Width;
+                    }
+                }
+            }
+            else
+            {
+                if (!pnlResources.Visible)
+                {
+                    if (resourcesPanelRight)
+                    {
+                        pnlResources.Show();
+                        lblUnmappedResources.Show();
+                    }
+                    else
+                    {
+                        pnlResources.Show();
+                        lblUnmappedResources.Show();
+                        pnlDelete.Left += pnlResources.Width;
+                        pnlMap.Left += pnlResources.Width;
+                    }
+                }
+            }
+
+            pnlResources.Height = this.Height - pnlResources.Top - statusStrip.Height - menuStrip1.Height - 20;
         }
     }
 }

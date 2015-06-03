@@ -55,6 +55,8 @@
             this.lblTutorial = new System.Windows.Forms.Label();
             this.btnEndTutorial = new System.Windows.Forms.Button();
             this.helpProvider = new System.Windows.Forms.HelpProvider();
+            this.pnlDragLeft = new System.Windows.Forms.Panel();
+            this.pnlDragRight = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.pnlMap.SuspendLayout();
@@ -91,7 +93,7 @@
             this.pomoćToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1184, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1209, 28);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -189,10 +191,10 @@
             this.pnlMap.Controls.Add(this.pbxLeft);
             this.helpProvider.SetHelpKeyword(this.pnlMap, "");
             this.helpProvider.SetHelpNavigator(this.pnlMap, System.Windows.Forms.HelpNavigator.TableOfContents);
-            this.pnlMap.Location = new System.Drawing.Point(12, 61);
+            this.pnlMap.Location = new System.Drawing.Point(20, 61);
             this.pnlMap.Name = "pnlMap";
             this.helpProvider.SetShowHelp(this.pnlMap, false);
-            this.pnlMap.Size = new System.Drawing.Size(901, 490);
+            this.pnlMap.Size = new System.Drawing.Size(900, 490);
             this.pnlMap.TabIndex = 13;
             this.pnlMap.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlMap_DragDrop);
             this.pnlMap.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlMap_DragEnter);
@@ -235,12 +237,13 @@
             this.pnlResources.AllowDrop = true;
             this.pnlResources.AutoScroll = true;
             this.pnlResources.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pnlResources.Location = new System.Drawing.Point(922, 61);
+            this.pnlResources.Location = new System.Drawing.Point(950, 61);
             this.pnlResources.Name = "pnlResources";
-            this.pnlResources.Size = new System.Drawing.Size(250, 609);
+            this.pnlResources.Size = new System.Drawing.Size(240, 610);
             this.pnlResources.TabIndex = 14;
             this.pnlResources.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlResources_DragDrop);
             this.pnlResources.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlResources_DragEnter);
+            this.pnlResources.DragLeave += new System.EventHandler(this.pnlResources_DragLeave);
             this.pnlResources.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlResources_MouseDown);
             this.pnlResources.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pnlResources_MouseMove);
             // 
@@ -248,7 +251,7 @@
             // 
             this.pnlDelete.AllowDrop = true;
             this.pnlDelete.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlDelete.BackgroundImage")));
-            this.pnlDelete.Location = new System.Drawing.Point(12, 557);
+            this.pnlDelete.Location = new System.Drawing.Point(20, 557);
             this.pnlDelete.Name = "pnlDelete";
             this.pnlDelete.Size = new System.Drawing.Size(110, 110);
             this.pnlDelete.TabIndex = 15;
@@ -270,9 +273,9 @@
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblCoordinates,
             this.lblMessage});
-            this.statusStrip.Location = new System.Drawing.Point(0, 673);
+            this.statusStrip.Location = new System.Drawing.Point(0, 674);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(1184, 22);
+            this.statusStrip.Size = new System.Drawing.Size(1209, 22);
             this.statusStrip.TabIndex = 17;
             this.statusStrip.Text = "statusStrip1";
             // 
@@ -309,13 +312,31 @@
             // 
             this.helpProvider.HelpNamespace = "../../help/help project.chm";
             // 
+            // pnlDragLeft
+            // 
+            this.pnlDragLeft.BackColor = System.Drawing.Color.Red;
+            this.pnlDragLeft.Location = new System.Drawing.Point(8, 202);
+            this.pnlDragLeft.Name = "pnlDragLeft";
+            this.pnlDragLeft.Size = new System.Drawing.Size(10, 169);
+            this.pnlDragLeft.TabIndex = 20;
+            // 
+            // pnlDragRight
+            // 
+            this.pnlDragRight.BackColor = System.Drawing.Color.Red;
+            this.pnlDragRight.Location = new System.Drawing.Point(1194, 202);
+            this.pnlDragRight.Name = "pnlDragRight";
+            this.pnlDragRight.Size = new System.Drawing.Size(14, 168);
+            this.pnlDragRight.TabIndex = 21;
+            // 
             // MainForm
             // 
             this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(1184, 695);
+            this.ClientSize = new System.Drawing.Size(1209, 696);
+            this.Controls.Add(this.pnlDragRight);
+            this.Controls.Add(this.pnlDragLeft);
             this.Controls.Add(this.btnEndTutorial);
             this.Controls.Add(this.lblTutorial);
             this.Controls.Add(this.statusStrip);
@@ -336,6 +357,7 @@
             this.helpProvider.SetShowHelp(this, true);
             this.Text = "Mapa svetskih resursa";
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -380,6 +402,8 @@
         private System.Windows.Forms.PictureBox pbxLeft;
         private System.Windows.Forms.PictureBox pbxDown;
         private System.Windows.Forms.PictureBox pbxRight;
+        private System.Windows.Forms.Panel pnlDragLeft;
+        private System.Windows.Forms.Panel pnlDragRight;
 
     }
 }

@@ -94,7 +94,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(941, 218);
+            this.txtSearch.Location = new System.Drawing.Point(925, 218);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(248, 24);
             this.txtSearch.TabIndex = 68;
@@ -145,7 +145,7 @@
             this.grbDetails.Margin = new System.Windows.Forms.Padding(4);
             this.grbDetails.Name = "grbDetails";
             this.grbDetails.Padding = new System.Windows.Forms.Padding(4);
-            this.grbDetails.Size = new System.Drawing.Size(1160, 224);
+            this.grbDetails.Size = new System.Drawing.Size(1160, 230);
             this.grbDetails.TabIndex = 70;
             this.grbDetails.TabStop = false;
             this.grbDetails.Text = "Detalji";
@@ -422,7 +422,7 @@
             this.dgwResources.Name = "dgwResources";
             this.dgwResources.ReadOnly = true;
             this.dgwResources.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgwResources.Size = new System.Drawing.Size(845, 384);
+            this.dgwResources.Size = new System.Drawing.Size(845, 385);
             this.dgwResources.TabIndex = 69;
             this.dgwResources.SelectionChanged += new System.EventHandler(this.dgwResources_SelectionChanged);
             this.dgwResources.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgwResources_MouseDoubleClick);
@@ -492,7 +492,7 @@
             // chbId
             // 
             this.chbId.AutoSize = true;
-            this.chbId.Location = new System.Drawing.Point(942, 190);
+            this.chbId.Location = new System.Drawing.Point(925, 190);
             this.chbId.Name = "chbId";
             this.chbId.Size = new System.Drawing.Size(71, 22);
             this.chbId.TabIndex = 75;
@@ -503,7 +503,7 @@
             // chbName
             // 
             this.chbName.AutoSize = true;
-            this.chbName.Location = new System.Drawing.Point(1019, 190);
+            this.chbName.Location = new System.Drawing.Point(1002, 190);
             this.chbName.Name = "chbName";
             this.chbName.Size = new System.Drawing.Size(67, 22);
             this.chbName.TabIndex = 76;
@@ -514,7 +514,7 @@
             // chbType
             // 
             this.chbType.AutoSize = true;
-            this.chbType.Location = new System.Drawing.Point(1092, 190);
+            this.chbType.Location = new System.Drawing.Point(1075, 190);
             this.chbType.Name = "chbType";
             this.chbType.Size = new System.Drawing.Size(98, 22);
             this.chbType.TabIndex = 77;
@@ -554,8 +554,9 @@
             // 
             // ResourcesTableForm
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1202, 642);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1202, 641);
             this.Controls.Add(this.chbType);
             this.Controls.Add(this.chbName);
             this.Controls.Add(this.chbId);
@@ -570,7 +571,6 @@
             this.Controls.Add(this.dgwResources);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.helpProvider1.SetHelpKeyword(this, "Resursi");
             this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.MainMenuStrip = this.menuStrip1;
@@ -579,6 +579,7 @@
             this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Tabela resursa";
             this.Load += new System.EventHandler(this.ResourcesTable_Load);
+            this.SizeChanged += new System.EventHandler(this.ResourcesTableForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).EndInit();
             this.grbDetails.ResumeLayout(false);
             this.grbDetails.PerformLayout();

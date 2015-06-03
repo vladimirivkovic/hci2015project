@@ -52,8 +52,8 @@ namespace HCI15RA13AU
                     chbImportant.Checked = res.Important;
                     chbRenewable.Checked = res.Renewable;
                     txtDescription.Text = res.Description;
-                    txtTypeId.Text = res.Type.SecondID;
-                    txtTypeName.Text = res.Type.Name;
+                    txtTypeId.Text = MainForm.types[res.Type.ID].SecondID;
+                    txtTypeName.Text = MainForm.types[res.Type.ID].Name;
                     pnlTags.Controls.Clear();
                     if (res.Tags.Count > 0)
                     {
@@ -384,6 +384,26 @@ namespace HCI15RA13AU
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void ResourcesTableForm_SizeChanged(object sender, EventArgs e)
+        {
+            if (dgwResources.Height + dgwResources.Top < pbxIcon.Top + 10 && this.Height <= dgwResources.Height + dgwResources.Top + grbDetails.Height + 40)
+                return;
+            dgwResources.Height = this.Height - dgwResources.Top - grbDetails.Height - 40;
+            grbDetails.Top = dgwResources.Top + dgwResources.Height + 7;
+            if (dgwResources.Width + dgwResources.Left + 5 < pbxIcon.Left)
+            {
+                pbxIcon.Left = pbxIcon.Left + pbxIcon.Width - grbDetails.Top + pbxIcon.Top;
+                pbxIcon.Height = grbDetails.Top - pbxIcon.Top;
+                pbxIcon.Width = pbxIcon.Height;
+            }
+            if (pbxIcon.Top + pbxIcon.Height > grbDetails.Top)
+            {
+                pbxIcon.Left = pbxIcon.Left + pbxIcon.Width - grbDetails.Top + pbxIcon.Top;
+                pbxIcon.Height = grbDetails.Top - pbxIcon.Top;
+                pbxIcon.Width = pbxIcon.Height;
+            }
         }
     }
 }
