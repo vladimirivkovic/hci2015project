@@ -484,6 +484,7 @@ namespace HCI15RA13AU
                     if (!resources.ContainsKey(((Resource)resIcon.Tag).ID))
                     {
                         deletedControls.Add(ctrl);
+                        resourceCoordinates.Remove(((Resource)resIcon.Tag).ID);
                     }
                     else
                     {
@@ -522,9 +523,9 @@ namespace HCI15RA13AU
                     {
                         Resource res = MainForm.resources[((Resource)resCtrl.Tag).ID];
                         resCtrl.Tag = res;
-                        
+                        resCtrl.UpdateControl();
                     }
-                    resCtrl.UpdateControl();
+                    
                 }
             }
 

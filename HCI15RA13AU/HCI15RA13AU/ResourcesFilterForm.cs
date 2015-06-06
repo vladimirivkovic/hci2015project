@@ -79,6 +79,8 @@ namespace HCI15RA13AU
         {
             dtpMin.Enabled = chbDate.Checked;
             dtpMax.Enabled = chbDate.Checked;
+            panel1.Enabled = chbDate.Checked; ;
+            panel2.Enabled = chbDate.Checked;
             rbtDateMin1.Enabled = chbDate.Checked;
             rbtDateMin2.Enabled = chbDate.Checked;
             rbtDateMax1.Enabled = chbDate.Checked;

@@ -92,7 +92,7 @@
             this.chbID.Location = new System.Drawing.Point(897, 13);
             this.chbID.Name = "chbID";
             this.chbID.Size = new System.Drawing.Size(79, 22);
-            this.chbID.TabIndex = 0;
+            this.chbID.TabIndex = 1;
             this.chbID.Text = "Oznaka";
             this.chbID.UseVisualStyleBackColor = true;
             this.chbID.CheckedChanged += new System.EventHandler(this.chbID_CheckedChanged);
@@ -103,7 +103,7 @@
             this.chbName.Location = new System.Drawing.Point(1040, 12);
             this.chbName.Name = "chbName";
             this.chbName.Size = new System.Drawing.Size(64, 22);
-            this.chbName.TabIndex = 1;
+            this.chbName.TabIndex = 3;
             this.chbName.Text = "Naziv";
             this.chbName.UseVisualStyleBackColor = true;
             this.chbName.CheckedChanged += new System.EventHandler(this.chbName_CheckedChanged);
@@ -114,7 +114,7 @@
             this.chbDate.Location = new System.Drawing.Point(897, 66);
             this.chbDate.Name = "chbDate";
             this.chbDate.Size = new System.Drawing.Size(71, 22);
-            this.chbDate.TabIndex = 2;
+            this.chbDate.TabIndex = 5;
             this.chbDate.Text = "Datum";
             this.chbDate.UseVisualStyleBackColor = true;
             this.chbDate.CheckedChanged += new System.EventHandler(this.chbDate_CheckedChanged);
@@ -125,7 +125,7 @@
             this.chbCost.Location = new System.Drawing.Point(897, 375);
             this.chbCost.Name = "chbCost";
             this.chbCost.Size = new System.Drawing.Size(145, 22);
-            this.chbCost.TabIndex = 3;
+            this.chbCost.TabIndex = 23;
             this.chbCost.Text = "Cena (u dolarima)";
             this.chbCost.UseVisualStyleBackColor = true;
             this.chbCost.CheckedChanged += new System.EventHandler(this.chbCost_CheckedChanged);
@@ -136,7 +136,7 @@
             this.chbImportant.Location = new System.Drawing.Point(897, 213);
             this.chbImportant.Name = "chbImportant";
             this.chbImportant.Size = new System.Drawing.Size(146, 22);
-            this.chbImportant.TabIndex = 4;
+            this.chbImportant.TabIndex = 15;
             this.chbImportant.Text = "Strateška važnost";
             this.chbImportant.UseVisualStyleBackColor = true;
             this.chbImportant.CheckedChanged += new System.EventHandler(this.chbImportant_CheckedChanged);
@@ -147,7 +147,7 @@
             this.chbRenewable.Location = new System.Drawing.Point(1040, 213);
             this.chbRenewable.Name = "chbRenewable";
             this.chbRenewable.Size = new System.Drawing.Size(108, 22);
-            this.chbRenewable.TabIndex = 5;
+            this.chbRenewable.TabIndex = 17;
             this.chbRenewable.Text = "Obnovljivost";
             this.chbRenewable.UseVisualStyleBackColor = true;
             this.chbRenewable.CheckedChanged += new System.EventHandler(this.chbRenewable_CheckedChanged);
@@ -158,7 +158,7 @@
             this.chbFrequency.Location = new System.Drawing.Point(897, 293);
             this.chbFrequency.Name = "chbFrequency";
             this.chbFrequency.Size = new System.Drawing.Size(102, 22);
-            this.chbFrequency.TabIndex = 6;
+            this.chbFrequency.TabIndex = 19;
             this.chbFrequency.Text = "Frekvencija";
             this.chbFrequency.UseVisualStyleBackColor = true;
             this.chbFrequency.CheckedChanged += new System.EventHandler(this.chbFrequency_CheckedChanged);
@@ -169,7 +169,7 @@
             this.chbUnit.Location = new System.Drawing.Point(1040, 293);
             this.chbUnit.Name = "chbUnit";
             this.chbUnit.Size = new System.Drawing.Size(119, 22);
-            this.chbUnit.TabIndex = 7;
+            this.chbUnit.TabIndex = 21;
             this.chbUnit.Text = "Jedinica mere";
             this.chbUnit.UseVisualStyleBackColor = true;
             this.chbUnit.CheckedChanged += new System.EventHandler(this.chbUnit_CheckedChanged);
@@ -197,6 +197,7 @@
             this.dgwResources.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwResources.Size = new System.Drawing.Size(845, 605);
             this.dgwResources.TabIndex = 70;
+            this.dgwResources.TabStop = false;
             this.dgwResources.SelectionChanged += new System.EventHandler(this.dgwResources_SelectionChanged);
             // 
             // Id
@@ -256,14 +257,14 @@
             this.txtID.Location = new System.Drawing.Point(897, 36);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(121, 24);
-            this.txtID.TabIndex = 71;
+            this.txtID.TabIndex = 2;
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(1040, 35);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(119, 24);
-            this.txtName.TabIndex = 72;
+            this.txtName.TabIndex = 4;
             // 
             // dtpMax
             // 
@@ -271,7 +272,7 @@
             this.dtpMax.Location = new System.Drawing.Point(56, 6);
             this.dtpMax.Name = "dtpMax";
             this.dtpMax.Size = new System.Drawing.Size(89, 24);
-            this.dtpMax.TabIndex = 74;
+            this.dtpMax.TabIndex = 13;
             // 
             // dtpMin
             // 
@@ -279,7 +280,7 @@
             this.dtpMin.Location = new System.Drawing.Point(58, 6);
             this.dtpMin.Name = "dtpMin";
             this.dtpMin.Size = new System.Drawing.Size(89, 24);
-            this.dtpMin.TabIndex = 75;
+            this.dtpMin.TabIndex = 8;
             // 
             // lblDate1
             // 
@@ -305,7 +306,7 @@
             this.chbIsImportant.Location = new System.Drawing.Point(929, 241);
             this.chbIsImportant.Name = "chbIsImportant";
             this.chbIsImportant.Size = new System.Drawing.Size(68, 22);
-            this.chbIsImportant.TabIndex = 78;
+            this.chbIsImportant.TabIndex = 16;
             this.chbIsImportant.Text = "Važan";
             this.chbIsImportant.UseVisualStyleBackColor = true;
             // 
@@ -315,7 +316,7 @@
             this.chbIsRenewable.Location = new System.Drawing.Point(1053, 241);
             this.chbIsRenewable.Name = "chbIsRenewable";
             this.chbIsRenewable.Size = new System.Drawing.Size(87, 22);
-            this.chbIsRenewable.TabIndex = 79;
+            this.chbIsRenewable.TabIndex = 18;
             this.chbIsRenewable.Text = "Obnovljiv";
             this.chbIsRenewable.UseVisualStyleBackColor = true;
             // 
@@ -329,7 +330,7 @@
             this.cmbFrequency.Location = new System.Drawing.Point(897, 316);
             this.cmbFrequency.Name = "cmbFrequency";
             this.cmbFrequency.Size = new System.Drawing.Size(121, 26);
-            this.cmbFrequency.TabIndex = 80;
+            this.cmbFrequency.TabIndex = 20;
             // 
             // cmbUnit
             // 
@@ -342,21 +343,21 @@
             this.cmbUnit.Location = new System.Drawing.Point(1040, 316);
             this.cmbUnit.Name = "cmbUnit";
             this.cmbUnit.Size = new System.Drawing.Size(119, 26);
-            this.cmbUnit.TabIndex = 81;
+            this.cmbUnit.TabIndex = 22;
             // 
             // txtCostMin
             // 
             this.txtCostMin.Location = new System.Drawing.Point(897, 421);
             this.txtCostMin.Name = "txtCostMin";
             this.txtCostMin.Size = new System.Drawing.Size(121, 24);
-            this.txtCostMin.TabIndex = 82;
+            this.txtCostMin.TabIndex = 24;
             // 
             // txtCostMax
             // 
             this.txtCostMax.Location = new System.Drawing.Point(897, 469);
             this.txtCostMax.Name = "txtCostMax";
             this.txtCostMax.Size = new System.Drawing.Size(121, 24);
-            this.txtCostMax.TabIndex = 83;
+            this.txtCostMax.TabIndex = 25;
             // 
             // lblCost1
             // 
@@ -381,7 +382,7 @@
             this.btnFilter.Location = new System.Drawing.Point(892, 578);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(85, 40);
-            this.btnFilter.TabIndex = 86;
+            this.btnFilter.TabIndex = 31;
             this.btnFilter.Text = "Primeni";
             this.btnFilter.UseVisualStyleBackColor = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
@@ -392,7 +393,7 @@
             this.chbType.Location = new System.Drawing.Point(1040, 375);
             this.chbType.Name = "chbType";
             this.chbType.Size = new System.Drawing.Size(101, 22);
-            this.chbType.TabIndex = 87;
+            this.chbType.TabIndex = 26;
             this.chbType.Text = "Tip resursa";
             this.chbType.UseVisualStyleBackColor = true;
             this.chbType.CheckedChanged += new System.EventHandler(this.chbType_CheckedChanged);
@@ -403,7 +404,7 @@
             this.cmbType.Location = new System.Drawing.Point(1038, 421);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(121, 26);
-            this.cmbType.TabIndex = 88;
+            this.cmbType.TabIndex = 27;
             // 
             // chbTags
             // 
@@ -411,7 +412,7 @@
             this.chbTags.Location = new System.Drawing.Point(897, 499);
             this.chbTags.Name = "chbTags";
             this.chbTags.Size = new System.Drawing.Size(72, 22);
-            this.chbTags.TabIndex = 89;
+            this.chbTags.TabIndex = 28;
             this.chbTags.Text = "Etikete";
             this.chbTags.UseVisualStyleBackColor = true;
             this.chbTags.CheckedChanged += new System.EventHandler(this.chbTags_CheckedChanged);
@@ -421,7 +422,7 @@
             this.btnTags.Location = new System.Drawing.Point(929, 527);
             this.btnTags.Name = "btnTags";
             this.btnTags.Size = new System.Drawing.Size(75, 30);
-            this.btnTags.TabIndex = 90;
+            this.btnTags.TabIndex = 29;
             this.btnTags.Text = "Izaberi";
             this.btnTags.UseVisualStyleBackColor = true;
             this.btnTags.Click += new System.EventHandler(this.btnTags_Click);
@@ -440,7 +441,7 @@
             this.btnOK.Location = new System.Drawing.Point(983, 578);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(85, 40);
-            this.btnOK.TabIndex = 94;
+            this.btnOK.TabIndex = 32;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -450,7 +451,7 @@
             this.btnCancel.Location = new System.Drawing.Point(1075, 578);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(85, 40);
-            this.btnCancel.TabIndex = 95;
+            this.btnCancel.TabIndex = 33;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -460,7 +461,7 @@
             this.txtDateMin.Location = new System.Drawing.Point(173, 6);
             this.txtDateMin.Name = "txtDateMin";
             this.txtDateMin.Size = new System.Drawing.Size(99, 24);
-            this.txtDateMin.TabIndex = 96;
+            this.txtDateMin.TabIndex = 9;
             this.txtDateMin.Validating += new System.ComponentModel.CancelEventHandler(this.txtDateMin_Validating);
             // 
             // txtDateMax
@@ -468,7 +469,7 @@
             this.txtDateMax.Location = new System.Drawing.Point(171, 6);
             this.txtDateMax.Name = "txtDateMax";
             this.txtDateMax.Size = new System.Drawing.Size(99, 24);
-            this.txtDateMax.TabIndex = 97;
+            this.txtDateMax.TabIndex = 14;
             this.txtDateMax.Validating += new System.ComponentModel.CancelEventHandler(this.txtDateMax_Validating);
             // 
             // rbtDateMin1
@@ -477,7 +478,7 @@
             this.rbtDateMin1.Location = new System.Drawing.Point(38, 12);
             this.rbtDateMin1.Name = "rbtDateMin1";
             this.rbtDateMin1.Size = new System.Drawing.Size(14, 13);
-            this.rbtDateMin1.TabIndex = 98;
+            this.rbtDateMin1.TabIndex = 7;
             this.rbtDateMin1.TabStop = true;
             this.rbtDateMin1.UseVisualStyleBackColor = true;
             this.rbtDateMin1.CheckedChanged += new System.EventHandler(this.rbtDateMin1_CheckedChanged);
@@ -488,7 +489,7 @@
             this.rbtDateMin2.Location = new System.Drawing.Point(153, 12);
             this.rbtDateMin2.Name = "rbtDateMin2";
             this.rbtDateMin2.Size = new System.Drawing.Size(14, 13);
-            this.rbtDateMin2.TabIndex = 99;
+            this.rbtDateMin2.TabIndex = 7;
             this.rbtDateMin2.TabStop = true;
             this.rbtDateMin2.UseVisualStyleBackColor = true;
             // 
@@ -498,7 +499,7 @@
             this.rbtDateMax1.Location = new System.Drawing.Point(36, 12);
             this.rbtDateMax1.Name = "rbtDateMax1";
             this.rbtDateMax1.Size = new System.Drawing.Size(14, 13);
-            this.rbtDateMax1.TabIndex = 100;
+            this.rbtDateMax1.TabIndex = 12;
             this.rbtDateMax1.TabStop = true;
             this.rbtDateMax1.UseVisualStyleBackColor = true;
             this.rbtDateMax1.CheckedChanged += new System.EventHandler(this.rbtDateMax1_CheckedChanged);
@@ -509,7 +510,7 @@
             this.rbtDateMax2.Location = new System.Drawing.Point(151, 12);
             this.rbtDateMax2.Name = "rbtDateMax2";
             this.rbtDateMax2.Size = new System.Drawing.Size(14, 13);
-            this.rbtDateMax2.TabIndex = 101;
+            this.rbtDateMax2.TabIndex = 12;
             this.rbtDateMax2.TabStop = true;
             this.rbtDateMax2.UseVisualStyleBackColor = true;
             this.rbtDateMax2.CheckedChanged += new System.EventHandler(this.rbtDateMax2_CheckedChanged);
@@ -541,8 +542,8 @@
             this.panel1.Controls.Add(this.dtpMin);
             this.panel1.Location = new System.Drawing.Point(887, 106);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(282, 40);
-            this.panel1.TabIndex = 104;
+            this.panel1.Size = new System.Drawing.Size(291, 40);
+            this.panel1.TabIndex = 6;
             // 
             // panel2
             // 
@@ -553,8 +554,8 @@
             this.panel2.Controls.Add(this.dtpMax);
             this.panel2.Location = new System.Drawing.Point(889, 154);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(279, 40);
-            this.panel2.TabIndex = 105;
+            this.panel2.Size = new System.Drawing.Size(289, 40);
+            this.panel2.TabIndex = 11;
             // 
             // epDate
             // 
@@ -567,7 +568,7 @@
             // ResourcesFilterForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.ClientSize = new System.Drawing.Size(1184, 630);
+            this.ClientSize = new System.Drawing.Size(1190, 631);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblDate);

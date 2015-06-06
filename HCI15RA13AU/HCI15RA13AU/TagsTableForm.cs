@@ -71,36 +71,39 @@ namespace HCI15RA13AU
         {
             if (dgwTags.SelectedRows.Count == 0)
                 return;
-            DataGridViewRow row = dgwTags.SelectedRows[0];
-            if (row != null)
+            DataGridViewSelectedRowCollection rows = dgwTags.SelectedRows;
+            foreach (DataGridViewRow row in rows)
             {
-                int index = dgwTags.Rows.IndexOf(row);
-                Tag t = (Tag)row.Tag;
-                if (t != null)
+                if (row != null)
                 {
-                    List<Resource> deleted = new List<Resource>();
-                    foreach (Resource res in MainForm.resources.Values)
+                    int index = dgwTags.Rows.IndexOf(row);
+                    Tag t = (Tag)row.Tag;
+                    if (t != null)
                     {
-                        //bool contains = false;
-                        foreach (Tag tg in res.Tags.Values)
+                        List<Resource> deleted = new List<Resource>();
+                        foreach (Resource res in MainForm.resources.Values)
                         {
-                            if (tg.ID == t.ID)
+                            //bool contains = false;
+                            foreach (Tag tg in res.Tags.Values)
                             {
-                                deleted.Add(res);
+                                if (tg.ID == t.ID)
+                                {
+                                    deleted.Add(res);
+                                }
                             }
                         }
-                    }
-                    foreach (Resource res in deleted)
-                    {
-                        if (res.Tags.ContainsKey(t.ID))
+                        foreach (Resource res in deleted)
                         {
-                            MainForm.resources[res.ID].Tags.Remove(t.ID);
+                            if (res.Tags.ContainsKey(t.ID))
+                            {
+                                MainForm.resources[res.ID].Tags.Remove(t.ID);
+                            }
                         }
+                        MainForm.tags.Remove(t.ID);
+                        //dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
                     }
-                    MainForm.tags.Remove(t.ID);
-                    //dgwResources_SelectionChanged(dgwResources, EventArgs.Empty);
+                    dgwTags.Rows.RemoveAt(index);
                 }
-                dgwTags.Rows.RemoveAt(index);
             }
         }
 
@@ -128,6 +131,7 @@ namespace HCI15RA13AU
             {
                 txtTagDesc.Text = "";
                 txtColor.ForeColor = Color.White;
+                txtColor.BackColor = Color.White;
             }
             else
             {
@@ -143,6 +147,28 @@ namespace HCI15RA13AU
         private void dgwTags_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             btnEditTag_Click(this, EventArgs.Empty);
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            KeyEventArgs e = new KeyEventArgs(keyData);
+            if (e.Control && e.KeyCode == Keys.N)
+            {
+                btnNewTag_Click(this, EventArgs.Empty);
+                return true;
+            }
+            if (e.Control && e.KeyCode == Keys.D)
+            {
+                btnDeleteTag_Click(this, EventArgs.Empty);
+                return true;
+            }
+            if (e.Control && e.KeyCode == Keys.E)
+            {
+                btnEditTag_Click(this, EventArgs.Empty);
+                return true;
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

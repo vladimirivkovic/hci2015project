@@ -140,7 +140,7 @@
             this.dgwTags.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwTags.Size = new System.Drawing.Size(244, 364);
             this.dgwTags.TabIndex = 18;
-            this.dgwTags.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwTags_CellContentClick);
+            this.dgwTags.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwTags_CellContentClick);
             this.dgwTags.SelectionChanged += new System.EventHandler(this.dgwTags_SelectionChanged);
             // 
             // TagID

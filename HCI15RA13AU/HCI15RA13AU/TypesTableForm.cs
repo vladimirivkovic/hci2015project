@@ -112,6 +112,11 @@ namespace HCI15RA13AU
                         {
                             return;
                         }
+                        foreach (Resource res in deleted)
+                        {
+                            MainForm.resources.Remove(res.ID);
+                        }
+
                     }
                     //foreach (Resource id in deleted)
                     //{
@@ -195,6 +200,28 @@ namespace HCI15RA13AU
         private void dgwTypes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             btnEditType_Click(this, EventArgs.Empty);
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            KeyEventArgs e = new KeyEventArgs(keyData);
+            if (e.Control && e.KeyCode == Keys.N)
+            {
+                btnNewType_Click(this, EventArgs.Empty);
+                return true;
+            }
+            if (e.Control && e.KeyCode == Keys.D)
+            {
+                btnDeleteType_Click(this, EventArgs.Empty);
+                return true;
+            }
+            if (e.Control && e.KeyCode == Keys.E)
+            {
+                btnEditType_Click(this, EventArgs.Empty);
+                return true;
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }

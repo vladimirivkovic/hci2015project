@@ -264,7 +264,7 @@
             this.rbtFrequent.Margin = new System.Windows.Forms.Padding(4);
             this.rbtFrequent.Name = "rbtFrequent";
             this.rbtFrequent.Size = new System.Drawing.Size(53, 20);
-            this.rbtFrequent.TabIndex = 14;
+            this.rbtFrequent.TabIndex = 13;
             this.rbtFrequent.TabStop = true;
             this.rbtFrequent.Text = "Čest";
             this.rbtFrequent.UseVisualStyleBackColor = true;
@@ -278,7 +278,7 @@
             this.rbtUniversal.Margin = new System.Windows.Forms.Padding(4);
             this.rbtUniversal.Name = "rbtUniversal";
             this.rbtUniversal.Size = new System.Drawing.Size(97, 20);
-            this.rbtUniversal.TabIndex = 15;
+            this.rbtUniversal.TabIndex = 13;
             this.rbtUniversal.TabStop = true;
             this.rbtUniversal.Text = "Univerzalan";
             this.rbtUniversal.UseVisualStyleBackColor = true;
@@ -400,7 +400,7 @@
             this.gbxDate.Location = new System.Drawing.Point(700, 330);
             this.gbxDate.Name = "gbxDate";
             this.gbxDate.Size = new System.Drawing.Size(449, 187);
-            this.gbxDate.TabIndex = 40;
+            this.gbxDate.TabIndex = 14;
             this.gbxDate.TabStop = false;
             this.gbxDate.Text = "Datum otkrivanja resursa";
             this.gbxDate.Validating += new System.ComponentModel.CancelEventHandler(this.gbxDate_Validating);
@@ -426,7 +426,7 @@
             this.rbtUnknown.Location = new System.Drawing.Point(11, 72);
             this.rbtUnknown.Name = "rbtUnknown";
             this.rbtUnknown.Size = new System.Drawing.Size(99, 22);
-            this.rbtUnknown.TabIndex = 48;
+            this.rbtUnknown.TabIndex = 17;
             this.rbtUnknown.TabStop = true;
             this.rbtUnknown.Text = "Nepoznato";
             this.rbtUnknown.UseVisualStyleBackColor = true;
@@ -437,7 +437,7 @@
             this.chbCentury.Location = new System.Drawing.Point(267, 43);
             this.chbCentury.Name = "chbCentury";
             this.chbCentury.Size = new System.Drawing.Size(63, 22);
-            this.chbCentury.TabIndex = 47;
+            this.chbCentury.TabIndex = 21;
             this.chbCentury.Text = "p.n.e.";
             this.chbCentury.UseVisualStyleBackColor = true;
             // 
@@ -446,7 +446,7 @@
             this.txtCentury.Location = new System.Drawing.Point(139, 43);
             this.txtCentury.Name = "txtCentury";
             this.txtCentury.Size = new System.Drawing.Size(100, 24);
-            this.txtCentury.TabIndex = 46;
+            this.txtCentury.TabIndex = 20;
             this.txtCentury.Validating += new System.ComponentModel.CancelEventHandler(this.txtCentury_Validating);
             // 
             // rbtCentury
@@ -455,7 +455,7 @@
             this.rbtCentury.Location = new System.Drawing.Point(11, 44);
             this.rbtCentury.Name = "rbtCentury";
             this.rbtCentury.Size = new System.Drawing.Size(51, 22);
-            this.rbtCentury.TabIndex = 45;
+            this.rbtCentury.TabIndex = 17;
             this.rbtCentury.TabStop = true;
             this.rbtCentury.Text = "Vek";
             this.rbtCentury.UseVisualStyleBackColor = true;
@@ -466,7 +466,7 @@
             this.chbYear.Location = new System.Drawing.Point(267, 15);
             this.chbYear.Name = "chbYear";
             this.chbYear.Size = new System.Drawing.Size(63, 22);
-            this.chbYear.TabIndex = 44;
+            this.chbYear.TabIndex = 19;
             this.chbYear.Text = "p.n.e.";
             this.chbYear.UseVisualStyleBackColor = true;
             // 
@@ -475,7 +475,7 @@
             this.txtYear.Location = new System.Drawing.Point(139, 15);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(100, 24);
-            this.txtYear.TabIndex = 43;
+            this.txtYear.TabIndex = 18;
             this.txtYear.Validating += new System.ComponentModel.CancelEventHandler(this.txtYear_Validating);
             // 
             // rbtYear
@@ -484,7 +484,7 @@
             this.rbtYear.Location = new System.Drawing.Point(11, 16);
             this.rbtYear.Name = "rbtYear";
             this.rbtYear.Size = new System.Drawing.Size(74, 22);
-            this.rbtYear.TabIndex = 42;
+            this.rbtYear.TabIndex = 17;
             this.rbtYear.TabStop = true;
             this.rbtYear.Text = "Godina";
             this.rbtYear.UseVisualStyleBackColor = true;
@@ -495,7 +495,7 @@
             this.rbtApproxDate.Location = new System.Drawing.Point(16, 68);
             this.rbtApproxDate.Name = "rbtApproxDate";
             this.rbtApproxDate.Size = new System.Drawing.Size(117, 22);
-            this.rbtApproxDate.TabIndex = 41;
+            this.rbtApproxDate.TabIndex = 15;
             this.rbtApproxDate.TabStop = true;
             this.rbtApproxDate.Text = "Okvirni datum";
             this.rbtApproxDate.UseVisualStyleBackColor = true;
@@ -507,7 +507,7 @@
             this.rbtDate.Location = new System.Drawing.Point(16, 28);
             this.rbtDate.Name = "rbtDate";
             this.rbtDate.Size = new System.Drawing.Size(112, 22);
-            this.rbtDate.TabIndex = 40;
+            this.rbtDate.TabIndex = 15;
             this.rbtDate.TabStop = true;
             this.rbtDate.Text = "Tačan datum";
             this.rbtDate.UseVisualStyleBackColor = true;
@@ -518,7 +518,7 @@
             this.btnType.Location = new System.Drawing.Point(195, 493);
             this.btnType.Name = "btnType";
             this.btnType.Size = new System.Drawing.Size(75, 32);
-            this.btnType.TabIndex = 41;
+            this.btnType.TabIndex = 6;
             this.btnType.Text = "Izaberi";
             this.btnType.UseVisualStyleBackColor = true;
             this.btnType.Click += new System.EventHandler(this.btnType_Click);
