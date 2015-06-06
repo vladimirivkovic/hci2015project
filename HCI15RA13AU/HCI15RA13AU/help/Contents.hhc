@@ -13,28 +13,40 @@
     </OBJECT>
     <UL>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Pomoć">
+          <param name="Name" value="Sistem pomoci">
           <param name="Local" value="main.html">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Pomoć">
-          <param name="Local" value="type_tag.html">
+          <param name="Name" value="Tabelarni prikaz resursa">
+          <param name="Local" value="table.html">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Pomoć">
+          <param name="Name" value="Dodavanje resursa">
           <param name="Local" value="add.html">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Pomoć">
+          <param name="Name" value="Uredjivanje resursa">
           <param name="Local" value="edit.html">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Pomoć">
+          <param name="Name" value="Prikaz na mapi">
+          <param name="Local" value="map.html">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Filtriranje podataka o resursima">
           <param name="Local" value="filter.html">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
-          <param name="Name" value="Pomoć">
-          <param name="Local" value="map.html">
+          <param name="Name" value="Tipovi resursa">
+          <param name="Local" value="type.html">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Etikete">
+          <param name="Local" value="tag.html">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Tutorijal">
+          <param name="Local" value="tutorial.html">
         </OBJECT>
     </UL>
 </BODY>

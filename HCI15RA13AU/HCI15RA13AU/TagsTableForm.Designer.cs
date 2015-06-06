@@ -39,6 +39,7 @@
             this.dgwTags = new System.Windows.Forms.DataGridView();
             this.TagID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TagColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.gbxTag.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwTags)).BeginInit();
             this.SuspendLayout();
@@ -152,6 +153,10 @@
             this.TagColor.HeaderText = "Boja";
             this.TagColor.Name = "TagColor";
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "../../help/help project.chm";
+            // 
             // TagsTableForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -162,7 +167,10 @@
             this.Controls.Add(this.btnNewTag);
             this.Controls.Add(this.dgwTags);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpProvider1.SetHelpKeyword(this, "Etiketa");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.Name = "TagsTableForm";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Tabela etiketa";
             this.Load += new System.EventHandler(this.TagsTable_Load);
             this.gbxTag.ResumeLayout(false);
@@ -185,5 +193,6 @@
         private System.Windows.Forms.DataGridView dgwTags;
         private System.Windows.Forms.DataGridViewTextBoxColumn TagID;
         private System.Windows.Forms.DataGridViewTextBoxColumn TagColor;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

@@ -40,6 +40,7 @@
             this.TypeID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSelect = new System.Windows.Forms.Button();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.gbxType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxTypeIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgwTypes)).BeginInit();
@@ -139,7 +140,7 @@
             this.dgwTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwTypes.Size = new System.Drawing.Size(243, 364);
             this.dgwTypes.TabIndex = 17;
-            this.dgwTypes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwTypes_CellContentClick);
+            this.dgwTypes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwTypes_CellContentClick);
             this.dgwTypes.SelectionChanged += new System.EventHandler(this.dgwTypes_SelectionChanged);
             // 
             // TypeID
@@ -162,6 +163,10 @@
             this.btnSelect.UseVisualStyleBackColor = true;
             this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "../../help/help project.chm";
+            // 
             // TypesTableForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -173,7 +178,10 @@
             this.Controls.Add(this.btnNewType);
             this.Controls.Add(this.dgwTypes);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpProvider1.SetHelpKeyword(this, "Tip resursa");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.Name = "TypesTableForm";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Tabela tipova resursa";
             this.Load += new System.EventHandler(this.TypesTable_Load);
             this.gbxType.ResumeLayout(false);
@@ -198,5 +206,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeID;
         private System.Windows.Forms.DataGridViewTextBoxColumn TypeName;
         private System.Windows.Forms.Button btnSelect;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

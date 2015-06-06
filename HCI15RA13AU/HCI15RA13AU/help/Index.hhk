@@ -15,7 +15,7 @@
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Tip resursa">
-          <param name="Local" value="type_tag.html">
+          <param name="Local" value="type.html">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Mapa resursa">
@@ -23,10 +23,19 @@
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Tutorijal">
+          <param name="Local" value="tutorial.html">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Pretraga">
+          <param name="Local" value="filter.html">
         </OBJECT>
         <LI><OBJECT type="text/sitemap">
           <param name="Name" value="Etiketa">
-          <param name="Local" value="type_tag.html">
+          <param name="Local" value="tag.html">
+        </OBJECT>
+        <LI><OBJECT type="text/sitemap">
+          <param name="Name" value="Tabela resursa">
+          <param name="Local" value="table.html">
         </OBJECT>
     </UL>
 </BODY>

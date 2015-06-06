@@ -79,6 +79,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.epDate = new System.Windows.Forms.ErrorProvider(this.components);
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -559,6 +560,10 @@
             // 
             this.epDate.ContainerControl = this;
             // 
+            // helpProvider1
+            // 
+            this.helpProvider1.HelpNamespace = "../../help/help project.chm";
+            // 
             // ResourcesFilterForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -596,8 +601,11 @@
             this.Controls.Add(this.chbID);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.helpProvider1.SetHelpKeyword(this, "Pretraga");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.MaximizeBox = false;
             this.Name = "ResourcesFilterForm";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Filtriranje resursa";
             this.Load += new System.EventHandler(this.ResourcesFilter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).EndInit();
@@ -663,5 +671,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.ErrorProvider epDate;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

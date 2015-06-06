@@ -113,6 +113,8 @@ namespace HCI15RA13AU
             
             rbtDate_CheckedChanged(this, EventArgs.Empty);
             rbtApproxDate_CheckedChanged(this, EventArgs.Empty);
+
+            helpProvider1.SetHelpKeyword(this, "Tutorijal");
         }
 
 

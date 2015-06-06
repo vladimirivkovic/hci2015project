@@ -94,8 +94,11 @@
             // 
             // txtSearch
             // 
+            this.helpProvider1.SetHelpKeyword(this.txtSearch, "Pretraga");
+            this.helpProvider1.SetHelpNavigator(this.txtSearch, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.txtSearch.Location = new System.Drawing.Point(925, 218);
             this.txtSearch.Name = "txtSearch";
+            this.helpProvider1.SetShowHelp(this.txtSearch, true);
             this.txtSearch.Size = new System.Drawing.Size(248, 24);
             this.txtSearch.TabIndex = 68;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
@@ -571,8 +574,9 @@
             this.Controls.Add(this.dgwResources);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.helpProvider1.SetHelpKeyword(this, "Resursi");
+            this.helpProvider1.SetHelpKeyword(this, "Tabela resursa");
             this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
+            this.helpProvider1.SetHelpString(this, "");
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "ResourcesTableForm";

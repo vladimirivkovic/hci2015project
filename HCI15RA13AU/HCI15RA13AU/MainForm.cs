@@ -37,6 +37,7 @@ namespace HCI15RA13AU
         private Rectangle mouseDownSelectionWindow;
         private bool resourcesPanelRight = true;
         private Point displayOffset;
+        private bool movingPanel;
 
         public MainForm()
         {
@@ -727,6 +728,8 @@ namespace HCI15RA13AU
         {
             tutorialMode = true;
 
+            helpProvider.SetHelpKeyword(this, "Tutorijal");
+
             Tutorial t = new Tutorial(this);
             btnEndTutorial.Show();
 
@@ -761,6 +764,7 @@ namespace HCI15RA13AU
             btnEndTutorial.Hide();
             menuStrip1.Enabled = true;
             lblTutorial.Text = "";
+            helpProvider.SetHelpKeyword(this, "Mapa resursa");
         }
 
 
@@ -781,6 +785,11 @@ namespace HCI15RA13AU
                     {
                         return;
                     }
+
+                    Point p = new Point(e.X, e.Y);
+
+                    movingPanel = true;
+
                     displayOffset = SystemInformation.WorkingArea.Location;
                     DragDropEffects dropEffect = this.DoDragDrop(pnlResources, DragDropEffects.Copy);
 
@@ -915,6 +924,8 @@ namespace HCI15RA13AU
 
         private void pnlResources_DragLeave(object sender, EventArgs e)
         {
+            if (!movingPanel)
+                return;
             if (resourcesPanelRight && pnlDragLeft.Visible == false)
             {
                 pnlDragLeft.Show();
@@ -923,6 +934,7 @@ namespace HCI15RA13AU
             {
                 pnlDragRight.Show();
             }
+            movingPanel = false;
         }
 
         private void MainForm_SizeChanged(object sender, EventArgs e)
