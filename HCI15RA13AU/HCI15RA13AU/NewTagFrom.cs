@@ -95,6 +95,7 @@ namespace HCI15RA13AU
                     epTag.SetError(txtId, "");
                 }
             }
+            lblStatus.Text = "";
         }
 
         private void txtDescription_Validating(object sender, CancelEventArgs e)
@@ -107,6 +108,7 @@ namespace HCI15RA13AU
             //else
             //{
                 epTag.SetError(txtDescription, "");
+                lblStatus.Text = "";
             //}
         }
 
@@ -122,7 +124,8 @@ namespace HCI15RA13AU
             }
             else
             {
-                // TODO : error
+                lblStatus.Text = "Polja označena crvenim znakom imaju neispravan sadržaj";
+                lblStatus.ForeColor = Color.Red;
             }
         }
 

@@ -71,6 +71,7 @@
             this.btnType = new System.Windows.Forms.Button();
             this.lblTypeID = new System.Windows.Forms.Label();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.lblStatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.epAdd)).BeginInit();
             this.grbFrequency.SuspendLayout();
             this.gbxDate.SuspendLayout();
@@ -508,7 +509,7 @@
             this.rbtDate.Size = new System.Drawing.Size(112, 22);
             this.rbtDate.TabIndex = 40;
             this.rbtDate.TabStop = true;
-            this.rbtDate.Text = "Tacan datum";
+            this.rbtDate.Text = "Tačan datum";
             this.rbtDate.UseVisualStyleBackColor = true;
             this.rbtDate.CheckedChanged += new System.EventHandler(this.rbtDate_CheckedChanged);
             // 
@@ -535,11 +536,20 @@
             // 
             this.helpProvider1.HelpNamespace = "../../help/help project.chm";
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(8, 549);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 18);
+            this.lblStatus.TabIndex = 43;
+            // 
             // NewResourceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1174, 576);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.lblTypeID);
             this.Controls.Add(this.btnType);
             this.Controls.Add(this.gbxDate);
@@ -631,5 +641,6 @@
         private System.Windows.Forms.Button btnType;
         private System.Windows.Forms.Label lblTypeID;
         private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

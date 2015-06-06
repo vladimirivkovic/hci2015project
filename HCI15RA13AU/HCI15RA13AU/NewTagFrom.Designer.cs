@@ -39,6 +39,7 @@
             this.btnColor = new System.Windows.Forms.Button();
             this.epTag = new System.Windows.Forms.ErrorProvider(this.components);
             this.txtColor = new System.Windows.Forms.TextBox();
+            this.lblStatus = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.epTag)).BeginInit();
             this.SuspendLayout();
             // 
@@ -150,11 +151,20 @@
             this.txtColor.Size = new System.Drawing.Size(110, 24);
             this.txtColor.TabIndex = 43;
             // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(7, 482);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(0, 18);
+            this.lblStatus.TabIndex = 44;
+            // 
             // TagForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(733, 509);
+            this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.txtColor);
             this.Controls.Add(this.btnColor);
             this.Controls.Add(this.btnCancel);
@@ -186,5 +196,6 @@
         private System.Windows.Forms.Button btnColor;
         private System.Windows.Forms.ErrorProvider epTag;
         private System.Windows.Forms.TextBox txtColor;
+        private System.Windows.Forms.Label lblStatus;
     }
 }

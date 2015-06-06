@@ -293,7 +293,7 @@
             // 
             this.lblTutorial.AutoSize = true;
             this.lblTutorial.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblTutorial.Location = new System.Drawing.Point(128, 557);
+            this.lblTutorial.Location = new System.Drawing.Point(136, 557);
             this.lblTutorial.Name = "lblTutorial";
             this.lblTutorial.Size = new System.Drawing.Size(0, 31);
             this.lblTutorial.TabIndex = 18;
@@ -304,7 +304,7 @@
             this.btnEndTutorial.Name = "btnEndTutorial";
             this.btnEndTutorial.Size = new System.Drawing.Size(110, 45);
             this.btnEndTutorial.TabIndex = 19;
-            this.btnEndTutorial.Text = "Zavrsi tutorijal";
+            this.btnEndTutorial.Text = "Završi tutorijal";
             this.btnEndTutorial.UseVisualStyleBackColor = true;
             this.btnEndTutorial.Click += new System.EventHandler(this.btnEndTutorial_Click);
             // 
@@ -314,18 +314,20 @@
             // 
             // pnlDragLeft
             // 
-            this.pnlDragLeft.BackColor = System.Drawing.Color.Red;
-            this.pnlDragLeft.Location = new System.Drawing.Point(8, 202);
+            this.pnlDragLeft.BackColor = System.Drawing.Color.Transparent;
+            this.pnlDragLeft.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlDragLeft.BackgroundImage")));
+            this.pnlDragLeft.Location = new System.Drawing.Point(0, 210);
             this.pnlDragLeft.Name = "pnlDragLeft";
-            this.pnlDragLeft.Size = new System.Drawing.Size(10, 169);
+            this.pnlDragLeft.Size = new System.Drawing.Size(20, 116);
             this.pnlDragLeft.TabIndex = 20;
             // 
             // pnlDragRight
             // 
-            this.pnlDragRight.BackColor = System.Drawing.Color.Red;
-            this.pnlDragRight.Location = new System.Drawing.Point(1194, 202);
+            this.pnlDragRight.BackColor = System.Drawing.Color.Transparent;
+            this.pnlDragRight.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pnlDragRight.BackgroundImage")));
+            this.pnlDragRight.Location = new System.Drawing.Point(1189, 210);
             this.pnlDragRight.Name = "pnlDragRight";
-            this.pnlDragRight.Size = new System.Drawing.Size(14, 168);
+            this.pnlDragRight.Size = new System.Drawing.Size(20, 116);
             this.pnlDragRight.TabIndex = 21;
             // 
             // MainForm

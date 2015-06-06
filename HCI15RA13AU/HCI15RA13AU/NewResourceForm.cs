@@ -117,6 +117,59 @@ namespace HCI15RA13AU
             helpProvider1.SetHelpKeyword(this, "Tutorijal");
         }
 
+        public Resource GetResource()
+        {
+            Resource res = new Resource();
+
+            int i = 0;
+            res.ID = edit ? ID : txtId.Text;
+            if (!edit && MainForm.resources.ContainsKey(res.ID))
+            {
+                do { i++; } while (MainForm.resources.ContainsKey(res.ID + i));
+                res.ID += i++;
+            }
+
+            res.SecondID = txtId.Text;
+            res.Name = txtName.Text;
+            res.Description = txtDescription.Text;
+            res.Important = chbImportant.Checked;
+            res.Renewable = chbRenewable.Checked;
+            res.Exploatable = chbExploatable.Checked;
+            res.Unit = Resource.StringToUnit(cmbUnit.Text);
+            if (rbtFrequent.Checked)
+                res.Frequency = Frequency.FREQUENT;
+            else if (rbtRare.Checked)
+                res.Frequency = Frequency.RARE;
+            else
+                res.Frequency = Frequency.UNIVERSAL;
+            res.Cost = double.Parse(txtCost.Text);
+            if (rbtDate.Checked)
+            {
+                res.Discovered = dateTimePicker.Value;
+                res.ApproxDiscovered = null;
+            }
+            else
+            {
+                res.Discovered = dateTimePicker.Value;
+                res.ApproxDiscovered = getApproxDate();
+            }
+            //res.Discovered = dateTimePicker.Value;
+            //res.ApproxDiscovered = approxDate;
+            res.Tags = tags;
+            res.Type = type;
+            try
+            {
+                File.Copy(fullFileName, "..\\..\\images\\" + fname);
+            }
+            catch
+            {
+                Console.WriteLine("File allready exists");
+            }
+            res.IconFileName = "..\\..\\images\\" + fname;
+
+            return res;
+        }
+
 
         private void btnIcon_Click(object sender, EventArgs e)
         {
@@ -159,6 +212,7 @@ namespace HCI15RA13AU
                     epAdd.SetError(txtId, "");
                 }
             }
+            lblStatus.Text = "";
         }
 
         private void txtName_Validating(object sender, CancelEventArgs e)
@@ -172,11 +226,13 @@ namespace HCI15RA13AU
             {
                 epAdd.SetError(txtName, "");
             }
+            lblStatus.Text = "";
         }
 
         private void txtDescription_Validating(object sender, CancelEventArgs e)
         {
             epAdd.SetError(txtDescription, "");
+            lblStatus.Text = "";
             //if (txtDescription.Text.Length == 0)
             //{
             //    formIsValid = false;
@@ -199,6 +255,7 @@ namespace HCI15RA13AU
             {
                 epAdd.SetError(rbtUniversal, "");
             }
+            lblStatus.Text = "";
         }
 
         private void rbtRare_Validating(object sender, CancelEventArgs e)
@@ -223,6 +280,7 @@ namespace HCI15RA13AU
             {
                 epAdd.SetError(cmbUnit, "");
             }
+            lblStatus.Text = "";
         }
 
         private void txtCost_Validating(object sender, CancelEventArgs e)
@@ -249,60 +307,10 @@ namespace HCI15RA13AU
             {
                 epAdd.SetError(txtCost, "Cena mora da bude broj");
             }
+            lblStatus.Text = "";
         }
 
-        public Resource GetResource()
-        {
-            Resource res = new Resource();
-
-            int i=0;
-            res.ID = edit ? ID : txtId.Text;
-            if (!edit && MainForm.resources.ContainsKey(res.ID))
-            {
-                do { i++; } while (MainForm.resources.ContainsKey(res.ID + i));
-                res.ID += i++;
-            }
-            
-            res.SecondID = txtId.Text;
-            res.Name = txtName.Text;
-            res.Description = txtDescription.Text;
-            res.Important = chbImportant.Checked;
-            res.Renewable = chbRenewable.Checked;
-            res.Exploatable = chbExploatable.Checked;
-            res.Unit = Resource.StringToUnit(cmbUnit.Text);
-            if (rbtFrequent.Checked)
-                res.Frequency = Frequency.FREQUENT;
-            else if (rbtRare.Checked)
-                res.Frequency = Frequency.RARE;
-            else
-                res.Frequency = Frequency.UNIVERSAL;
-            res.Cost = double.Parse(txtCost.Text);
-            if (rbtDate.Checked)
-            {
-                res.Discovered = dateTimePicker.Value;
-                res.ApproxDiscovered = null;
-            }
-            else
-            {
-                res.Discovered = dateTimePicker.Value;
-                res.ApproxDiscovered = getApproxDate();
-            }
-            //res.Discovered = dateTimePicker.Value;
-            //res.ApproxDiscovered = approxDate;
-            res.Tags = tags;      
-            res.Type = type;
-            try
-            {
-                File.Copy(fullFileName, "..\\..\\images\\" + fname);
-            }
-            catch
-            {
-                Console.WriteLine("File allready exists");
-            }
-            res.IconFileName = "..\\..\\images\\" + fname;
-
-            return res;
-        }
+        
 
         private void dateTimePicker_Validating(object sender, CancelEventArgs e)
         {
@@ -315,6 +323,7 @@ namespace HCI15RA13AU
             {
                 epAdd.SetError(dateTimePicker, "");
             }
+            lblStatus.Text = "";
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -328,7 +337,8 @@ namespace HCI15RA13AU
             }
             else
             {
-                // TODO : error
+                lblStatus.Text = "Polja označena crvenim znakom upozorenja imaju neispravan sadržaj";
+                lblStatus.ForeColor = Color.Red;
             }
         }
 
@@ -396,6 +406,7 @@ namespace HCI15RA13AU
             {
                 epAdd.SetError(txtYear, "");
             }
+            lblStatus.Text = "";
         }
 
         private void txtCentury_Validating(object sender, CancelEventArgs e)
@@ -426,6 +437,7 @@ namespace HCI15RA13AU
             {
                 epAdd.SetError(txtCentury, "");
             }
+            lblStatus.Text = "";
         }
 
         private void gbxDate_Validating(object sender, CancelEventArgs e)
@@ -439,6 +451,7 @@ namespace HCI15RA13AU
                 formIsValid = false;
                 epAdd.SetError(txtCentury, "Izbor datuma je obavezan");
             }
+            lblStatus.Text = "";
         }
 
         private ApproxDate getApproxDate()
@@ -488,6 +501,7 @@ namespace HCI15RA13AU
             {
                 epAdd.SetError(btnType, "Izbor tipa je obavezan");
             }
+            lblStatus.Text = "";
         }
     }
 }

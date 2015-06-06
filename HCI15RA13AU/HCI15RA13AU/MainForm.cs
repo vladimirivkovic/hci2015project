@@ -667,7 +667,7 @@ namespace HCI15RA13AU
 
                 if (tutorialMode)
                 {
-                    lblTutorial.Text = "Tutorijal je uspesno zavrsen!";
+                    lblTutorial.Text = "Tutorijal je uspesno završen! klikni Završi tutorijal.";
                     pbxRight.Hide();
                 }
 

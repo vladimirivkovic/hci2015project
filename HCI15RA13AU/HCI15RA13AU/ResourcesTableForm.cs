@@ -282,7 +282,7 @@ namespace HCI15RA13AU
 
         private void btnFilter_Click(object sender, EventArgs e)
         {
-            if (btnFilter.Text.Equals("Ponisti filter"))
+            if (btnFilter.Text.Equals("Ponisti pretragu"))
             {  
                 btnFilter.Text = "Filtriraj";
                 filterOn = false;
@@ -295,7 +295,7 @@ namespace HCI15RA13AU
             if (resourcesFilter.DialogResult == DialogResult.OK)
             {
                 TableReload(resourcesFilter.GetResources());
-                btnFilter.Text = "Ponisti filter";
+                btnFilter.Text = "Ponisti pretragu";
                 filterOn = true;
             }
         }

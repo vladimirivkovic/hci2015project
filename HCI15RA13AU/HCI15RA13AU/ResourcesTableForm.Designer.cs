@@ -86,11 +86,11 @@
             // 
             this.lblSearch.AutoSize = true;
             this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblSearch.Location = new System.Drawing.Point(1084, 169);
+            this.lblSearch.Location = new System.Drawing.Point(1081, 169);
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(89, 18);
+            this.lblSearch.Size = new System.Drawing.Size(92, 18);
             this.lblSearch.TabIndex = 72;
-            this.lblSearch.Text = "Pretraga po:";
+            this.lblSearch.Text = "Filtriranje po:";
             // 
             // txtSearch
             // 
@@ -488,7 +488,7 @@
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(112, 30);
             this.btnFilter.TabIndex = 73;
-            this.btnFilter.Text = "Filtriraj";
+            this.btnFilter.Text = "Pretraga";
             this.btnFilter.UseVisualStyleBackColor = true;
             this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
