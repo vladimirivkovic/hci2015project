@@ -169,7 +169,7 @@
             // 
             this.tutorijalToolStripMenuItem.Name = "tutorijalToolStripMenuItem";
             this.tutorijalToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
-            this.tutorijalToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.tutorijalToolStripMenuItem.Size = new System.Drawing.Size(239, 24);
             this.tutorijalToolStripMenuItem.Text = "Tutorijal...";
             this.tutorijalToolStripMenuItem.Click += new System.EventHandler(this.tutorijalToolStripMenuItem_Click);
             // 
@@ -177,8 +177,8 @@
             // 
             this.pomoćToolStripMenuItem1.Name = "pomoćToolStripMenuItem1";
             this.pomoćToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.pomoćToolStripMenuItem1.Size = new System.Drawing.Size(188, 24);
-            this.pomoćToolStripMenuItem1.Text = "Help...";
+            this.pomoćToolStripMenuItem1.Size = new System.Drawing.Size(239, 24);
+            this.pomoćToolStripMenuItem1.Text = "Sistem pomoći...";
             this.pomoćToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // pnlMap
