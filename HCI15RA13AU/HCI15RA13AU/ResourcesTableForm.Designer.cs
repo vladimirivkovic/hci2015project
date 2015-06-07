@@ -549,6 +549,7 @@
             this.MaximizeBox = false;
             this.Name = "ResourcesTableForm";
             this.helpProvider1.SetShowHelp(this, true);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Tabela resursa";
             this.Load += new System.EventHandler(this.ResourcesTable_Load);
             this.SizeChanged += new System.EventHandler(this.ResourcesTableForm_SizeChanged);

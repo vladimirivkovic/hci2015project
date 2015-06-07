@@ -228,6 +228,11 @@ namespace HCI15RA13AU
             tagsTable.ShowDialog();
         }
 
+        private void saveToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            saveToolStripMenuItem_Click(sender, e);
+        }
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             off = 10;
@@ -268,8 +273,10 @@ namespace HCI15RA13AU
             }
         }
 
-
+        ///////////////////////
         //pnlMap event handlers
+        ///////////////////////
+
         private void pnlMap_DragEnter(object sender, DragEventArgs e)
         {
             Resource r = new Resource();
@@ -311,7 +318,7 @@ namespace HCI15RA13AU
                 lblMessage.Text = "";
                 if (boom)
                 {
-                    lblMessage.Text = "Nemoguce je preklapanje ikonica";
+                    lblMessage.Text = "Nemoguće je preklapanje ikonica";
                     e.Effect = DragDropEffects.None;
                 }
                 else
@@ -535,8 +542,10 @@ namespace HCI15RA13AU
             }
         }
 
-
+        ///////////////////////////
         //pnlDelete event handlers
+        //////////////////////////
+
         private void pnlDelete_DragEnter(object sender, DragEventArgs e)
         {
             Resource r = new Resource();
@@ -547,6 +556,7 @@ namespace HCI15RA13AU
                     return;
                 }
                 e.Effect = DragDropEffects.Copy;
+                lblMessage.Text = "Spusti za brisanje resursa iz evidencije";
             }
             else
             {
@@ -619,10 +629,18 @@ namespace HCI15RA13AU
                     
                 }
             }
+            lblMessage.Text = "";
         }
 
+        private void pnlDelete_DragLeave(object sender, EventArgs e)
+        {
+            lblMessage.Text = "";
+        }
 
+        //////////////////////////////
         //pnlResource events handlers
+        //////////////////////////////
+
         private void pnlResources_DragEnter(object sender, DragEventArgs e)
         {
             Resource r = new Resource();
@@ -689,6 +707,53 @@ namespace HCI15RA13AU
             }
         }
 
+        private void pnlResources_DragLeave(object sender, EventArgs e)
+        {
+            if (!movingPanel)
+                return;
+            if (resourcesPanelRight && pnlDragLeft.Visible == false)
+            {
+                pnlDragLeft.Show();
+            }
+            if (!resourcesPanelRight && pnlDragRight.Visible == false)
+            {
+                pnlDragRight.Show();
+            }
+            movingPanel = false;
+        }
+
+        private void pnlResources_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                if ((mouseDownSelectionWindow != Rectangle.Empty)
+                    && (!mouseDownSelectionWindow.Contains(e.X, e.Y)))
+                {
+                    if (MainForm.tutorialMode)
+                    {
+                        return;
+                    }
+
+                    Point p = new Point(e.X, e.Y);
+
+                    movingPanel = true;
+
+                    displayOffset = SystemInformation.WorkingArea.Location;
+                    DragDropEffects dropEffect = this.DoDragDrop(pnlResources, DragDropEffects.Copy);
+
+                    pnlDragLeft.Hide();
+                    pnlDragRight.Hide();
+                }
+            }
+        }
+
+        private void pnlResources_MouseDown(object sender, MouseEventArgs e)
+        {
+            Size dragSize = SystemInformation.DragSize;
+            mouseDownSelectionWindow = new Rectangle(new Point(e.X - (dragSize.Width / 2), e.Y - (dragSize.Height / 2)), dragSize);
+        }
+
+
         internal void moveToPnlResources(ResourceIcon resourceIcon)
         {
             Resource res = resourceIcon.Tag as Resource;
@@ -701,12 +766,6 @@ namespace HCI15RA13AU
             lblUnmappedResources.Text = "Nemapirani resursi(" + pnlResources.Controls.Count + ")";
         }
 
-        private void saveToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-            saveToolStripMenuItem_Click(sender, e);
-        }
-
-
         internal void removeResource(ResourceIcon resourceIcon)
         {
             Resource res = resourceIcon.Tag as Resource;
@@ -718,13 +777,16 @@ namespace HCI15RA13AU
 
         internal int GetPnlResourcesVerticalScroll()
         {
-            if(pnlResources.VerticalScroll.Value > 0)
-                return (int) (pnlResources.VerticalScroll.Value/1.35);
+            if (pnlResources.VerticalScroll.Value > 0)
+                return (int)(pnlResources.VerticalScroll.Value / 1.35);
             return 0;
         }
 
-        
+        ///////////////
         // tutorial
+        ///////////////////
+
+
         private void tutorijalToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tutorialMode = true;
@@ -768,43 +830,17 @@ namespace HCI15RA13AU
             helpProvider.SetHelpKeyword(this, "Mapa resursa");
         }
 
-
+        //////////////////
         // help provider
+        /////////////////
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, "..\\..\\help\\help project.chm");
         }
 
-        private void pnlResources_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                if ((mouseDownSelectionWindow != Rectangle.Empty)
-                    && (!mouseDownSelectionWindow.Contains(e.X, e.Y)))
-                {
-                    if (MainForm.tutorialMode)
-                    {
-                        return;
-                    }
-
-                    Point p = new Point(e.X, e.Y);
-
-                    movingPanel = true;
-
-                    displayOffset = SystemInformation.WorkingArea.Location;
-                    DragDropEffects dropEffect = this.DoDragDrop(pnlResources, DragDropEffects.Copy);
-
-                    pnlDragLeft.Hide();
-                    pnlDragRight.Hide();
-                }
-            }
-        }
-
-        private void pnlResources_MouseDown(object sender, MouseEventArgs e)
-        {
-            Size dragSize = SystemInformation.DragSize;
-            mouseDownSelectionWindow = new Rectangle(new Point(e.X - (dragSize.Width / 2), e.Y - (dragSize.Height / 2)), dragSize);
-        }
+        ///////////////////////////
+        //MainForm event handlers
+        ////////////////////////
 
         private void MainForm_DragEnter(object sender, DragEventArgs e)
         {
@@ -875,6 +911,48 @@ namespace HCI15RA13AU
             }
         }
 
+        private void MainForm_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.Width < pnlMap.Width + pnlResources.Width * 5 / 6)
+            {
+                if (pnlResources.Visible)
+                {
+                    if (resourcesPanelRight)
+                    {
+                        pnlResources.Hide();
+                        lblUnmappedResources.Hide();
+                    }
+                    else
+                    {
+                        pnlResources.Hide();
+                        lblUnmappedResources.Hide();
+                        pnlMap.Left -= pnlResources.Width;
+                        pnlDelete.Left -= pnlResources.Width;
+                    }
+                }
+            }
+            else
+            {
+                if (!pnlResources.Visible)
+                {
+                    if (resourcesPanelRight)
+                    {
+                        pnlResources.Show();
+                        lblUnmappedResources.Show();
+                    }
+                    else
+                    {
+                        pnlResources.Show();
+                        lblUnmappedResources.Show();
+                        pnlDelete.Left += pnlResources.Width;
+                        pnlMap.Left += pnlResources.Width;
+                    }
+                }
+            }
+
+            pnlResources.Height = this.Height - pnlResources.Top - statusStrip.Height - menuStrip1.Height - 20;
+        }
+
         public static Tag GetTagBySecondID(string secondID)
         {
             Tag t = null;
@@ -921,63 +999,6 @@ namespace HCI15RA13AU
             }
 
             return r;
-        }
-
-        private void pnlResources_DragLeave(object sender, EventArgs e)
-        {
-            if (!movingPanel)
-                return;
-            if (resourcesPanelRight && pnlDragLeft.Visible == false)
-            {
-                pnlDragLeft.Show();
-            }
-            if (!resourcesPanelRight && pnlDragRight.Visible == false)
-            {
-                pnlDragRight.Show();
-            }
-            movingPanel = false;
-        }
-
-        private void MainForm_SizeChanged(object sender, EventArgs e)
-        {
-            if (this.Width < pnlMap.Width + pnlResources.Width * 5 / 6)
-            {
-                if (pnlResources.Visible)
-                {
-                    if (resourcesPanelRight)
-                    {
-                        pnlResources.Hide();
-                        lblUnmappedResources.Hide();
-                    }
-                    else
-                    {
-                        pnlResources.Hide();
-                        lblUnmappedResources.Hide();
-                        pnlMap.Left -= pnlResources.Width;
-                        pnlDelete.Left -= pnlResources.Width;
-                    }
-                }
-            }
-            else
-            {
-                if (!pnlResources.Visible)
-                {
-                    if (resourcesPanelRight)
-                    {
-                        pnlResources.Show();
-                        lblUnmappedResources.Show();
-                    }
-                    else
-                    {
-                        pnlResources.Show();
-                        lblUnmappedResources.Show();
-                        pnlDelete.Left += pnlResources.Width;
-                        pnlMap.Left += pnlResources.Width;
-                    }
-                }
-            }
-
-            pnlResources.Height = this.Height - pnlResources.Top - statusStrip.Height - menuStrip1.Height - 20;
         }
     }
 }

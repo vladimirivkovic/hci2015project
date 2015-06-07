@@ -171,6 +171,7 @@
             this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.Name = "TagsTableForm";
             this.helpProvider1.SetShowHelp(this, true);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Tabela etiketa";
             this.Load += new System.EventHandler(this.TagsTable_Load);
             this.gbxTag.ResumeLayout(false);

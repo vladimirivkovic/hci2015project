@@ -607,6 +607,7 @@
             this.MaximizeBox = false;
             this.Name = "ResourcesFilterForm";
             this.helpProvider1.SetShowHelp(this, true);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Filtriranje resursa";
             this.Load += new System.EventHandler(this.ResourcesFilter_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).EndInit();

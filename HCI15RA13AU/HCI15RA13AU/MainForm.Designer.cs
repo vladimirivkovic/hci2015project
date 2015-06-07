@@ -257,6 +257,7 @@
             this.pnlDelete.TabIndex = 15;
             this.pnlDelete.DragDrop += new System.Windows.Forms.DragEventHandler(this.pnlDelete_DragDrop);
             this.pnlDelete.DragEnter += new System.Windows.Forms.DragEventHandler(this.pnlDelete_DragEnter);
+            this.pnlDelete.DragLeave += new System.EventHandler(this.pnlDelete_DragLeave);
             // 
             // lblUnmappedResources
             // 
@@ -357,6 +358,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.helpProvider.SetShowHelp(this, true);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mapa svetskih resursa";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.SizeChanged += new System.EventHandler(this.MainForm_SizeChanged);

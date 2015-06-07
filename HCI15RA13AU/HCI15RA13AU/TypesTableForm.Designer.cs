@@ -183,6 +183,7 @@
             this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.Name = "TypesTableForm";
             this.helpProvider1.SetShowHelp(this, true);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Tabela tipova resursa";
             this.Load += new System.EventHandler(this.TypesTable_Load);
             this.gbxType.ResumeLayout(false);

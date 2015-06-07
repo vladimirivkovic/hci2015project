@@ -584,6 +584,7 @@
             this.MaximizeBox = false;
             this.Name = "NewResourceForm";
             this.helpProvider1.SetShowHelp(this, true);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Dodaj novi resurs";
             ((System.ComponentModel.ISupportInitialize)(this.epAdd)).EndInit();
             this.grbFrequency.ResumeLayout(false);
