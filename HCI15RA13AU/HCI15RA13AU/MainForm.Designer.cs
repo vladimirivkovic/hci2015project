@@ -129,31 +129,31 @@
             this.tipoviResursaToolStripMenuItem,
             this.etiketeToolStripMenuItem});
             this.tabeleToolStripMenuItem.Name = "tabeleToolStripMenuItem";
-            this.tabeleToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
-            this.tabeleToolStripMenuItem.Text = "Tabele";
+            this.tabeleToolStripMenuItem.Size = new System.Drawing.Size(88, 24);
+            this.tabeleToolStripMenuItem.Text = "Evidencija";
             // 
             // resursiToolStripMenuItem
             // 
             this.resursiToolStripMenuItem.Name = "resursiToolStripMenuItem";
             this.resursiToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.R)));
-            this.resursiToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
-            this.resursiToolStripMenuItem.Text = "Resursi";
+            this.resursiToolStripMenuItem.Size = new System.Drawing.Size(228, 24);
+            this.resursiToolStripMenuItem.Text = "Resursi...";
             this.resursiToolStripMenuItem.Click += new System.EventHandler(this.resourcesToolStripMenuItem_Click);
             // 
             // tipoviResursaToolStripMenuItem
             // 
             this.tipoviResursaToolStripMenuItem.Name = "tipoviResursaToolStripMenuItem";
             this.tipoviResursaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.tipoviResursaToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
-            this.tipoviResursaToolStripMenuItem.Text = "Tipovi resursa";
+            this.tipoviResursaToolStripMenuItem.Size = new System.Drawing.Size(228, 24);
+            this.tipoviResursaToolStripMenuItem.Text = "Tipovi resursa...";
             this.tipoviResursaToolStripMenuItem.Click += new System.EventHandler(this.typesResursaToolStripMenuItem_Click);
             // 
             // etiketeToolStripMenuItem
             // 
             this.etiketeToolStripMenuItem.Name = "etiketeToolStripMenuItem";
             this.etiketeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.etiketeToolStripMenuItem.Size = new System.Drawing.Size(219, 24);
-            this.etiketeToolStripMenuItem.Text = "Etikete";
+            this.etiketeToolStripMenuItem.Size = new System.Drawing.Size(228, 24);
+            this.etiketeToolStripMenuItem.Text = "Etikete...";
             this.etiketeToolStripMenuItem.Click += new System.EventHandler(this.tagsToolStripMenuItem_Click);
             // 
             // pomoćToolStripMenuItem
@@ -169,16 +169,16 @@
             // 
             this.tutorijalToolStripMenuItem.Name = "tutorijalToolStripMenuItem";
             this.tutorijalToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.T)));
-            this.tutorijalToolStripMenuItem.Size = new System.Drawing.Size(179, 24);
-            this.tutorijalToolStripMenuItem.Text = "Tutorijal";
+            this.tutorijalToolStripMenuItem.Size = new System.Drawing.Size(188, 24);
+            this.tutorijalToolStripMenuItem.Text = "Tutorijal...";
             this.tutorijalToolStripMenuItem.Click += new System.EventHandler(this.tutorijalToolStripMenuItem_Click);
             // 
             // pomoćToolStripMenuItem1
             // 
             this.pomoćToolStripMenuItem1.Name = "pomoćToolStripMenuItem1";
             this.pomoćToolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-            this.pomoćToolStripMenuItem1.Size = new System.Drawing.Size(179, 24);
-            this.pomoćToolStripMenuItem1.Text = "Help";
+            this.pomoćToolStripMenuItem1.Size = new System.Drawing.Size(188, 24);
+            this.pomoćToolStripMenuItem1.Text = "Help...";
             this.pomoćToolStripMenuItem1.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // pnlMap

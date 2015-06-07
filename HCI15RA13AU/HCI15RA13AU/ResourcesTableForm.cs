@@ -18,7 +18,6 @@ namespace HCI15RA13AU
         public ResourcesTableForm()
         {
             InitializeComponent();
-            menuStrip1.Hide();
             currentResources = MainForm.resources.Values.ToList();
         }
 
@@ -67,7 +66,8 @@ namespace HCI15RA13AU
                             lbl.Text = t.SecondID;
                             lbl.BackColor = t.Color;
                             lbl.Left = off;
-                            lbl.ForeColor = Color.FromArgb(255 - t.Color.R, 255 - t.Color.G, 255 - t.Color.G);
+                            //lbl.ForeColor = Color.FromArgb(255 - t.Color.R, 255 - t.Color.G, 255 - t.Color.G);
+                            lbl.ForeColor = HSV.Complementary(t.Color);
                             pnlTags.Controls.Add(lbl);
                             lbl.Left = off;
                             off += lbl.Width + 3;
@@ -380,6 +380,11 @@ namespace HCI15RA13AU
             if (e.Control && e.KeyCode == Keys.F)
             {
                 btnFilter_Click(this, EventArgs.Empty);
+                return true;
+            }
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                MainForm.saveToolStripMenuItem_Click(this, EventArgs.Empty);
                 return true;
             }
 

@@ -167,6 +167,11 @@ namespace HCI15RA13AU
                 btnEditTag_Click(this, EventArgs.Empty);
                 return true;
             }
+            if (e.Control && e.KeyCode == Keys.S)
+            {
+                MainForm.saveToolStripMenuItem_Click(this, EventArgs.Empty);
+                return true;
+            }
 
             return base.ProcessCmdKey(ref msg, keyData);
         }

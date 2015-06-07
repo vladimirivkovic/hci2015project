@@ -65,6 +65,7 @@
             // 
             // lstAllTags
             // 
+            this.lstAllTags.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.lstAllTags.FormattingEnabled = true;
             this.lstAllTags.ItemHeight = 18;
             this.lstAllTags.Location = new System.Drawing.Point(13, 43);
@@ -73,9 +74,11 @@
             this.lstAllTags.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstAllTags.Size = new System.Drawing.Size(244, 292);
             this.lstAllTags.TabIndex = 2;
+            this.lstAllTags.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lstAllTags_DrawItem);
             // 
             // lstSelectedTags
             // 
+            this.lstSelectedTags.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.lstSelectedTags.FormattingEnabled = true;
             this.lstSelectedTags.ItemHeight = 18;
             this.lstSelectedTags.Location = new System.Drawing.Point(399, 43);
@@ -84,6 +87,7 @@
             this.lstSelectedTags.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstSelectedTags.Size = new System.Drawing.Size(240, 292);
             this.lstSelectedTags.TabIndex = 3;
+            this.lstSelectedTags.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.lstSelectedTags_DrawItem);
             // 
             // brnAdd
             // 

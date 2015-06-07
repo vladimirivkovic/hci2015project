@@ -63,7 +63,7 @@ namespace HCI15RA13AU
 
         private void pbxIcon_MouseHover(object sender, EventArgs e)
         {
-            this.Cursor = Cursors.Hand;
+            //this.Cursor = Cursors.Hand;
             Resource res = (Resource)Tag;
             tt.SetToolTip(pbxIcon, "ID: " + res.SecondID + "\nNaziv: " + res.Name);
             tt.Active = true;

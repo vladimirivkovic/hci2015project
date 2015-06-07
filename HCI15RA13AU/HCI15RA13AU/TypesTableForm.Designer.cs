@@ -136,6 +136,7 @@
             this.TypeName});
             this.dgwTypes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgwTypes.Location = new System.Drawing.Point(12, 12);
+            this.dgwTypes.MultiSelect = false;
             this.dgwTypes.Name = "dgwTypes";
             this.dgwTypes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgwTypes.Size = new System.Drawing.Size(243, 364);

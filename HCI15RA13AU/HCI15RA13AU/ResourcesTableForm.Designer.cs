@@ -71,15 +71,11 @@
             this.chbId = new System.Windows.Forms.CheckBox();
             this.chbName = new System.Windows.Forms.CheckBox();
             this.chbType = new System.Windows.Forms.CheckBox();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.datotekaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.pbxIcon)).BeginInit();
             this.grbDetails.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).BeginInit();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblSearch
@@ -525,32 +521,6 @@
             this.chbType.UseVisualStyleBackColor = true;
             this.chbType.CheckedChanged += new System.EventHandler(this.chbType_CheckedChanged);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.datotekaToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1202, 24);
-            this.menuStrip1.TabIndex = 78;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // datotekaToolStripMenuItem
-            // 
-            this.datotekaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolStripMenuItem});
-            this.datotekaToolStripMenuItem.Name = "datotekaToolStripMenuItem";
-            this.datotekaToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
-            this.datotekaToolStripMenuItem.Text = "Datoteka";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.saveToolStripMenuItem.Text = "Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
-            // 
             // helpProvider1
             // 
             this.helpProvider1.HelpNamespace = "../../help/help project.chm";
@@ -572,12 +542,10 @@
             this.Controls.Add(this.btnEditResource);
             this.Controls.Add(this.btnAddResource);
             this.Controls.Add(this.dgwResources);
-            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.helpProvider1.SetHelpKeyword(this, "Tabela resursa");
             this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.KeywordIndex);
             this.helpProvider1.SetHelpString(this, "");
-            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "ResourcesTableForm";
             this.helpProvider1.SetShowHelp(this, true);
@@ -590,8 +558,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgwResources)).EndInit();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -642,9 +608,6 @@
         private System.Windows.Forms.CheckBox chbId;
         private System.Windows.Forms.CheckBox chbName;
         private System.Windows.Forms.CheckBox chbType;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem datotekaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
         private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

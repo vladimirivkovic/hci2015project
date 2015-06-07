@@ -11,9 +11,14 @@ namespace HCI15RA13AU
 {
     public partial class SelectTagForm : Form
     {
+        private SolidBrush tagsBackgroundBrushSelected = new SolidBrush(Color.FromKnownColor(KnownColor.Highlight));
+        private SolidBrush tagsForegroundBrushSelected = new SolidBrush(Color.White);
+
+
         public SelectTagForm()
         {
             InitializeComponent();
+
             foreach (Tag t in MainForm.tags.Values)
             {
                 lstAllTags.Items.Add(t.SecondID);
@@ -163,6 +168,64 @@ namespace HCI15RA13AU
                     }
                 }
             }
+        }
+
+        private void lstAllTags_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            bool selected = ((e.State & DrawItemState.Selected) == DrawItemState.Selected);
+
+            int index = e.Index;
+            if (index >= 0 && index < lstAllTags.Items.Count)
+            {
+                string text = lstAllTags.Items[index].ToString();
+                Graphics g = e.Graphics;
+
+                //background:
+                SolidBrush backgroundBrush;
+                if (selected)
+                    backgroundBrush = tagsBackgroundBrushSelected;
+                else
+                {
+                    backgroundBrush = new SolidBrush(MainForm.GetTagBySecondID(text).Color);
+                }
+                g.FillRectangle(backgroundBrush, e.Bounds);
+
+                //text:
+                SolidBrush foregroundBrush = (selected) ? tagsForegroundBrushSelected : new SolidBrush(HSV.Complementary(MainForm.GetTagBySecondID(text).Color));
+                g.DrawString(text, e.Font, foregroundBrush, lstAllTags.GetItemRectangle(index).Location);
+            }
+
+            e.DrawFocusRectangle();
+        }
+
+        private void lstSelectedTags_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            e.DrawBackground();
+            bool selected = ((e.State & DrawItemState.Selected) == DrawItemState.Selected);
+
+            int index = e.Index;
+            if (index >= 0 && index < lstSelectedTags.Items.Count)
+            {
+                string text = lstSelectedTags.Items[index].ToString();
+                Graphics g = e.Graphics;
+
+                //background:
+                SolidBrush backgroundBrush;
+                if (selected)
+                    backgroundBrush = tagsBackgroundBrushSelected;
+                else
+                {
+                    backgroundBrush = new SolidBrush(MainForm.GetTagBySecondID(text).Color);
+                }
+                g.FillRectangle(backgroundBrush, e.Bounds);
+
+                //text:
+                SolidBrush foregroundBrush = (selected) ? tagsForegroundBrushSelected : new SolidBrush(HSV.Complementary(MainForm.GetTagBySecondID(text).Color));
+                g.DrawString(text, e.Font, foregroundBrush, lstSelectedTags.GetItemRectangle(index).Location);
+            }
+
+            e.DrawFocusRectangle();
         }
     }
 }

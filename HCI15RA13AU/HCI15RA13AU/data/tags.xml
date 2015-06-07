@@ -80,4 +80,14 @@
     <G>128</G>
     <R>0</R>
   </TagItem>
+  <TagItem>
+    <ID>mmm</ID>
+    <SecondID>mmm</SecondID>
+    <Color />
+    <Description />
+    <A>255</A>
+    <B>192</B>
+    <G>192</G>
+    <R>192</R>
+  </TagItem>
 </ListOfTags>

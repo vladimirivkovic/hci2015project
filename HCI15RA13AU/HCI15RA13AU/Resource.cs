@@ -400,4 +400,52 @@ namespace HCI15RA13AU
             }
         }
     }
+
+    public class HSV
+    {
+        public static Color Complementary(Color x)
+        {
+            double hue = x.GetHue();
+            double saturation = x.GetSaturation();
+            double lightness = x.GetBrightness();
+
+            if (lightness < 0.3)
+                return Color.White;
+            if (lightness > 0.7)
+                return Color.Black;
+
+            hue = 360 - hue;
+            lightness = 0;
+
+            Color y = ColorFromHSV(hue, saturation, lightness);
+
+
+            return y;
+        }
+
+        public static Color ColorFromHSV(double hue, double saturation, double value)
+        {
+            int hi = Convert.ToInt32(Math.Floor(hue / 60)) % 6;
+            double f = hue / 60 - Math.Floor(hue / 60);
+
+            value = value * 255;
+            int v = Convert.ToInt32(value);
+            int p = Convert.ToInt32(value * (1 - saturation));
+            int q = Convert.ToInt32(value * (1 - f * saturation));
+            int t = Convert.ToInt32(value * (1 - (1 - f) * saturation));
+
+            if (hi == 0)
+                return Color.FromArgb(255, v, t, p);
+            else if (hi == 1)
+                return Color.FromArgb(255, q, v, p);
+            else if (hi == 2)
+                return Color.FromArgb(255, p, v, t);
+            else if (hi == 3)
+                return Color.FromArgb(255, p, q, v);
+            else if (hi == 4)
+                return Color.FromArgb(255, t, p, v);
+            else
+                return Color.FromArgb(255, v, p, q);
+        }
+    }
 }

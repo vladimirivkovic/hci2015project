@@ -355,6 +355,7 @@ namespace HCI15RA13AU
                     lbl.Top = off;
                     lbl.Text = MainForm.tags[t].SecondID;
                     lbl.BackColor = MainForm.tags[t].Color;
+                    lbl.ForeColor = HSV.Complementary(MainForm.tags[t].Color);
                     //lbl.Left = off;
                     pnlTags.Controls.Add(lbl);
                     //lbl.Left = off;
