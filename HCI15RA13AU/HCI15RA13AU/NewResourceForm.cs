@@ -85,7 +85,6 @@ namespace HCI15RA13AU
             if (res.ApproxDiscovered != null)
             {
                 rbtApproxDate.Checked = true;
-                // TODO : fill approxDate group box
                 if (res.ApproxDiscovered.Unknown)
                 {
                     rbtUnknown.Checked = true;
@@ -390,12 +389,16 @@ namespace HCI15RA13AU
                         formIsValid = false;
                         epAdd.SetError(txtYear, "Godina treba da bude pozitivan ceo broj");
                     }
+                    else if (century > DateTime.Now.Year && !chbYear.Checked)
+                    {
+                        formIsValid = false;
+                        epAdd.SetError(txtYear, "Godina ne sme da bude u budućnosti");
+                    }
                     else
                     {
                         epAdd.SetError(txtYear, "");
                     }
                 }
-                    // TODO : CHECK 22 CENTURY
                 else
                 {
                     formIsValid = false;
@@ -421,7 +424,11 @@ namespace HCI15RA13AU
                         formIsValid = false;
                         epAdd.SetError(txtCentury, "Vek treba da bude pozitivan ceo broj");
                     }
-                        // TODO : CHECK 2222 YEAR
+                    else if (year > DateTime.Now.Year / 100 + 1 && !chbCentury.Checked)
+                    {
+                        formIsValid = false;
+                        epAdd.SetError(txtCentury, "Vek ne sme da bude u budućnosti");
+                    }
                     else
                     {
                         epAdd.SetError(txtCentury, "");

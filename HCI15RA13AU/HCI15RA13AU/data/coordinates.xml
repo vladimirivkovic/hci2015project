@@ -2,8 +2,8 @@
 <ListOfResourceCoordinates xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ResourcePosition>
     <ID>drugi</ID>
-    <X>500</X>
-    <Y>91</Y>
+    <X>106</X>
+    <Y>363</Y>
   </ResourcePosition>
   <ResourcePosition>
     <ID>treci</ID>
